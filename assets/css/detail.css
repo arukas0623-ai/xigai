@@ -285,3 +285,71 @@
 }
 .free-opt:hover { border-color: var(--accent); color: var(--accent); background: var(--sel); }
 .free-note { font-size: 11.5px; color: var(--ink-3); margin-top: 8px; line-height: 1.7; }
+
+/* ── 类型化关系区 ─────────────────────────────────────── */
+.rel-group { display: flex; align-items: flex-start; gap: 10px; margin: 10px 0; }
+.rel-group-label {
+  flex: none; margin-top: 2px; padding: 3px 10px; border-radius: 999px;
+  font-size: 11.5px; font-weight: 600; color: #fff; letter-spacing: 1px;
+  box-shadow: 0 2px 6px var(--shadow);
+}
+.rel-group .related-chips { flex: 1; display: flex; flex-wrap: wrap; gap: 8px; }
+.rel-chip { position: relative; padding: 6px 14px; border-radius: 999px; font-size: 13px;
+  border: 1px dashed var(--line); color: var(--ink-2); background: color-mix(in srgb, var(--bg2) 45%, transparent);
+  transition: all .22s; cursor: pointer; }
+.rel-chip:hover { border-color: var(--accent); color: var(--accent); border-style: solid; transform: translateY(-2px); box-shadow: 0 6px 14px var(--shadow); }
+.rel-chip.miss { opacity: .55; cursor: help; border-style: dotted; }
+.rel-chip.miss:hover { opacity: .85; }
+.rel-note { display: block; font-size: 10.5px; color: var(--ink-3); font-style: normal; margin-top: 2px; }
+
+/* ── 优缺点 ──────────────────────────────────────────── */
+.proscons { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.pc { border-radius: var(--radius-m); padding: 12px 14px; }
+.pc h4 { font-size: 13px; margin-bottom: 8px; letter-spacing: 1px; }
+.pc ul { list-style: none; }
+.pc li { position: relative; padding-left: 18px; font-size: 13.5px; line-height: 1.7; margin: 5px 0; }
+.pc.pros { background: color-mix(in srgb, #3f7d3f 12%, var(--bg3)); border: 1px solid color-mix(in srgb, #3f7d3f 35%, var(--line)); }
+.pc.pros h4 { color: #3f7d3f; }
+.pc.pros li::before { content: "＋"; position: absolute; left: 0; color: #3f7d3f; }
+.pc.cons { background: color-mix(in srgb, #a33 10%, var(--bg3)); border: 1px solid color-mix(in srgb, #a33 30%, var(--line)); }
+.pc.cons h4 { color: #a33; }
+.pc.cons li::before { content: "－"; position: absolute; left: 0; color: #a33; }
+@media (max-width: 560px) { .proscons { grid-template-columns: 1fr; } }
+
+/* ── 概念对比 ────────────────────────────────────────── */
+#cmp-tray {
+  position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%);
+  z-index: 95; display: flex; align-items: center; gap: 10px;
+  background: var(--bg3); border: 1px solid var(--line); border-radius: 999px;
+  padding: 8px 14px; box-shadow: 0 12px 34px var(--shadow);
+  max-width: 92vw; overflow-x: auto;
+}
+#cmp-tray.hidden { display: none; }
+.cmp-label { font-family: var(--font-serif); font-size: 14px; color: var(--accent); letter-spacing: 1px; }
+.cmp-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 4px 6px 4px 10px; border-radius: 999px;
+  color: #f2e3b0; font-size: 12px; box-shadow: inset -2px 0 4px rgba(0,0,0,.3);
+}
+.cmp-chip i { font-style: normal; }
+.cmp-chip b { cursor: pointer; width: 16px; height: 16px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; background: rgba(0,0,0,.3); font-size: 10px; }
+.cmp-chip b:hover { background: rgba(255,0,0,.5); }
+
+.compare-card { max-width: 1060px; padding: 24px 26px; }
+.cmp-title { font-family: var(--font-serif); letter-spacing: 2px; color: var(--accent); margin-bottom: 16px; }
+.cmp-scroll { overflow-x: auto; }
+.cmp-table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 560px; }
+.cmp-table th, .cmp-table td { border: 1px solid var(--line); padding: 10px 12px; vertical-align: top; text-align: left; }
+.cmp-table th { background: color-mix(in srgb, var(--bg2) 60%, var(--bg3)); font-weight: 600; }
+.cmp-table th small { font-weight: 400; color: var(--ink-3); }
+.cmp-table td { line-height: 1.7; }
+.cmp-table tr > th:first-child { width: 90px; color: var(--ink-3); background: color-mix(in srgb, var(--bg2) 35%, var(--bg3)); }
+.cmp-na { color: var(--ink-3); }
+.cmp-actions { margin-top: 14px; display: flex; gap: 8px; justify-content: flex-end; }
+
+/* ── 来源追溯 ────────────────────────────────────────── */
+.src-card { display: block; padding: 8px 12px; border-radius: 8px; background: color-mix(in srgb, var(--bg2) 40%, var(--bg3)); margin: 6px 0; border: 1px solid var(--line); }
+.src-card a { font-size: 13.5px; font-weight: 500; display: block; }
+.src-url { display: block; font-size: 11.5px; color: var(--ink-3); word-break: break-all; margin-top: 3px; }
+.src-date { display: inline-block; margin-top: 5px; font-size: 10.5px; color: var(--ink-3); border: 1px solid var(--line); border-radius: 999px; padding: 1px 8px; }
+.gen-badge { display: inline-block; margin-left: 8px; font-size: 11px; color: var(--accent-2); border: 1px dashed var(--accent); border-radius: 999px; padding: 1px 8px; vertical-align: 2px; font-family: var(--font-sans); font-weight: 400; letter-spacing: 0; }

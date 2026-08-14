@@ -177,3 +177,8 @@ input { font-family:inherit; }
   #library { padding: 18px 12px 40px; }
   #welcome .wl-title { font-size:26px; }
 }
+
+.sr-rel {
+  display: inline-block; margin-left: 6px; padding: 1px 7px; border-radius: 999px;
+  font-size: 10px; color: var(--accent); border: 1px solid var(--accent); vertical-align: 1px;
+}

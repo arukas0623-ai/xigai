@@ -89,8 +89,8 @@ window.XIGAI["职场成长"] = [
   },
   {
     "id": "involution",
-    "name": "内卷",
-    "aliases": ["Involution", "卷", "内耗"],
+    "name": "内卷化",
+    "aliases": ["内卷", "Involution", "卷", "内耗"],
     "field": "职场成长",
     "tags": ["职场现象", "社会热词"],
     "difficulty": 2,

@@ -48,4 +48,5 @@ window.XIGAI["AI 生成"] = [
     "searchedAt": "2026-08-14",
     "generated": true
   }
+
 ];

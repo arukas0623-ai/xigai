@@ -688,9 +688,10 @@ window.XIGAI["前沿科技"] = [
     "searchedAt": "2026-08-14"
   },
   {
-    "id": "world-model",
-    "name": "世界模型",
+    "id": "world-simulator",
+    "name": "世界模拟器",
     "aliases": [
+      "世界模型",
       "World Model",
       "World Models"
     ],

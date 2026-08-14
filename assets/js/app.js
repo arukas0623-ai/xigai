@@ -76,6 +76,8 @@
       if (e.key === "/" && !typing) { e.preventDefault(); input.focus(); return; }
       if ((e.key === "k" || e.key === "K") && (e.ctrlKey || e.metaKey)) { e.preventDefault(); input.focus(); return; }
       if (e.key === "Escape") {
+        const cmp = document.getElementById("compare-panel");
+        if (cmp && !cmp.classList.contains("hidden")) { cmp.classList.add("hidden"); document.body.style.overflow = ""; return; }
         if (!document.getElementById("detail").classList.contains("hidden")) X.closeDetail();
         else if (!document.getElementById("side-panel").classList.contains("hidden")) document.getElementById("side-panel").classList.add("hidden");
         else if (!document.getElementById("theme-panel").classList.contains("hidden")) document.getElementById("theme-panel").classList.add("hidden");

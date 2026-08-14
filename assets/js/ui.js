@@ -138,7 +138,7 @@
         const st = X.spineStyle(c, X.state.theme);
         html += '<div class="sr-item" data-idx="' + i + '">' +
           '<span class="sr-book" style="background:' + st.background + '"></span>' +
-          '<div class="sr-main"><div class="sr-name">' + X.hl(c.name, q) + "</div>" +
+          '<div class="sr-main"><div class="sr-name">' + X.hl(c.name, q) + (c._rel ? ' <span class="sr-rel">相关</span>' : "") + "</div>" +
           '<div class="sr-meta">' + X.esc(c.summary || "") + "</div></div>" +
           '<span class="sr-field">' + X.esc(c.domain) + "</span></div>";
       });
@@ -199,13 +199,31 @@
     const core = (c.core || []).map(s => "<li>" + X.md(s) + "</li>").join("");
     const apps = (c.applications || []).map(s => "<li>" + X.md(s) + "</li>").join("");
     const miscon = (c.misconceptions || []).map(s => "<li>" + X.md(s) + "</li>").join("");
-    const rels = (c.related || []).map(r => {
-      const t = X.byName.get(r) || X.data.find(x => x.name === r);
-      return '<span class="rel-chip" data-rel="' + X.esc(r) + '">' + X.esc(r) + "</span>";
+    // 类型化关系（含旧式 related 兼容，按类型分组）
+    const relGroups = {};
+    X.getRelations(c).forEach(r => { (relGroups[r.type] = relGroups[r.type] || []).push(r); });
+    const relHtml = Object.keys(relGroups).map(type => {
+      const chips = relGroups[type].map(r => {
+        if (r.resolved) {
+          return '<span class="rel-chip" data-rel="' + X.esc(r.targetId) + '">' + X.esc(r.targetName) + (r.note ? '<i class="rel-note">' + X.esc(r.note) + "</i>" : "") + "</span>";
+        }
+        return '<span class="rel-chip miss" data-miss="' + X.esc(r.target) + '">' + X.esc(r.target) + (r.note ? '<i class="rel-note">' + X.esc(r.note) + "</i>" : "") + "</span>";
+      }).join("");
+      return '<div class="rel-group"><span class="rel-group-label" style="background:' + X.relColor(type) + '">' + X.relLabel(type) + '</span><div class="related-chips">' + chips + "</div></div>";
     }).join("");
-    const srcs = (c.sources || []).map(s =>
-      '<li><a href="' + X.esc(s) + '" target="_blank" rel="noopener">' + X.esc(s) + "</a></li>"
-    ).join("") || '<li style="color:var(--ink-3)">（本条目由 AI 综合整理，未标注外部来源）</li>';
+    const principle = c.principle ? '<div class="sec"><h3>原理</h3><p>' + X.md(c.principle) + "</p></div>" : "";
+    const prosHtml = (c.pros || []).length ? c.pros.map(s => "<li>" + X.md(s) + "</li>").join("") : "";
+    const consHtml = (c.cons || []).length ? c.cons.map(s => "<li>" + X.md(s) + "</li>").join("") : "";
+    const proscons = (prosHtml || consHtml) ? '<div class="sec"><h3>优缺点</h3><div class="proscons">' +
+      (prosHtml ? '<div class="pc pros"><h4>✓ 优点</h4><ul>' + prosHtml + "</ul></div>" : "") +
+      (consHtml ? '<div class="pc cons"><h4>✕ 缺点</h4><ul>' + consHtml + "</ul></div>" : "") +
+      "</div></div>" : "";
+    // 来源卡片化：标题 + URL + 检索日期（references 与 sources 按序对应）
+    const refs = c.references || [];
+    const srcItems = (c.sources || []).map((s, i) =>
+      '<li class="src-card"><a href="' + X.esc(s) + '" target="_blank" rel="noopener">' + X.esc(refs[i] || s) + '</a><span class="src-url">' + X.esc(s) + '</span>' + (c.searchedAt ? '<span class="src-date">检索于 ' + X.esc(c.searchedAt) + "</span>" : "") + "</li>"
+    );
+    const srcs = srcItems.join("") || '<li class="src-card" style="color:var(--ink-3)">（本条目由 AI 综合整理，未标注外部来源）</li>';
 
     card.innerHTML =
       '<button class="panel-close" title="关闭 (Esc)">✕</button>' +
@@ -220,18 +238,21 @@
       '<div class="detail-body">' +
         (c.summary ? '<div class="detail-summary">' + X.esc(c.summary) + "</div>" : "") +
         (c.definition ? '<div class="sec"><h3>定义与解释</h3><p>' + X.md(c.definition) + "</p></div>" : "") +
+        (principle ? principle : "") +
         (c.background ? '<div class="sec"><h3>背景与历史</h3><p>' + X.md(c.background) + "</p></div>" : "") +
         (core ? '<div class="sec"><h3>核心要点</h3><ul>' + core + "</ul></div>" : "") +
         (apps ? '<div class="sec"><h3>现实应用</h3><ul>' + apps + "</ul></div>" : "") +
+        (proscons ? proscons : "") +
         (miscon ? '<div class="sec"><h3>常见误解</h3><ul>' + miscon + "</ul></div>" : "") +
-        (rels ? '<div class="sec"><h3>相关概念</h3><div class="related-chips">' + rels + "</div></div>" : "") +
-        '<div class="sec"><h3>参考来源</h3><ul class="src-list">' + srcs + "</ul></div>" +
+        (relHtml ? '<div class="sec"><h3>概念关系</h3>' + relHtml + "</div>" : "") +
+        '<div class="sec"><h3>参考来源' + (c.generated ? ' <span class="gen-badge">🤖 AI 联网生成</span>' : "") + '</h3><ul class="src-list">' + srcs + "</ul></div>" +
         '<div id="ai-area"></div><div id="baike-box"></div>' +
       "</div>" +
       '<div class="detail-actions">' +
         '<button class="btn primary" id="free-btn">🆓 免费问 AI</button>' +
         '<button class="btn" id="ai-btn">💠 AI 深度解析</button>' +
         '<button class="btn" id="bk-btn">📖 百科速览</button>' +
+        '<button class="btn" id="cmp-btn">⚖ 对比</button>' +
         '<button class="btn" id="fav-btn">' + (X.isFav(c.id) ? "♥ 已收藏" : "☆ 收藏") + "</button>" +
         '<button class="btn" id="copyfull-btn">📋 复制全文</button>' +
         '<button class="btn" id="copy-btn">🔗 复制链接</button>' +
@@ -254,12 +275,9 @@
       const el = document.getElementById("shelf-" + X.slug(a.dataset.dom));
       if (el) setTimeout(() => el.scrollIntoView({ behavior: "smooth", block: "center" }), 60);
     }));
-    ov.querySelectorAll(".rel-chip").forEach(ch => ch.addEventListener("click", () => {
-      const name = ch.dataset.rel;
-      const t = X.byName.get(name) || X.data.find(x => x.name === name);
-      if (t) X.openConcept(t.id);
-      else { X.toast("「" + name + "」尚未收录——可用 AI 深度解析研究"); }
-    }));
+    ov.querySelectorAll(".rel-chip[data-rel]").forEach(ch => ch.addEventListener("click", () => X.openConcept(ch.dataset.rel)));
+    ov.querySelectorAll(".rel-chip.miss").forEach(ch => ch.addEventListener("click", () => X.toast("「" + ch.dataset.miss + "」尚未收录——可用 AI 深度解析研究")));
+    ov.querySelector("#cmp-btn").addEventListener("click", () => X.compareAdd(c.id));
     ov.querySelector("#fav-btn").addEventListener("click", () => {
       const on = X.toggleFav(c.id);
       ov.querySelector("#fav-btn").textContent = on ? "♥ 已收藏" : "☆ 收藏";
@@ -662,6 +680,89 @@
         X.toast("加入失败：" + (d.error || "未知错误"));
       }
     }).catch(() => X.toast("无法连接本地服务，加入失败"));
+  };
+
+  /* ── 概念对比 ─────────────────────────────────────── */
+  X.compareList = [];   // 最多 3 个，会话内
+  X.compareAdd = function (id) {
+    const c = X.byId.get(id);
+    if (!c) return 0;
+    if (X.compareList.includes(id)) { X.toast("已在对比列表中"); return X.compareList.length; }
+    if (X.compareList.length >= 3) { X.toast("最多同时对比 3 个概念"); return X.compareList.length; }
+    X.compareList.push(id);
+    X.renderCompareTray();
+    X.toast("已加入对比（" + X.compareList.length + "/3）");
+    return X.compareList.length;
+  };
+  X.compareRemove = function (id) {
+    X.compareList = X.compareList.filter(x => x !== id);
+    X.renderCompareTray();
+    if (!X.compareList.length) X.closeCompare();
+  };
+  X.renderCompareTray = function () {
+    let tray = document.getElementById("cmp-tray");
+    if (!tray) { tray = document.createElement("div"); tray.id = "cmp-tray"; document.body.appendChild(tray); }
+    if (!X.compareList.length) { tray.classList.add("hidden"); return; }
+    tray.classList.remove("hidden");
+    const items = X.compareList.map(id => {
+      const c = X.byId.get(id);
+      if (!c) return "";
+      const st = X.spineStyle(c, X.state.theme);
+      return '<span class="cmp-chip" style="background:' + st.background + '"><i>' + X.esc(c.name.length > 8 ? c.name.slice(0, 8) : c.name) + '</i><b data-rm="' + X.esc(id) + '">✕</b></span>';
+    }).join("");
+    tray.innerHTML = '<span class="cmp-label">⚖ 对比</span>' + items +
+      (X.compareList.length >= 2 ? '<button class="mini-btn" id="cmp-go">开始对比</button>' : "") +
+      '<button class="mini-btn" id="cmp-clear">清空</button>';
+    tray.querySelectorAll("[data-rm]").forEach(b => b.addEventListener("click", () => X.compareRemove(b.dataset.rm)));
+    const go = tray.querySelector("#cmp-go");
+    if (go) go.addEventListener("click", X.showCompare);
+    const cl = tray.querySelector("#cmp-clear");
+    if (cl) cl.addEventListener("click", () => { X.compareList = []; X.renderCompareTray(); X.closeCompare(); });
+  };
+  X.closeCompare = function () {
+    const ov = document.getElementById("compare-panel");
+    if (ov) ov.classList.add("hidden");
+  };
+  X.showCompare = function () {
+    const list = X.compareList.map(id => X.byId.get(id)).filter(Boolean);
+    if (list.length < 2) { X.toast("至少选择 2 个概念对比"); return; }
+    let ov = document.getElementById("compare-panel");
+    if (!ov) { ov = document.createElement("div"); ov.id = "compare-panel"; ov.className = "overlay hidden"; document.body.appendChild(ov); }
+    ov.innerHTML = "";
+    const card = document.createElement("div");
+    card.className = "panel-card compare-card";
+    const row = (label, cells, tag) =>
+      '<tr><th>' + label + "</th>" + cells.map(h => "<td" + (tag ? ' class="' + tag + '"' : "") + ">" + h + "</td>").join("") + "</tr>";
+    const cell = h => "<td>" + (h || '<span class="cmp-na">—</span>') + "</td>";
+    const head = "<tr><th class='cmp-th'>对比项</th>" + list.map(c => "<th>" + X.esc(c.name) + '<br><small>' + X.esc(c.domain) + "</small></th>").join("") + "</tr>";
+    const html =
+      '<button class="panel-close" id="cmp-close">✕</button>' +
+      "<h3 class='cmp-title'>⚖ 概念对比</h3>" +
+      '<div class="cmp-scroll"><table class="cmp-table">' +
+      head +
+      row("难度", list.map(c => "★".repeat(Math.min(5, c.difficulty || 3)) + " " + (c.difficulty || 3) + "/5")) +
+      row("一句话", list.map(c => X.esc(c.summary || ""))) +
+      row("定义", list.map(c => X.md(c.definition || ""))) +
+      (list.some(c => c.principle) ? row("原理", list.map(c => X.md(c.principle || ""))) : "") +
+      (list.some(c => (c.pros || []).length || (c.cons || []).length) ?
+        row("优缺点", list.map(c => (c.pros || []).map(s => "＋" + s).concat((c.cons || []).map(s => "－" + s)).join("<br>") || "")) : "") +
+      row("应用", list.map(c => (c.applications || []).map(s => "· " + s).join("<br>") || "")) +
+      row("误解", list.map(c => (c.misconceptions || []).map(s => "· " + s).join("<br>") || "")) +
+      (list.some(c => (c.sources || []).length) ? row("来源", list.map(c => (c.sources || []).map(s => "<a href='" + X.esc(s) + "' target='_blank' rel='noopener'>↗</a> ").join(" ") + (c.sources || []).length + " 条")) : "") +
+      "</table></div>" +
+      '<div class="cmp-actions"><button class="mini-btn" id="cmp-swap">⇄ 交换顺序</button><button class="mini-btn" id="cmp-done">完成</button></div>';
+    card.innerHTML = html;
+    ov.appendChild(card);
+    ov.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+    ov.querySelector("#cmp-close").addEventListener("click", X.closeCompare);
+    ov.querySelector("#cmp-done").addEventListener("click", () => { ov.classList.add("hidden"); document.body.style.overflow = ""; });
+    ov.querySelector("#cmp-swap").addEventListener("click", () => {
+      X.compareList.reverse();
+      X.renderCompareTray();
+      X.showCompare();
+    });
+    ov.addEventListener("click", e => { if (e.target === ov) { ov.classList.add("hidden"); document.body.style.overflow = ""; } });
   };
 
   /* ── 事件总线（极简） ─────────────────────────────── */

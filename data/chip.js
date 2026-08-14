@@ -291,9 +291,9 @@ window.XIGAI["半导体与芯片"] = [
     "searchedAt": "2026-08-14"
   },
   {
-    "id": "ai-chip",
-    "name": "AI芯片",
-    "aliases": ["AI加速器", "人工智能芯片"],
+    "id": "ai-accelerator",
+    "name": "AI加速芯片",
+    "aliases": ["AI芯片", "AI加速器", "人工智能芯片"],
     "field": "半导体与芯片",
     "tags": ["算力", "GPU"],
     "difficulty": 3,

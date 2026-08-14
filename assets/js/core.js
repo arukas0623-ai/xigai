@@ -105,14 +105,86 @@
     return w ? w.name : "其他";
   };
 
+  /* ── 概念关系（知识图谱扩展，增量字段） ────────────── */
+  X.RELATION_TYPES = [
+    { key: "prerequisite", label: "前置", color: "#5b8dd6" },
+    { key: "followup",     label: "后续", color: "#67b26f" },
+    { key: "related",      label: "相关", color: "#c9a227" },
+    { key: "dependsOn",    label: "依赖", color: "#d66b5b" },
+    { key: "evolvedFrom",  label: "演化自", color: "#9a6bd6" },
+    { key: "appliesTo",    label: "应用于", color: "#d6a15b" },
+  ];
+  X.relLabel = function (type) {
+    const t = X.RELATION_TYPES.find(r => r.key === type);
+    return t ? t.label : "相关";
+  };
+  X.relColor = function (type) {
+    const t = X.RELATION_TYPES.find(r => r.key === type);
+    return t ? t.color : "#c9a227";
+  };
+
+  /* 概念归一化：补齐扩展字段（可选），旧数据零迁移。
+     relations 为关系唯一来源；旧式 related/prerequisites/followUps 自动并入（幂等去重）。 */
+  X.normalizeConcept = function (c) {
+    if (!Array.isArray(c.relations)) c.relations = [];
+    if (c.principle == null) c.principle = "";
+    if (!Array.isArray(c.pros)) c.pros = [];
+    if (!Array.isArray(c.cons)) c.cons = [];
+    if (!Array.isArray(c.prerequisites)) c.prerequisites = [];
+    if (!Array.isArray(c.followUps)) c.followUps = [];
+    const mk = (type, list) => (list || []).filter(Boolean).map(t => ({ type, target: String(t) }));
+    const legacy = mk("related", c.related).concat(mk("prerequisite", c.prerequisites), mk("followup", c.followUps));
+    const seen = new Set();
+    c.relations = c.relations
+      .filter(r => r && r.target && typeof r.target === "string")
+      .map(r => ({ type: X.RELATION_TYPES.some(t => t.key === r.type) ? r.type : "related", target: r.target, note: r.note || "" }));
+    c.relations.forEach(r => seen.add(r.type + "|" + r.target));
+    for (const l of legacy) {
+      const k = l.type + "|" + l.target;
+      if (!seen.has(k)) { c.relations.push(l); seen.add(k); }
+    }
+    return c;
+  };
+
+  /* 关系目标解析：优先 concept.id，其次 name（精确/去空格），再别名。
+     返回概念对象；未命中返回 null。 */
+  X.resolveConcept = function (t) {
+    if (t == null || t === "") return null;
+    const s = String(t);
+    if (X.byId.has(s)) return X.byId.get(s);
+    if (X.byName.has(s)) return X.byName.get(s);
+    const lower = s.toLowerCase().replace(/\s+/g, "");
+    const byName = X.data.find(x => x.name.toLowerCase().replace(/\s+/g, "") === lower);
+    if (byName) return byName;
+    if (X.byAlias.has(lower)) return X.byAlias.get(lower);
+    return null;
+  };
+
+  /* 展开某概念的全部关系（含解析结果），供详情/图谱/对比使用 */
+  X.getRelations = function (c) {
+    return (c.relations || []).map(r => {
+      const t = X.resolveConcept(r.target);
+      return {
+        type: r.type,
+        target: r.target,
+        targetId: t ? t.id : null,
+        targetName: t ? t.name : null,
+        concept: t,
+        note: r.note || "",
+        resolved: !!t,
+      };
+    });
+  };
+
   /* ── 数据装载 ─────────────────────────────────────── */
   X.data = [];       // 全部概念（扁平）
   X.byId = new Map();
   X.byName = new Map();
+  X.byAlias = new Map();
   X.domains = [];    // [{key,name,seal,concepts}]
 
   X.loadData = function () {
-    X.data = []; X.byId = new Map(); X.byName = new Map(); X.domains = [];
+    X.data = []; X.byId = new Map(); X.byName = new Map(); X.byAlias = new Map(); X.domains = [];
     const raw = window.XIGAI || {};
     const names = Object.keys(raw).sort((a, b) => {
       const ia = X.DOMAIN_ORDER.indexOf(a), ib = X.DOMAIN_ORDER.indexOf(b);
@@ -124,6 +196,7 @@
       const dom = { key: X.slug(name), name, seal: X.sealOf(name), concepts: [] };
       for (const c of arr) {
         if (!c || !c.name) continue;
+        X.normalizeConcept(c);
         c.domain = name;
         c.id = c.id || X.slug(c.name);
         if (X.byId.has(c.id)) c.id = X.slug(c.name) + "-" + X.data.length;
@@ -133,6 +206,13 @@
         X.byName.set(c.name, c);
       }
       X.domains.push(dom);
+    }
+    // 别名索引（首胜）：搜索与关系解析共用
+    for (const c of X.data) {
+      for (const a of (c.aliases || [])) {
+        const k = String(a).toLowerCase().replace(/\s+/g, "");
+        if (k && !X.byAlias.has(k)) X.byAlias.set(k, c);
+      }
     }
   };
 
@@ -153,11 +233,31 @@
     });
   };
 
+  /* 同义词/缩写表（补充别名未覆盖的常见叫法；查询时反向匹配） */
+  X.SYNONYMS = {
+    "人工智能": ["AI", "AI技术"],
+    "机器学习": ["ML", "Machine Learning"],
+    "强化学习": ["RL", "Reinforcement Learning"],
+    "自然语言处理": ["NLP"],
+    "计算机视觉": ["CV"],
+    "大语言模型": ["LLM", "大模型", "大型语言模型"],
+    "多模态大模型": ["多模态", "Multimodal"],
+    "Kubernetes": ["K8s", "k8s"],
+    "CLI": ["命令行", "命令行界面", "Command Line Interface"],
+    "图灵机": ["Turing Machine", "TM"],
+    "RAG检索增强": ["RAG", "检索增强生成", "GraphRAG"],
+    "AI编程助手": ["Copilot", "AI编程", "编程助手"],
+    "智能体": ["Agent", "AI助手", "AI代理"],
+    "缓存命中": ["缓存", "Cache Hit", "命中缓存"],
+    "输入输出处理": ["IO", "输入输出"],
+  };
+
   X.search = function (q, limit) {
     limit = limit || 30;
     q = (q || "").trim().toLowerCase();
     if (!q) return [];
     if (!X._idx) X.buildIndex();
+    for (const it of X._idx) it.c._rel = false;   // 清关系扩展标记
     const tokens = q.split(/[\s,，。；;]+/).filter(Boolean);
     const isLatin = /[a-z]/.test(q);
     const scored = [];
@@ -177,13 +277,43 @@
         }
         else if (isLatin && tk.length >= 2 && (it.py.includes(tk) || it.ini.includes(tk))) s = 55;
         else if (isLatin && tk.length >= 1 && it.ini.includes(tk)) s = 30;
-        else { matched = false; break; }
+        else {
+          // 同义词回退：token 是某概念的同义词/缩写
+          const canonical = X._synTok(tk);
+          if (canonical) {
+            const cn = canonical.toLowerCase();
+            if (n === cn) s = 60;
+            else if (n.includes(cn)) s = 50;
+            else if (it.c.aliases && it.c.aliases.some(a => a.toLowerCase().replace(/\s+/g, "") === cn.replace(/\s+/g, ""))) s = 45;
+            else { matched = false; break; }
+          } else { matched = false; break; }
+        }
         score += s;
       }
       if (matched) scored.push({ it, score });
     }
+    // 关系扩展：命中概念的 1 跳相关（语义近似召回，标记 _rel）
+    const hitIds = new Set(scored.map(x => x.it.c.id));
+    for (const x of scored.slice(0, 8)) {
+      for (const r of X.getRelations(x.it.c)) {
+        if (r.resolved && !hitIds.has(r.concept.id) && !scored.some(s => s.it.c.id === r.concept.id)) {
+          scored.push({ it: { c: r.concept, text: "", py: "", ini: "" }, score: x.score * 0.3, rel: true });
+          hitIds.add(r.concept.id);
+        }
+      }
+    }
     scored.sort((a, b) => b.score - a.score || (a.it.c.name.length - b.it.c.name.length));
+    scored.forEach(x => { if (x.rel) x.it.c._rel = true; });
     return scored.slice(0, limit).map(x => x.it.c);
+  };
+  X._synTok = function (tk) {
+    if (!X._synRev) {
+      X._synRev = new Map();
+      for (const canonical of Object.keys(X.SYNONYMS)) {
+        for (const s of X.SYNONYMS[canonical]) X._synRev.set(s.toLowerCase().replace(/\s+/g, ""), canonical);
+      }
+    }
+    return X._synRev.get(tk.replace(/\s+/g, "")) || null;
   };
 
   /* ── 收藏 / 历史 / 藏书 / 桌面书 ──────────────────── */
