@@ -418,7 +418,18 @@ window.XIGAI["军事战略"] = [
         "note": "",
         "confidence": 0.85
       }
-    ]
+    ],
+    "principle": "[object Object]",
+    "pros": [
+      "能够灵活应对多种战场环境",
+      "增加敌方决策难度，降低其反应速度"
+    ],
+    "cons": [
+      "实施过程中可能引发更多的国际争议和制裁",
+      "需要较高的情报和技术支持，成本较高"
+    ],
+    "confidence": 0.9,
+    "status": "verified"
   },
   {
     "id": "special-operations",

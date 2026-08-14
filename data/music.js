@@ -476,7 +476,17 @@ window.XIGAI["音乐"] = [
         "note": "",
         "confidence": 0.85
       }
-    ]
+    ],
+    "principle": "[object Object]",
+    "pros": [
+      "优点1：易于传播和推广",
+      "优点2：受众广泛，容易引起共鸣"
+    ],
+    "cons": [
+      "缺点1：可能缺乏深度和艺术性"
+    ],
+    "confidence": 0.9,
+    "status": "verified"
   },
   {
     "id": "opera",

@@ -2298,5 +2298,123 @@ window.XIGAI["金融投资"] = [
     ],
     "searchedAt": "2026-08-14",
     "status": "generated"
+  },
+  {
+    "name": "电子支付",
+    "aliases": [],
+    "field": "金融投资",
+    "tags": [
+      "便捷",
+      "安全"
+    ],
+    "difficulty": 2,
+    "summary": "通过互联网进行的货币交易。",
+    "definition": "利用数字技术，通过网络平台完成资金转移和结算的一种支付方式。常见的电子支付工具有支付宝、微信支付等。",
+    "principle": ",",
+    "background": "随着互联网的发展，传统的现金交易逐渐被电子支付所取代。电子支付不仅提高了交易效率，还增强了安全性。",
+    "core": [
+      "基于互联网的交易",
+      "通过第三方平台进行资金转移",
+      "支持多种支付工具"
+    ],
+    "pros": [
+      "提高交易速度和便捷性",
+      "减少现金使用，降低风险"
+    ],
+    "cons": [
+      "可能存在网络安全问题",
+      "过度依赖电子支付可能影响传统金融体系"
+    ],
+    "applications": [
+      "在线购物",
+      "移动支付"
+    ],
+    "misconceptions": [
+      "所有电子支付都是安全的（实际上存在网络诈骗等风险）"
+    ],
+    "related": [
+      "数字货币",
+      "移动支付"
+    ],
+    "relations": [
+      {
+        "type": "followup",
+        "target": "移动支付",
+        "note": "",
+        "confidence": 0.3
+      }
+    ],
+    "sources": [
+      "https://www.ecb.europa.eu/press/key/date/2019/html/ecb.yp20191128.en.html",
+      "https://baike.baidu.com/item/%E7%94%B5%E5%AD%98%E6%94%B9%E5%BD%A2,"
+    ],
+    "id": "电子支付",
+    "confidence": 0.9,
+    "sourceConfidence": 0.7,
+    "relationConfidence": 0.3,
+    "status": "verified",
+    "searchedAt": "2026-08-14"
+  },
+  {
+    "name": "央行数字货币",
+    "aliases": [],
+    "field": "金融投资",
+    "tags": [
+      "数字货币",
+      "中央银行"
+    ],
+    "difficulty": 3,
+    "summary": "由中央银行发行的数字形式货币。",
+    "definition": "由中央银行发行，基于区块链技术或其他分布式账本技术，用于流通并具有法定货币地位的数字形式货币。",
+    "principle": ",",
+    "background": "央行数字货币旨在提升支付效率、降低交易成本，并增强货币政策的有效性。它通常被设计为与传统纸币和硬币平行存在。",
+    "core": [
+      "基于区块链技术或其他分布式账本技术",
+      "具有法定货币地位",
+      "由中央银行发行",
+      "用于流通"
+    ],
+    "pros": [
+      "提升支付效率",
+      "降低交易成本"
+    ],
+    "cons": [
+      "可能面临技术安全风险"
+    ],
+    "applications": [
+      "跨境支付",
+      "零售支付"
+    ],
+    "misconceptions": [
+      "央行数字货币等同于私人加密货币"
+    ],
+    "related": [
+      "区块链技术",
+      "数字人民币"
+    ],
+    "relations": [
+      {
+        "type": "evolvedFrom",
+        "target": "区块链技术",
+        "note": "",
+        "confidence": 0.3
+      },
+      {
+        "type": "dependsOn",
+        "target": "中央银行",
+        "note": "",
+        "confidence": 0.3
+      }
+    ],
+    "sources": [
+      "https://www.pbc.gov.cn/goutongjiaoliu/110456/110469/2873241/index.html",
+      "https://www.imf.org/en/About/Pubs/Issues/2020/09/22/digital-currencies-and-central-bank-innovations"
+    ],
+    "id": "央行数字货币",
+    "confidence": 0.9,
+    "sourceConfidence": 0.85,
+    "relationConfidence": 0.3,
+    "status": "verified",
+    "searchedAt": "2026-08-14"
   }
 ];

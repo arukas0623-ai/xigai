@@ -73,6 +73,13 @@
       if (!e.target.closest(".search-wrap")) X.closeSearch();
     });
 
+    // 移动端：输入聚焦时滚动到可见区域
+    document.addEventListener("focusin", e => {
+      if (e.target && (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA")) {
+        setTimeout(() => { try { e.target.scrollIntoView({ block: "center", behavior: "smooth" }); } catch (err) {} }, 250);
+      }
+    }, true);
+
     // 快捷键
     document.addEventListener("keydown", e => {
       const typing = /INPUT|TEXTAREA/.test(document.activeElement.tagName);
@@ -144,6 +151,47 @@
       if (c) setTimeout(() => X.openConcept(c.id), 120);
     }
     X.toast("欢迎来到析概知识图书馆 📚", 2600);
+  }
+
+  /* 移动端自检（?mobilecheck=1）：输出问题列表 */
+  X.mobileAudit = function () {
+    const out = [];
+    const vw = window.innerWidth;
+    // 1) 横向溢出
+    const scrollW = document.documentElement.scrollWidth;
+    if (scrollW > vw + 2) out.push("横向溢出: scrollWidth=" + scrollW + " > 视口 " + vw);
+    // 2) 超出视口的元素
+    document.querySelectorAll("body *").forEach(el => {
+      const r = el.getBoundingClientRect();
+      const clipped = el.closest && el.closest("#scene, .overlay, .shelf-books, .chat-body, .cmp-scroll");
+      if (r.width > vw + 2 && getComputedStyle(el).position !== "fixed" && r.width > 360 && !clipped && !/shelf-books|search-results|chat-drawer|cmp-tray/.test(el.className || "")) {
+        out.push("超宽元素: <" + (el.tagName || "").toLowerCase() + " class=" + (el.className || "").toString().slice(0, 30) + "> width=" + Math.round(r.width));
+      }
+    });
+    // 3) 输入框对比度
+    document.querySelectorAll("input, textarea").forEach(el => {
+      const cs = getComputedStyle(el);
+      if (cs.color === cs.backgroundColor) out.push("输入文字与背景同色: <" + el.tagName.toLowerCase() + "> " + (el.id || el.className || ""));
+    });
+    // 4) 可点击元素过小（<40px）
+    document.querySelectorAll("button, .rel-chip, .book, .sr-item, .chip").forEach(el => {
+      const r = el.getBoundingClientRect();
+      if (r.width > 0 && r.height > 0 && r.width < 36 && r.height < 36) out.push("点击区过小: <" + el.tagName.toLowerCase() + "> " + Math.round(r.width) + "x" + Math.round(r.height) + " " + (el.className || "").toString().slice(0, 24));
+    });
+    // 5) 固定元素遮挡底部
+    const kb = document.querySelectorAll("body > div").length;
+    return { vw, horizontalOverflow: scrollW > vw + 2, problems: out.slice(0, 30), total: out.length };
+  };
+  if (new URLSearchParams(location.search).get("mobilecheck") === "1") {
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        const r = X.mobileAudit();
+        const div = document.createElement("div");
+        div.id = "mobilecheck-report";
+        div.textContent = "MOBILECHECK vw=" + r.vw + " overflow=" + r.horizontalOverflow + " problems=" + r.total + "\n" + r.problems.join("\n");
+        document.body.appendChild(div);
+      }, 800);
+    });
   }
 
   X.updateStats = function () {

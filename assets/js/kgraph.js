@@ -194,20 +194,47 @@
       apply();
     }, { passive: false });
     let dragging = false, moved = false, sx = 0, sy = 0;
-    svg.addEventListener("mousedown", e => { dragging = true; moved = false; sx = e.clientX; sy = e.clientY; svg.style.cursor = "grabbing"; });
-    window.addEventListener("mousemove", e => {
+    const startPan = (x, y) => { dragging = true; moved = false; sx = x; sy = y; };
+    const movePan = (x, y) => {
       if (!dragging) return;
-      const dx = e.clientX - sx, dy = e.clientY - sy;
+      const dx = x - sx, dy = y - sy;
       if (Math.abs(dx) + Math.abs(dy) > 5) moved = true;
       if (moved) {
         const r = svg.getBoundingClientRect();
         view.tx += dx / r.width * VW;
         view.ty += dy / r.height * VH;
-        sx = e.clientX; sy = e.clientY;
+        sx = x; sy = y;
         apply();
       }
-    });
-    window.addEventListener("mouseup", () => { dragging = false; svg.style.cursor = ""; });
+    };
+    const endPan = () => { dragging = false; svg.style.cursor = ""; };
+    svg.addEventListener("mousedown", e => { startPan(e.clientX, e.clientY); svg.style.cursor = "grabbing"; });
+    window.addEventListener("mousemove", e => movePan(e.clientX, e.clientY));
+    window.addEventListener("mouseup", endPan);
+    // 触控：单指拖拽平移 / 双指缩放
+    let pinchDist = 0;
+    svg.addEventListener("touchstart", e => {
+      if (e.touches.length === 1) { startPan(e.touches[0].clientX, e.touches[0].clientY); e.preventDefault(); }
+      else if (e.touches.length === 2) { pinchDist = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY); }
+    }, { passive: false });
+    svg.addEventListener("touchmove", e => {
+      if (e.touches.length === 1) { movePan(e.touches[0].clientX, e.touches[0].clientY); e.preventDefault(); }
+      else if (e.touches.length === 2) {
+        e.preventDefault();
+        const d = Math.hypot(e.touches[0].clientX - e.touches[1].clientX, e.touches[0].clientY - e.touches[1].clientY);
+        if (pinchDist > 0) {
+          const nk = Math.min(3, Math.max(0.4, view.k * (d / pinchDist)));
+          const mid = { x: (e.touches[0].clientX + e.touches[1].clientX) / 2, y: (e.touches[0].clientY + e.touches[1].clientY) / 2 };
+          const p = toSvg(mid.x, mid.y);
+          view.tx = p.x - (p.x - view.tx) * (nk / view.k);
+          view.ty = p.y - (p.y - view.ty) * (nk / view.k);
+          view.k = nk;
+          apply();
+        }
+        pinchDist = d;
+      }
+    }, { passive: false });
+    svg.addEventListener("touchend", e => { if (e.touches.length === 0) endPan(); }, { passive: true });
     // 拖拽后抑制节点点击
     ov.querySelectorAll(".kg-node").forEach(nd => nd.addEventListener("click", ev => {
       if (moved) { ev.stopPropagation(); ev.preventDefault(); moved = false; }

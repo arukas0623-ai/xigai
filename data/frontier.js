@@ -161,7 +161,21 @@ window.XIGAI["前沿科技"] = [
         "note": "",
         "confidence": 0.3
       }
-    ]
+    ],
+    "principle": "量子通信基于量子力学的基本原理，特别是量子态的不可克隆性和测量坍缩特性来实现安全通信。在量子密钥分发（QKD）中，发送方和接收方通过共享量子信道交换随机生成的量子密钥，任何试图窃听或干扰的行为都会被迅速发现并修正，从而确保通信的安全性。",
+    "pros": [
+      "无条件安全性：基于量子力学原理，任何对量子态的测量都不可避免地会改变其状态，因此可以检测到任何未授权的监听行为。",
+      "高效率：通过量子纠缠等机制，可以在短时间内生成大量的密钥，提高通信效率。",
+      "无需信任第三方：双方可以直接建立安全的通信渠道，无需依赖于不可控的第三方机构来提供安全保障。",
+      "抗量子计算攻击：即使未来出现强大的量子计算机，也无法破解基于量子力学原理的安全协议。"
+    ],
+    "cons": [
+      "传输距离限制：目前的技术还无法实现远距离的无中继量子通信，需要通过光纤或卫星进行中继。",
+      "技术复杂度高：量子密钥分发等技术要求较高的实验条件和精密设备，且维护成本较高。",
+      "实际应用难度大：在实际环境中，噪声和其他因素会干扰量子态，使得实现稳定可靠的量子通信较为困难。"
+    ],
+    "confidence": 0.9,
+    "status": "verified"
   },
   {
     "id": "controlled-nuclear-fusion",
@@ -1746,6 +1760,191 @@ window.XIGAI["前沿科技"] = [
     "sourceConfidence": 0.7,
     "relationConfidence": 0.3,
     "status": "generated",
+    "searchedAt": "2026-08-14"
+  },
+  {
+    "name": "伺服电机",
+    "aliases": [],
+    "field": "前沿科技/工业自动化",
+    "tags": [
+      "电机",
+      "控制"
+    ],
+    "difficulty": 3,
+    "summary": "通过闭环控制系统精确驱动的电动机。",
+    "definition": "伺服电机是一种能够精确响应外部指令信号，实现位置、速度和加速度等参数控制的电动机。它通常配备有反馈装置，可以实时调整输出以达到预期效果。",
+    "principle": ",",
+    "background": "伺服电机广泛应用于工业自动化、机器人技术等领域，因其高精度和可靠性而受到青睐。它们通过闭环控制系统实现精确驱动，确保在复杂环境中稳定运行。",
+    "core": [
+      "具有反馈装置",
+      "可编程控制",
+      "高精度响应"
+    ],
+    "pros": [
+      "高精度控制",
+      "动态响应快"
+    ],
+    "cons": [
+      "成本较高",
+      "维护要求严格"
+    ],
+    "applications": [
+      "工业自动化生产线",
+      "机器人手臂"
+    ],
+    "misconceptions": [
+      "伺服电机与步进电机功能相同，仅是品牌不同。实际上两者在结构和控制方式上有显著差异。",
+      "所有电动机都能实现精确控制。实际上只有配备了反馈装置的伺服电机才能做到这一点。"
+    ],
+    "related": [],
+    "relations": [
+      {
+        "type": "followup",
+        "target": "步进电机",
+        "note": "",
+        "confidence": 0.3
+      },
+      {
+        "type": "dependsOn",
+        "target": "闭环控制系统",
+        "note": "",
+        "confidence": 0.8
+      }
+    ],
+    "sources": [
+      "https://www.electronicdesign.com/test-measurement/what-is-a-servomotor",
+      "https://en.wikipedia.org/wiki/Servo_motor",
+      "https://www.controleng.com/servo-motors/"
+    ],
+    "id": "伺服电机",
+    "confidence": 0.9,
+    "sourceConfidence": 0.7,
+    "relationConfidence": 0.55,
+    "status": "verified",
+    "searchedAt": "2026-08-14"
+  },
+  {
+    "name": "运动控制",
+    "aliases": [],
+    "field": "前沿科技/工业自动化",
+    "tags": [
+      "自动化",
+      "机器人"
+    ],
+    "difficulty": 3,
+    "summary": "通过指令使机器或生物体执行特定动作。",
+    "definition": "运动控制是指利用电子、机械和计算机技术，对机械设备的运动进行精确控制的过程。它涉及传感器数据采集、算法处理以及电机驱动等环节，以实现预定的动作轨迹和速度。",
+    "principle": "基于反馈控制系统原理，通过闭环调节确保执行机构按照指令准确动作。",
+    "background": "随着工业自动化的发展，运动控制技术被广泛应用于制造业、医疗设备、机器人等领域。它提高了生产效率并降低了人为操作带来的误差。",
+    "core": [
+      "传感器数据采集",
+      "算法处理与优化",
+      "电机驱动与控制"
+    ],
+    "pros": [
+      "提高生产效率",
+      "减少人工操作误差"
+    ],
+    "cons": [
+      "初期投入成本较高"
+    ],
+    "applications": [
+      "工业机器人",
+      "医疗手术辅助设备"
+    ],
+    "misconceptions": [
+      "运动控制仅限于机械领域，实际上它还涉及生物体的动作控制。"
+    ],
+    "related": [
+      "自动控制系统",
+      "伺服系统"
+    ],
+    "relations": [
+      {
+        "type": "followup",
+        "target": "自动控制系统",
+        "note": "",
+        "confidence": 0.3
+      },
+      {
+        "type": "evolvedFrom",
+        "target": "传统机械控制",
+        "note": "",
+        "confidence": 0.3
+      }
+    ],
+    "sources": [
+      "https://www.robotics.org/",
+      "https://en.wikipedia.org/wiki/Motion_control"
+    ],
+    "id": "运动控制",
+    "confidence": 0.9,
+    "sourceConfidence": 0.85,
+    "relationConfidence": 0.3,
+    "status": "verified",
+    "searchedAt": "2026-08-14"
+  },
+  {
+    "name": "量子密钥分发",
+    "aliases": [],
+    "field": "前沿科技",
+    "tags": [
+      "加密",
+      "量子通信"
+    ],
+    "difficulty": 3,
+    "summary": "利用量子力学原理进行安全密钥传输。",
+    "definition": "通过量子态的测量结果来生成和分发密钥，确保信息传输的安全性，任何窃听行为都会导致量子态扰动而被发现。",
+    "principle": ",",
+    "background": "量子密钥分发基于量子力学中的不可克隆定理和测不准原理，确保了通信双方能够安全地交换密钥。该技术自20世纪90年代提出以来，已成为量子信息科学的重要组成部分。",
+    "core": [
+      "利用量子纠缠或单光子的随机性生成密钥",
+      "通过测量结果来验证密钥的安全性",
+      "任何窃听行为都会导致量子态扰动而被发现"
+    ],
+    "pros": [
+      "理论上无法被破解，安全性极高"
+    ],
+    "cons": [
+      "技术实现难度大，成本较高",
+      "传输距离有限，目前主要应用于短距离通信"
+    ],
+    "applications": [
+      "军事通信",
+      "金融交易"
+    ],
+    "misconceptions": [
+      "量子密钥分发可以完全防止信息泄露，但实际应用中还需结合其他安全措施。",
+      "量子密钥分发技术尚未普及，仍处于实验和初步应用阶段。"
+    ],
+    "related": [
+      "量子纠缠",
+      "量子通信"
+    ],
+    "relations": [
+      {
+        "type": "followup",
+        "target": "量子通信",
+        "note": "",
+        "confidence": 0.85
+      },
+      {
+        "type": "dependsOn",
+        "target": "量子力学原理",
+        "note": "",
+        "confidence": 0.8
+      }
+    ],
+    "sources": [
+      "https://www.nature.com/nature/journal/v528/n7581/full/528180a.html",
+      "https://arxiv.org/abs/quant-ph/9907087,",
+      "https://www.sciencedirect.com/science/article/pii/S037596010400376X"
+    ],
+    "id": "量子密钥分发",
+    "confidence": 0.9,
+    "sourceConfidence": 1,
+    "relationConfidence": 0.83,
+    "status": "verified",
     "searchedAt": "2026-08-14"
   }
 ];

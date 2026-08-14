@@ -1,0 +1,143 @@
+/* ============================================================
+   析概 · 移动端适配 mobile.css（最后加载）
+   目标：手机端可读、可输入、可点击、可浏览，桌面端不受影响
+   ============================================================ */
+
+/* ── 输入/文本域对比度硬化（所有主题） ─────────────── */
+input, textarea, select, [contenteditable] {
+  -webkit-appearance: none; appearance: none;
+  color: var(--ink) !important;
+  background-color: var(--bg2) !important;
+  border: 1px solid var(--line) !important;
+  caret-color: var(--accent);
+}
+input::placeholder, textarea::placeholder {
+  color: var(--ink-3) !important;
+  opacity: 1 !important;
+}
+input:focus, textarea:focus, select:focus {
+  color: var(--ink) !important;
+  background-color: var(--bg2) !important;
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 2px var(--sel);
+  outline: none;
+}
+input:disabled, textarea:disabled { opacity: .55; color: var(--ink-3) !important; }
+/* 防止 iOS 聚焦缩放 */
+input, textarea, select { font-size: 16px !important; }
+/* 搜索框与聊天输入微调（背景已是 bg2，保持） */
+.search-box input { background: transparent !important; border: none !important; }
+.search-box input::placeholder { color: var(--ink-3) !important; }
+.chat-input-row textarea { font-size: 16px !important; min-height: 42px; }
+#report-detail, #report-target { font-size: 16px !important; }
+
+/* ── 触控设备：hover 转 active、点击区域增大 ────────── */
+@media (hover: none), (pointer: coarse) {
+  .book:hover { transform: none; box-shadow: inset 2px 0 3px rgba(255,255,255,.15), inset -2px 0 4px rgba(0,0,0,.22), 1px 4px 8px var(--shadow); }
+  .book:active { transform: translateY(-4px) scale(1.03); box-shadow: 0 10px 20px var(--shadow); }
+  .icon-btn, .mini-btn, .btn, .chip, .quick-btn, .rel-chip, .sr-item { min-height: 44px; }
+  .icon-btn { justify-content: center; }
+  .sr-item { padding: 12px 14px; }
+  .quick-btn { width: 52px; height: 52px; }
+  .quick-btn .tip { display: none; }
+}
+
+/* ── 基础移动端布局（≤768 平板） ───────────────────── */
+@media (max-width: 768px) {
+  html { -webkit-text-size-adjust: 100%; }
+  #topbar { padding: 8px 12px; gap: 8px; }
+  #search-clear { width: 36px; height: 36px; font-size: 15px; }
+  .panel-close { width: 36px; height: 36px; }
+  .brand .logo { width: 36px; height: 36px; }
+  .brand-text h1 { font-size: 19px; letter-spacing: 5px; }
+  .brand-text small { display: none; }
+  .top-actions { gap: 4px; }
+  .icon-btn span { font-size: 12px; }
+  .search-wrap { order: 3; flex-basis: 100%; max-width: none; }
+  #library { padding: 14px 10px 40px; }
+  #welcome { padding: 20px 6px 14px; }
+  #welcome .wl-title { font-size: 24px; letter-spacing: 8px; }
+  #daily-term { font-size: 12px; line-height: 1.9; }
+  .wing-head { margin: 20px 2px 20px; }
+  .wing-head h3 { font-size: 16px; letter-spacing: 3px; }
+  .shelf-row { margin: 26px 2px 6px; padding: 0 6px 20px; }
+  .shelf-plaque { left: 6px; top: -44px; padding: 5px 12px 5px 8px; }
+  .shelf-plaque h2 { font-size: 14px; }
+  .shelf-books { padding: 10px 10px 0; min-height: 200px; gap: 6px; }
+  .book-title { font-size: 11px; letter-spacing: 1px; }
+  .domains-rail { gap: 6px; margin-bottom: 16px; }
+  .chip { padding: 6px 11px; font-size: 12px; }
+  .detail-head { padding: 18px 16px 14px; }
+  .detail-title h2 { font-size: 22px; letter-spacing: 1px; }
+  .detail-body { padding: 16px; }
+  .detail-actions { padding: 12px 16px 16px; }
+  .detail-actions .btn { flex: 1 1 40%; justify-content: center; }
+  .proscons { grid-template-columns: 1fr; }
+  #quickbar { right: 10px; bottom: 12px; gap: 8px; }
+  #footer { padding: 18px 10px; font-size: 10.5px; line-height: 1.8; }
+}
+
+/* ── 手机（≤480） ───────────────────────────────────── */
+@media (max-width: 480px) {
+  #topbar { flex-wrap: wrap; }
+  .brand { flex: 1; }
+  .top-actions { order: 2; }
+  #topbar .search-wrap { order: 3; }
+  .shelf-books { overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  .shelf-books::-webkit-scrollbar { display: none; }
+  .book { flex: none; }
+  .detail-actions .btn { font-size: 12.5px; padding: 10px 8px; }
+  #quickbar .quick-btn { width: 48px; height: 48px; font-size: 18px; }
+  #cmp-tray { bottom: 10px; left: 8px; right: 8px; transform: none; border-radius: 14px; justify-content: flex-start; }
+  .fp-timeline { font-size: 12px; }
+}
+
+/* ── 小屏（≤360，覆盖 320） ─────────────────────────── */
+@media (max-width: 360px) {
+  #welcome .wl-title { font-size: 21px; letter-spacing: 6px; }
+  .icon-btn span { display: none; }
+  .icon-btn { width: 40px; height: 40px; padding: 0; }
+  .chip { padding: 5px 9px; font-size: 11.5px; }
+  .shelf-plaque small { display: none; }
+  .detail-title h2 { font-size: 20px; }
+  #daily-term u { display: inline-block; }
+}
+
+/* ── 弹层/抽屉：移动端全宽 + 底部贴齐 + 键盘安全 ───── */
+@media (max-width: 640px) {
+  .overlay { padding: 0; align-items: flex-end; }
+  .panel-card {
+    width: 100%; max-width: 100%;
+    max-height: 92dvh; min-height: 0;
+    border-radius: 16px 16px 0 0;
+    padding: 18px 14px;
+  }
+  #chat-drawer {
+    left: 0; right: 0; bottom: 0; width: 100%;
+    max-width: 100%; height: min(70dvh, 560px);
+    border-radius: 16px 16px 0 0;
+  }
+  #search-results { position: fixed; top: auto; bottom: 0; left: 0; right: 0; max-height: 70dvh; border-radius: 16px 16px 0 0; }
+  #detail .panel-card { padding-bottom: env(safe-area-inset-bottom, 14px); }
+  .kgraph-card, .personal-card, .domain-card, .compare-card, .quiz-card, .report-card { padding: 18px 12px; }
+  .kg-body { border-radius: 10px; }
+  .kg-edge-info { width: 92%; }
+}
+
+/* ── 键盘遮挡：输入聚焦时滚动到可见 ─────────────────── */
+input:focus, textarea:focus { scroll-margin-top: 10px; }
+
+/* ── 固定元素安全区 ─────────────────────────────────── */
+#quickbar, #cmp-tray, #chat-drawer {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* ── 图谱触控：拖拽/缩放事件由 JS 统一处理（touch 支持） ─ */
+@media (pointer: coarse) {
+  .kg-node { cursor: pointer; }
+}
+
+/* 小按钮触控放大 */
+@media (hover: none), (pointer: coarse) {
+  #search-clear, .panel-close, .db-x, .chat-tools button, .sp-list .rm, .fp-node, .report-type label { min-width: 36px; min-height: 36px; font-size: 15px; }
+}
