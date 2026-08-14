@@ -140,6 +140,41 @@
     }));
   };
 
+  /* 领域首页：子领域导航 + 概念列表 + 跨域关系 + 学习入口 */
+  X.openDomain = function (name) {
+    const dom = X.domains.find(d => d.name === name);
+    if (!dom) { X.toast("领域不存在"); return; }
+    let ov = document.getElementById("domain-panel");
+    if (!ov) { ov = document.createElement("div"); ov.id = "domain-panel"; ov.className = "overlay hidden"; document.body.appendChild(ov); }
+    ov.innerHTML = "";
+    const card = document.createElement("div");
+    card.className = "panel-card domain-card";
+    // 子领域分组（按 tags[0]）
+    const groups = {};
+    dom.concepts.forEach(c => { const g = (c.tags && c.tags[0]) || "其他"; (groups[g] = groups[g] || []).push(c); });
+    const groupHtml = Object.keys(groups).map(g =>
+      '<div class="dom-group"><div class="dom-group-title">' + X.esc(g) + '<small>' + groups[g].length + " 个概念</small></div><div class='dom-concepts'>" +
+      groups[g].map(c => '<span class="dom-concept" data-id="' + X.esc(c.id) + '">' + X.esc(c.name) + "</span>").join("") + "</div></div>"
+    ).join("");
+    // 跨域关系（本领域概念指向其他领域的关系目标）
+    const cross = {};
+    dom.concepts.forEach(c => X.getRelations(c).forEach(r => { if (r.resolved && r.concept.domain !== name) { cross[r.concept.name] = r.concept; } }));
+    const crossHtml = Object.keys(cross).length ? '<div class="dom-cross"><h4>跨领域关联</h4><div class="dom-concepts">' + Object.keys(cross).slice(0, 12).map(k => '<span class="dom-concept" data-id="' + X.esc(cross[k].id) + '">' + X.esc(cross[k].name) + '<small>·' + X.esc(cross[k].domain) + "</small></span>").join("") + "</div></div>" : "";
+    // 难度排序的学习路径建议
+    const ordered = dom.concepts.slice().sort((a, b) => (a.difficulty || 3) - (b.difficulty || 3));
+    const pathHtml = '<div class="dom-path"><h4>学习路径建议（按难度）</h4><ol>' + ordered.slice(0, 6).map((c, i) => '<li><button data-id="' + X.esc(c.id) + '">' + (i + 1) + '. ' + X.esc(c.name) + '</button><small>难度 ' + (c.difficulty || 3) + "</small></li>").join("") + "</ol></div>";
+    card.innerHTML =
+      '<button class="panel-close">✕</button>' +
+      '<div class="dom-head"><span class="dom-seal">' + X.esc(dom.seal) + '</span><div><h3>' + X.esc(dom.name) + '</h3><small>' + dom.concepts.length + " 个概念 · " + Object.keys(groups).length + " 个子领域 · " + Object.keys(cross).length + " 个跨域关联</small></div></div>" +
+      '<div class="dom-body">' + groupHtml + crossHtml + pathHtml + "</div>";
+    ov.appendChild(card);
+    ov.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+    ov.querySelector(".panel-close").addEventListener("click", () => { ov.classList.add("hidden"); document.body.style.overflow = ""; });
+    ov.addEventListener("click", e => { if (e.target === ov) { ov.classList.add("hidden"); document.body.style.overflow = ""; } });
+    ov.querySelectorAll("[data-id]").forEach(b => b.addEventListener("click", () => { ov.classList.add("hidden"); document.body.style.overflow = ""; X.openConcept(b.dataset.id); }));
+  };
+
   /* 聊天 GraphRAG 问答 */
   X.graphAsk = function (q) {
     if (!X.isChatOpen()) X.openChat();

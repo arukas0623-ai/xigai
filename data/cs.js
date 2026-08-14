@@ -83,7 +83,17 @@ window.XIGAI["计算机科学"] = [
         "note": "",
         "confidence": 0.75
       }
-    ]
+    ],
+    "principle": "图灵机的工作方式基于状态转移规则表，通过读写头在无限长纸带上移动和修改符号来模拟计算过程。每当读取当前格的符号时，根据当前状态和所读符号查找状态转移规则表，决定下一步操作：改写该格、向左或向右移动一格并进入新状态。这一机制使得图灵机能够处理复杂的计算问题，并为可计算性理论提供了基础。",
+    "pros": [
+      "理论上可以模拟任何算法过程",
+      "提供了一个统一的计算模型"
+    ],
+    "cons": [
+      "无法直接用于实际硬件实现"
+    ],
+    "confidence": 0.9,
+    "status": "verified"
   },
   {
     "id": "halting-problem",
@@ -813,5 +823,70 @@ window.XIGAI["计算机科学"] = [
         "confidence": 0.3
       }
     ]
+  },
+  {
+    "name": "计算理论",
+    "aliases": [],
+    "field": "计算机科学",
+    "tags": [
+      "理论",
+      "算法"
+    ],
+    "difficulty": 3,
+    "summary": "研究计算的可能性和限制。",
+    "definition": "计算理论是计算机科学的一个分支，主要研究计算过程的本质、可能性以及限制。它包括形式语言、自动机理论和计算复杂性等核心领域。",
+    "principle": ",",
+    "background": "计算理论起源于20世纪中叶，与图灵机的提出密切相关。早期的研究旨在理解哪些问题可以被机械地解决，以及如何衡量解决问题所需的时间和空间资源。",
+    "core": [
+      "形式语言：定义了符号串的规则集合。",
+      "自动机理论：研究不同类型的计算模型及其能力。",
+      "可计算性与复杂性：探讨问题是否能被算法解决及解决效率。",
+      "图灵机：作为通用计算模型，用于证明某些问题是不可解的。"
+    ],
+    "pros": [
+      "为计算机科学提供了坚实的理论基础",
+      "有助于设计更高效的算法和数据结构"
+    ],
+    "cons": [
+      "理论研究往往与实际应用有一定距离"
+    ],
+    "applications": [
+      "编译器设计：理解语言的语法并生成目标代码。",
+      "人工智能：通过自动机理论来实现智能代理的行为。"
+    ],
+    "misconceptions": [
+      "计算理论仅关注抽象模型，忽视了具体实施细节",
+      "所有问题都能被算法解决的观点是错误的"
+    ],
+    "related": [
+      "形式语言",
+      "自动机",
+      "图灵机"
+    ],
+    "relations": [
+      {
+        "type": "prerequisite",
+        "target": "形式语言",
+        "note": "",
+        "confidence": 0.3
+      },
+      {
+        "type": "followup",
+        "target": "计算复杂性理论",
+        "note": "",
+        "confidence": 0.3
+      }
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Theory_of_computation",
+      "https://www.cs.cmu.edu/~crary/15-453/",
+      "https://www.cs.princeton.edu/courses/archive/spring2019/cos406/"
+    ],
+    "id": "计算理论",
+    "confidence": 0.9,
+    "sourceConfidence": 1,
+    "relationConfidence": 0.3,
+    "status": "verified",
+    "searchedAt": "2026-08-14"
   }
 ];

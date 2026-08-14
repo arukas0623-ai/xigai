@@ -78,7 +78,7 @@
         }).join("");
         row.innerHTML =
           '<div class="cornice"></div>' +
-          '<div class="shelf-plaque" data-scroll-to="shelf-' + X.esc(d.key) + '"><span class="seal">' + X.esc(d.seal) + "</span><div><h2>" + X.esc(d.name) + '</h2><small>' + d.concepts.length + " 册 · 拖书可收藏/藏起/放桌面</small></div></div>" +
+          '<div class="shelf-plaque" data-domain="' + X.esc(d.name) + '"><span class="seal">' + X.esc(d.seal) + "</span><div><h2>" + X.esc(d.name) + '</h2><small>' + d.concepts.length + " 册 · 点击进入领域</small></div></div>" +
           '<div class="shelf-books">' + books + '<div class="bookend"></div></div>' +
           '<div class="shelf-plank"></div>';
         frag.appendChild(row);
@@ -91,10 +91,7 @@
       b.addEventListener("dragstart", X.onBookDragStart);
     });
     wrap.querySelectorAll(".shelf-plaque").forEach(p => {
-      p.addEventListener("click", () => {
-        const t = document.getElementById(p.dataset.scrollTo);
-        if (t) t.scrollIntoView({ behavior: "smooth", block: "center" });
-      });
+      p.addEventListener("click", () => X.openDomain(p.dataset.domain));
     });
     X.updateChips();
     X.applyViewMode();
@@ -258,12 +255,13 @@
         (c.summary ? '<div class="detail-summary">' + X.esc(c.summary) + "</div>" : "") +
         (c.definition ? '<div class="sec"><h3>定义与解释</h3><p>' + X.md(c.definition) + "</p></div>" : "") +
         (principle ? principle : "") +
+        (relHtml ? '<div class="sec" id="rel-sec"><h3>概念关系</h3>' + relHtml + "</div>" : "") +
+        '<div class="sec" id="path-sec"><h3>学习路径</h3><div id="path-box" class="detail-path"><span class="path-none">计算中…</span></div></div>' +
+        (apps ? '<div class="sec"><h3>现实应用</h3><ul>' + apps + "</ul></div>" : "") +
         (c.background ? '<div class="sec"><h3>背景与历史</h3><p>' + X.md(c.background) + "</p></div>" : "") +
         (core ? '<div class="sec"><h3>核心要点</h3><ul>' + core + "</ul></div>" : "") +
-        (apps ? '<div class="sec"><h3>现实应用</h3><ul>' + apps + "</ul></div>" : "") +
         (proscons ? proscons : "") +
         (miscon ? '<div class="sec"><h3>常见误解</h3><ul>' + miscon + "</ul></div>" : "") +
-        (relHtml ? '<div class="sec" id="rel-sec"><h3>概念关系</h3>' + relHtml + "</div>" : "") +
         '<div class="sec"><h3>参考来源' + (c.generated ? ' <span class="gen-badge">🤖 AI 联网生成</span>' : "") + '</h3><ul class="src-list">' + srcs + "</ul></div>" +
         '<div class="sec" id="footprint-sec" style="display:none"><h3>学习足迹</h3><div id="footprint-box"></div></div>' +
         '<div id="ai-area"></div><div id="baike-box"></div>' +
@@ -284,9 +282,25 @@
     ov.classList.remove("hidden");
     document.body.style.overflow = "hidden";
     X.renderFootprint(c);
+    X.renderInlinePath(c);
     X.wireDetail(c);
     X.refreshRelationStatus(c);
     X.updateReadProgress();
+    X.maybeEnqueue(c);
+  };
+  /* 用户浏览触发自增长：缺失纵向字段→enrich 入队；待补全关系→concept 入队（队列统一节奏，去重冷却） */
+  X._enqueueTried = {};
+  X.maybeEnqueue = function (c) {
+    if (X._enqueueTried[c.id]) return;
+    X._enqueueTried[c.id] = true;
+    const needVertical = !c.principle || !(c.pros || []).length || !(c.cons || []).length || !(c.applications || []).length;
+    if (needVertical) {
+      fetch("/api/enqueue", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ kind: "enrich", id: c.id, source: "browse" }) });
+    }
+    const miss = c.relations.filter(r => { const t = X.resolveConcept(r.target); return !t; }).slice(0, 2);
+    miss.forEach(r => {
+      fetch("/api/enqueue", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ kind: "concept", target: r.target, source: "browse" }) });
+    });
   };
 
   /* 关系目标状态芯片 + 后台自动补全（无刷新更新） */
@@ -321,8 +335,12 @@
           todos.push(m.dataset.miss);
         }
       });
-      // 后台自动补全前 2 个待收录目标（不阻塞）
-      todos.slice(0, 2).forEach(t => X._growRelation(t, true));
+      // 后台自动补全前 2 个待收录目标（经队列，不阻塞）
+      todos.slice(0, 2).forEach(t => {
+        fetch("/api/enqueue", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ kind: "concept", target: t, source: "browse" }) }).then(() => {
+          if (sec) sec.querySelectorAll('.rel-chip[data-miss="' + X.esc(t) + '"]').forEach(m => { m.classList.add("growing"); m.textContent = "⌛ 已排入队列…"; });
+        });
+      });
     }).catch(() => {});
   };
   X._growRelation = function (target, silent) {
@@ -352,6 +370,20 @@
       }
     }).catch(() => { X._relGrowing[target] = false; });
   };
+  X.renderInlinePath = function (c) {
+    const box = document.getElementById("path-box");
+    if (!box) return;
+    const p = X.learningPath(c.id, 2);
+    if (!p) { box.innerHTML = '<span class="path-none">暂无学习路径</span>'; return; }
+    let n = 1, html = "";
+    const mk = (item, tag) => '<span class="path-step-mini" data-id="' + X.esc(item.c.id) + '"><span class="path-no">' + n++ + '</span><span class="path-tag">' + tag + '</span>' + X.esc(item.c.name) + "</span>";
+    html += (p.prereqs.length ? p.prereqs.map(x => mk(x, "前置")).join("") : "") +
+      '<span class="path-step-mini cur" data-id="' + X.esc(c.id) + '"><span class="path-no">' + n++ + '</span><span class="path-tag cur">核心</span>' + X.esc(c.name) + "</span>" +
+      (p.followups.length ? p.followups.map(x => mk(x, "后续")).join("") : "");
+    box.innerHTML = html || '<span class="path-none">暂无学习路径</span>';
+    box.querySelectorAll(".path-step-mini").forEach(b => b.addEventListener("click", () => X.openConcept(b.dataset.id)));
+  };
+
   X.renderFootprint = function (c) {
     const sec = document.getElementById("footprint-sec");
     if (!sec) return;

@@ -1062,7 +1062,20 @@ function handleMaintain(res) {
     for (const r of (c.relations || [])) {
       if (!r || typeof r.target !== "string" || !r.target.trim()) { dropped++; continue; }
       const type = GROW_VOCAB.includes(r.type) ? r.type : "related";
-      const t = CORPUS.byId.get(r.target) || CORPUS.byName.get(normStr(r.target)) || CORPUS.byAlias.get(normStr(r.target));
+      let t = CORPUS.byId.get(r.target) || CORPUS.byName.get(normStr(r.target)) || CORPUS.byAlias.get(normStr(r.target));
+      if (!t) {
+        // 模糊解析：目标包含某概念名（长度差 ≤6）→ 重写为该概念 id
+        const nk = normStr(r.target);
+        if (nk.length >= 2) {
+          const hit = CORPUS.all.find(x => {
+            const xn = normStr(x.name);
+            if (!xn || x.id === c.id) return false;
+            const a = nk.indexOf(xn), b = xn.indexOf(nk);
+            return (a >= 0 && nk.length - xn.length <= 6) || (b >= 0 && xn.length - nk.length <= 6);
+          });
+          if (hit) t = hit;
+        }
+      }
       if (t && t.id === c.id) { dropped++; continue; }                       // 自循环
       const targetVal = t ? t.id : r.target;
       if (!t && JUNK_TARGET.test(r.target)) { dropped++; continue; }          // 垃圾目标
@@ -1102,7 +1115,138 @@ function handleMaintain(res) {
   send(res, 200, JSON.stringify({ ok: true, relations, resolved, rate: relations ? Math.round(resolved / relations * 100) : 0, valid, validRate: relations ? Math.round(valid / relations * 100) : 0, dropped, rewritten, pendingRelations: lowConf }));
 }
 
-/* ── 静态服务 ─────────────────────────────────────── */
+
+/* ═══ 自增长任务队列（横向补全 + 纵向补全） ═══ */
+const GROW_QUEUE = [];
+const QUEUE_DONE = new Map();        // key → {at, ok}  去重/冷却
+const QUEUE_COOLDOWN = 5 * 60e3;     // 同类任务 5 分钟冷却
+let queueBusy = false;
+
+function queueKey(kind, key) { return kind + "|" + key; }
+function enqueueTask(kind, key, source, data) {
+  if (!key) return false;
+  const k = queueKey(kind, key);
+  const done = QUEUE_DONE.get(k);
+  if (done && Date.now() - done.at < QUEUE_COOLDOWN) return false;   // 冷却
+  if (GROW_QUEUE.some(t => t.k === k)) return false;                  // 已在队列
+  GROW_QUEUE.push({ k, kind, key, source, data: data || {}, at: Date.now() });
+  return true;
+}
+async function pumpQueue() {
+  if (queueBusy) return;
+  if (!GROW_QUEUE.length) return;
+  queueBusy = true;
+  const task = GROW_QUEUE.shift();
+  try {
+    let r;
+    if (task.kind === "concept") r = await growTarget({ target: task.key });
+    else if (task.kind === "enrich") r = await enrichConceptTask(task.key);
+    QUEUE_DONE.set(task.k, { at: Date.now(), ok: !!(r && (r.ok || r.concept)) });
+    if (task.kind === "concept") bumpStat("queueConcepts", 1);
+    if (task.kind === "enrich") bumpStat("queueEnriches", 1);
+  } catch (e) {
+    QUEUE_DONE.set(task.k, { at: Date.now(), ok: false });
+    bumpStat("errors", 1);
+  }
+  queueBusy = false;
+  if (GROW_QUEUE.length) setTimeout(pumpQueue, 8000);   // 节奏：每 8s 处理一项
+}
+function ensurePump() { if (!queueBusy) setTimeout(pumpQueue, 100); }
+
+/* 纵向补全：为概念生成缺失字段（principle/pros/cons/applications/misconceptions） */
+function enrichConceptTask(id) {
+  const c = findLocalById(id);
+  if (!c) return Promise.resolve({ ok: false, error: "概念不存在" });
+  const missing = [];
+  if (!c.principle) missing.push("principle(原理)");
+  if (!(c.pros || []).length) missing.push("pros(优点)");
+  if (!(c.cons || []).length) missing.push("cons(缺点)");
+  if (!(c.applications || []).length) missing.push("applications(应用)");
+  if (!(c.misconceptions || []).length) missing.push("misconceptions(误解)");
+  if (!missing.length) return Promise.resolve({ ok: true, noop: true });
+  const prompt = [
+    "为概念「" + c.name + "」补充以下缺失字段。已知定义：" + (c.definition || "").slice(0, 300),
+    "只输出一个 JSON 对象（不要其他文字），只包含有意义的字段：",
+    '{"principle":"原理(机制/工作方式，100-200字)","pros":["优点1","优点2"],"cons":["缺点1"],"applications":["应用1"],"misconceptions":["误解1"]}',
+    "缺失字段：" + missing.join("、") + "。已存在字段不要重复输出。",
+  ].join("\n");
+  return growOllama(c.name, prompt).then(text => {
+    bumpStat("ollamaCalls", 1);
+    if (!text) return { ok: false, error: "本地模型不可用" };
+    const obj = extractJSON(text);
+    if (!obj) return { ok: false, error: "解析失败" };
+    // 合并（仅缺失字段）
+    if (c.principle == null && obj.principle) c.principle = String(obj.principle).slice(0, 400);
+    if (!(c.pros || []).length && Array.isArray(obj.pros)) c.pros = obj.pros.slice(0, 4).map(String);
+    if (!(c.cons || []).length && Array.isArray(obj.cons)) c.cons = obj.cons.slice(0, 4).map(String);
+    if (!(c.applications || []).length && Array.isArray(obj.applications)) c.applications = obj.applications.slice(0, 4).map(String);
+    if (!(c.misconceptions || []).length && Array.isArray(obj.misconceptions)) c.misconceptions = obj.misconceptions.slice(0, 3).map(String);
+    c.confidence = Math.min(0.9, computeConfidence(c));   // 完整度提升可能上调置信
+    c.status = statusOf(c.confidence);
+    c.searchedAt = new Date().toISOString().slice(0, 10);
+    return writeConcept(c);   // 更新文件 + 版本 + 语料重建
+  });
+}
+function findLocalById(id) {
+  if (!CORPUS) loadCorpus();
+  return CORPUS.byId.get(id) || null;
+}
+function writeConcept(c) {
+  return enqueueWrite(() => {
+    const domain = c.domain || "AI 生成";
+    const file = domain2file(domain) || "generated.js";
+    const fp = path.join(ROOT, "data", file);
+    const w = { XIGAI: {} };
+    try { new Function("window", fs.readFileSync(fp, "utf8"))(w); } catch (e) { return { ok: false }; }
+    const arr = w.XIGAI[domain] || [];
+    const idx = arr.findIndex(x => x.id === c.id || x.name === c.name);
+    if (idx >= 0) arr[idx] = c; else arr.push(c);
+    const out = "window.XIGAI = window.XIGAI || {};\nwindow.XIGAI[" + JSON.stringify(domain) + "] = " + JSON.stringify(arr, null, 2) + ";\n";
+    const tmp = fp + ".tmp";
+    try { fs.writeFileSync(tmp, out, "utf8"); fs.renameSync(tmp, fp); } catch (e) { return { ok: false }; }
+    try {
+      fs.mkdirSync(VERSION_DIR, { recursive: true });
+      const vf = path.join(VERSION_DIR, c.id + ".json");
+      const hist = fs.existsSync(vf) ? JSON.parse(fs.readFileSync(vf, "utf8")) : [];
+      hist.push({ at: Date.now(), domain, action: "enrich", status: c.status });
+      fs.writeFileSync(vf, JSON.stringify(hist, null, 2));
+    } catch (e) {}
+    loadCorpus();
+    return { ok: true, concept: c };
+  });
+}
+/* 队列处理入口 */
+function handleEnqueue(res, payload) {
+  const kind = payload.kind === "enrich" ? "enrich" : "concept";
+  const key = String(kind === "enrich" ? payload.id : payload.target || "").trim();
+  const added = enqueueTask(kind, key, payload.source || "user", payload);
+  ensurePump();
+  send(res, 200, JSON.stringify({ ok: true, added, queue: GROW_QUEUE.length }));
+}
+/* 自动发现：扫描待补全关系目标 → 入队（按被引用频次） */
+function handleDiscover(res, payload) {
+  if (!CORPUS) loadCorpus();
+  const limit = Math.min(6, Math.max(1, payload.limit || 2));
+  const freq = {};
+  for (const c of CORPUS.all) {
+    for (const r of (c.relations || [])) {
+      if (!CORPUS.byId.has(r.target)) {
+        const t = normStr(r.target);
+        if (t.length >= 2 && !/(什么|如何|怎么|为什么|^\d+$|^.$)/.test(r.target)) freq[t] = (freq[t] || 0) + 1;
+      }
+    }
+  }
+  const sorted = Object.entries(freq).sort((a, b) => b[1] - a[1]).slice(0, limit);
+  let added = 0;
+  for (const [k] of sorted) {
+    // 找到原始目标名（优先含中文原名）
+    const raw = (CORPUS.all.flatMap(c => c.relations || []).find(r => normStr(r.target) === k) || {}).target || k;
+    if (enqueueTask("concept", raw, "discover")) added++;
+  }
+  ensurePump();
+  send(res, 200, JSON.stringify({ ok: true, added, pendingTotal: Object.keys(freq).length, queue: GROW_QUEUE.length }));
+}
+
 const server = http.createServer((req, res) => {
   const url = new URL(req.url, "http://x");
   if (url.pathname === "/api/health") return send(res, 200, "ok");
@@ -1137,6 +1281,14 @@ const server = http.createServer((req, res) => {
     return;
   }
   if (req.method === "POST" && url.pathname === "/api/maintain") return handleMaintain(res);
+  if (req.method === "POST" && url.pathname === "/api/enqueue") {
+    let b2 = ""; req.on("data", c => (b2 += c)); req.on("end", () => { let p = {}; try { p = JSON.parse(b2 || "{}"); } catch (e) {} handleEnqueue(res, p); });
+    return;
+  }
+  if (req.method === "POST" && url.pathname === "/api/discover") {
+    let b3 = ""; req.on("data", c => (b3 += c)); req.on("end", () => { let p = {}; try { p = JSON.parse(b3 || "{}"); } catch (e) {} handleDiscover(res, p); });
+    return;
+  }
   if (req.method === "POST" && (url.pathname === "/api/grow" || url.pathname === "/api/quiz" || url.pathname === "/api/extract-concepts" || url.pathname === "/api/grow-target")) {
     let body = "";
     req.on("data", c => (body += c));
