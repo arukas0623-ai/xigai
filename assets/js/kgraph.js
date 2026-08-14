@@ -156,7 +156,70 @@
     ov.addEventListener("click", e => { if (e.target === ov) X.closeGraph(); });
     ov.querySelectorAll(".kg-node:not(.pending)").forEach(g => g.addEventListener("click", () => X.openGraph(g.dataset.id)));
     ov.querySelectorAll("[data-path]").forEach(b => b.addEventListener("click", () => X.openConcept(b.dataset.path)));
+    X.initKgPanZoom(ov, id);
   };
+  /* 图谱缩放/拖拽（P2 增强） */
+  X.initKgPanZoom = function (ov, id) {
+    const svg = ov.querySelector(".kg-svg");
+    if (!svg) return;
+    const inner = document.createElementNS ? null : null;
+    // 把内容包进可变换的 <g>
+    const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+    g.setAttribute("id", "kg-view");
+    const kids = Array.from(svg.childNodes);
+    kids.forEach(n => { try { g.appendChild(n); } catch (e) {} });
+    svg.appendChild(g);
+    const VW = 860, VH = 620;
+    let view = { tx: 0, ty: 0, k: 1 };
+    const apply = () => g.setAttribute("transform", "translate(" + view.tx + " " + view.ty + ") scale(" + view.k + ")");
+    const toSvg = (clientX, clientY) => {
+      const r = svg.getBoundingClientRect();
+      return { x: (clientX - r.left) / r.width * VW, y: (clientY - r.top) / r.height * VH };
+    };
+    svg.addEventListener("wheel", e => {
+      e.preventDefault();
+      const f = e.deltaY < 0 ? 1.12 : 0.89;
+      const nk = Math.min(3, Math.max(0.4, view.k * f));
+      const p = toSvg(e.clientX, e.clientY);
+      view.tx = p.x - (p.x - view.tx) * (nk / view.k);
+      view.ty = p.y - (p.y - view.ty) * (nk / view.k);
+      view.k = nk;
+      apply();
+    }, { passive: false });
+    let dragging = false, moved = false, sx = 0, sy = 0;
+    svg.addEventListener("mousedown", e => { dragging = true; moved = false; sx = e.clientX; sy = e.clientY; svg.style.cursor = "grabbing"; });
+    window.addEventListener("mousemove", e => {
+      if (!dragging) return;
+      const dx = e.clientX - sx, dy = e.clientY - sy;
+      if (Math.abs(dx) + Math.abs(dy) > 5) moved = true;
+      if (moved) {
+        const r = svg.getBoundingClientRect();
+        view.tx += dx / r.width * VW;
+        view.ty += dy / r.height * VH;
+        sx = e.clientX; sy = e.clientY;
+        apply();
+      }
+    });
+    window.addEventListener("mouseup", () => { dragging = false; svg.style.cursor = ""; });
+    // 拖拽后抑制节点点击
+    ov.querySelectorAll(".kg-node").forEach(nd => nd.addEventListener("click", ev => {
+      if (moved) { ev.stopPropagation(); ev.preventDefault(); moved = false; }
+    }));
+    // 复位按钮
+    let reset = ov.querySelector("#kg-reset");
+    if (!reset) {
+      reset = document.createElement("button");
+      reset.id = "kg-reset";
+      reset.className = "mini-btn";
+      reset.textContent = "⤢ 复位";
+      reset.style.cssText = "position:absolute;top:10px;left:10px;z-index:5";
+      const bodyEl = ov.querySelector(".kg-body");
+      if (bodyEl) bodyEl.appendChild(reset);
+    }
+    reset.addEventListener("click", () => { view = { tx: 0, ty: 0, k: 1 }; apply(); });
+    apply();
+  };
+
   X.closeGraph = function () {
     const ov = document.getElementById("kgraph-panel");
     if (ov) ov.classList.add("hidden");

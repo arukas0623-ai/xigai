@@ -101,14 +101,16 @@
     card.innerHTML =
       '<button class="panel-close">✕</button>' +
       '<h3 class="cmp-title">🧑🎓 我的学习中心</h3>' +
-      '<div class="sp-tabs"><button class="sp-tab active" data-ptab="graph">🕸 图谱</button><button class="sp-tab" data-ptab="master">🎯 掌握度</button><button class="sp-tab" data-ptab="gaps">🧩 盲区<span class="cnt">' + gaps.length + '</span></button><button class="sp-tab" data-ptab="recs">✨ 推荐</button></div>' +
+      '<div class="sp-tabs"><button class="sp-tab active" data-ptab="graph">🕸 图谱</button><button class="sp-tab" data-ptab="master">🎯 掌握度</button><button class="sp-tab" data-ptab="gaps">🧩 盲区<span class="cnt">' + gaps.length + '</span></button><button class="sp-tab" data-ptab="recs">✨ 推荐</button><button class="sp-tab" data-ptab="pending">🕓 待验证<span class="cnt">' + X.pendingConcepts().length + '</span></button></div>' +
       '<div class="p-tab" data-ptab="graph">' + pgSvg + "</div>" +
       '<div class="p-tab hidden" data-ptab="master">' +
         (masters.length ? '<ul class="sp-list">' + masters.map(x => '<li data-id="' + X.esc(x.c.id) + '"><span class="nm">' + X.esc(x.c.name) + '</span><span class="fd">' + X.esc(x.c.domain) + "</span><span class='mastery-badge " + X.masteryLabel(x.c.id).cls + "'>" + X.masteryLabel(x.c.id).text + " " + x.m.score + "%</span></li>").join("") + "</ul>" : '<div class="sp-empty">还没有测试记录——在概念详情页点「📝 测试」</div>') + "</div>" +
       '<div class="p-tab hidden" data-ptab="gaps">' +
         (gaps.length ? '<ul class="sp-list">' + gaps.map(g => '<li data-id="' + X.esc(g.concept.id) + '"><span class="nm">' + X.esc(g.concept.name) + '</span><span class="fd">' + X.esc(g.reason) + "</span></li>").join("") + "</ul>" : '<div class="sp-empty">暂无知识盲区 🎉（学过更基础的相关概念或通过测试后消除）</div>') + "</div>" +
       '<div class="p-tab hidden" data-ptab="recs">' +
-        (recs.length ? '<ul class="sp-list">' + recs.map(r => '<li data-id="' + X.esc(r.concept.id) + '"><span class="nm">' + X.esc(r.concept.name) + '</span><span class="fd">' + X.esc(r.why) + "</span></li>").join("") + "</ul>" : '<div class="sp-empty">多读几本书后会有推荐</div>') + "</div>";
+        (recs.length ? '<ul class="sp-list">' + recs.map(r => '<li data-id="' + X.esc(r.concept.id) + '"><span class="nm">' + X.esc(r.concept.name) + '</span><span class="fd">' + X.esc(r.why) + "</span></li>").join("") + "</ul>" : '<div class="sp-empty">多读几本书后会有推荐</div>') + "</div>" +
+      '<div class="p-tab hidden" data-ptab="pending">' +
+        (X.pendingConcepts().length ? '<ul class="sp-list">' + X.pendingConcepts().map(c => '<li data-id="' + X.esc(c.id) + '"><span class="nm">' + X.esc(c.name) + '</span><span class="fd">confidence ' + (c.confidence != null ? c.confidence : "?") + ' · ' + X.esc(c.status || "?") + "</span><span class='rm' data-rv='1'>↻ 重验</span></li>").join("") + "</ul>" : '<div class="sp-empty">没有待验证条目 🎉</div>') + "</div>";
     ov.appendChild(card);
     ov.classList.remove("hidden");
     document.body.style.overflow = "hidden";
@@ -119,7 +121,23 @@
       ov.querySelectorAll(".p-tab").forEach(x => x.classList.toggle("hidden", x.dataset.ptab !== t.dataset.ptab));
     }));
     ov.querySelectorAll(".kg-node[data-id]").forEach(g => g.addEventListener("click", () => { ov.classList.add("hidden"); document.body.style.overflow = ""; X.openConcept(g.dataset.id); }));
-    ov.querySelectorAll(".sp-list li[data-id]").forEach(li => li.addEventListener("click", () => { ov.classList.add("hidden"); document.body.style.overflow = ""; X.openConcept(li.dataset.id); }));
+    ov.querySelectorAll(".sp-list li[data-id]").forEach(li => li.addEventListener("click", (e) => {
+      if (e.target.classList.contains("rm")) return;
+      ov.classList.add("hidden"); document.body.style.overflow = ""; X.openConcept(li.dataset.id);
+    }));
+    ov.querySelectorAll("[data-rv]").forEach(btn => btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const id = btn.closest("li").dataset.id;
+      const c = X.byId.get(id);
+      if (!c) return;
+      X.toast("正在重新验证「" + c.name + "」…（免费本地模型）");
+      fetch("/api/grow", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ q: c.name, force: true }) })
+        .then(r => r.json()).then(d => {
+          if (d.ok && (d.updated || d.source === "local")) { X.reloadData(); X.renderShelves(X._currentFilter); X.openPersonal(); X.toast("已重新验证"); }
+          else if (d.ok) { X.reloadData(); X.renderShelves(X._currentFilter); X.openPersonal(); X.toast("已更新（" + (d.concept.status || "verified") + "）"); }
+          else X.toast("重验失败：" + (d.reason || d.error || ""));
+        }).catch(() => X.toast("无法连接服务"));
+    }));
   };
 
   /* 聊天 GraphRAG 问答 */

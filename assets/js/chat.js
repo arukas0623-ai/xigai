@@ -83,12 +83,20 @@
       const div = document.createElement("div");
       div.className = m.role === "q" ? "chat-msg q" : "chat-msg a";
       div.innerHTML = '<div class="chat-bubble">' + (m.isHtml ? m.text : (m.role === "a" ? X.mdChat(m.text) : X.esc(m.text))) + "</div>";
-      if (m.role === "a" && m.text.length > 40) {
+      if (m.role === "a" && m.text.length > 40 && !m.isHtml) {
+        const row = document.createElement("div");
+        row.className = "chat-btnrow";
         const add = document.createElement("button");
         add.className = "chat-addbtn";
         add.textContent = "📥 加入书库";
         add.addEventListener("click", () => X.addAnswerToLibrary(m));
-        div.appendChild(add);
+        const ext = document.createElement("button");
+        ext.className = "chat-addbtn";
+        ext.textContent = "🔍 识别概念";
+        ext.addEventListener("click", () => X.extractFromAnswer(m, row));
+        row.appendChild(add);
+        row.appendChild(ext);
+        div.appendChild(row);
       }
       body.appendChild(div);
     });
@@ -160,6 +168,45 @@
     }
     X._askResolve(typing, q);
   };
+  /* P5：从 AI 回答中识别概念 → 检查书库 → 缺失可入库 */
+  X.extractFromAnswer = function (m, row) {
+    row.innerHTML = '<span class="chat-addbtn" style="opacity:.7">🔍 识别中…</span>';
+    fetch("/api/extract-concepts", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ text: m.text }),
+    }).then(r => r.json()).then(d => {
+      if (!d.ok || !d.concepts || !d.concepts.length) { row.innerHTML = '<span class="chat-addbtn" style="opacity:.6">未识别到概念</span>'; return; }
+      row.innerHTML = "";
+      d.concepts.forEach(cn => {
+        const chip = document.createElement("button");
+        chip.className = "chat-addbtn";
+        if (cn.exists) {
+          chip.textContent = "✓ " + cn.name + "（已在库）";
+          chip.addEventListener("click", () => X.openConcept(cn.concept.id));
+        } else {
+          chip.textContent = "+ " + cn.name + "（缺失·入库）";
+          chip.addEventListener("click", () => {
+            chip.textContent = "⏳ 生成中…";
+            chip.disabled = true;
+            fetch("/api/grow", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ q: cn.name }) })
+              .then(r => r.json()).then(g => {
+                if (g.ok) {
+                  const c = g.concept; c.id = c.id || X.slug(c.name);
+                  window.XIGAI[g.domain] = window.XIGAI[g.domain] || [];
+                  if (!X.byId.has(c.id) && !window.XIGAI[g.domain].some(x => x.name === c.name)) window.XIGAI[g.domain].push(c);
+                  X.reloadData(); X.renderShelves(X._currentFilter);
+                  chip.textContent = "✓ 已入库（" + g.domain + "）"; chip.classList.add("ok");
+                  X.toast("已入库：" + c.name);
+                } else { chip.textContent = g.reject ? "已拒绝：" + g.reason : (g.dup ? "已存在" : "失败：" + (g.error || "")); }
+              }).catch(() => { chip.textContent = "入库失败"; });
+          });
+        }
+        row.appendChild(chip);
+      });
+    }).catch(() => { row.innerHTML = '<span class="chat-addbtn" style="opacity:.6">识别失败</span>'; });
+  };
+
   /* 苏格拉底导师包装 */
   X.tutorWrap = function (q) {
     return "（苏格拉底式导师模式）请针对「" + q + "」通过层层提问引导用户独立思考，先不要直接给出答案；每次只问 1 个引导性问题。如果用户说「提示」给一个小提示；说「答案」才给出解释。";

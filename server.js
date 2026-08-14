@@ -424,17 +424,21 @@ function repairJSON(raw) {
   s = s.replace(/\]\s*\[/g, '],[');
   return s;
 }
-/* 从 AI 文本中提取 JSON 对象 */
+/* 从 AI 文本中提取 JSON（对象或数组） */
 function extractJSON(text) {
   const t = String(text || "");
   const fenced = t.match(/```(?:json)?\s*([\s\S]*?)```/i);
   const body = fenced ? fenced[1] : t;
+  const tryParse = raw0 => {
+    const raw = raw0.replace(/,([\s}\]])/g, "$1");
+    const attempts = [raw, repairJSON(raw), repairJSON(repairJSON(raw))];
+    for (const a of attempts) { try { return JSON.parse(a); } catch (e) {} }
+    return null;
+  };
   const i0 = body.indexOf("{"); const i1 = body.lastIndexOf("}");
-  if (i0 < 0 || i1 <= i0) return null;
-  let raw = body.slice(i0, i1 + 1);
-  raw = raw.replace(/,([\s}])/g, "$1");   // 尾逗号
-  const attempts = [raw, repairJSON(raw), repairJSON(repairJSON(raw))];
-  for (const a of attempts) { try { return JSON.parse(a); } catch (e) {} }
+  if (i0 >= 0 && i1 > i0) { const r = tryParse(body.slice(i0, i1 + 1)); if (r) return r; }
+  const j0 = body.indexOf("["); const j1 = body.lastIndexOf("]");
+  if (j0 >= 0 && j1 > j0) { const r = tryParse(body.slice(j0, j1 + 1)); if (r) return r; }
   return null;
 }
 const GROW_VOCAB = ["prerequisite", "followup", "related", "dependsOn", "evolvedFrom", "appliesTo"];
@@ -536,6 +540,53 @@ function domain2file(domain) {
   return "generated.js";
 }
 
+
+/* 可信度评分：来源数/定义长度/要点数 → 0-1；低可信(pending)不进入公共搜索 */
+function computeConfidence(c) {
+  let conf = 0.5;
+  const defLen = String(c.definition || "").length;
+  const srcs = (c.sources || []).length;
+  if (defLen >= 150) conf += 0.2;
+  if (srcs >= 2) conf += 0.2;
+  else if (srcs === 1) conf += 0.05;
+  if ((c.core || []).length >= 3) conf += 0.1;
+  if (/https?:\/\//.test(String(c.definition || ""))) conf -= 0.1;
+  return Math.min(1, Math.max(0, Math.round(conf * 100) / 100));
+}
+function statusOf(conf) { return conf >= 0.7 ? "verified" : conf >= 0.5 ? "generated" : "pending"; }
+
+/* 更新已有概念（force 重新验证）：保留 id/名称，替换内容，记录版本 */
+function updateConcept(domain, oldConcept, newConcept) {
+  return enqueueWrite(() => {
+    const dataDir = path.join(ROOT, "data");
+    let file = domain2file(domain);
+    if (!file) file = "generated.js";
+    const fp = path.join(dataDir, file);
+    const w = { XIGAI: {} };
+    try { new Function("window", fs.readFileSync(fp, "utf8"))(w); } catch (e) { return { ok: false }; }
+    const arr = w.XIGAI[domain] || [];
+    const idx = arr.findIndex(c => c.id === oldConcept.id || c.name === oldConcept.name);
+    if (idx < 0) return { ok: false, error: "目标概念不存在" };
+    const merged = Object.assign({}, oldConcept, newConcept, { id: oldConcept.id, name: oldConcept.name, domain: oldConcept.domain });
+    merged.status = statusOf(merged.confidence || 0.5) === "pending" ? "needs_update" : merged.status || "verified";
+    merged.searchedAt = new Date().toISOString().slice(0, 10);
+    arr[idx] = merged;
+    const out = "window.XIGAI = window.XIGAI || {};\nwindow.XIGAI[" + JSON.stringify(domain) + "] = " + JSON.stringify(arr, null, 2) + ";\n";
+    const tmp = fp + ".tmp";
+    fs.writeFileSync(tmp, out, "utf8");
+    fs.renameSync(tmp, fp);
+    try {
+      fs.mkdirSync(VERSION_DIR, { recursive: true });
+      const vf = path.join(VERSION_DIR, oldConcept.id + ".json");
+      const hist = fs.existsSync(vf) ? JSON.parse(fs.readFileSync(vf, "utf8")) : [];
+      hist.push({ at: Date.now(), domain, action: "update", status: merged.status });
+      fs.writeFileSync(vf, JSON.stringify(hist, null, 2));
+    } catch (e) {}
+    loadCorpus();
+    return { ok: true, concept: merged };
+  });
+}
+
 /* /api/grow 主流程 */
 function handleGrow(res, payload) {
   const q = String(payload.q || "").trim();
@@ -574,12 +625,26 @@ function handleGrow(res, payload) {
     if (!Array.isArray(obj.cons)) obj.cons = [];
     if (obj.principle == null) obj.principle = "";
     obj.id = normStr(obj.name).slice(0, 48) || "concept-" + Date.now();
+    obj.confidence = computeConfidence(obj);
+    obj.status = statusOf(obj.confidence);
     // 4) 去重
     const dup = dedupCheck(obj);
-    if (dup) { bumpStat("dupSkips", 1); return send(res, 200, JSON.stringify({ ok: false, dup: true, existing: dup, reason: "与已有概念重复" })); }
+    if (dup) {
+      if (force) {
+        // 强制重新验证：更新已有概念
+        bumpStat("updates", 1);
+        return updateConcept(dup.domain, dup, obj).then(r => {
+          if (r.ok) { try { fs.writeFileSync(cacheFile, JSON.stringify(obj)); } catch (e) {} send(res, 200, JSON.stringify({ ok: true, source: "ai", updated: true, domain: dup.domain, concept: r.concept })); }
+          else send(res, 200, JSON.stringify({ ok: false, error: r.error || "更新失败" }));
+        });
+      }
+      bumpStat("dupSkips", 1);
+      return send(res, 200, JSON.stringify({ ok: false, dup: true, existing: dup, reason: "与已有概念重复" }));
+    }
     // 5) 可信度/垃圾过滤
     const reason = junkCheck(obj, q);
     if (reason) { bumpReject(reason); return send(res, 200, JSON.stringify({ ok: false, reject: true, reason })); }
+    if (obj.confidence < 0.5) obj.status = "pending"; // 低可信：入库但不进入公共搜索
     // 6) 分类
     const domain = classifyDomain(obj);
     // 7) 入库（串行写）
@@ -701,6 +766,31 @@ function handleGraphRag(res, payload) {
   });
 }
 
+
+/* ── P5：AI 回答中的概念识别（提取候选概念名） ───────── */
+function handleExtract(res, payload) {
+  const text = String(payload.text || "").trim();
+  if (!text || text.length < 20) return send(res, 200, JSON.stringify({ ok: false, error: "文本过短" }));
+  const prompt = [
+    "从下面这段文字中提取 3-6 个值得收录为「知识词条」的概念/术语（名词性、有独立含义；排除人名、公司名、普通动词与口语）。",
+    "只输出 JSON 数组，如 [\"概念1\",\"概念2\"]，不要任何其他文字。",
+    "文字：",
+    text.slice(0, 1500),
+  ].join("\n");
+  growOllama(text.slice(0, 20), prompt).then(t => {
+    if (!t) { bumpStat("paidCalls", 1); return growPaid(text.slice(0, 20), prompt).then(pt => finish(pt)); }
+    bumpStat("ollamaCalls", 1);
+    finish(t);
+    function finish(t) {
+      if (!t) { bumpStat("errors", 1); return send(res, 200, JSON.stringify({ ok: false, error: "引擎不可用" })); }
+      const arr = extractJSON(t) || [];
+      const names = (Array.isArray(arr) ? arr : Array.isArray(arr.questions) ? arr.questions : []).map(String).map(s => s.trim()).filter(s => s.length >= 2 && s.length <= 24).slice(0, 6);
+      const out = names.map(n => ({ name: n, exists: !!findLocal(n), concept: findLocal(n) || null }));
+      send(res, 200, JSON.stringify({ ok: true, concepts: out }));
+    }
+  });
+}
+
 /* ── 静态服务 ─────────────────────────────────────── */
 const server = http.createServer((req, res) => {
   const url = new URL(req.url, "http://x");
@@ -717,10 +807,10 @@ const server = http.createServer((req, res) => {
     req.on("end", () => { let p = {}; try { p = JSON.parse(body || "{}"); } catch (e) {} handleGraphRag(res, p); });
     return;
   }
-  if (req.method === "POST" && (url.pathname === "/api/grow" || url.pathname === "/api/quiz")) {
+  if (req.method === "POST" && (url.pathname === "/api/grow" || url.pathname === "/api/quiz" || url.pathname === "/api/extract-concepts")) {
     let body = "";
     req.on("data", c => (body += c));
-    req.on("end", () => { let p = {}; try { p = JSON.parse(body || "{}"); } catch (e) {} if (url.pathname === "/api/quiz") handleQuiz(res, p); else handleGrow(res, p); });
+    req.on("end", () => { let p = {}; try { p = JSON.parse(body || "{}"); } catch (e) {} if (url.pathname === "/api/quiz") handleQuiz(res, p); else if (url.pathname === "/api/extract-concepts") handleExtract(res, p); else handleGrow(res, p); });
     return;
   }
   if (req.method === "POST" && url.pathname === "/api/launch-tool") {

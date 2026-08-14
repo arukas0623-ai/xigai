@@ -1168,60 +1168,61 @@ window.XIGAI["前沿科技"] = [
   {
     "name": "数字孪生",
     "aliases": [],
-    "field": "前沿科技",
+    "field": "前沿科技/计算机术语",
     "tags": [
       "物联网",
-      "虚拟现实"
+      "虚拟化"
     ],
     "difficulty": 3,
-    "summary": "通过数据模型复制物理对象。",
-    "definition": "数字孪生是指利用互联网、物联网等技术手段，将物理世界的实体或系统转化为一个虚拟的数字化模型，并在该模型中实时反映其状态和变化。这一概念广泛应用于工业制造、智慧城市等领域。",
-    "principle": "基于传感器数据采集与分析，通过云计算进行模拟和预测。",
-    "background": "数字孪生起源于航空航天领域，近年来随着物联网技术的发展逐渐普及到各个行业。",
+    "summary": "物理实体的数字化双胞胎",
+    "definition": "数字孪生是指通过集成各种传感器数据、历史记录和模型预测，创建一个与实际物理系统完全对应的虚拟模型。这个模型可以实时更新并反映物理系统的状态。",
+    "principle": "基于物联网技术，收集物理设备的数据，并在云端构建相应的虚拟模型。",
+    "background": "数字孪生起源于航空工业，近年来在智能制造、智慧城市等领域得到广泛应用。它通过数据驱动的方式提高系统性能和维护效率。",
     "core": [
-      "实时监控物理对象的状态",
-      "优化设计与维护流程",
-      "提高生产效率和安全性"
+      "实时监控与预测",
+      "优化设计与制造",
+      "故障诊断与预防"
     ],
     "pros": [
-      "减少实际测试的成本和风险",
-      "实现远程管理和控制"
+      "提升设备运行效率",
+      "减少停机时间"
     ],
     "cons": [
-      "数据安全和隐私问题",
-      "技术复杂度高，初期投入大"
+      "数据安全问题",
+      "初期投资成本高"
     ],
     "applications": [
-      "工业制造中的设备健康管理",
-      "城市规划与管理"
+      "工业4.0,",
+      "智能建筑"
     ],
     "misconceptions": [
-      "数字孪生仅限于制造业",
-      "所有物理对象都能完美转换为数字模型"
+      "数字孪生仅限于制造业"
     ],
     "related": [
       "物联网",
-      "智能制造"
+      "大数据分析"
     ],
     "relations": [
       {
-        "type": "evolvedFrom",
+        "type": "dependsOn",
         "target": "物联网",
         "note": ""
       },
       {
         "type": "appliesTo",
-        "target": "智能制造",
+        "target": "工业4.0,",
         "note": ""
       }
     ],
     "sources": [
-      "https://www.siemens.com.cn/corporate/en/innovation/digital-twin.html",
-      "https://www.nature.com/articles/s41520-020-0398-7,",
-      "https://ieeexplore.ieee.org/document/8658693,"
+      "https://www.siemens.com.cn/corporate/en/innovation/digital-twins.html",
+      "https://www.iotworldtoday.com/2018/05/30/digital-twin/"
     ],
     "searchedAt": "2026-08-14",
-    "status": "generated"
+    "status": "verified",
+    "domain": "前沿科技",
+    "id": "数字孪生",
+    "confidence": 0.8
   },
   {
     "name": "低空经济",
@@ -1282,5 +1283,64 @@ window.XIGAI["前沿科技"] = [
     "id": "低空经济",
     "searchedAt": "2026-08-14",
     "status": "generated"
+  },
+  {
+    "name": "车路协同",
+    "aliases": [],
+    "field": "前沿科技",
+    "tags": [
+      "智能交通",
+      "自动驾驶"
+    ],
+    "difficulty": 3,
+    "summary": "车辆与道路基础设施的协同工作",
+    "definition": "通过车辆和道路基础设施之间的信息交换，实现对道路交通状态的实时监测、预警及优化控制的技术体系。",
+    "principle": "利用传感器、通信技术等手段实现实时数据交互",
+    "background": "随着自动驾驶技术的发展，车路协同成为提升交通安全与效率的重要手段。它通过车辆与道路基础设施之间的信息交换，实现对道路交通状态的实时监测、预警及优化控制。",
+    "core": [
+      "信息感知：利用车载传感器和路侧设备收集交通数据",
+      "通信交互：通过无线通信技术实现实时信息共享",
+      "协同决策：基于收集的数据进行智能分析与决策"
+    ],
+    "pros": [
+      "提升道路安全性",
+      "优化交通流量，减少拥堵"
+    ],
+    "cons": [
+      "基础设施建设成本高",
+      "数据安全和隐私保护问题"
+    ],
+    "applications": [
+      "城市智慧交通系统",
+      "高速公路智能管理"
+    ],
+    "misconceptions": [
+      "车路协同仅适用于自动驾驶车辆",
+      "技术成熟度已达到广泛应用阶段"
+    ],
+    "related": [
+      "自动驾驶",
+      "车联网"
+    ],
+    "relations": [
+      {
+        "type": "followup",
+        "target": "自动驾驶",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "车联网",
+        "note": ""
+      }
+    ],
+    "sources": [
+      "https://baike.baidu.com/item/%E8%BD%A6%E8%B7%AF%E9%80%9A%E5%BF%AB",
+      "https://www.sohu.com/a/413227220_699109,"
+    ],
+    "id": "车路协同",
+    "confidence": 0.8,
+    "status": "generated",
+    "searchedAt": "2026-08-14"
   }
 ];

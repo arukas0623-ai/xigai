@@ -66,7 +66,7 @@
         const row = document.createElement("section");
         row.className = "shelf-row";
         row.id = "shelf-" + X.esc(d.key);
-        const books = d.concepts.filter(c => !X.isHidden(c.id)).map(c => {
+        const books = d.concepts.filter(c => !X.isHidden(c.id) && X.isPublic(c)).map(c => {
           const st = X.spineStyle(c, X.state.theme);
           const fav = X.isFav(c.id);
           const title = X.esc(c.name.length > 9 ? c.name.slice(0, 9) : c.name);
@@ -127,13 +127,20 @@
     const res = X.search(q, 24);
     X.searchResults = res;
     X._selIdx = -1;
+    const intent = X.detectIntent(q);
     if (!res.length) {
       box.innerHTML = '<div class="sr-empty">没有找到「' + X.esc(q) + '」<br>试试拼音、别名或更换关键词<br><span style="font-size:12px;color:var(--ink-3)">也可以直接问 AI 解析员</span></div>' +
         '<div class="sr-hint"><button class="mini-btn" id="sr-ask">💬 问 AI 解析「' + X.esc(q) + '」</button> · Esc 关闭</div>';
       const srAsk = box.querySelector("#sr-ask");
       if (srAsk) srAsk.addEventListener("click", () => { X.closeSearch(); const inp = document.getElementById("search"); if (inp) inp.value = ""; X.askAI(q); });
     } else {
-      let html = '<div class="sr-head">共 ' + res.length + " 个结果</div>";
+      let html = '';
+      if (intent.type === "compare" && intent.concepts.length === 2) {
+        html += '<div class="sr-intent">检测到对比意图：<button class="mini-btn" id="int-cmp">⚖ 对比 ' + X.esc(intent.concepts[0].name) + ' × ' + X.esc(intent.concepts[1].name) + '</button></div>';
+      } else if ((intent.type === "learn" || intent.type === "relation") && intent.concepts.length === 1) {
+        html += '<div class="sr-intent">检测到' + (intent.type === "learn" ? "学习" : "关系") + '意图：<button class="mini-btn" id="int-learn">📈 学习路线</button><button class="mini-btn" id="int-rel">🕸 关系图谱</button></div>';
+      }
+      html += '<div class="sr-head">共 ' + res.length + " 个结果</div>";
       res.forEach((c, i) => {
         const st = X.spineStyle(c, X.state.theme);
         html += '<div class="sr-item" data-idx="' + i + '">' +
@@ -149,6 +156,17 @@
         if (c) { X.closeSearch(); X.openConcept(c.id); }
       }));
     }
+    const intCmp = box.querySelector("#int-cmp");
+    if (intCmp) intCmp.addEventListener("click", () => {
+      X.closeSearch();
+      X.compareList = intent.concepts.map(c => c.id);
+      X.renderCompareTray();
+      X.showCompare();
+    });
+    const intLearn = box.querySelector("#int-learn");
+    const intRel = box.querySelector("#int-rel");
+    if (intLearn) intLearn.addEventListener("click", () => { X.closeSearch(); X.openGraph(intent.concepts[0].id); });
+    if (intRel) intRel.addEventListener("click", () => { X.closeSearch(); X.openGraph(intent.concepts[0].id); });
     box.classList.add("open");
     X._updateSel();
   };

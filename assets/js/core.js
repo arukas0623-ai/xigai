@@ -228,6 +228,27 @@
   };
 
 
+  /* 搜索意图识别（P3）：概念/对比/学习/关系/问题 */
+  X.detectIntent = function (q) {
+    const out = { type: null, concepts: [], extra: null };
+    const qq = String(q || "").trim();
+    if (!qq) return out;
+    let m = qq.match(/^\s*(.+?)\s*(?:和|与|vs\.?|VS|对比)\s*(.+?)\s*(?:的?区别|的?对比)?\s*[？?]?\s*$/);
+    if (m) {
+      const a = X.findLocalConcept(m[1].trim()), b = X.findLocalConcept(m[2].trim());
+      if (a && b && a.id !== b.id) { out.type = "compare"; out.concepts = [a, b]; return out; }
+      if (a || b) { out.type = "compare"; out.concepts = [a, b].filter(Boolean); out.extra = "part"; return out; }
+    }
+    m = qq.match(/(?:如何学习|学习路线|怎么学|想学)\s*(.+?)\s*[？?]?\s*$/);
+    if (m) { const c = X.findLocalConcept(m[1].trim()); if (c) { out.type = "learn"; out.concepts = [c]; return out; } }
+    m = qq.match(/^\s*(.+?)\s*(?:的前置|的前置知识|的后续|的关系|的知识图谱|的图谱)\s*[？?]?\s*$/);
+    if (m) { const c = X.findLocalConcept(m[1].trim()); if (c) { out.type = "relation"; out.concepts = [c]; return out; } }
+    const c = X.findLocalConcept(qq);
+    if (c) { out.type = "concept"; out.concepts = [c]; return out; }
+    out.type = "question";
+    return out;
+  };
+
   /* 本地命中（零成本，供聊天/入库前检查）：精确名称/别名匹配 */
   X.findLocalConcept = function (q) {
     if (!q) return null;
@@ -238,6 +259,15 @@
     const byAlias = X.data.find(c => (c.aliases || []).some(a => a.toLowerCase().replace(/[\s，。；、·．.:：()（）""''「」【】]/g, "") === nk));
     return byAlias || null;
   };
+
+  /* 数据质量层：低可信内容（pending/低 confidence）不进入公共搜索与书架 */
+  X.isPublic = function (c) {
+    if (!c) return false;
+    if (c.status === "pending") return false;
+    if (c.confidence != null && c.confidence < 0.5) return false;
+    return true;
+  };
+  X.pendingConcepts = function () { return X.data.filter(c => !X.isPublic(c)); };
 
   /* ── 搜索索引（拼音增强） ─────────────────────────── */
   X._idx = null;
@@ -327,7 +357,7 @@
     }
     scored.sort((a, b) => b.score - a.score || (a.it.c.name.length - b.it.c.name.length));
     scored.forEach(x => { if (x.rel) x.it.c._rel = true; });
-    return scored.slice(0, limit).map(x => x.it.c);
+    return scored.filter(x => X.isPublic(x.it.c)).slice(0, limit).map(x => x.it.c);
   };
   X._synTok = function (tk) {
     if (!X._synRev) {

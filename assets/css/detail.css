@@ -405,3 +405,6 @@
 .p-tab { margin-top: 12px; }
 .sp-tab .cnt { margin-left: 4px; font-size: 10px; opacity: .7; }
 .gr-chip { background: color-mix(in srgb, var(--accent) 14%, transparent); border-color: var(--accent); }
+
+.chat-btnrow { display: flex; gap: 6px; margin-top: 4px; flex-wrap: wrap; }
+.chat-addbtn.ok { color: #3f7d3f; border-color: #3f7d3f; }
