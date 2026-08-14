@@ -82,6 +82,11 @@
 - **批处理**：growBatch —— 一次 Ollama 生成 2 个候选概念（各自仍走独立校验质量门），pump 检测到 ≥2 个 concept 任务自动合并；batchCalls 计数
 - **效率指标**：/api/efficiency —— 窗口候选→入库转化率 / 任务成功率 / Ollama-新增比 / 重复率 / 失败率 / 关系增长 / 完整度变化（delta 对比）
 - **管线复用**：processGeneratedConcept 抽取（growTarget 与 growBatch 共用同一质量门管线）
+## 5f. 本轮新增（2026-08-14 高价值自增长 + 成本极限优化）
+- **批处理 2→8**：growBatch 一次 Ollama 最多 8 概念，输出长度硬控（definition+principle ≤200 字/词条，总 ≤2500 字）；pump 聚合队列中最多 8 个 concept 任务；**批量独立校验**（verifyConceptBatch 2 词条/次，省 50% 校验调用）——8 概念从 16 次调用降至 5 次（1 生成 + 4 校验）
+- **classifyDomain 修复**：field 精确/包含 → **分段匹配**（"医学/免疫学"→医学健康）→ 动态领域索引（field/tags/name 多数投票，≥2 票采信，语料变更自动失效重建）→ 无法可靠分类返回**"待分类"**（不再强行归入 AI 生成）
+- **Patrol 优先级重排**：核心概念缺字段(16) > 高热度缺字段(14) > 高价值 pending 关系(15) > 孤立节点(12) > 新概念（discover 兜底）
+- **成长收益率**：每次入库统计 yieldVerified/yieldRelations；/api/efficiency 新增 effectiveGrowthRate（每次 Ollama 调用产出的 verified+有效关系）与窗口转化率
 ## 6. 禁止事项
 - 大规模重构；删除/降级 pending 关系；无依据制造关系；自动任务启用付费（autoPaidEnabled 恒 false）；追求概念数量；破坏现有 API/数据/Ollama 策略；移动端输入对比度回退
 
