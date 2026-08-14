@@ -102,7 +102,7 @@
     card.innerHTML =
       '<button class="panel-close">✕</button>' +
       '<h3 class="cmp-title">🧑🎓 我的学习中心</h3>' +
-      '<div class="sp-tabs"><button class="sp-tab active" data-ptab="graph">🕸 图谱</button><button class="sp-tab" data-ptab="master">🎯 掌握度</button><button class="sp-tab" data-ptab="gaps">🧩 盲区<span class="cnt">' + gaps.length + '</span></button><button class="sp-tab" data-ptab="recs">✨ 推荐</button><button class="sp-tab" data-ptab="pending">🕓 待验证<span class="cnt">' + X.pendingConcepts().length + '</span></button></div>' +
+      '<div class="sp-tabs"><button class="sp-tab active" data-ptab="graph">🕸 图谱</button><button class="sp-tab" data-ptab="master">🎯 掌握度</button><button class="sp-tab" data-ptab="gaps">🧩 盲区<span class="cnt">' + gaps.length + '</span></button><button class="sp-tab" data-ptab="recs">✨ 推荐</button><button class="sp-tab" data-ptab="pending">🕓 待验证<span class="cnt">' + X.pendingConcepts().length + '</span></button><button class="sp-tab" data-ptab="activity">🌱 最近动态</button></div>' +
       '<div class="p-tab" data-ptab="graph">' + pgSvg + "</div>" +
       '<div class="p-tab hidden" data-ptab="master">' +
         (masters.length ? '<ul class="sp-list">' + masters.map(x => '<li data-id="' + X.esc(x.c.id) + '"><span class="nm">' + X.esc(x.c.name) + '</span><span class="fd">' + X.esc(x.c.domain) + "</span><span class='mastery-badge " + X.masteryLabel(x.c.id).cls + "'>" + X.masteryLabel(x.c.id).text + " " + x.m.score + "%</span></li>").join("") + "</ul>" : '<div class="sp-empty">还没有测试记录——在概念详情页点「📝 测试」</div>') + "</div>" +
@@ -111,6 +111,7 @@
       '<div class="p-tab hidden" data-ptab="recs">' +
         (recs.length ? '<ul class="sp-list">' + recs.map(r => '<li data-id="' + X.esc(r.concept.id) + '"><span class="nm">' + X.esc(r.concept.name) + '</span><span class="fd">' + X.esc(r.why) + "</span></li>").join("") + "</ul>" : '<div class="sp-empty">多读几本书后会有推荐</div>') + "</div>" +
       '<div class="p-tab hidden" data-ptab="health" id="health-tab"><div class="sp-empty">加载中…</div></div>' +
+      '<div class="p-tab hidden" data-ptab="activity" id="activity-tab"><div class="sp-empty">加载中…</div></div>' +
       '<div class="p-tab hidden" data-ptab="pending">' +
         (X.pendingConcepts().length ? '<ul class="sp-list">' + X.pendingConcepts().map(c => '<li data-id="' + X.esc(c.id) + '"><span class="nm">' + X.esc(c.name) + '</span><span class="fd">confidence ' + (c.confidence != null ? c.confidence : "?") + ' · ' + X.esc(c.status || "?") + "</span><span class='rm' data-rv='1'>↻ 重验</span></li>").join("") + "</ul>" : '<div class="sp-empty">没有待验证条目 🎉</div>') + "</div>";
     ov.appendChild(card);
@@ -122,6 +123,7 @@
       ov.querySelectorAll(".sp-tab").forEach(x => x.classList.toggle("active", x === t));
       ov.querySelectorAll(".p-tab").forEach(x => x.classList.toggle("hidden", x.dataset.ptab !== t.dataset.ptab));
       if (t.dataset.ptab === "health") X.renderHealthTab();
+       if (t.dataset.ptab === "activity") X.renderActivityTab();
     }));
     X.renderHealthTab();
     ov.querySelectorAll(".kg-node[data-id]").forEach(g => g.addEventListener("click", () => { ov.classList.add("hidden"); document.body.style.overflow = ""; X.openConcept(g.dataset.id); }));
@@ -206,6 +208,28 @@
   };
 
   /* 知识缺口视图（来自 /api/health） */
+  X.renderActivityTab = function () {
+    const box = document.getElementById("activity-tab");
+    if (!box) return;
+    box.innerHTML = '<div class="sp-empty">加载中…</div>';
+    fetch("/api/recent-activity").then(r => r.json()).then(d => {
+      if (!d.ok) { box.innerHTML = '<div class="sp-empty">暂不可用</div>'; return; }
+      const sec = (title, items, empty) => {
+        if (!items || !items.length) return '<div class="sp-sec"><h4>' + title + '</h4><div class="sp-empty">' + empty + "</div></div>";
+        return '<div class="sp-sec"><h4>' + title + '</h4><ul class="sp-list">' + items.map(x =>
+          '<li data-id="' + X.esc(x.id) + '"><span class="nm">' + X.esc(x.name) + '</span><span class="fd">' + X.esc(x.domain) + (x.debt != null ? " · 债务" + x.debt : "") + (x.heat != null ? " · 热度" + x.heat : "") + "</span></li>").join("") + "</ul></div>";
+      };
+      box.innerHTML = sec("最近新增", d.recentAdded, "暂无新收录") +
+        sec("最近完善", d.recentlyRefined, "暂无近期核验") +
+        sec("正在补全", d.growing, "暂无待补全缺口");
+      box.querySelectorAll(".sp-list li[data-id]").forEach(li => li.addEventListener("click", () => {
+        const ov = document.getElementById("personal-panel");
+        if (ov) { ov.classList.add("hidden"); document.body.style.overflow = ""; }
+        X.openConcept(li.dataset.id);
+      }));
+    }).catch(() => { box.innerHTML = '<div class="sp-empty">暂不可用</div>'; });
+  };
+
   X.renderHealthTab = function () {
     const box = document.getElementById("health-tab");
     if (!box) return;

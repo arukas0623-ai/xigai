@@ -1236,5 +1236,232 @@ window.XIGAI["人工智能"] = [
     },
     "searchedAt": "2026-08-14",
     "domain": "人工智能"
+  },
+  {
+    "name": "Transformer",
+    "aliases": [],
+    "field": "人工智能/计算机术语",
+    "tags": [
+      "深度学习",
+      "编码解码"
+    ],
+    "difficulty": 3,
+    "summary": "一种基于自注意力机制的神经网络架构。",
+    "definition": "Transformer 是一种用于序列建模的神经网络架构，特别适用于自然语言处理任务。它通过自注意力机制（self-attention mechanism）捕捉输入序列中的长距离依赖关系，从而在无需递归结构的情况下实现高效的并行计算。",
+    "principle": "",
+    "background": "Transformer 架构由 Vaswani 等人在 2017 年提出，作为传统的循环神经网络（RNN）和长短时记忆网络（LSTM）的替代方案。它极大地提高了机器翻译等任务的效果，并迅速成为自然语言处理领域的重要工具。",
+    "core": [
+      "自注意力机制",
+      "多头注意力",
+      "前馈神经网络层"
+    ],
+    "pros": [
+      "并行计算能力强",
+      "适用于长序列数据"
+    ],
+    "cons": [
+      "参数量大，计算资源需求高"
+    ],
+    "applications": [
+      "机器翻译",
+      "文本生成"
+    ],
+    "misconceptions": [
+      "Transformer 只能用于自然语言处理任务是错误的。它已被应用于图像识别、音频处理等多种领域。",
+      "Transformer 没有递归结构，因此无法捕捉序列中的依赖关系是不准确的。实际上，自注意力机制能够有效捕捉长距离依赖关系。"
+    ],
+    "related": [
+      "RNN",
+      "LSTM",
+      "BERT"
+    ],
+    "relations": [
+      {
+        "type": "evolvedFrom",
+        "target": "RNN",
+        "note": "",
+        "confidence": 0.3
+      },
+      {
+        "type": "followup",
+        "target": "BERT",
+        "note": "",
+        "confidence": 0.3
+      }
+    ],
+    "sources": [
+      "https://arxiv.org/abs/1706.03762",
+      "https://paperswithcode.com/method/transformer"
+    ],
+    "id": "transformer",
+    "provenance": {
+      "discoveredBy": "system",
+      "discoveredAt": 1786698228093,
+      "evidence": "candidate:system"
+    },
+    "confidence": 0.86,
+    "sourceConfidence": 0.7,
+    "relationConfidence": 0.3,
+    "status": "verified",
+    "verification": {
+      "by": "ollama",
+      "score": 0.8,
+      "issues": [
+        "Transformer 的定义中提到它特别适用于自然语言处理任务，这是正确的，但没有明确指出 Transformer 是如何通过自注意力机制来实现这一点的。",
+        "原理部分提到了自注意力机制用于捕捉长距离依赖关系，这是准确的，但可以进一步详细说明这一过程的具体步骤和优势。"
+      ],
+      "note": "总体而言，词条中的定义和原理基本准确，但可以提供更多的细节以增强解释的全面性。",
+      "at": 1786698245374
+    },
+    "searchedAt": "2026-08-14"
+  },
+  {
+    "name": "中文房间",
+    "aliases": [],
+    "field": "人工智能/计算机哲学",
+    "tags": [
+      "思维实验",
+      "意识"
+    ],
+    "difficulty": 3,
+    "summary": "约翰·塞尔提出的关于计算主义的反驳。",
+    "definition": "由美国哲学家、认知科学家约翰·塞尔提出的一个著名思想实验，用于质疑强人工智能理论，即计算机能否真正拥有意识和理解语言的能力。",
+    "principle": "",
+    "background": "1980年，塞尔在《心智、大脑与程序》一文中提出了这个思想实验。他认为，尽管一台机器可以按照某种规则处理信息并表现出类似人类的智能行为，但这并不意味着这台机器具有真正的意识或理解能力。",
+    "core": [
+      "房间里的沟通者只能通过卡片上的字进行交流",
+      "参与者无法真正理解语言背后的含义",
+      "计算机程序虽然能模拟人类对话，但缺乏真正的理解"
+    ],
+    "pros": [],
+    "cons": [
+      "仅作为反驳强人工智能理论的工具"
+    ],
+    "applications": [
+      "讨论意识与计算的关系",
+      "探讨人工智能是否能够达到人类智能的深度和广度"
+    ],
+    "misconceptions": [
+      "中文房间证明了计算机无法理解语言",
+      "中文房间直接否定了所有形式的人工智能技术"
+    ],
+    "related": [
+      "强人工智能",
+      "弱人工智能"
+    ],
+    "relations": [
+      {
+        "type": "followup",
+        "target": "强人工智能",
+        "note": "",
+        "confidence": 0.3
+      },
+      {
+        "type": "related",
+        "target": "强人工智能",
+        "note": "",
+        "confidence": 0.3
+      }
+    ],
+    "sources": [
+      "https://plato.stanford.edu/entries/chinese-room/",
+      "https://www.jstor.org/stable/20185694?seq=3#page_271",
+      "https://en.wikipedia.org/wiki/Chinese_room"
+    ],
+    "id": "中文房间",
+    "provenance": {
+      "discoveredBy": "system",
+      "discoveredAt": 1786698235965,
+      "evidence": "candidate:system"
+    },
+    "confidence": 0.9,
+    "sourceConfidence": 1,
+    "relationConfidence": 0.3,
+    "status": "verified",
+    "verification": {
+      "by": "ollama",
+      "score": 1,
+      "issues": [],
+      "note": "该词条定义和原理准确无误，与强人工智能理论的关系描述也恰当。",
+      "at": 1786698246158
+    },
+    "searchedAt": "2026-08-14"
+  },
+  {
+    "name": "聊天机器人",
+    "aliases": [],
+    "field": "人工智能/计算机术语",
+    "tags": [
+      "自然语言处理",
+      "人机交互"
+    ],
+    "difficulty": 3,
+    "summary": "通过文本或语音与用户进行对话的软件程序。",
+    "definition": "一种基于人工智能技术，能够模仿人类对话并提供信息、解决问题或完成任务的人机交互系统。它通常使用自然语言处理和机器学习算法来理解用户的输入，并生成相应的回复。",
+    "principle": "基于规则引擎、统计模型（如深度神经网络）等进行文本理解和生成。",
+    "background": "聊天机器人最早出现在20世纪60年代，随着人工智能技术的发展，其应用范围不断扩大。现代聊天机器人广泛应用于客户服务、智能助手等领域。",
+    "core": [
+      "自然语言处理",
+      "机器学习算法",
+      "对话管理"
+    ],
+    "pros": [
+      "提高响应速度和效率",
+      "24小时不间断服务"
+    ],
+    "cons": [
+      "理解复杂语境的能力有限",
+      "难以完全替代人类情感交流"
+    ],
+    "applications": [
+      "客户服务",
+      "虚拟助手"
+    ],
+    "misconceptions": [
+      "聊天机器人可以完全理解所有用户问题",
+      "所有聊天机器人都能提供高质量服务"
+    ],
+    "related": [
+      "智能客服",
+      "语音助手"
+    ],
+    "relations": [
+      {
+        "type": "followup",
+        "target": "自然语言处理",
+        "note": "",
+        "confidence": 0.85
+      },
+      {
+        "type": "followup",
+        "target": "机器学习",
+        "note": "",
+        "confidence": 0.85
+      }
+    ],
+    "sources": [
+      "https://www.ibm.com/topics/chatbots",
+      "https://en.wikipedia.org/wiki/Chatbot"
+    ],
+    "id": "聊天机器人",
+    "provenance": {
+      "discoveredBy": "system",
+      "discoveredAt": 1786698243135,
+      "evidence": "candidate:system"
+    },
+    "confidence": 0.86,
+    "sourceConfidence": 0.7,
+    "relationConfidence": 0.85,
+    "status": "verified",
+    "verification": {
+      "by": "ollama",
+      "score": 0.8,
+      "issues": [
+        "定义中没有提及使用规则引擎，这可能不是聊天机器人的主要技术路径"
+      ],
+      "note": "虽然聊天机器人的确可以使用自然语言处理和机器学习，但定义中提到的规则引擎并不是必需的技术手段。",
+      "at": 1786698247520
+    },
+    "searchedAt": "2026-08-14"
   }
 ];

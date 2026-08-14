@@ -2479,5 +2479,91 @@ window.XIGAI["金融投资"] = [
     "relationConfidence": 0.57,
     "status": "verified",
     "searchedAt": "2026-08-14"
+  },
+  {
+    "name": "金融基础",
+    "aliases": [],
+    "field": "金融投资",
+    "tags": [
+      "基础知识",
+      "理财"
+    ],
+    "difficulty": 2,
+    "summary": "金融的基本概念和工具。",
+    "definition": "金融基础是指理解和掌握金融市场、金融机构、金融产品及服务的基本概念和运作机制，是个人或企业进行财务规划和决策的前提。",
+    "principle": "",
+    "background": "金融基础是理解更复杂金融产品和服务的基础。它涵盖了货币、信用、风险、收益等核心概念。",
+    "core": [
+      "了解货币的基本形式（现金、支票、电子转账）",
+      "掌握储蓄和投资的区别与联系",
+      "认识贷款的基本类型及其利弊"
+    ],
+    "pros": [],
+    "cons": [],
+    "applications": [
+      "个人理财规划",
+      "企业财务决策"
+    ],
+    "misconceptions": [
+      "金融基础等同于高深的金融理论。",
+      "掌握金融基础就足以应对复杂的金融市场变化。"
+    ],
+    "related": [
+      "投资学",
+      "财务管理"
+    ],
+    "relations": [
+      {
+        "type": "followup",
+        "target": "金融市场",
+        "note": "",
+        "confidence": 0.3
+      },
+      {
+        "type": "followup",
+        "target": "金融机构",
+        "note": "",
+        "confidence": 0.3
+      },
+      {
+        "type": "prerequisite",
+        "target": "投资学",
+        "note": "",
+        "confidence": 0.3
+      },
+      {
+        "type": "followup",
+        "target": "财务管理",
+        "note": "",
+        "confidence": 0.3
+      }
+    ],
+    "sources": [
+      "https://www.investopedia.com/terms/f/financialbasics.asp",
+      "http://www.fundchina.org.cn/html/2018-05/31/content_4796.htm",
+      "https://www.cnbc.com/id/102896734/video/what-are-the-basics-of-finance/",
+      "https://www.bloomberg.com/news/articles/2021-05-10/why-financial-literacy-is-so-important-and-how-to-improve-it"
+    ],
+    "id": "金融基础",
+    "provenance": {
+      "discoveredBy": "user",
+      "discoveredAt": 1786698182042,
+      "evidence": "user-request:金融基础"
+    },
+    "confidence": 0.9,
+    "sourceConfidence": 0.55,
+    "relationConfidence": 0.3,
+    "status": "verified",
+    "searchedAt": "2026-08-14",
+    "domain": "金融投资",
+    "verification": {
+      "by": "ollama",
+      "score": 0.8,
+      "issues": [
+        "定义中未明确指出金融基础包括术语和工具，这可能引起混淆"
+      ],
+      "note": "需要进一步澄清金融基础的具体内容",
+      "at": 1786698183499
+    }
   }
 ];

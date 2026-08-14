@@ -1066,6 +1066,33 @@ function healthScore() {
     else pendingGrade.low++;
   }
   gapList.sort((a, b) => b.priority - a.priority);
+  // 知识健康循环：最近更新质量（7天内新增/完善/复查的概念）
+  const nowMs = Date.now();
+  let rCount = 0, rComp = 0, rVerified = 0, rEff = 0, rRel = 0;
+  for (const c of CORPUS.all) {
+    const t = Math.max(
+      (c.provenance && c.provenance.discoveredAt) || 0,
+      (c.verification && c.verification.at) || 0,
+      c.searchedAt ? new Date(String(c.searchedAt).slice(0, 10) + "T00:00:00").getTime() : 0
+    );
+    if (!t || nowMs - t > 7 * 864e5) continue;
+    rCount++;
+    let cc = 0;
+    if (c.definition && c.definition.length >= 60) cc++;
+    if (c.principle) cc++;
+    if ((c.applications || []).length) cc++;
+    rComp += cc / 3;
+    if ((c.confidence || 0) >= 0.85) rVerified++;
+    const rels = c.relations || [];
+    const ve = rels.filter(r => CORPUS.byId.has(r.target) && (r.confidence != null ? r.confidence : 0.6) >= 0.6).length;
+    rEff += ve; rRel += rels.length;
+  }
+  const recentUpdateQuality = rCount ? {
+    count: rCount,
+    avgCompleteness: Math.round(rComp / rCount * 100),
+    verifiedRate: Math.round(rVerified / rCount * 100),
+    relationEfficiency: rRel ? Math.round(rEff / rRel * 100) : 100,
+  } : { count: 0 };
   return {
     concepts,
     avgCompleteness: concepts ? Math.round(compSum / concepts * 100) : 0,
@@ -1086,6 +1113,7 @@ function healthScore() {
     relationPool: Object.keys(readRelPool()).length,
     moderationQueue: readModeration().length,
     gaps: gapList,
+    recentUpdateQuality,
   };
 }
 
@@ -1127,8 +1155,9 @@ function runPatrol() {
     if (pick && enqueueTask('review', pick.id, 'patrol-review', { priority: 8 })) enqueued++;
   }
   bumpStat('patrolRuns', 1);
+  try { seedGrowthCandidates(); } catch (e) {}
   if (GROW_QUEUE.length) setTimeout(pumpQueue, 100);
-  return { ok: true, health: h, enqueued };
+  return { ok: true, health: h, enqueued, recentUpdateQuality: h.recentUpdateQuality };
 }
 
 function applyRelationBudget(c) {
@@ -1275,6 +1304,27 @@ function generateCandidates() {
       cand[k].sources.alias = true;
     }
   }
+  // 生长2.0：旧式字段（prerequisites/followUps）中的缺失概念
+  for (const c of CORPUS.all) for (const f of ["prerequisites", "followUps"]) for (const t of (c[f] || [])) {
+    if (typeof t !== "string") continue;
+    const k = normStr(t);
+    if (k.length < 2 || findLocal(t)) continue;
+    cand[k] = cand[k] || { name: t, freq: 0, sources: {} };
+    cand[k].freq += 1;
+    cand[k].sources.legacy = true;
+  }
+  // 生长2.0：跨域引用加权（同一缺失目标被 ≥2 个领域引用 → 交叉知识线索）
+  const crossRef = {};
+  for (const c of CORPUS.all) {
+    for (const r of (c.relations || [])) {
+      if (CORPUS.byId.has(r.target)) continue;
+      const k = normStr(r.target);
+      (crossRef[k] = crossRef[k] || new Set()).add(c.domain);
+    }
+  }
+  for (const k of Object.keys(crossRef)) {
+    if (cand[k] && crossRef[k].size >= 2) cand[k].freq += 1;   // 跨域交叉知识
+  }
   const JUNK = /(什么|如何|怎么|为什么|是不是|有没有|好吗|可以吗|你是谁|你好|^[a-zA-Z0-9]{1,2}$|^.$)/;
   for (const k of Object.keys(cand)) if (JUNK.test(cand[k].name) || cand[k].name.length > 24) delete cand[k];
   return cand;
@@ -1338,6 +1388,16 @@ function pumpQueue() {
   }
   queueBusy = false;
   if (GROW_QUEUE.length) setTimeout(pumpQueue, 8000);
+  else {
+    // 生长2.0：队列空闲时做节流健康检查（6h，只记录不修改）
+    try {
+      const st = readStats();
+      if (!st.lastAutoCheck || Date.now() - st.lastAutoCheck > 6 * 3600e3) {
+        st.lastAutoCheck = Date.now(); writeStats(st);
+        autoHealthCheck();
+      }
+    } catch (e) {}
+  }
 }
 /* 自动复查：抽样低置信/旧来源/高热度概念，重新检查；变化入版本，不确定保留旧版 */
 function reviewConceptTask(id) {
@@ -1531,9 +1591,34 @@ function growTarget(payload) {
     obj.id = normStr(obj.name).slice(0, 48) || "concept-" + Date.now();
     obj.provenance = { discoveredBy: provenanceSource, discoveredAt: Date.now(), evidence: "candidate:" + provenanceSource };
     obj = await enrichConcept(obj, target);
-    // 4) 去重
+    // 质量门：独立校验（生成与校验分离，自动任务同样必经）
+    const v = await verifyConceptStep(obj);
+    obj.verification = { by: v.by, score: v.score, issues: (v.issues || []).slice(0, 2), note: v.note, at: v.at };
+    if (v.score != null) {
+      obj.confidence = Math.min(0.9, Math.round((obj.confidence * 0.6 + v.score * 0.4) * 100) / 100);
+      obj.status = statusOf(obj.confidence);
+    }
+    if (v.score != null && v.score < 0.5) {
+      const mq = readModeration();
+      mq.push({ status: "pending", kind: "concept-verify-fail", conceptId: obj.id || key, name: obj.name, definition: String(obj.definition || "").slice(0, 200), issues: (v.issues || []).slice(0, 3), note: v.note, at: Date.now() });
+      writeModeration(mq);
+      bumpStat("conflictsDetected", 1);
+      return { ok: false, pending: true, reason: "存在事实疑点，已进入人工审核队列" };
+    }
+    // 4) 去重：已有概念优先更新/补全
     const dup = dedupCheck(obj);
-    if (dup) { bumpStat("dupSkips", 1); return { ok: true, source: "dup", concept: dup }; }
+    if (dup) {
+      bumpStat("updates", 1);
+      const ur = await updateConcept(dup.domain, dup, obj);
+      if (ur.ok) {
+        try { fs.writeFileSync(cacheFile, JSON.stringify(obj)); } catch (e) {}
+        const p = readPending(); delete p[key]; writePending(p);
+        const cpool = readCandidates(); const ck = normStr(obj.name); if (cpool[ck]) { delete cpool[ck]; writeCandidates(cpool); }
+        return { ok: true, source: "update", updated: true, concept: ur.concept };
+      }
+      bumpStat("dupSkips", 1);
+      return { ok: true, source: "dup", concept: dup };
+    }
     // 5) 可信度
     const reason = junkCheck(obj, target);
     if (reason) { bumpReject(reason); return { ok: false, reject: true, reason }; }
@@ -1742,6 +1827,42 @@ function handleDiscover(res, payload) {
 }
 
 
+/* 生长2.0：最近动态（最近新增/最近完善/正在补全） */
+function handleRecentActivity(res) {
+  if (!CORPUS) loadCorpus();
+  const nowMs = Date.now();
+  const pick = (list, n) => list.slice(0, n).map(c => ({ id: c.id, name: c.name, domain: c.domain, difficulty: c.difficulty || 3, status: c.status }));
+  const added = CORPUS.all.filter(c => c.provenance && c.provenance.discoveredAt).sort((a, b) => b.provenance.discoveredAt - a.provenance.discoveredAt);
+  const refined = CORPUS.all.filter(c => c.verification && c.verification.at).sort((a, b) => b.verification.at - a.verification.at);
+  const byTouch = CORPUS.all
+    .map(c => ({ c, t: Math.max((c.provenance && c.provenance.discoveredAt) || 0, (c.verification && c.verification.at) || 0, c.searchedAt ? new Date(String(c.searchedAt).slice(0, 10) + "T00:00:00").getTime() : 0) }))
+    .filter(x => x.t > 0 && nowMs - x.t < 14 * 864e5)
+    .sort((a, b) => b.t - a.t)
+    .map(x => x.c);
+  const gaps = healthScore().gaps.filter(g => g.kind !== "low-debt").slice(0, 6);
+  const growing = gaps.map(g => ({ id: g.id, name: g.name, domain: g.domain, debt: g.debt, isolated: g.isolated, heat: g.heat, degree: g.degree }));
+  send(res, 200, JSON.stringify({
+    ok: true,
+    recentAdded: pick(added, 6),
+    recentlyRefined: pick(refined, 6),
+    recentlyTouched: pick(byTouch, 6),
+    growing,
+    at: nowMs,
+  }));
+}
+/* 生长2.0：显式触发健康检查（只记录不修改） */
+function handleHealthCheck(res) {
+  const log = autoHealthCheck();
+  send(res, 200, JSON.stringify({ ok: true, log }));
+}
+/* 生长2.0：触发候选播种 + 断层提议（Ollama 缓存） */
+function handleSeedCandidates(res, payload) {
+  const s1 = seedGrowthCandidates();
+  learningGapCandidates(Number((payload && payload.limit) || 3)).then(s2 => {
+    send(res, 200, JSON.stringify({ ok: true, seeded: s1 + s2, subdomainLegacy: s1, pathGaps: s2, pool: Object.keys(readCandidates()).length }));
+  }).catch(e => send(res, 200, JSON.stringify({ ok: false, error: String(e).slice(0, 120) })));
+}
+
 /* ═══ 领域体系扩展：覆盖分析 → 子领域候选 → 校验落盘 ═══ */
 const SUBDOMAIN_DIR = path.join(ROOT, ".cache", "subdomains");
 const SUBDOMAIN_FILE = path.join(SUBDOMAIN_DIR, "hierarchy.json");
@@ -1810,6 +1931,112 @@ function validateSubdomains(domain, subs) {
   }
   return out;
 }
+/* 生长2.0：候选播种（子领域代表概念 + 旧式字段） */
+function seedGrowthCandidates() {
+  if (!CORPUS) loadCorpus();
+  const cpool = readCandidates();
+  let seeded = 0;
+  const hier = readSubdomains();
+  for (const dom of Object.keys(hier)) {
+    for (const s of (hier[dom] || [])) {
+      for (const rp of (s.reps || [])) {
+        if (findLocal(rp)) continue;
+        const k = normStr(rp);
+        if (k.length < 2 || cpool[k]) continue;
+        cpool[k] = { name: rp, fail: 0, source: "subdomain:" + dom + "/" + s.name, at: Date.now() };
+        seeded++;
+      }
+    }
+  }
+  for (const c of CORPUS.all) {
+    for (const f of ["prerequisites", "followUps"]) {
+      for (const t of (c[f] || [])) {
+        if (typeof t !== "string" || findLocal(t)) continue;
+        const k = normStr(t);
+        if (k.length < 2 || cpool[k]) continue;
+        cpool[k] = { name: t, fail: 0, source: "legacy:" + f, at: Date.now() };
+        seeded++;
+      }
+    }
+  }
+  if (seeded) { writeCandidates(cpool); bumpStat("candidatesSeeded", seeded); }
+  return seeded;
+}
+/* 生长2.0：学习路径断层 → 缺失前置概念候选（Ollama 提议，7天缓存） */
+function learningGapCandidates(limit) {
+  if (!CORPUS) loadCorpus();
+  const heat = readHeat();
+  const cands = CORPUS.all
+    .filter(c => (c.difficulty || 3) >= 4 && c.status !== "pending" && !(c.relations || []).some(r => r.type === "prerequisite" && CORPUS.byId.has(r.target)))
+    .sort((a, b) => (heat[b.id] || 0) - (heat[a.id] || 0))
+    .slice(0, limit || 3);
+  const cpool = readCandidates();
+  let seeded = 0;
+  const jobs = cands.map(c => {
+    const key = normStr(c.name).slice(0, 30);
+    const cf = path.join(SUBDOMAIN_DIR, "gap-" + key + ".json");
+    try {
+      const st = fs.statSync(cf);
+      if (Date.now() - st.mtimeMs < VERIFY_TTL) return Promise.resolve(JSON.parse(fs.readFileSync(cf, "utf8")));
+    } catch (e) {}
+    const prompt = [
+      "知识库中概念「" + c.name + "」难度较高，但缺少前置概念（prerequisite）。",
+      "请提议 1-2 个学习它之前应先掌握的**单一概念名词**（2-8 个字，如「线性代数」「编译原理」；不要短语、不要句子、不要含「与/和/及其」的连接式表述）。",
+      '只输出 JSON 数组：["前置概念1","前置概念2"]',
+    ].join("\n");
+    const JUNK_PHRASE = /与|和|及其|基本概念|相关知识|主要内容|包括|以及|(概念|关系|原理)$/;
+    return growOllama(c.name, prompt).then(text => {
+      bumpStat("ollamaCalls", 1);
+      const out = { name: c.name, prereqs: [], at: Date.now() };
+      if (text) { const arr = extractJSON(text); if (Array.isArray(arr)) out.prereqs = arr.map(String).map(s => s.trim()).filter(s => s.length >= 2 && s.length <= 12 && !JUNK_PHRASE.test(s)).slice(0, 2); }
+      try { fs.mkdirSync(SUBDOMAIN_DIR, { recursive: true }); fs.writeFileSync(cf, JSON.stringify(out)); } catch (e) {}
+      return out;
+    });
+  });
+  return Promise.all(jobs).then(results => {
+    for (const r of results) {
+      for (const p of (r.prereqs || [])) {
+        if (findLocal(p)) continue;
+        const k = normStr(p);
+        if (k.length < 2 || cpool[k]) continue;
+        cpool[k] = { name: p, fail: 0, source: "path-gap:" + r.name, at: Date.now() };
+        seeded++;
+      }
+    }
+    if (seeded) { writeCandidates(cpool); bumpStat("candidatesSeeded", seeded); }
+    return seeded;
+  });
+}
+/* 生长2.0：自动健康检查（每次增长后/定时，只记录不修改数据） */
+function autoHealthCheck() {
+  if (!CORPUS) loadCorpus();
+  let dups = {}, selfLoops = 0, junkTargets = 0, noSource = 0;
+  const JUNK_T = /(什么|如何|怎么|为什么|是不是|有没有|好吗|可以吗|你是谁|你好|^\d+$|^.$)/;
+  for (const c of CORPUS.all) {
+    if (!(c.sources || []).length) noSource++;
+    for (const r of (c.relations || [])) {
+      const t = r.target;
+      if (typeof t === "string" && t) {
+        const k = normStr(t);
+        if (JUNK_T.test(t)) junkTargets++;
+        if (t === c.name || t === c.id) selfLoops++;
+        if (CORPUS.byId.has(t) || CORPUS.byName.get(k)) { const other = CORPUS.byId.get(t) || CORPUS.byName.get(k); if (other && other.id !== c.id && other.name === c.name) dups[c.name] = (dups[c.name] || 0) + 1; }
+      }
+    }
+  }
+  const h = healthScore();
+  const log = {
+    at: Date.now(),
+    concepts: CORPUS.all.length,
+    duplicateNames: Object.keys(dups).length,
+    selfLoops, junkTargets, noSource,
+    isolated: h.isolated, conflicts: h.conflicts, debt: h.knowledgeDebt, pendingRel: h.pendingRelations,
+  };
+  try { fs.mkdirSync(path.join(ROOT, ".cache"), { recursive: true }); fs.appendFileSync(path.join(ROOT, ".cache", "healthlog.jsonl"), JSON.stringify(log) + "\n"); } catch (e) {}
+  bumpStat("autoChecks", 1);
+  return log;
+}
+
 function handleDomainAnalysis(res, payload) {
   const build = !!(payload && payload.build);
   const coverage = domainCoverage();
@@ -1908,6 +2135,11 @@ const server = http.createServer((req, res) => {
   if (req.method === "POST" && url.pathname === "/api/search-log") {
     let b4 = ""; req.on("data", c => (b4 += c)); req.on("end", () => { let p = {}; try { p = JSON.parse(b4 || "{}"); } catch (e) {} handleSearchLog(res, p); });
     return;
+  }
+  if ((req.method === "GET" || req.method === "POST") && url.pathname === "/api/recent-activity") { handleRecentActivity(res); return; }
+  if ((req.method === "GET" || req.method === "POST") && url.pathname === "/api/health-check") { handleHealthCheck(res); return; }
+  if ((req.method === "GET" || req.method === "POST") && url.pathname === "/api/seed-candidates") {
+    let bs = ""; req.on("data", c => (bs += c)); req.on("end", () => { let p = {}; try { p = JSON.parse(bs || "{}"); } catch (e) {} handleSeedCandidates(res, p); }); return;
   }
   if ((req.method === "GET" || req.method === "POST") && url.pathname === "/api/domain-analysis") {
     let bd = ""; req.on("data", c => (bd += c)); req.on("end", () => { let p = {}; try { p = JSON.parse(bd || "{}"); } catch (e) {} handleDomainAnalysis(res, p); }); return;
