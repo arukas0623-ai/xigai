@@ -52,52 +52,62 @@ window.XIGAI["AI 新进展"] = [
       {
         "type": "related",
         "target": "MCP",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "A2A",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "large-language-model",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "context-engineering",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "ai-coding-assistant",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "multimodal-llm",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "world-model",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "mcp",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "a2a",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "ai-safety-alignment",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -152,32 +162,38 @@ window.XIGAI["AI 新进展"] = [
       {
         "type": "related",
         "target": "large-language-model",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "world-model",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "ai-agent",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "inference-cost-decline",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "ai-safety-alignment",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "embodied-ai",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       }
     ]
   },
@@ -231,22 +247,26 @@ window.XIGAI["AI 新进展"] = [
       {
         "type": "related",
         "target": "multimodal-llm",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "ai-agent",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "视频生成",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "embodied-ai",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       }
     ]
   },
@@ -301,22 +321,26 @@ window.XIGAI["AI 新进展"] = [
       {
         "type": "related",
         "target": "A2A",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "ai-agent",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "context-engineering",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "open-source-model-ecosystem",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -371,17 +395,20 @@ window.XIGAI["AI 新进展"] = [
       {
         "type": "related",
         "target": "MCP",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "ai-agent",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "多智能体系统",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -436,32 +463,38 @@ window.XIGAI["AI 新进展"] = [
       {
         "type": "related",
         "target": "sparse-attention",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "inference-cost-decline",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "open-source-model-ecosystem",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "large-language-model",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "scaling-law-debate",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "model-distillation-merging",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -515,22 +548,26 @@ window.XIGAI["AI 新进展"] = [
       {
         "type": "related",
         "target": "mixture-of-experts",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "inference-cost-decline",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "context-engineering",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "large-language-model",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       }
     ]
   },
@@ -585,27 +622,32 @@ window.XIGAI["AI 新进展"] = [
       {
         "type": "related",
         "target": "inference-cost-decline",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "mixture-of-experts",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "ai-coding-assistant",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "open-source-model-ecosystem",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "ai-safety-alignment",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -660,27 +702,32 @@ window.XIGAI["AI 新进展"] = [
       {
         "type": "related",
         "target": "ai-agent",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "context-engineering",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "open-source-model-ecosystem",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "scaling-law-debate",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "model-distillation-merging",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -732,32 +779,38 @@ window.XIGAI["AI 新进展"] = [
       {
         "type": "related",
         "target": "ai-agent",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "MCP",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "inference-cost-decline",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "ai-coding-assistant",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "mcp",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "sparse-attention",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -812,22 +865,26 @@ window.XIGAI["AI 新进展"] = [
       {
         "type": "related",
         "target": "open-source-model-ecosystem",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "inference-cost-decline",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "mixture-of-experts",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "ai-coding-assistant",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -882,22 +939,26 @@ window.XIGAI["AI 新进展"] = [
       {
         "type": "related",
         "target": "ai-agent",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "open-source-model-ecosystem",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "scaling-law-debate",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "multimodal-llm",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -952,37 +1013,44 @@ window.XIGAI["AI 新进展"] = [
       {
         "type": "related",
         "target": "mixture-of-experts",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "model-distillation-merging",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "inference-cost-decline",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "ai-safety-alignment",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "mcp",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "scaling-law-debate",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "ai-coding-assistant",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1037,37 +1105,44 @@ window.XIGAI["AI 新进展"] = [
       {
         "type": "related",
         "target": "mixture-of-experts",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "sparse-attention",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "open-source-model-ecosystem",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "model-distillation-merging",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "multimodal-llm",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "scaling-law-debate",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "context-engineering",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   }

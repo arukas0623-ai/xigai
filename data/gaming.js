@@ -43,22 +43,26 @@ window.XIGAI["游戏黑话"] = [
       {
         "type": "related",
         "target": "kaihei",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "chiji",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "tuanzhan",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "budao",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -103,22 +107,26 @@ window.XIGAI["游戏黑话"] = [
       {
         "type": "related",
         "target": "tuanzhan",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "dailian",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "gg",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "budao",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -163,17 +171,20 @@ window.XIGAI["游戏黑话"] = [
       {
         "type": "related",
         "target": "luodichenhe",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "duquan",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "chiji",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -217,17 +228,20 @@ window.XIGAI["游戏黑话"] = [
       {
         "type": "related",
         "target": "baigei",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "duquan",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "chiji",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -272,17 +286,20 @@ window.XIGAI["游戏黑话"] = [
       {
         "type": "related",
         "target": "chiji",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "luodichenhe",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "baigei",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -330,37 +347,44 @@ window.XIGAI["游戏黑话"] = [
       {
         "type": "related",
         "target": "third-gen-semi",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "sic",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "automotive-chip",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "kejin",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "ouhuang",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "feiqiu",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "guaji",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       }
     ]
   },
@@ -408,17 +432,20 @@ window.XIGAI["游戏黑话"] = [
       {
         "type": "related",
         "target": "gan",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "ouhuang",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "feiqiu",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -463,17 +490,20 @@ window.XIGAI["游戏黑话"] = [
       {
         "type": "related",
         "target": "feiqiu",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "kejin",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "gan",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       }
     ]
   },
@@ -520,17 +550,20 @@ window.XIGAI["游戏黑话"] = [
       {
         "type": "related",
         "target": "ouhuang",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "kejin",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "gan",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       }
     ]
   },
@@ -576,17 +609,20 @@ window.XIGAI["游戏黑话"] = [
       {
         "type": "related",
         "target": "gan",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "waigua",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "dailian",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -634,17 +670,20 @@ window.XIGAI["游戏黑话"] = [
       {
         "type": "related",
         "target": "waigua",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "guaji",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "kaihei",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -692,22 +731,26 @@ window.XIGAI["游戏黑话"] = [
       {
         "type": "related",
         "target": "shenxiandajia",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "dailian",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "chiji",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "guaji",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -752,17 +795,20 @@ window.XIGAI["游戏黑话"] = [
       {
         "type": "related",
         "target": "waigua",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "chiji",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "tuanzhan",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -807,32 +853,38 @@ window.XIGAI["游戏黑话"] = [
       {
         "type": "related",
         "target": "duquan",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "luodichenhe",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "baigei",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "gg",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "waigua",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "shenxiandajia",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -880,17 +932,20 @@ window.XIGAI["游戏黑话"] = [
       {
         "type": "related",
         "target": "tuanzhan",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "kaihei",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "gg",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -935,22 +990,26 @@ window.XIGAI["游戏黑话"] = [
       {
         "type": "related",
         "target": "budao",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "kaihei",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "gg",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "shenxiandajia",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   }

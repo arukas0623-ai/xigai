@@ -43,22 +43,26 @@ window.XIGAI["饮食烹饪"] = [
       {
         "type": "related",
         "target": "caramelization",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "sous-vide",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "wok-hei",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "molecular-gastronomy",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -104,17 +108,20 @@ window.XIGAI["饮食烹饪"] = [
       {
         "type": "related",
         "target": "maillard-reaction",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "molecular-gastronomy",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "wok-hei",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -159,22 +166,26 @@ window.XIGAI["饮食烹饪"] = [
       {
         "type": "related",
         "target": "maillard-reaction",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "molecular-gastronomy",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "french-cuisine",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "marinating",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -221,37 +232,44 @@ window.XIGAI["饮食烹饪"] = [
       {
         "type": "related",
         "target": "sous-vide",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "fermentation",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "maillard-reaction",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "caramelization",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "michelin-guide",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "omakase",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "french-cuisine",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -295,17 +313,20 @@ window.XIGAI["饮食烹饪"] = [
       {
         "type": "related",
         "target": "marinating",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "molecular-gastronomy",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "stock-making",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -353,22 +374,26 @@ window.XIGAI["饮食烹饪"] = [
       {
         "type": "related",
         "target": "french-cuisine",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "omakase",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "molecular-gastronomy",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "private-kitchen",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -416,32 +441,38 @@ window.XIGAI["饮食烹饪"] = [
       {
         "type": "related",
         "target": "maillard-reaction",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "dai-pai-dong",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "qiangguo",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "caramelization",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "duansheng",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "thickening",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -487,37 +518,44 @@ window.XIGAI["饮食烹饪"] = [
       {
         "type": "related",
         "target": "blanching",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "wok-hei",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "thickening",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "marinating",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "dai-pai-dong",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "sichuan-24-flavors",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "suzhou-noodles",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -565,17 +603,20 @@ window.XIGAI["饮食烹饪"] = [
       {
         "type": "related",
         "target": "duansheng",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "stock-making",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "qiangguo",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -622,27 +663,32 @@ window.XIGAI["饮食烹饪"] = [
       {
         "type": "related",
         "target": "wok-hei",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "sichuan-24-flavors",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "blanching",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "nine-grid-hotpot",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "thickening",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -689,17 +735,20 @@ window.XIGAI["饮食烹饪"] = [
       {
         "type": "related",
         "target": "blanching",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "suzhou-noodles",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "fermentation",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -745,17 +794,20 @@ window.XIGAI["饮食烹饪"] = [
       {
         "type": "related",
         "target": "fermentation",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "duansheng",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "sous-vide",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -802,17 +854,20 @@ window.XIGAI["饮食烹饪"] = [
       {
         "type": "related",
         "target": "dai-pai-dong",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "michelin-guide",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "suzhou-noodles",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -857,22 +912,26 @@ window.XIGAI["饮食烹饪"] = [
       {
         "type": "related",
         "target": "wok-hei",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "duansheng",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "private-kitchen",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "nine-grid-hotpot",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -920,17 +979,20 @@ window.XIGAI["饮食烹饪"] = [
       {
         "type": "related",
         "target": "michelin-guide",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "french-cuisine",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "molecular-gastronomy",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -977,17 +1039,20 @@ window.XIGAI["饮食烹饪"] = [
       {
         "type": "related",
         "target": "sichuan-24-flavors",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "dai-pai-dong",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "qiangguo",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1034,17 +1099,20 @@ window.XIGAI["饮食烹饪"] = [
       {
         "type": "related",
         "target": "qiangguo",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "nine-grid-hotpot",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "duansheng",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1091,17 +1159,20 @@ window.XIGAI["饮食烹饪"] = [
       {
         "type": "related",
         "target": "stock-making",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "duansheng",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "private-kitchen",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1146,22 +1217,26 @@ window.XIGAI["饮食烹饪"] = [
       {
         "type": "related",
         "target": "michelin-guide",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "sous-vide",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "molecular-gastronomy",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "omakase",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1209,17 +1284,20 @@ window.XIGAI["饮食烹饪"] = [
       {
         "type": "related",
         "target": "qiangguo",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "duansheng",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "wok-hei",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   }

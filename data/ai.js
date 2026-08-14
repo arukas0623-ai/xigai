@@ -50,42 +50,50 @@ window.XIGAI["人工智能"] = [
       {
         "type": "related",
         "target": "deep-learning",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "监督学习",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "无监督学习",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "数据挖掘",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "人工智能",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "reinforcement-learning",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "neural-network",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "algorithmic-recommendation",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       }
     ]
   },
@@ -139,37 +147,44 @@ window.XIGAI["人工智能"] = [
       {
         "type": "related",
         "target": "machine-learning",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "convolutional-neural-network",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "反向传播",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "neural-network",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "large-language-model",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "reinforcement-learning",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "attention-mechanism",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -224,67 +239,80 @@ window.XIGAI["人工智能"] = [
       {
         "type": "related",
         "target": "generative-ai",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "Transformer",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "attention-mechanism",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "natural-language-processing",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "reinforcement-learning",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "deep-learning",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "turing-test",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "ai-agent",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "multimodal-llm",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "mixture-of-experts",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "sparse-attention",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "ai-chip",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "edge-ai",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       }
     ]
   },
@@ -341,37 +369,44 @@ window.XIGAI["人工智能"] = [
       {
         "type": "related",
         "target": "machine-learning",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "deep-learning",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "马尔可夫决策过程",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "AlphaGo",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "large-language-model",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "embodied-ai",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "world-simulator",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       }
     ]
   },
@@ -426,27 +461,32 @@ window.XIGAI["人工智能"] = [
       {
         "type": "related",
         "target": "deep-learning",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "计算机视觉",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "图像识别",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "attention-mechanism",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "neural-network",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       }
     ]
   },
@@ -501,37 +541,44 @@ window.XIGAI["人工智能"] = [
       {
         "type": "related",
         "target": "Transformer",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "large-language-model",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "机器翻译",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "natural-language-processing",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "deep-learning",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "convolutional-neural-network",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "generative-ai",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -585,32 +632,38 @@ window.XIGAI["人工智能"] = [
       {
         "type": "related",
         "target": "large-language-model",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "attention-mechanism",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "机器翻译",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "词向量",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "人工智能",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "knowledge-graph",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -664,27 +717,32 @@ window.XIGAI["人工智能"] = [
       {
         "type": "related",
         "target": "人工智能",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "中文房间",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "聊天机器人",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "large-language-model",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "机器智能",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -739,27 +797,32 @@ window.XIGAI["人工智能"] = [
       {
         "type": "related",
         "target": "语义网络",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "natural-language-processing",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "本体",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "信息抽取",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "图数据库",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -814,23 +877,149 @@ window.XIGAI["人工智能"] = [
       {
         "type": "related",
         "target": "large-language-model",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "扩散模型",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "多模态学习",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "attention-mechanism",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
+  },
+  {
+    "name": "大模型幻觉",
+    "aliases": [],
+    "field": "人工智能/计算机术语",
+    "tags": [
+      "大模型",
+      "AI"
+    ],
+    "difficulty": 3,
+    "summary": "大型语言模型生成错误信息的现象。",
+    "definition": "大型预训练语言模型在生成文本时偶尔会提供与事实不符或不准确的信息，这种现象被称为‘大模型幻觉’。",
+    "background": "随着深度学习和自然语言处理技术的发展，大型语言模型如GPT、BERT等因其强大的语义理解和生成能力而受到广泛关注。然而，在训练过程中，这些模型可能会学到一些错误的关联或偏见，并在生成文本时表现出不准确的信息。",
+    "core": [
+      "大模型在训练数据中学习到的错误信息",
+      "模型生成与事实不符的内容",
+      "对抗性样本和输入可能引发幻觉"
+    ],
+    "pros": [],
+    "cons": [
+      "降低了模型输出的可靠性",
+      "可能导致误解或误导用户"
+    ],
+    "applications": [
+      "文本生成",
+      "智能问答系统"
+    ],
+    "misconceptions": [
+      "大模型总是提供准确信息"
+    ],
+    "related": [
+      "预训练模型",
+      "语言模型"
+    ],
+    "relations": [
+      {
+        "type": "followup",
+        "target": "预训练模型",
+        "note": "",
+        "confidence": 0.3
+      },
+      {
+        "type": "related",
+        "target": "语言模型",
+        "note": "",
+        "confidence": 0.8
+      }
+    ],
+    "sources": [
+      "https://arxiv.org/abs/2104.09708,",
+      "https://aclanthology.org/2023.findings-emnlp.56/"
+    ],
+    "principle": "",
+    "id": "大模型幻觉",
+    "confidence": 0.9,
+    "sourceConfidence": 0.85,
+    "relationConfidence": 0.55,
+    "status": "generated",
+    "searchedAt": "2026-08-14"
+  },
+  {
+    "name": "语义路由",
+    "aliases": [],
+    "field": "人工智能",
+    "tags": [
+      "自然语言处理",
+      "信息检索"
+    ],
+    "difficulty": 3,
+    "summary": "基于语义理解的路径选择机制",
+    "definition": "一种通过分析文本语义来决定信息流动方向或路径的技术，常用于智能问答系统和聊天机器人中。",
+    "principle": ",",
+    "background": "随着自然语言处理技术的发展，传统的基于关键词匹配的信息检索方法已难以满足用户对复杂查询的需求。因此，研究人员开始探索如何利用语义理解来实现更精准的信息路由。",
+    "core": [
+      "基于深度学习的语义分析模型",
+      "多模态信息融合技术",
+      "上下文感知路径选择算法"
+    ],
+    "pros": [
+      "提高检索结果的相关性与准确性",
+      "增强系统的智能化水平"
+    ],
+    "cons": [
+      "对大规模数据集的需求较高，训练成本大",
+      "模型复杂度高，解释性较差"
+    ],
+    "applications": [
+      "智能客服系统",
+      "在线教育平台的知识图谱导航"
+    ],
+    "misconceptions": [
+      "语义路由等同于传统的关键词匹配技术"
+    ],
+    "related": [
+      "自然语言处理",
+      "信息检索"
+    ],
+    "relations": [
+      {
+        "type": "followup",
+        "target": "深度学习",
+        "note": "",
+        "confidence": 0.85
+      },
+      {
+        "type": "dependsOn",
+        "target": "知识图谱",
+        "note": "",
+        "confidence": 0.8
+      }
+    ],
+    "sources": [
+      "https://www.semanticscholar.org/",
+      "https://arxiv.org/abs/1705.03489,",
+      "https://nlp.stanford.edu/"
+    ],
+    "id": "语义路由",
+    "confidence": 0.9,
+    "sourceConfidence": 1,
+    "relationConfidence": 0.83,
+    "status": "verified",
+    "searchedAt": "2026-08-14"
   }
 ];

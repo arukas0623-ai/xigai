@@ -50,22 +50,26 @@ window.XIGAI["AI工程与模型"] = [
       {
         "type": "related",
         "target": "agent",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "tool-calling",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "rag",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "cache-hit",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -117,22 +121,26 @@ window.XIGAI["AI工程与模型"] = [
       {
         "type": "related",
         "target": "tool-calling",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "prompt-engineering",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "chain-of-thought",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "deepseek-harness",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -182,27 +190,32 @@ window.XIGAI["AI工程与模型"] = [
       {
         "type": "related",
         "target": "chain-of-thought",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "agent",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "io-processing",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "hallucination",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "fine-tuning-alignment",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -253,17 +266,20 @@ window.XIGAI["AI工程与模型"] = [
       {
         "type": "related",
         "target": "prompt-engineering",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "agent",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "context-window",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -314,32 +330,38 @@ window.XIGAI["AI工程与模型"] = [
       {
         "type": "related",
         "target": "token-billing",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "cache-hit",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "rag",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "io-processing",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "chain-of-thought",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "model-quantization",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -390,22 +412,26 @@ window.XIGAI["AI工程与模型"] = [
       {
         "type": "related",
         "target": "context-window",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "cache-hit",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "model-gateway",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "io-processing",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -457,22 +483,26 @@ window.XIGAI["AI工程与模型"] = [
       {
         "type": "related",
         "target": "token-billing",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "context-window",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "model-gateway",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "deepseek-harness",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -523,37 +553,44 @@ window.XIGAI["AI工程与模型"] = [
       {
         "type": "related",
         "target": "tool-calling",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "prompt-engineering",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "model-gateway",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "rag",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "context-window",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "token-billing",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "hallucination",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -603,27 +640,32 @@ window.XIGAI["AI工程与模型"] = [
       {
         "type": "related",
         "target": "hallucination",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "context-window",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "fine-tuning-alignment",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "io-processing",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "deepseek-harness",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -675,22 +717,26 @@ window.XIGAI["AI工程与模型"] = [
       {
         "type": "related",
         "target": "rag",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "model-quantization",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "hallucination",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "prompt-engineering",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -741,22 +787,26 @@ window.XIGAI["AI工程与模型"] = [
       {
         "type": "related",
         "target": "agent",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "io-processing",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "deepseek-harness",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "model-gateway",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -809,17 +859,20 @@ window.XIGAI["AI工程与模型"] = [
       {
         "type": "related",
         "target": "fine-tuning-alignment",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "model-gateway",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "context-window",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -870,22 +923,26 @@ window.XIGAI["AI工程与模型"] = [
       {
         "type": "related",
         "target": "rag",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "fine-tuning-alignment",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "prompt-engineering",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "io-processing",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -938,27 +995,32 @@ window.XIGAI["AI工程与模型"] = [
       {
         "type": "related",
         "target": "token-billing",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "cache-hit",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "tool-calling",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "io-processing",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "model-quantization",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   }

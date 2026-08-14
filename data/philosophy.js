@@ -49,32 +49,38 @@ window.XIGAI["哲学"] = [
       {
         "type": "related",
         "target": "本体论",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "epistemology",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "实在论",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "唯心论",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "existentialism",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "free-will",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -128,27 +134,32 @@ window.XIGAI["哲学"] = [
       {
         "type": "related",
         "target": "metaphysics",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "科学哲学",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "怀疑论",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "真理",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "逻辑学",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -203,27 +214,32 @@ window.XIGAI["哲学"] = [
       {
         "type": "related",
         "target": "功利主义",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "义务论",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "德性伦理学",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "元伦理学",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "free-will",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -276,37 +292,44 @@ window.XIGAI["哲学"] = [
       {
         "type": "related",
         "target": "phenomenology",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "nihilism",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "free-will",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "荒诞",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "人本主义",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "theatre-of-the-absurd",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "metaphysics",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -361,27 +384,32 @@ window.XIGAI["哲学"] = [
       {
         "type": "related",
         "target": "经验主义",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "科学哲学",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "可错论",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "杜威",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "分析哲学",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -435,27 +463,32 @@ window.XIGAI["哲学"] = [
       {
         "type": "related",
         "target": "existentialism",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "尼采",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "价值论",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "荒诞",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "postmodernism",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       }
     ]
   },
@@ -511,37 +544,44 @@ window.XIGAI["哲学"] = [
       {
         "type": "related",
         "target": "决定论",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "道德责任",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "心灵哲学",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "康德",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "metaphysics",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "ethics",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "existentialism",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -596,27 +636,32 @@ window.XIGAI["哲学"] = [
       {
         "type": "related",
         "target": "逻辑学",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "集合论",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "自指",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "芝诺悖论",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "罗素悖论",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -671,27 +716,32 @@ window.XIGAI["哲学"] = [
       {
         "type": "related",
         "target": "黑格尔",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "马克思主义哲学",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "对立统一",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "矛盾",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "逻辑学",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -745,27 +795,32 @@ window.XIGAI["哲学"] = [
       {
         "type": "related",
         "target": "existentialism",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "胡塞尔",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "海德格尔",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "意向性",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "解释学",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   }

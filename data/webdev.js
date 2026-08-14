@@ -43,22 +43,26 @@ window.XIGAI["前端与开发工程"] = [
       {
         "type": "related",
         "target": "css",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "javascript",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "DOM",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "browser-compatibility",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -104,27 +108,32 @@ window.XIGAI["前端与开发工程"] = [
       {
         "type": "related",
         "target": "html",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "responsive-design",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "browser-compatibility",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "frontend-framework",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "javascript",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -171,32 +180,38 @@ window.XIGAI["前端与开发工程"] = [
       {
         "type": "related",
         "target": "html",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "css",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "npm",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "frontend-framework",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "webassembly",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "browser-compatibility",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -243,47 +258,56 @@ window.XIGAI["前端与开发工程"] = [
       {
         "type": "related",
         "target": "component-based",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "virtual-dom",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "ssr",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "csr",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "css",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "javascript",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "responsive-design",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "webassembly",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "graphql",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -330,17 +354,20 @@ window.XIGAI["前端与开发工程"] = [
       {
         "type": "related",
         "target": "frontend-framework",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "frontend-engineering",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "virtual-dom",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -387,22 +414,26 @@ window.XIGAI["前端与开发工程"] = [
       {
         "type": "related",
         "target": "frontend-framework",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "component-based",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "ssr",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "csr",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -449,27 +480,32 @@ window.XIGAI["前端与开发工程"] = [
       {
         "type": "related",
         "target": "csr",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "frontend-framework",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "responsive-design",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "virtual-dom",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "session",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -516,37 +552,44 @@ window.XIGAI["前端与开发工程"] = [
       {
         "type": "related",
         "target": "ssr",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "frontend-framework",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "code-splitting",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "lazy-loading",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "virtual-dom",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "pwa",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "cookie",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -593,22 +636,26 @@ window.XIGAI["前端与开发工程"] = [
       {
         "type": "related",
         "target": "css",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "browser-compatibility",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "frontend-framework",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "ssr",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -655,27 +702,32 @@ window.XIGAI["前端与开发工程"] = [
       {
         "type": "related",
         "target": "css",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "javascript",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "frontend-engineering",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "html",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "responsive-design",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -722,22 +774,26 @@ window.XIGAI["前端与开发工程"] = [
       {
         "type": "related",
         "target": "frontend-engineering",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "code-splitting",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "npm",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "lazy-loading",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -784,17 +840,20 @@ window.XIGAI["前端与开发工程"] = [
       {
         "type": "related",
         "target": "javascript",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "frontend-engineering",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "bundler",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -841,42 +900,50 @@ window.XIGAI["前端与开发工程"] = [
       {
         "type": "related",
         "target": "bundler",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "npm",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "component-based",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "browser-compatibility",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "code-splitting",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "lazy-loading",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "pwa",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "cross-origin",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -923,22 +990,26 @@ window.XIGAI["前端与开发工程"] = [
       {
         "type": "related",
         "target": "lazy-loading",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "bundler",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "csr",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "frontend-engineering",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -985,22 +1056,26 @@ window.XIGAI["前端与开发工程"] = [
       {
         "type": "related",
         "target": "code-splitting",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "csr",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "frontend-engineering",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "bundler",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1046,22 +1121,26 @@ window.XIGAI["前端与开发工程"] = [
       {
         "type": "related",
         "target": "webassembly",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "frontend-engineering",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "csr",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "websocket",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1107,17 +1186,20 @@ window.XIGAI["前端与开发工程"] = [
       {
         "type": "related",
         "target": "javascript",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "pwa",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "frontend-framework",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1165,27 +1247,32 @@ window.XIGAI["前端与开发工程"] = [
       {
         "type": "related",
         "target": "cookie",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "token",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "websocket",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "frontend-engineering",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "restful",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1232,22 +1319,26 @@ window.XIGAI["前端与开发工程"] = [
       {
         "type": "related",
         "target": "session",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "token",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "cross-origin",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "csr",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1294,17 +1385,20 @@ window.XIGAI["前端与开发工程"] = [
       {
         "type": "related",
         "target": "cookie",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "token",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "ssr",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1351,22 +1445,26 @@ window.XIGAI["前端与开发工程"] = [
       {
         "type": "related",
         "target": "session",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "cookie",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "cross-origin",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "restful",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1414,22 +1512,26 @@ window.XIGAI["前端与开发工程"] = [
       {
         "type": "related",
         "target": "graphql",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "token",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "websocket",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "cross-origin",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1476,17 +1578,20 @@ window.XIGAI["前端与开发工程"] = [
       {
         "type": "related",
         "target": "restful",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "websocket",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "frontend-framework",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1533,22 +1638,26 @@ window.XIGAI["前端与开发工程"] = [
       {
         "type": "related",
         "target": "cross-origin",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "restful",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "graphql",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "pwa",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   }

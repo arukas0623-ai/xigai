@@ -44,42 +44,50 @@ window.XIGAI["音乐"] = [
       {
         "type": "related",
         "target": "polyphony",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "timbre",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "meter",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "twelve-tone",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "sonata-form",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "symphony",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "jazz",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "opera",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -128,27 +136,32 @@ window.XIGAI["音乐"] = [
       {
         "type": "related",
         "target": "harmony",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "timbre",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "meter",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "twelve-tone",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "opera",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -196,17 +209,20 @@ window.XIGAI["音乐"] = [
       {
         "type": "related",
         "target": "symphony",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "harmony",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "meter",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -254,22 +270,26 @@ window.XIGAI["音乐"] = [
       {
         "type": "related",
         "target": "sonata-form",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "harmony",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "opera",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "timbre",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -317,17 +337,20 @@ window.XIGAI["音乐"] = [
       {
         "type": "related",
         "target": "harmony",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "meter",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "pop-music",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -376,17 +399,20 @@ window.XIGAI["音乐"] = [
       {
         "type": "related",
         "target": "harmony",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "polyphony",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "timbre",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -435,17 +461,20 @@ window.XIGAI["音乐"] = [
       {
         "type": "related",
         "target": "jazz",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "meter",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "timbre",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -494,17 +523,20 @@ window.XIGAI["音乐"] = [
       {
         "type": "related",
         "target": "symphony",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "harmony",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "polyphony",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -553,32 +585,38 @@ window.XIGAI["音乐"] = [
       {
         "type": "related",
         "target": "timbre",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "pop-music",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "jazz",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "harmony",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "polyphony",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "sonata-form",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -627,32 +665,38 @@ window.XIGAI["音乐"] = [
       {
         "type": "related",
         "target": "harmony",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "meter",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "symphony",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "polyphony",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "twelve-tone",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "pop-music",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   }

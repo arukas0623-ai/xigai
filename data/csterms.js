@@ -40,17 +40,20 @@ window.XIGAI["计算机术语"] = [
       {
         "type": "related",
         "target": "repl",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "ide",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "Shell",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -94,17 +97,20 @@ window.XIGAI["计算机术语"] = [
       {
         "type": "related",
         "target": "cli",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "ide",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "解释器",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -147,22 +153,26 @@ window.XIGAI["计算机术语"] = [
       {
         "type": "related",
         "target": "cli",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "repl",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "调试器",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "sdk",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -206,22 +216,26 @@ window.XIGAI["计算机术语"] = [
       {
         "type": "related",
         "target": "sdk",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "json",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "microservices",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "mock",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -264,17 +278,20 @@ window.XIGAI["计算机术语"] = [
       {
         "type": "related",
         "target": "api",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "ide",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "microservices",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -317,17 +334,20 @@ window.XIGAI["计算机术语"] = [
       {
         "type": "related",
         "target": "yaml",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "api",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "序列化",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -370,17 +390,20 @@ window.XIGAI["计算机术语"] = [
       {
         "type": "related",
         "target": "json",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "kubernetes",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "cicd",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -423,17 +446,20 @@ window.XIGAI["计算机术语"] = [
       {
         "type": "related",
         "target": "microservices",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "message-queue",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "distributed-transaction",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -476,62 +502,74 @@ window.XIGAI["计算机术语"] = [
       {
         "type": "related",
         "target": "container",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "kubernetes",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "distributed-transaction",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "message-queue",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "cloud-native",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "container-orchestration",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "load-balancing",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "distributed-system",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "api",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "sdk",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "middleware",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "event-driven",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -574,22 +612,26 @@ window.XIGAI["计算机术语"] = [
       {
         "type": "related",
         "target": "kubernetes",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "microservices",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "Docker",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "devops",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -635,32 +677,38 @@ window.XIGAI["计算机术语"] = [
       {
         "type": "related",
         "target": "container",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "microservices",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "cicd",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "yaml",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "canary-release",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "rollback",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -704,32 +752,38 @@ window.XIGAI["计算机术语"] = [
       {
         "type": "related",
         "target": "git",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "devops",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "kubernetes",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "release",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "yaml",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "unit-testing",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -772,22 +826,26 @@ window.XIGAI["计算机术语"] = [
       {
         "type": "related",
         "target": "cicd",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "monitoring",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "container",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "release",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -830,17 +888,20 @@ window.XIGAI["计算机术语"] = [
       {
         "type": "related",
         "target": "cicd",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "refactoring",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "代码评审",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -884,17 +945,20 @@ window.XIGAI["计算机术语"] = [
       {
         "type": "related",
         "target": "legacy-code",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "refactoring",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "unit-testing",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -941,17 +1005,20 @@ window.XIGAI["计算机术语"] = [
       {
         "type": "related",
         "target": "technical-debt",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "refactoring",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "unit-testing",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -996,22 +1063,26 @@ window.XIGAI["计算机术语"] = [
       {
         "type": "related",
         "target": "technical-debt",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "legacy-code",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "unit-testing",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "git",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1056,27 +1127,32 @@ window.XIGAI["计算机术语"] = [
       {
         "type": "related",
         "target": "canary-release",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "rollback",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "cicd",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "devops",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "stress-testing",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1121,22 +1197,26 @@ window.XIGAI["计算机术语"] = [
       {
         "type": "related",
         "target": "release",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "rollback",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "kubernetes",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "monitoring",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1180,17 +1260,20 @@ window.XIGAI["计算机术语"] = [
       {
         "type": "related",
         "target": "canary-release",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "release",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "kubernetes",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1235,32 +1318,38 @@ window.XIGAI["计算机术语"] = [
       {
         "type": "related",
         "target": "monitoring",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "unit-testing",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "release",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "mock",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "memory-leak",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "garbage-collection",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1306,27 +1395,32 @@ window.XIGAI["计算机术语"] = [
       {
         "type": "related",
         "target": "stress-testing",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "canary-release",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "devops",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "cache-penetration",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "cache-avalanche",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1370,32 +1464,38 @@ window.XIGAI["计算机术语"] = [
       {
         "type": "related",
         "target": "mock",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "refactoring",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "cicd",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "stress-testing",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "technical-debt",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "legacy-code",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1440,17 +1540,20 @@ window.XIGAI["计算机术语"] = [
       {
         "type": "related",
         "target": "unit-testing",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "stress-testing",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "api",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1493,22 +1596,26 @@ window.XIGAI["计算机术语"] = [
       {
         "type": "related",
         "target": "functional-programming",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "memory-leak",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "garbage-collection",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "generics",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1551,17 +1658,20 @@ window.XIGAI["计算机术语"] = [
       {
         "type": "related",
         "target": "functional-programming",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "类型系统",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "closure",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1606,17 +1716,20 @@ window.XIGAI["计算机术语"] = [
       {
         "type": "related",
         "target": "coroutine",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "并发",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "garbage-collection",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1660,17 +1773,20 @@ window.XIGAI["计算机术语"] = [
       {
         "type": "related",
         "target": "thread-process",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "event-driven",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "garbage-collection",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1713,17 +1829,20 @@ window.XIGAI["计算机术语"] = [
       {
         "type": "related",
         "target": "garbage-collection",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "closure",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "stress-testing",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1766,27 +1885,32 @@ window.XIGAI["计算机术语"] = [
       {
         "type": "related",
         "target": "memory-leak",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "thread-process",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "stress-testing",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "closure",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "coroutine",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1828,17 +1952,20 @@ window.XIGAI["计算机术语"] = [
       {
         "type": "related",
         "target": "cache-breakdown",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "cache-avalanche",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "monitoring",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1881,17 +2008,20 @@ window.XIGAI["计算机术语"] = [
       {
         "type": "related",
         "target": "cache-penetration",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "cache-avalanche",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "idempotency",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1934,17 +2064,20 @@ window.XIGAI["计算机术语"] = [
       {
         "type": "related",
         "target": "cache-penetration",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "cache-breakdown",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "monitoring",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1987,22 +2120,26 @@ window.XIGAI["计算机术语"] = [
       {
         "type": "related",
         "target": "distributed-transaction",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "message-queue",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "cache-breakdown",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "event-driven",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -2047,27 +2184,32 @@ window.XIGAI["计算机术语"] = [
       {
         "type": "related",
         "target": "microservices",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "message-queue",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "idempotency",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "middleware",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "event-driven",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -2111,27 +2253,32 @@ window.XIGAI["计算机术语"] = [
       {
         "type": "related",
         "target": "idempotency",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "distributed-transaction",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "microservices",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "event-driven",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "middleware",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -2175,32 +2322,38 @@ window.XIGAI["计算机术语"] = [
       {
         "type": "related",
         "target": "message-queue",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "microservices",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "distributed-transaction",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "idempotency",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "coroutine",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "functional-programming",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -2244,17 +2397,20 @@ window.XIGAI["计算机术语"] = [
       {
         "type": "related",
         "target": "closure",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "generics",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "event-driven",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   }

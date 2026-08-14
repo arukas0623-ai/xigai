@@ -49,22 +49,26 @@ window.XIGAI["工程技术"] = [
       {
         "type": "related",
         "target": "lithography-machine",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "EDA软件",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "晶圆制造",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "advanced-packaging",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       }
     ]
   },
@@ -116,22 +120,26 @@ window.XIGAI["工程技术"] = [
       {
         "type": "related",
         "target": "金属材料",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "高分子材料",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "复合材料",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "纳米材料",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -184,17 +192,20 @@ window.XIGAI["工程技术"] = [
       {
         "type": "related",
         "target": "光固化",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "拓扑优化",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "逆向工程",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -246,22 +257,26 @@ window.XIGAI["工程技术"] = [
       {
         "type": "related",
         "target": "carbon-neutral",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "新型电力系统",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "储能技术",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "pv-solar",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       }
     ]
   },
@@ -313,27 +328,32 @@ window.XIGAI["工程技术"] = [
       {
         "type": "related",
         "target": "结构工程",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "预应力混凝土",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "岩土工程",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "桥梁健康监测",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "civil-engineering",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -385,22 +405,26 @@ window.XIGAI["工程技术"] = [
       {
         "type": "related",
         "target": "伺服电机",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "运动控制",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "机器视觉",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "智能制造",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       }
     ]
   },
@@ -453,22 +477,26 @@ window.XIGAI["工程技术"] = [
       {
         "type": "related",
         "target": "运载火箭",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "卫星导航",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "深空探测",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "空间站",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -520,22 +548,26 @@ window.XIGAI["工程技术"] = [
       {
         "type": "related",
         "target": "大规模天线",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "网络切片",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "边缘计算",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "6g-communication",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       }
     ]
   },
@@ -587,22 +619,26 @@ window.XIGAI["工程技术"] = [
       {
         "type": "related",
         "target": "纳米材料",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "石墨烯",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "量子点",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "微纳制造",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -654,22 +690,26 @@ window.XIGAI["工程技术"] = [
       {
         "type": "related",
         "target": "结构工程",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "岩土工程",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "bridge-engineering",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "bim",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       }
     ]
   }

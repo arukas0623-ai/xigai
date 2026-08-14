@@ -49,7 +49,8 @@ window.XIGAI["AI 生成"] = [
       {
         "type": "related",
         "target": "推理时扩展（Inference-Time Scaling）、思维链（Chain-of-Thought）、self-consistency、best-of-N、过程奖励模型（PRM）、蒙特卡洛树搜索（MCTS）、测试时自适应（TTA）、训练计算缩放定律（Training Compute Scaling Law）。",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   }

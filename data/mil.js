@@ -43,22 +43,26 @@ window.XIGAI["军事战略"] = [
       {
         "type": "related",
         "target": "stealth-technology",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "awacs",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "drone-swarm",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "joint-operations",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -105,22 +109,26 @@ window.XIGAI["军事战略"] = [
       {
         "type": "related",
         "target": "amphibious-operations",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "awacs",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "submarine-deterrence",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "joint-operations",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -167,22 +175,26 @@ window.XIGAI["军事战略"] = [
       {
         "type": "related",
         "target": "anti-ballistic-missile",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "nuclear-deterrence",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "hypersonic-weapons",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "awacs",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -229,32 +241,38 @@ window.XIGAI["军事战略"] = [
       {
         "type": "related",
         "target": "submarine-deterrence",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "missile-defense-system",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "arms-race",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "anti-ballistic-missile",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "cold-war",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "strategic-depth",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -301,22 +319,26 @@ window.XIGAI["军事战略"] = [
       {
         "type": "related",
         "target": "hybrid-warfare",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "intelligence-warfare",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "buffer-zone",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "arms-race",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -363,32 +385,38 @@ window.XIGAI["军事战略"] = [
       {
         "type": "related",
         "target": "proxy-war",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "cyber-warfare",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "electronic-warfare",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "intelligence-warfare",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "drone-swarm",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "buffer-zone",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -435,27 +463,32 @@ window.XIGAI["军事战略"] = [
       {
         "type": "related",
         "target": "joint-operations",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "intelligence-warfare",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "electronic-warfare",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "urban-warfare",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "amphibious-operations",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -502,52 +535,62 @@ window.XIGAI["军事战略"] = [
       {
         "type": "related",
         "target": "cyber-warfare",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "intelligence-warfare",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "awacs",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "space-warfare",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "hybrid-warfare",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "special-operations",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "drone-swarm",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "joint-operations",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "precision-guidance",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "stealth-technology",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -594,22 +637,26 @@ window.XIGAI["军事战略"] = [
       {
         "type": "related",
         "target": "electronic-warfare",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "hybrid-warfare",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "intelligence-warfare",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "space-warfare",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -656,22 +703,26 @@ window.XIGAI["军事战略"] = [
       {
         "type": "related",
         "target": "anti-ballistic-missile",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "cyber-warfare",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "electronic-warfare",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "arms-race",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -718,37 +769,44 @@ window.XIGAI["军事战略"] = [
       {
         "type": "related",
         "target": "missile-defense-system",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "nuclear-deterrence",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "hypersonic-weapons",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "awacs",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "space-warfare",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "arms-race",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "stealth-technology",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -795,22 +853,26 @@ window.XIGAI["军事战略"] = [
       {
         "type": "related",
         "target": "anti-ballistic-missile",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "missile-defense-system",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "arms-race",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "precision-guidance",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -857,27 +919,32 @@ window.XIGAI["军事战略"] = [
       {
         "type": "related",
         "target": "electronic-warfare",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "precision-guidance",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "hybrid-warfare",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "urban-warfare",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "fifth-gen-fighter",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -924,47 +991,56 @@ window.XIGAI["军事战略"] = [
       {
         "type": "related",
         "target": "special-operations",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "amphibious-operations",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "electronic-warfare",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "carrier-strike-group",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "fifth-gen-fighter",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "strategic-depth",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "precision-guidance",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "awacs",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "urban-warfare",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1011,22 +1087,26 @@ window.XIGAI["军事战略"] = [
       {
         "type": "related",
         "target": "buffer-zone",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "nuclear-deterrence",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "joint-operations",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "arms-race",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1073,22 +1153,26 @@ window.XIGAI["军事战略"] = [
       {
         "type": "related",
         "target": "strategic-depth",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "proxy-war",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "hybrid-warfare",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "arms-race",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1135,42 +1219,50 @@ window.XIGAI["军事战略"] = [
       {
         "type": "related",
         "target": "nuclear-deterrence",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "anti-ballistic-missile",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "hypersonic-weapons",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "space-warfare",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "proxy-war",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "strategic-depth",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "buffer-zone",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "submarine-deterrence",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1217,27 +1309,32 @@ window.XIGAI["军事战略"] = [
       {
         "type": "related",
         "target": "electronic-warfare",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "cyber-warfare",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "special-operations",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "hybrid-warfare",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "proxy-war",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1284,27 +1381,32 @@ window.XIGAI["军事战略"] = [
       {
         "type": "related",
         "target": "hypersonic-weapons",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "drone-swarm",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "electronic-warfare",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "joint-operations",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "urban-warfare",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1351,22 +1453,26 @@ window.XIGAI["军事战略"] = [
       {
         "type": "related",
         "target": "fifth-gen-fighter",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "electronic-warfare",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "awacs",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "anti-ballistic-missile",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1413,37 +1519,44 @@ window.XIGAI["军事战略"] = [
       {
         "type": "related",
         "target": "fifth-gen-fighter",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "electronic-warfare",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "joint-operations",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "carrier-strike-group",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "missile-defense-system",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "anti-ballistic-missile",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "stealth-technology",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1490,22 +1603,26 @@ window.XIGAI["军事战略"] = [
       {
         "type": "related",
         "target": "nuclear-deterrence",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "carrier-strike-group",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "arms-race",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "amphibious-operations",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1552,27 +1669,32 @@ window.XIGAI["军事战略"] = [
       {
         "type": "related",
         "target": "carrier-strike-group",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "joint-operations",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "urban-warfare",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "special-operations",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "submarine-deterrence",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1619,27 +1741,32 @@ window.XIGAI["军事战略"] = [
       {
         "type": "related",
         "target": "special-operations",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "drone-swarm",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "joint-operations",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "precision-guidance",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "amphibious-operations",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   }

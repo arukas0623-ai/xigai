@@ -43,27 +43,32 @@ window.XIGAI["体育运动"] = [
       {
         "type": "related",
         "target": "card-system",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "overtime",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "penalty-shootout",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "suspension",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "biased-refereeing",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -110,27 +115,32 @@ window.XIGAI["体育运动"] = [
       {
         "type": "related",
         "target": "wonder-goal",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "clutch-shot",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "double",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "overtime",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "penalty-shootout",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -178,22 +188,26 @@ window.XIGAI["体育运动"] = [
       {
         "type": "related",
         "target": "suspension",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "offside",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "penalty-shootout",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "biased-refereeing",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -241,32 +255,38 @@ window.XIGAI["体育运动"] = [
       {
         "type": "related",
         "target": "overtime",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "hat-trick",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "clutch-shot",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "group-of-death",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "offside",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "card-system",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -313,37 +333,44 @@ window.XIGAI["体育运动"] = [
       {
         "type": "related",
         "target": "three-point-barrage",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "back-to-back",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "fourth-quarter-collapse",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "clutch-shot",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "transfer-window",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "free-agent",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "tanking",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -391,47 +418,56 @@ window.XIGAI["体育运动"] = [
       {
         "type": "related",
         "target": "fourth-quarter-collapse",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "hat-trick",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "wonder-goal",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "penalty-shootout",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "all-star-game",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "three-point-barrage",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "double",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "back-to-back",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "overtime",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -479,32 +515,38 @@ window.XIGAI["体育运动"] = [
       {
         "type": "related",
         "target": "clutch-shot",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "back-to-back",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "three-point-barrage",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "tanking",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "all-star-game",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "overtime",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -551,22 +593,26 @@ window.XIGAI["体育运动"] = [
       {
         "type": "related",
         "target": "all-star-game",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "fourth-quarter-collapse",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "clutch-shot",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "back-to-back",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -613,27 +659,32 @@ window.XIGAI["体育运动"] = [
       {
         "type": "related",
         "target": "weak-team",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "group-of-death",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "clutch-shot",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "hat-trick",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "wonder-goal",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -680,22 +731,26 @@ window.XIGAI["体育运动"] = [
       {
         "type": "related",
         "target": "match-fixing",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "card-system",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "suspension",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "offside",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -743,32 +798,38 @@ window.XIGAI["体育运动"] = [
       {
         "type": "related",
         "target": "biased-refereeing",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "tanking",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "transfer-window",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "weak-team",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "free-agent",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "suspension",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -816,27 +877,32 @@ window.XIGAI["体育运动"] = [
       {
         "type": "related",
         "target": "free-agent",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "suspension",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "all-star-game",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "weak-team",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "match-fixing",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -884,22 +950,26 @@ window.XIGAI["体育运动"] = [
       {
         "type": "related",
         "target": "transfer-window",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "match-fixing",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "all-star-game",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "back-to-back",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -947,32 +1017,38 @@ window.XIGAI["体育运动"] = [
       {
         "type": "related",
         "target": "fourth-quarter-collapse",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "all-star-game",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "clutch-shot",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "tanking",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "three-point-barrage",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "free-agent",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1020,27 +1096,32 @@ window.XIGAI["体育运动"] = [
       {
         "type": "related",
         "target": "weak-team",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "match-fixing",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "back-to-back",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "all-star-game",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "fourth-quarter-collapse",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1088,27 +1169,32 @@ window.XIGAI["体育运动"] = [
       {
         "type": "related",
         "target": "tanking",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "group-of-death",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "double",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "match-fixing",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "transfer-window",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1155,22 +1241,26 @@ window.XIGAI["体育运动"] = [
       {
         "type": "related",
         "target": "weak-team",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "double",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "penalty-shootout",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "overtime",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1218,37 +1308,44 @@ window.XIGAI["体育运动"] = [
       {
         "type": "related",
         "target": "penalty-shootout",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "clutch-shot",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "fourth-quarter-collapse",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "hat-trick",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "offside",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "group-of-death",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "wonder-goal",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1296,27 +1393,32 @@ window.XIGAI["体育运动"] = [
       {
         "type": "related",
         "target": "card-system",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "offside",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "biased-refereeing",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "match-fixing",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "transfer-window",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1364,22 +1466,26 @@ window.XIGAI["体育运动"] = [
       {
         "type": "related",
         "target": "hat-trick",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "clutch-shot",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "overtime",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "double",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   }

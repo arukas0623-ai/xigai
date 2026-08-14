@@ -50,32 +50,38 @@ window.XIGAI["前沿科技"] = [
       {
         "type": "related",
         "target": "quantum-communication",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "量子纠错",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "量子优越性",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "量子芯片",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "后量子密码",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "quantum-entanglement",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       }
     ]
   },
@@ -128,27 +134,32 @@ window.XIGAI["前沿科技"] = [
       {
         "type": "related",
         "target": "quantum-computing",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "量子密钥分发",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "quantum-entanglement",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "后量子密码",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "卫星通信",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -201,27 +212,32 @@ window.XIGAI["前沿科技"] = [
       {
         "type": "related",
         "target": "等离子体物理",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "托卡马克",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "ITER",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "惯性约束聚变",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "清洁能源",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -275,27 +291,32 @@ window.XIGAI["前沿科技"] = [
       {
         "type": "related",
         "target": "embodied-ai",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "仿生机器人",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "灵巧手",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "运动控制",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "机器人操作系统",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -348,37 +369,44 @@ window.XIGAI["前沿科技"] = [
       {
         "type": "related",
         "target": "humanoid-robot",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "world-model",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "VLA模型",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "reinforcement-learning",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "multimodal-llm",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "robotaxi",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "world-simulator",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -432,27 +460,32 @@ window.XIGAI["前沿科技"] = [
       {
         "type": "related",
         "target": "神经工程",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "神经假体",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "侵入式电极",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "神经调控",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "人机融合",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -506,32 +539,38 @@ window.XIGAI["前沿科技"] = [
       {
         "type": "related",
         "target": "5G-Advanced",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "太赫兹通信",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "通感一体化",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "leo-satellite-internet",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "智能超表面",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "5g-communication",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       }
     ]
   },
@@ -586,27 +625,32 @@ window.XIGAI["前沿科技"] = [
       {
         "type": "related",
         "target": "6g-communication",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "星间激光通信",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "可回收火箭",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "手机直连卫星",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "空天地一体化",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -660,27 +704,32 @@ window.XIGAI["前沿科技"] = [
       {
         "type": "related",
         "target": "gene-therapy",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "CRISPR基因编辑",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "生物制造",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "代谢工程",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "蛋白质设计",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -734,32 +783,38 @@ window.XIGAI["前沿科技"] = [
       {
         "type": "related",
         "target": "CRISPR基因编辑",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "synthetic-biology",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "mrna-vaccine-technology",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "细胞治疗",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "AAV载体",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "gene-editing",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       }
     ]
   },
@@ -813,27 +868,32 @@ window.XIGAI["前沿科技"] = [
       {
         "type": "related",
         "target": "gene-therapy",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "脂质纳米颗粒",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "肿瘤免疫治疗",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "免疫学",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "生物制药",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -888,57 +948,68 @@ window.XIGAI["前沿科技"] = [
       {
         "type": "related",
         "target": "edge-ai",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "large-language-model",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "hbm",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "GPU",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "算力网络",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "advanced-node",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "chiplet",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "advanced-packaging",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "risc-v",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "npu",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "memory-chip",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       }
     ]
   },
@@ -991,27 +1062,32 @@ window.XIGAI["前沿科技"] = [
       {
         "type": "related",
         "target": "自动驾驶",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "embodied-ai",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "车路协同",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "lidar",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "出行即服务",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -1066,27 +1142,32 @@ window.XIGAI["前沿科技"] = [
       {
         "type": "related",
         "target": "embodied-ai",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "视频生成",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "空间智能",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "reinforcement-learning",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "自动驾驶",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -1141,27 +1222,32 @@ window.XIGAI["前沿科技"] = [
       {
         "type": "related",
         "target": "ai-chip",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "large-language-model",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "npu",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "物联网",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "端云协同",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -1206,12 +1292,14 @@ window.XIGAI["前沿科技"] = [
       {
         "type": "dependsOn",
         "target": "物联网",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "appliesTo",
         "target": "工业40,",
-        "note": ""
+        "note": "",
+        "confidence": 0.8
       }
     ],
     "sources": [
@@ -1268,12 +1356,14 @@ window.XIGAI["前沿科技"] = [
       {
         "type": "dependsOn",
         "target": "无人机技术",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "appliesTo",
         "target": "智慧城市",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ],
     "sources": [
@@ -1326,12 +1416,14 @@ window.XIGAI["前沿科技"] = [
       {
         "type": "followup",
         "target": "自动驾驶",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "车联网",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ],
     "sources": [
@@ -1384,12 +1476,14 @@ window.XIGAI["前沿科技"] = [
       {
         "type": "evolvedFrom",
         "target": "直线电机",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "followup",
         "target": "超导磁悬浮列车",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ],
     "sources": [
@@ -1441,7 +1535,8 @@ window.XIGAI["前沿科技"] = [
       {
         "type": "evolvedFrom",
         "target": "工业40,",
-        "note": ""
+        "note": "",
+        "confidence": 0.8
       }
     ],
     "sources": [
@@ -1497,12 +1592,14 @@ window.XIGAI["前沿科技"] = [
       {
         "type": "followup",
         "target": "5G技术",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "followup",
         "target": "人工智能",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ],
     "sources": [
@@ -1562,12 +1659,14 @@ window.XIGAI["前沿科技"] = [
       {
         "type": "evolvedFrom",
         "target": "智能制造",
-        "note": ""
+        "note": "",
+        "confidence": 0.8
       },
       {
         "type": "followup",
         "target": "数字化转型",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ],
     "sources": [
@@ -1583,6 +1682,70 @@ window.XIGAI["前沿科技"] = [
       "source": 1,
       "relation": 0.7
     },
+    "searchedAt": "2026-08-14"
+  },
+  {
+    "name": "星链卫星",
+    "aliases": [],
+    "field": "前沿科技",
+    "tags": [
+      "太空探索",
+      "互联网"
+    ],
+    "difficulty": 3,
+    "summary": "SpaceX 发射的低轨通信卫星群",
+    "definition": "星链卫星是 SpaceX 公司计划发射的一系列低轨道通信卫星，旨在提供全球范围内的高速互联网服务。",
+    "principle": ",",
+    "background": "2015年 SpaceX 开始部署星链项目，计划发射数千颗卫星形成一个覆盖全球的卫星网络。截至2023年，已发射数百颗卫星并投入运营。",
+    "core": [
+      "低轨道设计以减少延迟",
+      "采用 Ka 和 V 频段进行高速数据传输",
+      "使用星间链路实现卫星间的直接通信"
+    ],
+    "pros": [
+      "全球覆盖，不受地面基础设施限制",
+      "理论上提供接近光纤的互联网速度"
+    ],
+    "cons": [
+      "对天文学和太空观测产生干扰",
+      "发射大量卫星可能增加太空垃圾风险"
+    ],
+    "applications": [
+      "偏远地区互联网接入",
+      "海事通信与导航"
+    ],
+    "misconceptions": [
+      "星链卫星可以完全替代地面光纤网络",
+      "所有国家和地区都能立即获得高质量服务"
+    ],
+    "related": [
+      "太空互联网",
+      "低轨卫星"
+    ],
+    "relations": [
+      {
+        "type": "evolvedFrom",
+        "target": "全球星计划",
+        "note": "",
+        "confidence": 0.3
+      },
+      {
+        "type": "dependsOn",
+        "target": "Starlink 网络",
+        "note": "",
+        "confidence": 0.3
+      }
+    ],
+    "sources": [
+      "https://www.spacex.com/starlink/",
+      "https://en.wikipedia.org/wiki/Starlink",
+      "https://spacepolicyonline.com/2023/06/starlink-8-launches-1000th-starship-satellite/"
+    ],
+    "id": "星链卫星",
+    "confidence": 0.9,
+    "sourceConfidence": 0.7,
+    "relationConfidence": 0.3,
+    "status": "generated",
     "searchedAt": "2026-08-14"
   }
 ];

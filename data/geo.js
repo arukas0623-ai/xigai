@@ -48,27 +48,32 @@ window.XIGAI["地理气候"] = [
       {
         "type": "related",
         "target": "大陆漂移说",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "海底扩张",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "earthquake",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "volcanic-eruption",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "造山运动",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -121,37 +126,44 @@ window.XIGAI["地理气候"] = [
       {
         "type": "related",
         "target": "拉尼娜现象",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "南方涛动",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "沃克环流",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "climate-change",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "monsoon",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "greenhouse-effect",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "ocean-currents",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -203,27 +215,32 @@ window.XIGAI["地理气候"] = [
       {
         "type": "related",
         "target": "climate-change",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "全球变暖",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "温室气体",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "碳循环",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "el-nino",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -275,27 +292,32 @@ window.XIGAI["地理气候"] = [
       {
         "type": "related",
         "target": "暖流",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "寒流",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "热盐环流",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "el-nino",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "monsoon",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -347,27 +369,32 @@ window.XIGAI["地理气候"] = [
       {
         "type": "related",
         "target": "东亚季风",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "南亚季风",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "大气环流",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "el-nino",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "ocean-currents",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -420,22 +447,26 @@ window.XIGAI["地理气候"] = [
       {
         "type": "related",
         "target": "水土流失",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "生态修复",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "ecosystem",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "climate-change",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -487,27 +518,32 @@ window.XIGAI["地理气候"] = [
       {
         "type": "related",
         "target": "plate-tectonics",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "岩浆",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "earthquake",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "地热资源",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "地质灾害",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -560,27 +596,32 @@ window.XIGAI["地理气候"] = [
       {
         "type": "related",
         "target": "plate-tectonics",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "断层",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "海啸",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "volcanic-eruption",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "地质灾害",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -632,27 +673,32 @@ window.XIGAI["地理气候"] = [
       {
         "type": "related",
         "target": "生物多样性",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "食物链",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "生态平衡",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "desertification",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "climate-change",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -704,32 +750,38 @@ window.XIGAI["地理气候"] = [
       {
         "type": "related",
         "target": "greenhouse-effect",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "全球变暖",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "el-nino",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "ecosystem",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "碳循环",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "desertification",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   }

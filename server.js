@@ -590,7 +590,60 @@ function domain2file(domain) {
 }
 
 
-/* 可信度评分：来源数/定义长度/要点数 → 0-1；低可信(pending)不进入公共搜索 */
+
+/* 阈值规则：≥0.85 可自动公开(verified)；0.6~0.85 generated(后台验证)；<0.6 pending(不公开) */
+function statusOf(conf) { return conf >= 0.85 ? "verified" : conf >= 0.6 ? "generated" : "pending"; }
+/* 来源置信度：数量 + 权威域 + 多源一致性 */
+function sourceConfidence(c) {
+  const srcs = (c.sources || []).filter(Boolean);
+  if (!srcs.length) return 0.1;
+  let s = 0.3;
+  const QUALITY = /(wikipedia|baike|edu|ac\.cn|gov|org|stanford|mit|nature|science|w3c|mdn|github|arxiv|openai|anthropic|google|microsoft|aliyun|tencent|baidu|zhihu|kepuchina|case|sci)/i;
+  const doms = new Set();
+  for (const u of srcs) {
+    if (QUALITY.test(u)) s += 0.15;
+    try { doms.add(new URL(u).hostname); } catch (e) {}
+  }
+  if (doms.size >= 2) s += 0.15;
+  if (srcs.length >= 2) s += 0.1;
+  return Math.min(1, Math.round(s * 100) / 100);
+}
+/* 单条关系置信度：类型基分 + 解析 + note + 同域/跨域 */
+function relationConfidenceFor(type, resolved, note, fromDom, toDom) {
+  const base = { related: 0.8, prerequisite: 0.85, followup: 0.85, dependsOn: 0.8, evolvedFrom: 0.75, appliesTo: 0.75 }[type] || 0.6;
+  if (!resolved) return 0.3;
+  let c = base;
+  if (note) c += 0.1;
+  if (fromDom && toDom && fromDom === toDom) c += 0.05;
+  if (fromDom && toDom && fromDom !== toDom) c -= 0.05;
+  return Math.min(1, Math.round(c * 100) / 100);
+}
+/* 关系集置信度（概念级）= 平均 */
+function relationConfidence(c, corpus) {
+  const rels = c.relations || [];
+  if (!rels.length) return 0.3;
+  const sum = rels.reduce((s, r) => s + relationConfidenceFor(r.type, corpus ? corpus.byId.has(r.target) : false, r.note, c.domain, null), 0);
+  return Math.round(sum / rels.length * 100) / 100;
+}
+/* 低置信联网验证（免费百科 + 缓存，仅验证不重复） */
+const VERIFY_DIR = path.join(ROOT, ".cache", "verify");
+function verifyViaBaike(name) {
+  const key = normStr(name).slice(0, 40);
+  const cf = path.join(VERIFY_DIR, key + ".json");
+  try {
+    const st = fs.statSync(cf);
+    if (Date.now() - st.mtimeMs < 7 * 864e5) return Promise.resolve(JSON.parse(fs.readFileSync(cf, "utf8")));
+  } catch (e) {}
+  return fetch("https://baike.baidu.com/api/openapi/BaikeLemmaCardApi?scope=103&format=json&appid=379020&bk_key=" + encodeURIComponent(name) + "&bk_length=200", { headers: { "User-Agent": "Xigai/1.0" }, signal: AbortSignal.timeout(15000) })
+    .then(r => r.json()).then(d => {
+      const ok = !!(d && d.title);
+      const out = { ok, title: d && d.title, verified: ok, at: Date.now() };
+      try { fs.mkdirSync(VERIFY_DIR, { recursive: true }); fs.writeFileSync(cf, JSON.stringify(out)); } catch (e) {}
+      bumpStat("webVerifies", ok ? 1 : 1);
+      return out;
+    }).catch(() => ({ ok: false, verified: false, at: Date.now() }));
+}
+
 function computeConfidence(c) {
   let conf = 0.5;
   const defLen = String(c.definition || "").length;
@@ -613,7 +666,7 @@ function computeConfidence(c) {
   if (/https?:\/\//.test(defs)) conf -= 0.10;
   return Math.min(1, Math.max(0, Math.round(conf * 100) / 100));
 }
-function statusOf(conf) { return conf >= 0.7 ? "verified" : conf >= 0.5 ? "generated" : "pending"; }
+function statusOf(conf) { return conf >= 0.85 ? "verified" : conf >= 0.6 ? "generated" : "pending"; }
 
 /* 更新已有概念（force 重新验证）：保留 id/名称，替换内容，记录版本 */
 function updateConcept(domain, oldConcept, newConcept) {
@@ -647,6 +700,34 @@ function updateConcept(domain, oldConcept, newConcept) {
   });
 }
 
+
+/* 结构化后统一加工：置信度拆分 + 低置信联网验证 + 关系置信度 */
+function enrichConcept(obj, q) {
+  obj.confidence = Math.min(0.9, computeConfidence(obj));   // conceptConfidence（自动不封顶 1）
+  obj.sourceConfidence = sourceConfidence(obj);
+  // 关系置信度（写入每条关系）
+  (obj.relations || []).forEach(r => {
+    r.confidence = relationConfidenceFor(r.type, !!findLocal(r.target), r.note, classifyDomain(obj), null);
+  });
+  obj.relationConfidence = obj.relations && obj.relations.length
+    ? Math.round(obj.relations.reduce((s, r) => s + (r.confidence || 0.3), 0) / obj.relations.length * 100) / 100
+    : 0.3;
+  obj.status = statusOf(obj.confidence);
+  // 低置信（<0.6）→ 免费联网验证（百科，缓存），通过则提升
+  if (obj.confidence < 0.6) {
+    return verifyViaBaike(obj.name).then(v => {
+      if (v && v.verified) {
+        obj.confidence = Math.min(0.9, obj.confidence + 0.25);
+        obj.sourceConfidence = Math.min(1, obj.sourceConfidence + 0.2);
+        const src = "https://baike.baidu.com/item/" + encodeURIComponent(obj.name);
+        if (!(obj.sources || []).includes(src)) (obj.sources = obj.sources || []).push(src);
+        obj.status = statusOf(obj.confidence);
+      }
+      return obj;
+    });
+  }
+  return Promise.resolve(obj);
+}
 /* /api/grow 主流程 */
 function handleGrow(res, payload) {
   const q = String(payload.q || "").trim();
@@ -676,24 +757,17 @@ function handleGrow(res, payload) {
   // 3) 联网 + AI 结构化（Ollama 优先，付费兜底）
   const prompt = growPrompt(q);
   if (!AI_POLICY.autoPaidEnabled) { /* 系统任务禁用付费（硬开关） */ }
-  growOllama(q, prompt).then(text => {
+  growOllama(q, prompt).then(async text => {
     if (!text) { bumpStat("ollamaCalls", 1); bumpStat("errors", 1); return send(res, 200, JSON.stringify({ ok: false, error: "本地模型不可用（系统自动任务已禁用付费兜底），已跳过" })); }
     bumpStat("ollamaCalls", 1);
-    const obj = extractJSON(text);
+    let obj = extractJSON(text);
     if (!obj) { bumpStat("errors", 1); return send(res, 200, JSON.stringify({ ok: false, error: "AI 输出无法解析为结构化词条" })); }
     obj.relations = normalizeGrowRelations(obj.relations);
     if (!Array.isArray(obj.pros)) obj.pros = [];
     if (!Array.isArray(obj.cons)) obj.cons = [];
     if (obj.principle == null) obj.principle = "";
     obj.id = normStr(obj.name).slice(0, 48) || "concept-" + Date.now();
-    obj.confidence = Math.min(0.9, computeConfidence(obj));   // 自动生成永不默认满置信（1.0 仅限人工验证）
-    obj.status = statusOf(obj.confidence);
-    // 拆分置信度：整体 + 来源/关系分项
-    obj.confidenceDetail = {
-      concept: obj.confidence,
-      source: Math.min(1, 0.3 + 0.25 * (obj.sources || []).filter(Boolean).length),
-      relation: obj.relations && obj.relations.length ? 0.7 : 0.3,
-    };
+    obj = await enrichConcept(obj, q);
     // 4) 去重
     const dup = dedupCheck(obj);
     if (dup) {
@@ -711,12 +785,10 @@ function handleGrow(res, payload) {
     // 5) 可信度/垃圾过滤
     const reason = junkCheck(obj, q);
     if (reason) { bumpReject(reason); return send(res, 200, JSON.stringify({ ok: false, reject: true, reason })); }
-    if (obj.confidence < 0.5) obj.status = "pending"; // 低可信：入库但不进入公共搜索
     // 6) 分类
     const domain = classifyDomain(obj);
-    // 7) 入库（串行写）
+    // 7) 入库（串行写，status/confidence 已由 enrichConcept 按阈值设定）
     obj.searchedAt = new Date().toISOString().slice(0, 10);
-    obj.status = "generated";
     appendConcept(domain, obj).then(r => {
       if (r.ok) {
         bumpStat("ingests", 1);
@@ -739,20 +811,28 @@ function handleGrow(res, payload) {
 function corpusMetrics() {
   if (!CORPUS) loadCorpus();
   const all = CORPUS.all;
-  let relations = 0, resolved = 0, highConf = 0;
+  let relations = 0, resolved = 0, valid = 0, highConf = 0, publicN = 0;
   for (const c of all) {
     const rels = c.relations || [];
     relations += rels.length;
-    resolved += rels.filter(r => CORPUS.byId.has(r.target)).length;
+    for (const r of rels) {
+      const ok = CORPUS.byId.has(r.target);
+      if (ok) resolved++;
+      const rc = r.confidence != null ? r.confidence : (ok ? 0.6 : 0.3);
+      if (ok && rc >= 0.6) valid++;
+    }
     const conf = c.confidence != null ? c.confidence : 1;  // 旧数据视为可信
-    if (conf >= 0.7) highConf++;
+    if (conf >= 0.85) highConf++;
+    if (c.status !== "pending" && conf >= 0.6) publicN++;
   }
   return {
     concepts: all.length,
     relations,
     resolvedRate: relations ? Math.round(resolved / relations * 100) : 0,
+    relationEfficiency: relations ? Math.round(valid / relations * 100) : 0,   // 可解析 ∧ 可信
     highConfidenceRate: all.length ? Math.round(highConf / all.length * 100) : 0,
-    pending: all.filter(c => c.status === "pending" || (c.confidence != null && c.confidence < 0.5)).length,
+    publicRate: all.length ? Math.round(publicN / all.length * 100) : 0,
+    pending: all.filter(c => c.status === "pending" || (c.confidence != null && c.confidence < 0.6)).length,
     withConfidence: all.filter(c => c.confidence != null).length,
   };
 }
@@ -933,7 +1013,7 @@ function growTarget(payload) {
       const p = readPending(); p[key] = { at: Date.now(), reason: "ollama-empty" }; writePending(p);
       return { ok: false, error: "本地模型不可用", pending: true };
     }
-    const obj = extractJSON(text);
+    let obj = extractJSON(text);
     if (!obj) {
       const p = readPending(); p[key] = { at: Date.now(), reason: "parse-fail" }; writePending(p);
       return { ok: false, error: "结构化解析失败", pending: true };
@@ -943,9 +1023,7 @@ function growTarget(payload) {
     if (!Array.isArray(obj.cons)) obj.cons = [];
     if (obj.principle == null) obj.principle = "";
     obj.id = normStr(obj.name).slice(0, 48) || "concept-" + Date.now();
-    obj.confidence = Math.min(0.9, computeConfidence(obj));   // 自动生成永不默认满置信
-    obj.status = statusOf(obj.confidence);
-    obj.confidenceDetail = { concept: obj.confidence, source: Math.min(1, 0.3 + 0.25 * (obj.sources || []).filter(Boolean).length), relation: obj.relations.length ? 0.7 : 0.3 };
+    obj = await enrichConcept(obj, target);
     // 4) 去重
     const dup = dedupCheck(obj);
     if (dup) { bumpStat("dupSkips", 1); return { ok: true, source: "dup", concept: dup }; }
@@ -976,7 +1054,7 @@ function handleGrowTarget(res, payload) {
 /* 关系维护：解析→id、删无效/自循环/垃圾目标，报告有效率 */
 function handleMaintain(res) {
   if (!CORPUS) loadCorpus();
-  let relations = 0, resolved = 0, dropped = 0, rewritten = 0;
+  let relations = 0, resolved = 0, valid = 0, dropped = 0, rewritten = 0, lowConf = 0;
   const JUNK_TARGET = /(什么|如何|怎么|为什么|是不是|有没有|好吗|可以吗|你是谁|你好|^\d+$|^.$)/;
   for (const c of CORPUS.all) {
     const keep = [];
@@ -991,11 +1069,17 @@ function handleMaintain(res) {
       const key = type + "|" + targetVal;
       if (seen.has(key)) { dropped++; continue; }                             // 重复
       seen.add(key);
+      // 关系置信度：未解析=待补全(pending)，不删除；仅自循环/重复/垃圾删除
+      const conf = relationConfidenceFor(type, !!t, r.note, c.domain, t && t.domain);
+      if (!t) lowConf++;
       if (t && r.target !== t.id) { rewritten++; }                            // 名称→id 重写
-      keep.push({ type, target: targetVal, note: r.note || "" });
-      relations++; if (t) resolved++;
+      keep.push({ type, target: targetVal, note: r.note || "", confidence: conf });
+      relations++;
+      if (t) resolved++;
+      if (t && conf >= 0.6) valid++;
     }
     c.relations = keep;
+    c.relationConfidence = keep.length ? Math.round(keep.reduce((s, x) => s + (x.confidence || 0.3), 0) / keep.length * 100) / 100 : 0.3;
   }
   // 回写数据文件
   const dataDir = path.join(ROOT, "data");
@@ -1015,7 +1099,7 @@ function handleMaintain(res) {
     try { fs.writeFileSync(tmp, out, "utf8"); fs.renameSync(tmp, fp); } catch (e) {}
   }
   loadCorpus();
-  send(res, 200, JSON.stringify({ ok: true, relations, resolved, rate: relations ? Math.round(resolved / relations * 100) : 0, dropped, rewritten }));
+  send(res, 200, JSON.stringify({ ok: true, relations, resolved, rate: relations ? Math.round(resolved / relations * 100) : 0, valid, validRate: relations ? Math.round(valid / relations * 100) : 0, dropped, rewritten, pendingRelations: lowConf }));
 }
 
 /* ── 静态服务 ─────────────────────────────────────── */

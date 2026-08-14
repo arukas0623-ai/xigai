@@ -48,52 +48,62 @@ window.XIGAI["新能源与低碳"] = [
       {
         "type": "related",
         "target": "perovskite",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "energy-storage",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "vpp",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "carbon-neutral",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "ultra-fast-charging",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "wind-power",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "hydrogen",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "fusion",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "carbon-trading",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "energy-transition",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       }
     ]
   },
@@ -145,22 +155,26 @@ window.XIGAI["新能源与低碳"] = [
       {
         "type": "related",
         "target": "pv-solar",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "lithium-battery",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "energy-storage",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "hydrogen",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -212,27 +226,32 @@ window.XIGAI["新能源与低碳"] = [
       {
         "type": "related",
         "target": "pv-solar",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "energy-storage",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "hydrogen",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "vpp",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "carbon-neutral",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -283,42 +302,50 @@ window.XIGAI["新能源与低碳"] = [
       {
         "type": "related",
         "target": "lithium-battery",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "sodium-ion",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "vpp",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "pv-solar",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "wind-power",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "perovskite",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "solid-state",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "ultra-fast-charging",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -370,27 +397,32 @@ window.XIGAI["新能源与低碳"] = [
       {
         "type": "related",
         "target": "solid-state",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "sodium-ion",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "energy-storage",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "ultra-fast-charging",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "perovskite",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -442,22 +474,26 @@ window.XIGAI["新能源与低碳"] = [
       {
         "type": "related",
         "target": "lithium-battery",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "sodium-ion",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "ultra-fast-charging",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "energy-storage",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -509,22 +545,26 @@ window.XIGAI["新能源与低碳"] = [
       {
         "type": "related",
         "target": "lithium-battery",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "solid-state",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "energy-storage",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "ultra-fast-charging",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -576,37 +616,44 @@ window.XIGAI["新能源与低碳"] = [
       {
         "type": "related",
         "target": "fuel-cell",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "ccus",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "carbon-neutral",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "wind-power",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "pv-solar",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "perovskite",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "fusion",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -658,22 +705,26 @@ window.XIGAI["新能源与低碳"] = [
       {
         "type": "related",
         "target": "hydrogen",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "ccus",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "ultra-fast-charging",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "carbon-neutral",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -726,22 +777,26 @@ window.XIGAI["新能源与低碳"] = [
       {
         "type": "related",
         "target": "hydrogen",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "carbon-neutral",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "ultra-fast-charging",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "pv-solar",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -793,22 +848,26 @@ window.XIGAI["新能源与低碳"] = [
       {
         "type": "related",
         "target": "carbon-neutral",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "ccus",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "vpp",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "pv-solar",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -860,42 +919,50 @@ window.XIGAI["新能源与低碳"] = [
       {
         "type": "related",
         "target": "carbon-trading",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "ccus",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "hydrogen",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "pv-solar",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "wind-power",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "fuel-cell",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "fusion",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "energy-transition",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       }
     ]
   },
@@ -947,22 +1014,26 @@ window.XIGAI["新能源与低碳"] = [
       {
         "type": "related",
         "target": "carbon-neutral",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "carbon-trading",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "hydrogen",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "fuel-cell",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1013,27 +1084,32 @@ window.XIGAI["新能源与低碳"] = [
       {
         "type": "related",
         "target": "energy-storage",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "pv-solar",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "ultra-fast-charging",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "carbon-trading",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "wind-power",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1087,42 +1163,50 @@ window.XIGAI["新能源与低碳"] = [
       {
         "type": "related",
         "target": "lithium-battery",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "solid-state",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "vpp",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "energy-storage",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "pv-solar",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "sodium-ion",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "fuel-cell",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "fusion",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   }

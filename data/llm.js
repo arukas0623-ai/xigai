@@ -47,37 +47,44 @@ window.XIGAI["大模型横评"] = [
       {
         "type": "related",
         "target": "deepseek-v4-pro",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "kimi-k3",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "qwen3-8-max",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "llama-3-3",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "xiaomi-mimo",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "zhipu-glm",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "open-weights-2026",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -128,22 +135,26 @@ window.XIGAI["大模型横评"] = [
       {
         "type": "related",
         "target": "deepseek-v4",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "claude-fable-5",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "gpt-5-4",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "kimi-k3",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -195,22 +206,26 @@ window.XIGAI["大模型横评"] = [
       {
         "type": "related",
         "target": "claude-fable-5",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "gemini-3-7-flash",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "deepseek-v4-pro",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "claude-mythos-5",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -262,22 +277,26 @@ window.XIGAI["大模型横评"] = [
       {
         "type": "related",
         "target": "claude-mythos-5",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "gpt-5-4",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "deepseek-v4-pro",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "gemini-3-7-flash",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -328,12 +347,14 @@ window.XIGAI["大模型横评"] = [
       {
         "type": "related",
         "target": "claude-fable-5",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "gpt-5-4",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -385,17 +406,20 @@ window.XIGAI["大模型横评"] = [
       {
         "type": "related",
         "target": "claude-fable-5",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "gpt-5-4",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "qwen3-8-max",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -447,37 +471,44 @@ window.XIGAI["大模型横评"] = [
       {
         "type": "related",
         "target": "kimi-k3",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "deepseek-v4",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "zhipu-glm",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "gemini-3-7-flash",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "xiaomi-mimo",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "llama-3-3",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "open-weights-2026",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -529,27 +560,32 @@ window.XIGAI["大模型横评"] = [
       {
         "type": "related",
         "target": "qwen3-8-max",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "deepseek-v4",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "llama-3-3",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "deepseek-v4-pro",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "open-weights-2026",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -601,22 +637,26 @@ window.XIGAI["大模型横评"] = [
       {
         "type": "related",
         "target": "zhipu-glm",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "deepseek-v4",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "qwen3-8-max",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "open-weights-2026",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -669,17 +709,20 @@ window.XIGAI["大模型横评"] = [
       {
         "type": "related",
         "target": "xiaomi-mimo",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "deepseek-v4",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "qwen3-8-max",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -730,17 +773,20 @@ window.XIGAI["大模型横评"] = [
       {
         "type": "related",
         "target": "kimi-k3",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "deepseek-v4",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "qwen3-8-max",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -792,22 +838,26 @@ window.XIGAI["大模型横评"] = [
       {
         "type": "related",
         "target": "xiaomi-mimo",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "kimi-k3",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "qwen3-8-max",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "deepseek-v4",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   }

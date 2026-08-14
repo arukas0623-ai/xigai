@@ -50,27 +50,32 @@ window.XIGAI["物理学"] = [
       {
         "type": "related",
         "target": "广义相对论",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "洛伦兹变换",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "质能方程",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "闵可夫斯基时空",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "光速不变原理",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -124,27 +129,32 @@ window.XIGAI["物理学"] = [
       {
         "type": "related",
         "target": "波函数",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "薛定谔方程",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "不确定性原理",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "quantum-entanglement",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "量子场论",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -198,27 +208,32 @@ window.XIGAI["物理学"] = [
       {
         "type": "related",
         "target": "entropy",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "热力学第一定律",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "卡诺循环",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "统计力学",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "时间之矢",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -271,27 +286,32 @@ window.XIGAI["物理学"] = [
       {
         "type": "related",
         "target": "广义相对论",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "事件视界",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "gravitational-waves",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "霍金辐射",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "奇点",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -346,22 +366,26 @@ window.XIGAI["物理学"] = [
       {
         "type": "related",
         "target": "量子引力",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "超对称",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "额外维度",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "全息原理",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -415,37 +439,44 @@ window.XIGAI["物理学"] = [
       {
         "type": "related",
         "target": "贝尔不等式",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "EPR佯谬",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "量子隐形传态",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "quantum-computing",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "波函数坍缩",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "quantum-communication",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "quantum-mechanics",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -498,32 +529,38 @@ window.XIGAI["物理学"] = [
       {
         "type": "related",
         "target": "dark-energy",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "引力透镜",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "cmb",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "WIMP",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "星系旋转曲线",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "galaxy",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       }
     ]
   },
@@ -577,27 +614,32 @@ window.XIGAI["物理学"] = [
       {
         "type": "related",
         "target": "希格斯玻色子",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "夸克",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "量子色动力学",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "电弱统一理论",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "量子场论",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -650,27 +692,32 @@ window.XIGAI["物理学"] = [
       {
         "type": "related",
         "target": "second-law-of-thermodynamics",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "玻尔兹曼常数",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "信息熵",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "统计力学",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "黑洞熵",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -725,27 +772,32 @@ window.XIGAI["物理学"] = [
       {
         "type": "related",
         "target": "cmb",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "hubbles-law",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "暴胀理论",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "dark-energy",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "广义相对论",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   }

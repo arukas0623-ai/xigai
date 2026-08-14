@@ -43,17 +43,20 @@ window.XIGAI["建筑与设计"] = [
       {
         "type": "related",
         "target": "shear-wall",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "frame-structure",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "构造柱",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -101,22 +104,26 @@ window.XIGAI["建筑与设计"] = [
       {
         "type": "related",
         "target": "load-bearing-wall",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "frame-structure",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "框架-核心筒",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "cantilever",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -160,17 +167,20 @@ window.XIGAI["建筑与设计"] = [
       {
         "type": "related",
         "target": "shear-wall",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "load-bearing-wall",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "框架-核心筒",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -217,22 +227,26 @@ window.XIGAI["建筑与设计"] = [
       {
         "type": "related",
         "target": "prefabricated-building",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "parametric-design",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "智慧工地",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "civil-engineering",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       }
     ]
   },
@@ -276,22 +290,26 @@ window.XIGAI["建筑与设计"] = [
       {
         "type": "related",
         "target": "energy-efficient-building",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "green-building",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "新风系统",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "daylighting",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -336,22 +354,26 @@ window.XIGAI["建筑与设计"] = [
       {
         "type": "related",
         "target": "ergonomics",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "accessible-design",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "户型设计",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "ventilation-shaft",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -395,17 +417,20 @@ window.XIGAI["建筑与设计"] = [
       {
         "type": "related",
         "target": "circulation",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "accessible-design",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "家具设计",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -449,22 +474,26 @@ window.XIGAI["建筑与设计"] = [
       {
         "type": "related",
         "target": "parametric-design",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "现代主义",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "密斯·凡·德·罗",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "minimalism",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       }
     ]
   },
@@ -509,27 +538,32 @@ window.XIGAI["建筑与设计"] = [
       {
         "type": "related",
         "target": "bim",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "curtain-wall",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "数字建造",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "bauhaus",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "long-span-structure",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -573,27 +607,32 @@ window.XIGAI["建筑与设计"] = [
       {
         "type": "related",
         "target": "passive-house",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "green-building",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "curtain-wall",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "daylighting",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "prefabricated-building",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -638,17 +677,20 @@ window.XIGAI["建筑与设计"] = [
       {
         "type": "related",
         "target": "cantilever",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "parametric-design",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "energy-efficient-building",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -693,17 +735,20 @@ window.XIGAI["建筑与设计"] = [
       {
         "type": "related",
         "target": "long-span-structure",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "shear-wall",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "curtain-wall",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -747,17 +792,20 @@ window.XIGAI["建筑与设计"] = [
       {
         "type": "related",
         "target": "cantilever",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "parametric-design",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "钢结构",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -801,17 +849,20 @@ window.XIGAI["建筑与设计"] = [
       {
         "type": "related",
         "target": "energy-efficient-building",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "passive-house",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "ventilation-shaft",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -855,17 +906,20 @@ window.XIGAI["建筑与设计"] = [
       {
         "type": "related",
         "target": "daylighting",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "circulation",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "核心筒",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -910,17 +964,20 @@ window.XIGAI["建筑与设计"] = [
       {
         "type": "related",
         "target": "ergonomics",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "circulation",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "green-building",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -964,32 +1021,38 @@ window.XIGAI["建筑与设计"] = [
       {
         "type": "related",
         "target": "energy-efficient-building",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "passive-house",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "prefabricated-building",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "accessible-design",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "skyline",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "floor-area-ratio",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1033,17 +1096,20 @@ window.XIGAI["建筑与设计"] = [
       {
         "type": "related",
         "target": "bim",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "green-building",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "energy-efficient-building",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1087,17 +1153,20 @@ window.XIGAI["建筑与设计"] = [
       {
         "type": "related",
         "target": "floor-area-ratio",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "green-building",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "城市设计",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -1141,17 +1210,20 @@ window.XIGAI["建筑与设计"] = [
       {
         "type": "related",
         "target": "skyline",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "green-building",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "城市规划",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   }

@@ -50,32 +50,38 @@ window.XIGAI["影视游戏"] = [
       {
         "type": "related",
         "target": "沙盒游戏",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "game-design",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "涌现式玩法",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "MMORPG",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "塞尔达传说",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "indie-games",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -129,27 +135,32 @@ window.XIGAI["影视游戏"] = [
       {
         "type": "related",
         "target": "live-streaming",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "game-design",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "MOBA",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "赛事运营",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "流媒体",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -202,27 +213,32 @@ window.XIGAI["影视游戏"] = [
       {
         "type": "related",
         "target": "open-world",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "indie-games",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "esports",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "游戏化",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "关卡设计",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -275,32 +291,38 @@ window.XIGAI["影视游戏"] = [
       {
         "type": "related",
         "target": "screenplay-structure",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "好莱坞",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "电影工业",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "叙事学",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "高概念",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "visual-effects",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -353,27 +375,32 @@ window.XIGAI["影视游戏"] = [
       {
         "type": "related",
         "target": "visual-effects",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "algorithmic-recommendation",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "live-streaming",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "扩展现实",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "元宇宙",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -426,27 +453,32 @@ window.XIGAI["影视游戏"] = [
       {
         "type": "related",
         "target": "virtual-reality",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "genre-film",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "电影工业",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "数字艺术",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "虚拟制片",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -500,32 +532,38 @@ window.XIGAI["影视游戏"] = [
       {
         "type": "related",
         "target": "大数据",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "信息茧房",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "machine-learning",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "live-streaming",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "内容分发",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "virtual-reality",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -576,32 +614,38 @@ window.XIGAI["影视游戏"] = [
       {
         "type": "related",
         "target": "esports",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "algorithmic-recommendation",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "短视频",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "互动媒体",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "电商",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "virtual-reality",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -655,22 +699,26 @@ window.XIGAI["影视游戏"] = [
       {
         "type": "related",
         "target": "genre-film",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "叙事学",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "编剧",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "英雄之旅",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -724,27 +772,32 @@ window.XIGAI["影视游戏"] = [
       {
         "type": "related",
         "target": "game-design",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "open-world",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "Steam",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "游戏化",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "创意产业",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   }

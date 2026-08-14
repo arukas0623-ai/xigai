@@ -42,17 +42,20 @@ window.XIGAI["职场成长"] = [
       {
         "type": "related",
         "target": "kpi",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "绩效管理",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "work-report",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -98,32 +101,38 @@ window.XIGAI["职场成长"] = [
       {
         "type": "related",
         "target": "okr",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "绩效工资",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "promotion",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "moyu",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "year-end-bonus",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "work-report",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -169,17 +178,20 @@ window.XIGAI["职场成长"] = [
       {
         "type": "related",
         "target": "work-report",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "promotion",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "职场沟通",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -226,17 +238,20 @@ window.XIGAI["职场成长"] = [
       {
         "type": "related",
         "target": "moyu",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "tangping",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "mid-career-crisis",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -282,22 +297,26 @@ window.XIGAI["职场成长"] = [
       {
         "type": "related",
         "target": "neijuan",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "tangping",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "kpi",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "involution",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -342,22 +361,26 @@ window.XIGAI["职场成长"] = [
       {
         "type": "related",
         "target": "neijuan",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "moyu",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "career-planning",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "involution",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -403,22 +426,26 @@ window.XIGAI["职场成长"] = [
       {
         "type": "related",
         "target": "career-planning",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "job-hopping",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "promotion",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "involution",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -464,27 +491,32 @@ window.XIGAI["职场成长"] = [
       {
         "type": "related",
         "target": "mid-career-crisis",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "job-hopping",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "promotion",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "tangping",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "staffing-establishment",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -530,37 +562,44 @@ window.XIGAI["职场成长"] = [
       {
         "type": "related",
         "target": "resign-without-job",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "background-check",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "probation",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "mid-career-crisis",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "career-planning",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "stock-option-incentive",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "non-compete",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -605,17 +644,20 @@ window.XIGAI["职场成长"] = [
       {
         "type": "related",
         "target": "job-hopping",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "social-insurance-housing-fund",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "probation",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -660,27 +702,32 @@ window.XIGAI["职场成长"] = [
       {
         "type": "related",
         "target": "social-insurance-housing-fund",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "劳动合同",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "year-end-bonus",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "job-hopping",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "resign-without-job",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -726,27 +773,32 @@ window.XIGAI["职场成长"] = [
       {
         "type": "related",
         "target": "probation",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "year-end-bonus",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "resign-without-job",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "outsourcing",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "staffing-establishment",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -792,22 +844,26 @@ window.XIGAI["职场成长"] = [
       {
         "type": "related",
         "target": "social-insurance-housing-fund",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "stock-option-incentive",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "kpi",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "probation",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -853,17 +909,20 @@ window.XIGAI["职场成长"] = [
       {
         "type": "related",
         "target": "year-end-bonus",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "job-hopping",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "non-compete",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -909,17 +968,20 @@ window.XIGAI["职场成长"] = [
       {
         "type": "related",
         "target": "background-check",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "stock-option-incentive",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "job-hopping",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -965,17 +1027,20 @@ window.XIGAI["职场成长"] = [
       {
         "type": "related",
         "target": "job-hopping",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "non-compete",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "outsourcing",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1021,17 +1086,20 @@ window.XIGAI["职场成长"] = [
       {
         "type": "related",
         "target": "staffing-establishment",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "background-check",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "social-insurance-housing-fund",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1077,17 +1145,20 @@ window.XIGAI["职场成长"] = [
       {
         "type": "related",
         "target": "outsourcing",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "social-insurance-housing-fund",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "career-planning",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1133,27 +1204,32 @@ window.XIGAI["职场成长"] = [
       {
         "type": "related",
         "target": "work-report",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "kpi",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "managing-up",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "mid-career-crisis",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "career-planning",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1199,22 +1275,26 @@ window.XIGAI["职场成长"] = [
       {
         "type": "related",
         "target": "promotion",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "kpi",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "managing-up",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "okr",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   }

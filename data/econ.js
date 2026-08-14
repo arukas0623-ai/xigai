@@ -51,27 +51,32 @@ window.XIGAI["经济学"] = [
       {
         "type": "related",
         "target": "law-of-supply-demand",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "一般均衡理论",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "市场失灵",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "价格机制",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "绝对优势",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -125,27 +130,32 @@ window.XIGAI["经济学"] = [
       {
         "type": "related",
         "target": "均衡价格",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "需求弹性",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "供给曲线",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "invisible-hand",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "市场出清",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -198,32 +208,38 @@ window.XIGAI["经济学"] = [
       {
         "type": "related",
         "target": "CPI",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "菲利普斯曲线",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "货币政策",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "货币数量论",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "通货紧缩",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "monetarism",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -278,27 +294,32 @@ window.XIGAI["经济学"] = [
       {
         "type": "related",
         "target": "GNP",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "国民收入核算",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "CPI",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "经济周期",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "实际GDP",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -353,27 +374,32 @@ window.XIGAI["经济学"] = [
       {
         "type": "related",
         "target": "有效需求",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "乘数效应",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "财政政策",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "流动性陷阱",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "菲利普斯曲线",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -428,27 +454,32 @@ window.XIGAI["经济学"] = [
       {
         "type": "related",
         "target": "货币数量论",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "菲利普斯曲线",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "inflation",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "理性预期",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "弗里德曼",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -504,27 +535,32 @@ window.XIGAI["经济学"] = [
       {
         "type": "related",
         "target": "囚徒困境",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "博弈论",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "帕累托最优",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "占优策略",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "混合策略",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -580,27 +616,32 @@ window.XIGAI["经济学"] = [
       {
         "type": "related",
         "target": "绝对优势",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "机会成本",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "自由贸易",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "赫克歇尔—俄林模型",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "全球价值链",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -656,27 +697,32 @@ window.XIGAI["经济学"] = [
       {
         "type": "related",
         "target": "效用",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "消费者均衡",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "需求曲线",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "戈森定律",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "无差异曲线",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -730,32 +776,38 @@ window.XIGAI["经济学"] = [
       {
         "type": "related",
         "target": "前景理论",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "有限理性",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "损失厌恶",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "行为金融学",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "助推",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "cognitive-bias",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       }
     ]
   }

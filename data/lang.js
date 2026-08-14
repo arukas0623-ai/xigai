@@ -51,47 +51,56 @@ window.XIGAI["语言与思维"] = [
       {
         "type": "related",
         "target": "语言哲学",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "分析哲学",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "结构主义",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "诠释学",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "语言游戏",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "semiotics",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "rhetoric",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "pragmatics",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "translation-theory",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -147,22 +156,26 @@ window.XIGAI["语言与思维"] = [
       {
         "type": "related",
         "target": "cognitive-linguistics",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "洪堡特",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "概念隐喻",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "语言决定论",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -215,42 +228,50 @@ window.XIGAI["语言与思维"] = [
       {
         "type": "related",
         "target": "linguistic-turn",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "结构主义",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "能指与所指",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "叙事学",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "pragmatics",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "rhetoric",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "semantics",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "translation-theory",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -304,27 +325,32 @@ window.XIGAI["语言与思维"] = [
       {
         "type": "related",
         "target": "pragmatics",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "linguistic-turn",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "论证理论",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "文体学",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "semiotics",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -375,32 +401,38 @@ window.XIGAI["语言与思维"] = [
       {
         "type": "related",
         "target": "pragmatics",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "cognitive-linguistics",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "语言哲学",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "semiotics",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "词汇学",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "etymology",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -452,37 +484,44 @@ window.XIGAI["语言与思维"] = [
       {
         "type": "related",
         "target": "semantics",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "linguistic-turn",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "言语行为理论",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "cognitive-linguistics",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "semiotics",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "rhetoric",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "translation-theory",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -534,27 +573,32 @@ window.XIGAI["语言与思维"] = [
       {
         "type": "related",
         "target": "历史比较语言学",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "semantics",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "训诂学",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "词汇学",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "音韵学",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -606,27 +650,32 @@ window.XIGAI["语言与思维"] = [
       {
         "type": "related",
         "target": "神经语言学",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "布罗卡区",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "语言与思维",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "认知科学",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "言语康复",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -682,27 +731,32 @@ window.XIGAI["语言与思维"] = [
       {
         "type": "related",
         "target": "pragmatics",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "semiotics",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "跨文化交际",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "linguistic-turn",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "翻译批评",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -755,27 +809,32 @@ window.XIGAI["语言与思维"] = [
       {
         "type": "related",
         "target": "sapir-whorf-hypothesis",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "semantics",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "pragmatics",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "概念隐喻",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "原型范畴",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   }

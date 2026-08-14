@@ -46,17 +46,20 @@ window.XIGAI["半导体与芯片"] = [
       {
         "type": "related",
         "target": "advanced-node",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "lithography-machine",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "foundry",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -107,27 +110,32 @@ window.XIGAI["半导体与芯片"] = [
       {
         "type": "related",
         "target": "euv",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "foundry",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "ai-chip",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "chiplet",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "lithography-machine",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -178,17 +186,20 @@ window.XIGAI["半导体与芯片"] = [
       {
         "type": "related",
         "target": "advanced-packaging",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "ai-chip",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "advanced-node",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -238,27 +249,32 @@ window.XIGAI["半导体与芯片"] = [
       {
         "type": "related",
         "target": "chiplet",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "hbm",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "ai-chip",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "ai-accelerator",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "semiconductor-chip",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       }
     ]
   },
@@ -308,22 +324,26 @@ window.XIGAI["半导体与芯片"] = [
       {
         "type": "related",
         "target": "memory-chip",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "ai-chip",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "advanced-packaging",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "ai-accelerator",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -373,17 +393,20 @@ window.XIGAI["半导体与芯片"] = [
       {
         "type": "related",
         "target": "ai-chip",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "automotive-chip",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "npu",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -432,17 +455,20 @@ window.XIGAI["半导体与芯片"] = [
       {
         "type": "related",
         "target": "sic",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "gan",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "automotive-chip",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -491,17 +517,20 @@ window.XIGAI["半导体与芯片"] = [
       {
         "type": "related",
         "target": "third-gen-semi",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "gan",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "automotive-chip",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -549,37 +578,44 @@ window.XIGAI["半导体与芯片"] = [
       {
         "type": "related",
         "target": "third-gen-semi",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "sic",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "automotive-chip",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "kejin",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "ouhuang",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "feiqiu",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "guaji",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       }
     ]
   },
@@ -629,17 +665,20 @@ window.XIGAI["半导体与芯片"] = [
       {
         "type": "related",
         "target": "npu",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "hbm",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "advanced-packaging",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -688,27 +727,32 @@ window.XIGAI["半导体与芯片"] = [
       {
         "type": "related",
         "target": "ai-chip",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "risc-v",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "automotive-chip",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "ai-accelerator",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "edge-ai",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       }
     ]
   },
@@ -757,22 +801,26 @@ window.XIGAI["半导体与芯片"] = [
       {
         "type": "related",
         "target": "advanced-node",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "euv",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "lithography-machine",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "memory-chip",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -820,22 +868,26 @@ window.XIGAI["半导体与芯片"] = [
       {
         "type": "related",
         "target": "euv",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "foundry",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "advanced-node",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "semiconductor-chip",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       }
     ]
   },
@@ -885,17 +937,20 @@ window.XIGAI["半导体与芯片"] = [
       {
         "type": "related",
         "target": "hbm",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "ai-chip",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "foundry",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -944,27 +999,32 @@ window.XIGAI["半导体与芯片"] = [
       {
         "type": "related",
         "target": "sic",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "risc-v",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "npu",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "third-gen-semi",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "gan",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   }

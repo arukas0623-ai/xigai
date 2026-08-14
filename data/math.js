@@ -50,27 +50,32 @@ window.XIGAI["数学"] = [
       {
         "type": "related",
         "target": "数学分析",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "微分方程",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "linear-algebra",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "实变函数",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "数值分析",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -125,32 +130,38 @@ window.XIGAI["数学"] = [
       {
         "type": "related",
         "target": "矩阵论",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "抽象代数",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "泛函分析",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "数值分析",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "解析几何",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "calculus",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -205,27 +216,32 @@ window.XIGAI["数学"] = [
       {
         "type": "related",
         "target": "统计学",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "测度论",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "随机过程",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "数理统计",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "信息论",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -280,27 +296,32 @@ window.XIGAI["数学"] = [
       {
         "type": "related",
         "target": "解析数论",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "代数数论",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "密码学",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "riemann-hypothesis",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "抽象代数",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -355,27 +376,32 @@ window.XIGAI["数学"] = [
       {
         "type": "related",
         "target": "点集拓扑",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "代数拓扑",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "微分拓扑",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "微分几何",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "泛函分析",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -430,27 +456,32 @@ window.XIGAI["数学"] = [
       {
         "type": "related",
         "target": "抽象代数",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "伽罗瓦理论",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "环论",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "域论",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "表示论",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -505,32 +536,38 @@ window.XIGAI["数学"] = [
       {
         "type": "related",
         "target": "数理逻辑",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "可计算性理论",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "集合论",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "希尔伯特纲领",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "turing-machine",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "halting-problem",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       }
     ]
   },
@@ -585,27 +622,32 @@ window.XIGAI["数学"] = [
       {
         "type": "related",
         "target": "动力系统",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "分形几何",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "非线性科学",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "洛伦兹方程",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "微分方程",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -660,27 +702,32 @@ window.XIGAI["数学"] = [
       {
         "type": "related",
         "target": "调和分析",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "小波变换",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "信号处理",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "复变函数",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "积分变换",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -734,27 +781,32 @@ window.XIGAI["数学"] = [
       {
         "type": "related",
         "target": "解析数论",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "素数定理",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "ζ函数",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "L函数",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "number-theory",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   }

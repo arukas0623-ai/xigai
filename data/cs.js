@@ -50,32 +50,38 @@ window.XIGAI["计算机科学"] = [
       {
         "type": "related",
         "target": "halting-problem",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "计算理论",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "丘奇-图灵论题",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "有限自动机",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "algorithm-complexity",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "godel-incompleteness",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       }
     ]
   },
@@ -129,27 +135,32 @@ window.XIGAI["计算机科学"] = [
       {
         "type": "related",
         "target": "turing-machine",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "不可判定问题",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "godel-incompleteness",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "归约",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "计算理论",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -204,32 +215,38 @@ window.XIGAI["计算机科学"] = [
       {
         "type": "related",
         "target": "大O表示法",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "data-structure",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "NP完全问题",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "排序算法",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "算法",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "turing-machine",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -283,27 +300,32 @@ window.XIGAI["计算机科学"] = [
       {
         "type": "related",
         "target": "algorithm-complexity",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "算法",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "哈希表",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "二叉树",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "栈与队列",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -358,27 +380,32 @@ window.XIGAI["计算机科学"] = [
       {
         "type": "related",
         "target": "进程与线程",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "虚拟内存",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "文件系统",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "系统调用",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "计算机体系结构",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -433,27 +460,32 @@ window.XIGAI["计算机科学"] = [
       {
         "type": "related",
         "target": "词法分析",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "语法分析",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "程序设计语言",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "解释器",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "形式语言与自动机",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -508,27 +540,32 @@ window.XIGAI["计算机科学"] = [
       {
         "type": "related",
         "target": "关系模型",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "SQL",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "事务与ACID",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "索引",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "NoSQL",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -585,27 +622,32 @@ window.XIGAI["计算机科学"] = [
       {
         "type": "related",
         "target": "CAP定理",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "共识算法",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "microservices",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "分布式数据库",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "一致性哈希",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -663,27 +705,32 @@ window.XIGAI["计算机科学"] = [
       {
         "type": "related",
         "target": "对称加密",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "RSA",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "数字签名",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "哈希函数",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "公钥基础设施PKI",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -738,27 +785,32 @@ window.XIGAI["计算机科学"] = [
       {
         "type": "related",
         "target": "machine-learning",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "deep-learning",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "反向传播",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "convolutional-neural-network",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "Transformer",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   }

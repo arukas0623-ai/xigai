@@ -43,22 +43,26 @@ window.XIGAI["金融投资"] = [
       {
         "type": "related",
         "target": "vc",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "ipo",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "secondary-market",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "leverage",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -105,22 +109,26 @@ window.XIGAI["金融投资"] = [
       {
         "type": "related",
         "target": "pe",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "ipo",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "一级市场",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "secondary-market",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -167,22 +175,26 @@ window.XIGAI["金融投资"] = [
       {
         "type": "related",
         "target": "secondary-market",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "pe",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "vc",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "limit-up-down",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -229,42 +241,50 @@ window.XIGAI["金融投资"] = [
       {
         "type": "related",
         "target": "ipo",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "liquidity",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "limit-up-down",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "short-selling",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "pe",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "vc",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "quant-trading",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "dollar-cost-averaging",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -311,32 +331,38 @@ window.XIGAI["金融投资"] = [
       {
         "type": "related",
         "target": "leverage",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "futures",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "hedge-fund",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "secondary-market",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "option",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "quant-trading",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -383,42 +409,50 @@ window.XIGAI["金融投资"] = [
       {
         "type": "related",
         "target": "short-selling",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "futures",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "option",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "full-position",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "pe",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "hedge-fund",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "quant-trading",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "gray-rhino",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -465,22 +499,26 @@ window.XIGAI["金融投资"] = [
       {
         "type": "related",
         "target": "futures",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "leverage",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "hedge-fund",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "short-selling",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -527,27 +565,32 @@ window.XIGAI["金融投资"] = [
       {
         "type": "related",
         "target": "option",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "leverage",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "hedge-fund",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "short-selling",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "exchange-rate",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -594,37 +637,44 @@ window.XIGAI["金融投资"] = [
       {
         "type": "related",
         "target": "quant-trading",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "short-selling",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "leverage",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "futures",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "option",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "exchange-rate",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "black-swan",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -671,27 +721,32 @@ window.XIGAI["金融投资"] = [
       {
         "type": "related",
         "target": "hedge-fund",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "leverage",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "short-selling",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "secondary-market",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "kondratieff-wave",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -738,22 +793,26 @@ window.XIGAI["金融投资"] = [
       {
         "type": "related",
         "target": "compound-interest",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "secondary-market",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "pe-ratio",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "liquidity",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -800,27 +859,32 @@ window.XIGAI["金融投资"] = [
       {
         "type": "related",
         "target": "pe-ratio",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "pb-ratio",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "dividend-yield",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "bond",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "compound-interest",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -868,27 +932,32 @@ window.XIGAI["金融投资"] = [
       {
         "type": "related",
         "target": "pb-ratio",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "dividend-yield",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "dcf-valuation",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "bottom-fishing",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "dollar-cost-averaging",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -935,22 +1004,26 @@ window.XIGAI["金融投资"] = [
       {
         "type": "related",
         "target": "pe-ratio",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "dividend-yield",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "dcf-valuation",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "bottom-fishing",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -997,27 +1070,32 @@ window.XIGAI["金融投资"] = [
       {
         "type": "related",
         "target": "pe-ratio",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "pb-ratio",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "bond",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "compound-interest",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "dcf-valuation",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1064,27 +1142,32 @@ window.XIGAI["金融投资"] = [
       {
         "type": "related",
         "target": "exchange-rate",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "liquidity",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "dividend-yield",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "dcf-valuation",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "black-swan",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1131,22 +1214,26 @@ window.XIGAI["金融投资"] = [
       {
         "type": "related",
         "target": "bond",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "liquidity",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "hedge-fund",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "futures",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1193,57 +1280,68 @@ window.XIGAI["金融投资"] = [
       {
         "type": "related",
         "target": "secondary-market",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "bond",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "exchange-rate",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "full-position",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "dollar-cost-averaging",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "black-swan",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "gray-rhino",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "kondratieff-wave",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "liquidate",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "limit-up-down",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "compound-interest",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1290,22 +1388,26 @@ window.XIGAI["金融投资"] = [
       {
         "type": "related",
         "target": "gray-rhino",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "liquidity",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "bond",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "hedge-fund",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1352,22 +1454,26 @@ window.XIGAI["金融投资"] = [
       {
         "type": "related",
         "target": "black-swan",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "liquidity",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "leverage",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "kondratieff-wave",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1414,22 +1520,26 @@ window.XIGAI["金融投资"] = [
       {
         "type": "related",
         "target": "gray-rhino",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "liquidity",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "quant-trading",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "escape-the-top",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1476,22 +1586,26 @@ window.XIGAI["金融投资"] = [
       {
         "type": "related",
         "target": "harvesting-leeks",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "bag-holder",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "market-manipulator",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "bottom-fishing",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1538,22 +1652,26 @@ window.XIGAI["金融投资"] = [
       {
         "type": "related",
         "target": "market-manipulator",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "leek-investor",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "bag-holder",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "limit-up-down",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1600,22 +1718,26 @@ window.XIGAI["金融投资"] = [
       {
         "type": "related",
         "target": "harvesting-leeks",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "bag-holder",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "leek-investor",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "limit-up-down",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1662,22 +1784,26 @@ window.XIGAI["金融投资"] = [
       {
         "type": "related",
         "target": "market-manipulator",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "harvesting-leeks",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "leek-investor",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "bottom-fishing",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1724,37 +1850,44 @@ window.XIGAI["金融投资"] = [
       {
         "type": "related",
         "target": "escape-the-top",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "pe-ratio",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "pb-ratio",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "bag-holder",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "leek-investor",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "full-position",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "liquidate",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1801,27 +1934,32 @@ window.XIGAI["金融投资"] = [
       {
         "type": "related",
         "target": "bottom-fishing",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "liquidate",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "full-position",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "limit-up-down",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "kondratieff-wave",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1868,27 +2006,32 @@ window.XIGAI["金融投资"] = [
       {
         "type": "related",
         "target": "liquidate",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "escape-the-top",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "leverage",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "bottom-fishing",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "liquidity",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1935,22 +2078,26 @@ window.XIGAI["金融投资"] = [
       {
         "type": "related",
         "target": "full-position",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "escape-the-top",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "bottom-fishing",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "liquidity",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1998,32 +2145,38 @@ window.XIGAI["金融投资"] = [
       {
         "type": "related",
         "target": "secondary-market",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "market-manipulator",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "harvesting-leeks",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "liquidity",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "ipo",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "escape-the-top",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -2070,22 +2223,26 @@ window.XIGAI["金融投资"] = [
       {
         "type": "related",
         "target": "dollar-cost-averaging",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "dividend-yield",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "dcf-valuation",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "liquidity",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -2131,7 +2288,8 @@ window.XIGAI["金融投资"] = [
       {
         "type": "evolvedFrom",
         "target": "电子支付",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ],
     "sources": [

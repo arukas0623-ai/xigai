@@ -43,22 +43,26 @@ window.XIGAI["大数据与云计算"] = [
       {
         "type": "related",
         "target": "mapreduce",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "spark",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "HDFS",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "data-lake",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -105,22 +109,26 @@ window.XIGAI["大数据与云计算"] = [
       {
         "type": "related",
         "target": "flink",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "hadoop",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "mapreduce",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "real-time-warehouse",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -167,22 +175,26 @@ window.XIGAI["大数据与云计算"] = [
       {
         "type": "related",
         "target": "kafka",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "spark",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "real-time-warehouse",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "batch-stream-unified",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -229,22 +241,26 @@ window.XIGAI["大数据与云计算"] = [
       {
         "type": "related",
         "target": "flink",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "real-time-warehouse",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "etl",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "object-storage",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -291,42 +307,50 @@ window.XIGAI["大数据与云计算"] = [
       {
         "type": "related",
         "target": "olap",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "etl",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "dimensional-modeling",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "data-lake",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "data-mid-platform",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "hot-cold-tiering",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "data-lineage",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "lakehouse",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -373,37 +397,44 @@ window.XIGAI["大数据与云计算"] = [
       {
         "type": "related",
         "target": "data-warehouse",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "lakehouse",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "object-storage",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "hot-cold-tiering",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "hadoop",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "batch-stream-unified",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "mapreduce",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -450,32 +481,38 @@ window.XIGAI["大数据与云计算"] = [
       {
         "type": "related",
         "target": "data-warehouse",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "real-time-warehouse",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "data-lineage",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "kafka",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "olap",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "dimensional-modeling",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -522,22 +559,26 @@ window.XIGAI["大数据与云计算"] = [
       {
         "type": "related",
         "target": "data-warehouse",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "real-time-warehouse",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "dimensional-modeling",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "etl",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -584,37 +625,44 @@ window.XIGAI["大数据与云计算"] = [
       {
         "type": "related",
         "target": "flink",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "kafka",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "batch-stream-unified",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "olap",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "spark",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "etl",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "lakehouse",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -661,27 +709,32 @@ window.XIGAI["大数据与云计算"] = [
       {
         "type": "related",
         "target": "data-warehouse",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "data-lineage",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "数据治理",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "lakehouse",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "dimensional-modeling",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -728,27 +781,32 @@ window.XIGAI["大数据与云计算"] = [
       {
         "type": "related",
         "target": "container-orchestration",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "serverless",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "auto-scaling",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "microservices",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "function-computing",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -795,22 +853,26 @@ window.XIGAI["大数据与云计算"] = [
       {
         "type": "related",
         "target": "cloud-native",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "auto-scaling",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "load-balancing",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "microservices",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       }
     ]
   },
@@ -857,22 +919,26 @@ window.XIGAI["大数据与云计算"] = [
       {
         "type": "related",
         "target": "function-computing",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "cloud-native",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "object-storage",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "auto-scaling",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -919,22 +985,26 @@ window.XIGAI["大数据与云计算"] = [
       {
         "type": "related",
         "target": "serverless",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "object-storage",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "cloud-native",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "auto-scaling",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -981,32 +1051,38 @@ window.XIGAI["大数据与云计算"] = [
       {
         "type": "related",
         "target": "load-balancing",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "container-orchestration",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "availability-zone",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "cloud-native",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "serverless",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "function-computing",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1053,22 +1129,26 @@ window.XIGAI["大数据与云计算"] = [
       {
         "type": "related",
         "target": "auto-scaling",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "availability-zone",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "container-orchestration",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "microservices",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       }
     ]
   },
@@ -1115,22 +1195,26 @@ window.XIGAI["大数据与云计算"] = [
       {
         "type": "related",
         "target": "load-balancing",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "auto-scaling",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "object-storage",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "高可用",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -1178,32 +1262,38 @@ window.XIGAI["大数据与云计算"] = [
       {
         "type": "related",
         "target": "data-lake",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "hot-cold-tiering",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "function-computing",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "serverless",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "kafka",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "availability-zone",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1250,22 +1340,26 @@ window.XIGAI["大数据与云计算"] = [
       {
         "type": "related",
         "target": "object-storage",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "data-lake",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "data-warehouse",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "成本优化",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -1312,27 +1406,32 @@ window.XIGAI["大数据与云计算"] = [
       {
         "type": "related",
         "target": "flink",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "real-time-warehouse",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "lakehouse",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "data-lake",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "mapreduce",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1379,22 +1478,26 @@ window.XIGAI["大数据与云计算"] = [
       {
         "type": "related",
         "target": "hadoop",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "spark",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "batch-stream-unified",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "data-lake",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1441,22 +1544,26 @@ window.XIGAI["大数据与云计算"] = [
       {
         "type": "related",
         "target": "data-mid-platform",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "etl",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "data-warehouse",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "数据治理",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -1503,22 +1610,26 @@ window.XIGAI["大数据与云计算"] = [
       {
         "type": "related",
         "target": "data-warehouse",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "olap",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "data-mid-platform",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "etl",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1565,27 +1676,32 @@ window.XIGAI["大数据与云计算"] = [
       {
         "type": "related",
         "target": "data-lake",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "data-warehouse",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "batch-stream-unified",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "real-time-warehouse",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "data-mid-platform",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   }

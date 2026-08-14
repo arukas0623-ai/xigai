@@ -52,32 +52,38 @@ window.XIGAI["历史文明"] = [
       {
         "type": "related",
         "target": "reformation",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "enlightenment",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "age-of-exploration",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "科学革命",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "人文主义",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "roman-empire",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -134,27 +140,32 @@ window.XIGAI["历史文明"] = [
       {
         "type": "related",
         "target": "age-of-exploration",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "tang-dynasty",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "张骞",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "敦煌",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "一带一路",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -212,32 +223,38 @@ window.XIGAI["历史文明"] = [
       {
         "type": "related",
         "target": "silk-road",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "殖民主义",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "世界市场",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "renaissance",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "郑和下西洋",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "industrial-revolution",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -293,27 +310,32 @@ window.XIGAI["历史文明"] = [
       {
         "type": "related",
         "target": "age-of-exploration",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "enlightenment",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "马克思主义",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "城市化",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "第二次工业革命",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -370,37 +392,44 @@ window.XIGAI["历史文明"] = [
       {
         "type": "related",
         "target": "renaissance",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "reformation",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "法国大革命",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "科学革命",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "理性主义",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "classicism",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "industrial-revolution",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -456,27 +485,32 @@ window.XIGAI["历史文明"] = [
       {
         "type": "related",
         "target": "罗马法",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "拜占庭帝国",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "基督教",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "中世纪",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "renaissance",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -533,27 +567,32 @@ window.XIGAI["历史文明"] = [
       {
         "type": "related",
         "target": "silk-road",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "科举制",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "安史之乱",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "敦煌",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "中国历史",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -609,32 +648,38 @@ window.XIGAI["历史文明"] = [
       {
         "type": "related",
         "target": "两极格局",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "苏联解体",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "柏林墙",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "nuclear-deterrence",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "美苏争霸",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "world-war-i",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -690,27 +735,32 @@ window.XIGAI["历史文明"] = [
       {
         "type": "related",
         "target": "renaissance",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "enlightenment",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "三十年战争",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "新教",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "基督教",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -767,27 +817,32 @@ window.XIGAI["历史文明"] = [
       {
         "type": "related",
         "target": "第二次世界大战",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "凡尔赛体系",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "十月革命",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "国际联盟",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "cold-war",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   }

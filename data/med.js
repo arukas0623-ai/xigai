@@ -51,32 +51,38 @@ window.XIGAI["医学健康"] = [
       {
         "type": "related",
         "target": "耐药性",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "vaccine",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "virus",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "细菌感染",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "青霉素",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "clinical-trial",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -130,37 +136,44 @@ window.XIGAI["医学健康"] = [
       {
         "type": "related",
         "target": "virus",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "human-immune-system",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "antibiotics",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "传染病",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "群体免疫",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "immune-system",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "clinical-trial",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -214,27 +227,32 @@ window.XIGAI["医学健康"] = [
       {
         "type": "related",
         "target": "antibiotics",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "vaccine",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "human-immune-system",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "细菌",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "传染病",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -288,32 +306,38 @@ window.XIGAI["医学健康"] = [
       {
         "type": "related",
         "target": "stem-cell",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "gene-sequencing",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "clinical-trial",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "chronic-disease",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "肿瘤",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "human-immune-system",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -367,32 +391,38 @@ window.XIGAI["医学健康"] = [
       {
         "type": "related",
         "target": "cancer-cell",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "chronic-disease",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "精准医疗",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "DNA",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "人类基因组计划",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "stem-cell",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -446,32 +476,38 @@ window.XIGAI["医学健康"] = [
       {
         "type": "related",
         "target": "vaccine",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "virus",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "cancer-cell",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "stem-cell",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "自身免疫病",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "chronic-disease",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -525,27 +561,32 @@ window.XIGAI["医学健康"] = [
       {
         "type": "related",
         "target": "clinical-trial",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "疼痛管理",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "外科手术",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "chronic-disease",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "药物",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -599,37 +640,44 @@ window.XIGAI["医学健康"] = [
       {
         "type": "related",
         "target": "antibiotics",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "vaccine",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "anesthesia",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "循证医学",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "药物研发",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "cancer-cell",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "chronic-disease",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -683,37 +731,44 @@ window.XIGAI["医学健康"] = [
       {
         "type": "related",
         "target": "cancer-cell",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "clinical-trial",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "human-immune-system",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "健康管理",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "心脑血管疾病",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "gene-sequencing",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "anesthesia",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -767,27 +822,32 @@ window.XIGAI["医学健康"] = [
       {
         "type": "related",
         "target": "cancer-cell",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "gene-sequencing",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "human-immune-system",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "再生医学",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "器官移植",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   }

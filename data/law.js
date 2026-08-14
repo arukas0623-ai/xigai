@@ -46,22 +46,26 @@ window.XIGAI["法律"] = [
       {
         "type": "related",
         "target": "立法法",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "人民代表大会制度",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "公民基本权利",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "合宪性审查",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -111,22 +115,26 @@ window.XIGAI["法律"] = [
       {
         "type": "related",
         "target": "contract-law",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "物权法",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "婚姻家庭法",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "侵权责任法",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -175,22 +183,26 @@ window.XIGAI["法律"] = [
       {
         "type": "related",
         "target": "刑事诉讼法",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "治安管理处罚法",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "刑罚执行",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "犯罪构成理论",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -240,22 +252,26 @@ window.XIGAI["法律"] = [
       {
         "type": "related",
         "target": "著作权法",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "专利法",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "商标法",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "反不正当竞争法",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -305,22 +321,26 @@ window.XIGAI["法律"] = [
       {
         "type": "related",
         "target": "国际私法",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "国际商法",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "联合国宪章",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "海洋法",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -370,22 +390,26 @@ window.XIGAI["法律"] = [
       {
         "type": "related",
         "target": "civil-code",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "担保制度",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "仲裁法",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "民事诉讼",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -434,22 +458,26 @@ window.XIGAI["法律"] = [
       {
         "type": "related",
         "target": "刑事诉讼法",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "证据规则",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "辩护制度",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "审判独立",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -499,22 +527,26 @@ window.XIGAI["法律"] = [
       {
         "type": "related",
         "target": "法哲学",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "法律方法论",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "宪法学",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "法社会学",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -563,22 +595,26 @@ window.XIGAI["法律"] = [
       {
         "type": "related",
         "target": "劳动合同法",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "社会保险法",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "劳动争议调解仲裁法",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "工会法",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -628,12 +664,14 @@ window.XIGAI["法律"] = [
       {
         "type": "related",
         "target": "网络安全法",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "GDPR",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   }

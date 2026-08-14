@@ -47,27 +47,32 @@ window.XIGAI["文学艺术"] = [
       {
         "type": "related",
         "target": "现代主义",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "内心独白",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "心理小说",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "symbolism",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "postmodernism",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -118,27 +123,32 @@ window.XIGAI["文学艺术"] = [
       {
         "type": "related",
         "target": "批判现实主义",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "浪漫主义",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "自然主义",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "社会主义现实主义",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "magic-realism",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -189,32 +199,38 @@ window.XIGAI["文学艺术"] = [
       {
         "type": "related",
         "target": "波德莱尔",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "意象派",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "超现实主义",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "现代主义",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "唯美主义",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "stream-of-consciousness",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -267,22 +283,26 @@ window.XIGAI["文学艺术"] = [
       {
         "type": "related",
         "target": "长镜头",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "库里肖夫效应",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "电影语言",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "苏联蒙太奇学派",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -333,27 +353,32 @@ window.XIGAI["文学艺术"] = [
       {
         "type": "related",
         "target": "后印象派",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "新印象派",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "莫奈",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "现代艺术",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "点彩派",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -404,27 +429,32 @@ window.XIGAI["文学艺术"] = [
       {
         "type": "related",
         "target": "existentialism",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "加缪",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "现代主义",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "黑色幽默",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "postmodernism",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -475,27 +505,32 @@ window.XIGAI["文学艺术"] = [
       {
         "type": "related",
         "target": "realism",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "超现实主义",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "拉美文学爆炸",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "马尔克斯",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "百年孤独",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -546,27 +581,32 @@ window.XIGAI["文学艺术"] = [
       {
         "type": "related",
         "target": "抽象表现主义",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "构成主义",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "bauhaus",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "海明威",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "现代主义",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -617,22 +657,26 @@ window.XIGAI["文学艺术"] = [
       {
         "type": "related",
         "target": "巴洛克",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "浪漫主义",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "三一律",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "enlightenment",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       }
     ]
   },
@@ -685,42 +729,50 @@ window.XIGAI["文学艺术"] = [
       {
         "type": "related",
         "target": "现代主义",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "后结构主义",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "解构主义",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "元小说",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "文化研究",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "stream-of-consciousness",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "theatre-of-the-absurd",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "nihilism",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       }
     ]
   }

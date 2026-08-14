@@ -50,27 +50,32 @@ window.XIGAI["心理学"] = [
       {
         "type": "related",
         "target": "启发式",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "确认偏差",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "锚定效应",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "behavioral-economics",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "损失厌恶",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -124,27 +129,32 @@ window.XIGAI["心理学"] = [
       {
         "type": "related",
         "target": "人本主义心理学",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "自我实现",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "动机理论",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "高峰体验",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "赫茨伯格双因素理论",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -199,27 +209,32 @@ window.XIGAI["心理学"] = [
       {
         "type": "related",
         "target": "操作性条件反射",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "行为主义",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "刺激泛化",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "消退",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "系统脱敏",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -274,22 +289,26 @@ window.XIGAI["心理学"] = [
       {
         "type": "related",
         "target": "积极心理学",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "内在动机",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "沉浸体验",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "正念",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -343,27 +362,32 @@ window.XIGAI["心理学"] = [
       {
         "type": "related",
         "target": "归因理论",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "自我效能感",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "积极心理学",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "抑郁症",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "心理韧性",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -418,27 +442,32 @@ window.XIGAI["心理学"] = [
       {
         "type": "related",
         "target": "随机对照试验",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "安慰剂效应",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "实验者期望效应",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "循证医学",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "变量控制",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -493,22 +522,26 @@ window.XIGAI["心理学"] = [
       {
         "type": "related",
         "target": "工作记忆",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "情景记忆",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "记忆术",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "海马体",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -562,27 +595,32 @@ window.XIGAI["心理学"] = [
       {
         "type": "related",
         "target": "内部工作模型",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "陌生情境实验",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "安全基地",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "发展心理学",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "亲密关系",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -637,27 +675,32 @@ window.XIGAI["心理学"] = [
       {
         "type": "related",
         "target": "社会影响",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "群体思维",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "服从权威",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "规范性影响",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "米尔格拉姆实验",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -711,27 +754,32 @@ window.XIGAI["心理学"] = [
       {
         "type": "related",
         "target": "神经递质",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "奖赏系统",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "帕金森病",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "成瘾",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "内啡肽",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   }

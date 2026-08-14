@@ -42,17 +42,20 @@ window.XIGAI["互联网黑话"] = [
       {
         "type": "related",
         "target": "funeng",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "lianlu",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "bihuan",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -98,17 +101,20 @@ window.XIGAI["互联网黑话"] = [
       {
         "type": "related",
         "target": "zhongtai",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "zhuashou",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "diceng-luoji",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -154,22 +160,26 @@ window.XIGAI["互联网黑话"] = [
       {
         "type": "related",
         "target": "fupan",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "lianlu",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "zhuanhualv",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "zhuashou",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -215,17 +225,20 @@ window.XIGAI["互联网黑话"] = [
       {
         "type": "related",
         "target": "diceng-luoji",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "fangfalun",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "duiqi",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -271,22 +284,26 @@ window.XIGAI["互联网黑话"] = [
       {
         "type": "related",
         "target": "latong",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "lianlu",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "fupan",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "kelidu",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -332,17 +349,20 @@ window.XIGAI["互联网黑话"] = [
       {
         "type": "related",
         "target": "duiqi",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "lianlu",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "zhongtai",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -388,27 +408,32 @@ window.XIGAI["互联网黑话"] = [
       {
         "type": "related",
         "target": "chendian",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "bihuan",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "fangfalun",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "duiqi",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "renzhi-shengji",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -454,17 +479,20 @@ window.XIGAI["互联网黑话"] = [
       {
         "type": "related",
         "target": "fupan",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "fangfalun",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "zhongtai",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -510,27 +538,32 @@ window.XIGAI["互联网黑话"] = [
       {
         "type": "related",
         "target": "fangfalun",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "renzhi-shengji",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "dier-quxian",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "funeng",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "kelidu",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -576,22 +609,26 @@ window.XIGAI["互联网黑话"] = [
       {
         "type": "related",
         "target": "chendian",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "diceng-luoji",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "fupan",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "kelidu",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -637,17 +674,20 @@ window.XIGAI["互联网黑话"] = [
       {
         "type": "related",
         "target": "diceng-luoji",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "fupan",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "dier-quxian",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -693,17 +733,20 @@ window.XIGAI["互联网黑话"] = [
       {
         "type": "related",
         "target": "kol",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "siyu-liuliang",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "lianlu",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -749,37 +792,44 @@ window.XIGAI["互联网黑话"] = [
       {
         "type": "related",
         "target": "zhuanhualv",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "laxin",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "bihuan",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "zhuashou",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "duiqi",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "latong",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "poquan",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -825,17 +875,20 @@ window.XIGAI["互联网黑话"] = [
       {
         "type": "related",
         "target": "siyu-liuliang",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "zhuanhualv",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "laxin",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -881,32 +934,38 @@ window.XIGAI["互联网黑话"] = [
       {
         "type": "related",
         "target": "gongyu-liuliang",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "liucunlv",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "laxin",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "poquan",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "tongdian",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "koc",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -952,17 +1011,20 @@ window.XIGAI["互联网黑话"] = [
       {
         "type": "related",
         "target": "siyu-liuliang",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "laxin",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "roi",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1008,37 +1070,44 @@ window.XIGAI["互联网黑话"] = [
       {
         "type": "related",
         "target": "gmv",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "lianlu",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "liucunlv",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "bihuan",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "tongdian",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "laxin",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "pinxiao-heyi",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1084,37 +1153,44 @@ window.XIGAI["互联网黑话"] = [
       {
         "type": "related",
         "target": "dau",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "laxin",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "siyu-liuliang",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "zhuanhualv",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "mau",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "growth-hacking",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "beijixing-zhibiao",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1160,42 +1236,50 @@ window.XIGAI["互联网黑话"] = [
       {
         "type": "related",
         "target": "liucunlv",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "zhuanhualv",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "growth-hacking",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "lianlu",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "tongdian",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "siyu-liuliang",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "gongyu-liuliang",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "dau",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1241,17 +1325,20 @@ window.XIGAI["互联网黑话"] = [
       {
         "type": "related",
         "target": "zhuanhualv",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "roi",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "beijixing-zhibiao",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1297,22 +1384,26 @@ window.XIGAI["互联网黑话"] = [
       {
         "type": "related",
         "target": "gmv",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "pinxiao-heyi",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "gongyu-liuliang",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "jiangben-zengxiao",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1358,22 +1449,26 @@ window.XIGAI["互联网黑话"] = [
       {
         "type": "related",
         "target": "mau",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "liucunlv",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "laxin",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "beijixing-zhibiao",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1419,17 +1514,20 @@ window.XIGAI["互联网黑话"] = [
       {
         "type": "related",
         "target": "dau",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "liucunlv",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "beijixing-zhibiao",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1475,17 +1573,20 @@ window.XIGAI["互联网黑话"] = [
       {
         "type": "related",
         "target": "koc",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "pinxiao-heyi",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "poquan",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1531,17 +1632,20 @@ window.XIGAI["互联网黑话"] = [
       {
         "type": "related",
         "target": "kol",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "siyu-liuliang",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "pinxiao-heyi",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1587,22 +1691,26 @@ window.XIGAI["互联网黑话"] = [
       {
         "type": "related",
         "target": "roi",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "kol",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "zhuanhualv",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "koc",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1648,22 +1756,26 @@ window.XIGAI["互联网黑话"] = [
       {
         "type": "related",
         "target": "roi",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "dachang",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "zhongtai",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "996",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1709,32 +1821,38 @@ window.XIGAI["互联网黑话"] = [
       {
         "type": "related",
         "target": "huchenghe",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "growth-hacking",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "beijixing-zhibiao",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "diceng-luoji",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "renzhi-shengji",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "saima-jizhi",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1780,17 +1898,20 @@ window.XIGAI["互联网黑话"] = [
       {
         "type": "related",
         "target": "dier-quxian",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "zhongtai",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "dachang",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1836,32 +1957,38 @@ window.XIGAI["互联网黑话"] = [
       {
         "type": "related",
         "target": "funeng",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "chendian",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "dachang",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "latong",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "jiangben-zengxiao",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "huchenghe",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1907,22 +2034,26 @@ window.XIGAI["互联网黑话"] = [
       {
         "type": "related",
         "target": "beijixing-zhibiao",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "laxin",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "liucunlv",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "dier-quxian",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -1968,32 +2099,38 @@ window.XIGAI["互联网黑话"] = [
       {
         "type": "related",
         "target": "growth-hacking",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "dau",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "liucunlv",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "gmv",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "mau",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "dier-quxian",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -2039,17 +2176,20 @@ window.XIGAI["互联网黑话"] = [
       {
         "type": "related",
         "target": "neijuan",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "dachang",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "dier-quxian",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -2095,17 +2235,20 @@ window.XIGAI["互联网黑话"] = [
       {
         "type": "related",
         "target": "neijuan",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "dachang",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "jiangben-zengxiao",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -2151,27 +2294,32 @@ window.XIGAI["互联网黑话"] = [
       {
         "type": "related",
         "target": "996",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "saima-jizhi",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "dachang",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "moyu",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "tangping",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       }
     ]
   },
@@ -2217,32 +2365,38 @@ window.XIGAI["互联网黑话"] = [
       {
         "type": "related",
         "target": "996",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "neijuan",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "saima-jizhi",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "jiangben-zengxiao",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "huchenghe",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "zhongtai",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   }

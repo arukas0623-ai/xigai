@@ -51,27 +51,32 @@ window.XIGAI["生物学"] = [
       {
         "type": "related",
         "target": "进化论",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "遗传漂变",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "人工选择",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "物种形成",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "适应性进化",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -126,27 +131,32 @@ window.XIGAI["生物学"] = [
       {
         "type": "related",
         "target": "碱基互补配对",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "半保留复制",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "基因",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "转录",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "遗传密码",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -199,27 +209,32 @@ window.XIGAI["生物学"] = [
       {
         "type": "related",
         "target": "细胞",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "细胞分裂",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "施莱登",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "施旺",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "组织学",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -274,27 +289,32 @@ window.XIGAI["生物学"] = [
       {
         "type": "related",
         "target": "CRISPR/Cas9",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "转基因",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "gene-therapy",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "碱基编辑",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "分子克隆",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -348,27 +368,32 @@ window.XIGAI["生物学"] = [
       {
         "type": "related",
         "target": "叶绿体",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "呼吸作用",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "卡尔文循环",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "光反应",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "碳循环",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -422,27 +447,32 @@ window.XIGAI["生物学"] = [
       {
         "type": "related",
         "target": "竞争排斥原理",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "群落结构",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "物种多样性",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "栖息地",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "食物网",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -497,27 +527,32 @@ window.XIGAI["生物学"] = [
       {
         "type": "related",
         "target": "突触",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "动作电位",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "神经递质",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "胶质细胞",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "神经回路",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -571,27 +606,32 @@ window.XIGAI["生物学"] = [
       {
         "type": "related",
         "target": "抗体",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "T细胞",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "vaccine",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "自身免疫病",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "炎症",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -646,27 +686,32 @@ window.XIGAI["生物学"] = [
       {
         "type": "related",
         "target": "DNA甲基化",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "组蛋白修饰",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "基因表达调控",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "染色质",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "非编码RNA",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -721,27 +766,32 @@ window.XIGAI["生物学"] = [
       {
         "type": "related",
         "target": "线粒体",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "叶绿体",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "真核生物",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "蓝细菌",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "马古利斯",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   }

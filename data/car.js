@@ -44,37 +44,44 @@ window.XIGAI["汽车出行"] = [
       {
         "type": "related",
         "target": "hybrid",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "erev",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "three-electric",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "fast-charging",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "energy-density",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "0-100kmh",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "drag-coefficient",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -124,27 +131,32 @@ window.XIGAI["汽车出行"] = [
       {
         "type": "related",
         "target": "erev",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "bev",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "three-electric",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "transmission",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "turbocharger",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -193,17 +205,20 @@ window.XIGAI["汽车出行"] = [
       {
         "type": "related",
         "target": "hybrid",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "bev",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "three-electric",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -252,17 +267,20 @@ window.XIGAI["汽车出行"] = [
       {
         "type": "related",
         "target": "lidar",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "mmwave-radar",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "awd-4wd",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -309,22 +327,26 @@ window.XIGAI["汽车出行"] = [
       {
         "type": "related",
         "target": "mmwave-radar",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "autonomy-levels",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "摄像头",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "robotaxi",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       }
     ]
   },
@@ -372,17 +394,20 @@ window.XIGAI["汽车出行"] = [
       {
         "type": "related",
         "target": "lidar",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "autonomy-levels",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "超声波雷达",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -429,32 +454,38 @@ window.XIGAI["汽车出行"] = [
       {
         "type": "related",
         "target": "energy-density",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "bev",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "fast-charging",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "hybrid",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "erev",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "battery-swap",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -502,22 +533,26 @@ window.XIGAI["汽车出行"] = [
       {
         "type": "related",
         "target": "three-electric",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "bev",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "fast-charging",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "battery-swap",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -565,22 +600,26 @@ window.XIGAI["汽车出行"] = [
       {
         "type": "related",
         "target": "battery-swap",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "energy-density",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "bev",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "three-electric",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -627,17 +666,20 @@ window.XIGAI["汽车出行"] = [
       {
         "type": "related",
         "target": "fast-charging",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "energy-density",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "three-electric",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -684,17 +726,20 @@ window.XIGAI["汽车出行"] = [
       {
         "type": "related",
         "target": "drag-coefficient",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "chassis-tuning",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "bev",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -742,17 +787,20 @@ window.XIGAI["汽车出行"] = [
       {
         "type": "related",
         "target": "0-100kmh",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "bev",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "chassis-tuning",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -798,17 +846,20 @@ window.XIGAI["汽车出行"] = [
       {
         "type": "related",
         "target": "0-100kmh",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "awd-4wd",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "drag-coefficient",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -854,17 +905,20 @@ window.XIGAI["汽车出行"] = [
       {
         "type": "related",
         "target": "transmission",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "hybrid",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "awd-4wd",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -913,17 +967,20 @@ window.XIGAI["汽车出行"] = [
       {
         "type": "related",
         "target": "turbocharger",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "awd-4wd",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "hybrid",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   },
@@ -973,22 +1030,26 @@ window.XIGAI["汽车出行"] = [
       {
         "type": "related",
         "target": "turbocharger",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "transmission",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "chassis-tuning",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "autonomy-levels",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       }
     ]
   }

@@ -48,27 +48,32 @@ window.XIGAI["天文学"] = [
       {
         "type": "related",
         "target": "赫罗图",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "核聚变",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "超新星",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "白矮星",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "中子星",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -120,27 +125,32 @@ window.XIGAI["天文学"] = [
       {
         "type": "related",
         "target": "银河系",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "dark-matter",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "超大质量黑洞",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "宇宙大尺度结构",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "仙女座星系",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -192,37 +202,44 @@ window.XIGAI["天文学"] = [
       {
         "type": "related",
         "target": "宇宙学常数",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "dark-matter",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "Ia型超新星",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "ΛCDM模型",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "宇宙膨胀",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "hubbles-law",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "big-bang-theory",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       }
     ]
   },
@@ -275,27 +292,32 @@ window.XIGAI["天文学"] = [
       {
         "type": "related",
         "target": "超大质量黑洞",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "活动星系核",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "吸积盘",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "红移",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "3C 273",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -348,27 +370,32 @@ window.XIGAI["天文学"] = [
       {
         "type": "related",
         "target": "凌日法",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "视向速度法",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "热木星",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "宜居带",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "开普勒太空望远镜",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -420,27 +447,32 @@ window.XIGAI["天文学"] = [
       {
         "type": "related",
         "target": "广义相对论",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "LIGO",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "black-hole",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "中子星",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "多信使天文学",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -493,32 +525,38 @@ window.XIGAI["天文学"] = [
       {
         "type": "related",
         "target": "big-bang-theory",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "各向异性",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "普朗克卫星",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "暴胀",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "宇宙学",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "dark-matter",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       }
     ]
   },
@@ -570,27 +608,32 @@ window.XIGAI["天文学"] = [
       {
         "type": "related",
         "target": "万有引力定律",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "第谷·布拉赫",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "日心说",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "椭圆轨道",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "天体力学",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   },
@@ -643,32 +686,38 @@ window.XIGAI["天文学"] = [
       {
         "type": "related",
         "target": "红移",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "哈勃常数",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "宇宙膨胀",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "造父变星",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "dark-energy",
-        "note": ""
+        "note": "",
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "big-bang-theory",
-        "note": ""
+        "note": "",
+        "confidence": 0.75
       }
     ]
   },
@@ -721,27 +770,32 @@ window.XIGAI["天文学"] = [
       {
         "type": "related",
         "target": "霍金辐射",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "全息原理",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "AdS/CFT对偶",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "黑洞熵",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       },
       {
         "type": "related",
         "target": "量子引力",
-        "note": ""
+        "note": "",
+        "confidence": 0.3
       }
     ]
   }
