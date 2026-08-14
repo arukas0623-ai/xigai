@@ -87,6 +87,10 @@
 - **classifyDomain 修复**：field 精确/包含 → **分段匹配**（"医学/免疫学"→医学健康）→ 动态领域索引（field/tags/name 多数投票，≥2 票采信，语料变更自动失效重建）→ 无法可靠分类返回**"待分类"**（不再强行归入 AI 生成）
 - **Patrol 优先级重排**：核心概念缺字段(16) > 高热度缺字段(14) > 高价值 pending 关系(15) > 孤立节点(12) > 新概念（discover 兜底）
 - **成长收益率**：每次入库统计 yieldVerified/yieldRelations；/api/efficiency 新增 effectiveGrowthRate（每次 Ollama 调用产出的 verified+有效关系）与窗口转化率
+## 5g. 本轮新增（2026-08-14 自适应知识生长）
+- **自适应候选权重**：candidateWeights（按候选来源键：relation/discover/patrol-pending/batch 等）——入库/更新成功 +0.1（封顶 2.0），拒绝/重复/校验失败 -0.2（下限 0.3）；scoreCandidate 按历史成功率加权，形成轻量反馈循环
+- **生成前过滤增强**：lowValueCandidate 增加问句/泛化词（什么/如何/哪些/介绍）与"问题/方法/方式/方面/领域/体系/案例"结尾、短英文（<4）过滤
+- **漏斗指标**：/api/efficiency 新增 candidate→generated→verified→入库 漏斗 + rejectRate + ollamaPerVerified（每个 verified 概念平均 Ollama 调用）+ effectiveGrowthRate
 ## 6. 禁止事项
 - 大规模重构；删除/降级 pending 关系；无依据制造关系；自动任务启用付费（autoPaidEnabled 恒 false）；追求概念数量；破坏现有 API/数据/Ollama 策略；移动端输入对比度回退
 

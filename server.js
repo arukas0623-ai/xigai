@@ -1704,6 +1704,7 @@ function handleCompletionStatus(res, payload) {
 /* 生成后统一管线：独立校验 → 去重/更新 → 垃圾过滤 → 分类入库（growTarget 与 growBatch 共用） */
 async function processGeneratedConcept(obj, meta) {
   const query = meta.query || obj.name || "";
+  const wkey = candSrcKey(meta.poolSource || meta.provenanceSource);   // 自适应权重键（候选池来源优先）
   if (!meta.skipPrep) {
     if (!Array.isArray(obj.pros)) obj.pros = [];
     if (!Array.isArray(obj.cons)) obj.cons = [];
@@ -1724,6 +1725,7 @@ async function processGeneratedConcept(obj, meta) {
     mq.push({ status: "pending", kind: "concept-verify-fail", conceptId: obj.id || meta.key, name: obj.name, definition: String(obj.definition || "").slice(0, 200), issues: (v.issues || []).slice(0, 3), note: v.note, at: Date.now() });
     writeModeration(mq);
     bumpStat("conflictsDetected", 1);
+    candWeightAdjust(wkey, -0.2);
     return { ok: false, pending: true, reason: "存在事实疑点，已进入人工审核队列" };
   }
   const dup = dedupCheck(obj);
@@ -1732,22 +1734,25 @@ async function processGeneratedConcept(obj, meta) {
     const ur = await updateConcept(dup.domain, dup, obj);
     if (ur.ok) {
       if ((ur.concept && ur.concept.status) === "verified") bumpStat("yieldVerified", 1);
+      candWeightAdjust(wkey, +0.1);
       try { if (meta.cacheFile) fs.writeFileSync(meta.cacheFile, JSON.stringify(obj)); } catch (e) {}
       if (meta.key) { const p = readPending(); delete p[meta.key]; writePending(p); }
       const cpool = readCandidates(); const ck = normStr(obj.name); if (cpool[ck]) { delete cpool[ck]; writeCandidates(cpool); }
       return { ok: true, source: "update", updated: true, concept: ur.concept };
     }
     bumpStat("dupSkips", 1);
+    candWeightAdjust(wkey, -0.2);
     return { ok: true, source: "dup", concept: dup };
   }
   const reason = junkCheck(obj, query);
-  if (reason) { bumpReject(reason); return { ok: false, reject: true, reason }; }
+  if (reason) { bumpReject(reason); candWeightAdjust(wkey, -0.2); return { ok: false, reject: true, reason }; }
   const domain = classifyDomain(obj);
   obj.searchedAt = new Date().toISOString().slice(0, 10);
   const r = await appendConcept(domain, obj);
   if (r.ok) {
     bumpStat("ingests", 1);
     if (obj.status === "verified") bumpStat("yieldVerified", 1);
+    candWeightAdjust(wkey, +0.1);   // 入库成功 → 该来源候选增权
     const effRels = (obj.relations || []).filter(x => CORPUS.byId.has(x.target) && (x.confidence != null ? x.confidence : 0.6) >= 0.6).length;
     if (effRels) bumpStat("yieldRelations", effRels);
     try { if (meta.cacheFile) fs.writeFileSync(meta.cacheFile, JSON.stringify(obj)); } catch (e) {}
@@ -1800,7 +1805,8 @@ function growBatch(names) {
       for (let j = 0; j < pair.length; j++) {
         const p = pair[j];
         const cacheFile = path.join(GROW_DIR, normStr(p.target).slice(0, 40) + ".json");
-        const r = await processGeneratedConcept(p.obj, { query: p.target, cacheFile, key: normStr(p.target), provenanceSource: "batch", skipPrep: true, preVerified: vs[j] });
+        const _ps = (readCandidates()[normStr(p.target)] && readCandidates()[normStr(p.target)].source) || "batch";
+        const r = await processGeneratedConcept(p.obj, { query: p.target, cacheFile, key: normStr(p.target), provenanceSource: "batch", poolSource: _ps, skipPrep: true, preVerified: vs[j] });
         results[p.idx] = Object.assign({ name: p.obj.name }, r);
       }
     }
@@ -1847,7 +1853,8 @@ function growTarget(payload) {
       const p = readPending(); p[key] = { at: Date.now(), reason: "parse-fail" }; writePending(p);
       return { ok: false, error: "结构化解析失败", pending: true };
     }
-    const pipe = await processGeneratedConcept(obj, { query: target, cacheFile, key, provenanceSource });
+    const _poolSrc = (readCandidates()[normStr(target)] && readCandidates()[normStr(target)].source) || provenanceSource;
+    const pipe = await processGeneratedConcept(obj, { query: target, cacheFile, key, provenanceSource, poolSource: _poolSrc });
     return pipe;
   })();
   GROW_INFLIGHT.set(key, task);
@@ -2065,12 +2072,26 @@ function coreThresholdOf() {
   const sortedDeg = Object.values(cent).map(x => x.deg || 0).sort((a, b) => b - a);
   return sortedDeg[Math.max(0, Math.floor(sortedDeg.length * 0.1))] || 1;
 }
+function candSrcKey(src) { return String(src || "relation").split(":")[0]; }
+function candWeightAdjust(source, delta) {
+  try {
+    const s = readStats();
+    s.candidateWeights = s.candidateWeights || {};
+    const k = candSrcKey(source);
+    const w = (s.candidateWeights[k] == null ? 1.0 : s.candidateWeights[k]) + delta;
+    s.candidateWeights[k] = Math.max(0.3, Math.min(2.0, Math.round(w * 10) / 10));
+    fs.writeFileSync(STATS_FILE, JSON.stringify(s, null, 2));
+  } catch (e) {}
+}
 function scoreCandidate(name, cand) {
   if (!CORPUS) loadCorpus();
   const cent = (CORPUS && CORPUS.centrality) || {};
   const coreT = coreThresholdOf();
   const heat = readHeat();
   let score = (cand.freq || 1);
+  const s = readStats();
+  const w = (s.candidateWeights && s.candidateWeights[candSrcKey(cand.source)]) || 1.0;
+  score *= w;   // 自适应：该来源候选的历史成功率权重
   const src = cand.sources || {};
   if (src.cross) score += 1;             // 跨域引用
   if (src.legacy) score += 0.5;          // 旧式字段
@@ -2091,9 +2112,12 @@ function scoreCandidate(name, cand) {
 function lowValueCandidate(name) {
   const n = String(name || "").trim();
   if (n.length < 2 || n.length > 12) return true;
+  if (/[？?]/.test(n)) return true;
+  if (/^(什么是|什么叫做|如何|怎样|怎么|为什么|有哪些|介绍一下|解释)/.test(n)) return true;
   if (/与|和|及其|包括|以及/.test(n)) return true;
-  if (/(问题|概述|导论|入门|基本概念|相关知识|主要内容)$/.test(n)) return true;
+  if (/(问题|概述|导论|入门|基本概念|相关知识|主要内容|介绍|方法|方式|方面|领域|体系|应用场景|案例)$/.test(n)) return true;
   if (/^[a-zA-Z0-9]{1,2}$/.test(n)) return true;
+  if (/^[a-zA-Z0-9]+$/.test(n) && n.length < 4) return true;
   return false;
 }
 function dedupeCandidate(name) {
@@ -2219,6 +2243,18 @@ function handleEfficiency(res) {
     dupRate: (s.queueConcepts || 0) ? Math.round((s.dupSkips || 0) / s.queueConcepts * 100) : 0,
     failRate: (s.queueConcepts || 0) ? Math.round((s.taskFails || 0) / s.queueConcepts * 100) : 0,
     relationsGrowth: s.relationsAdded || 0,
+    funnel: {
+      candidates: candDisc,
+      generated: s.queueConcepts || 0,
+      verified: s.yieldVerified || 0,
+      ingested: s.ingests || 0,
+      updated: s.updates || 0,
+      dupSkips: s.dupSkips || 0,
+      rejects: s.rejects || 0,
+      errors: s.errors || 0,
+    },
+    rejectRate: (s.queueConcepts || 0) ? Math.round((s.rejects || 0) / s.queueConcepts * 100) : 0,
+    ollamaPerVerified: verSince > 0 ? Math.round(ollamaSince / verSince * 10) / 10 : 0,
     yieldVerified: verSince, yieldRelations: relSince,
     effectiveGrowthRate: ollamaSince > 0 ? Math.round((verSince + relSince) / ollamaSince * 100) / 100 : 0,   // 每次 Ollama 调用产出的 verified+有效关系
     ollamaSince,
