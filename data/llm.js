@@ -1,512 +1,279 @@
-// 大模型横评 - 概念解析数据
-// 生成日期：2026-08-14（数据来源：联网搜索 + AI综合分析）
 window.XIGAI = window.XIGAI || {};
 window.XIGAI["大模型横评"] = [
-  {
-    "id": "deepseek-v3",
-    "name": "DeepSeek-V3",
-    "aliases": [
-      "深度求索V3",
-      "DeepSeek V3"
-    ],
-    "field": "大模型横评",
-    "tags": [
-      "开源模型",
-      "MoE架构",
-      "国产大模型"
-    ],
-    "difficulty": 2,
-    "summary": "深度求索开源MoE大模型，性能对标闭源旗舰，价格极低。",
-    "definition": "DeepSeek-V3是深度求索（DeepSeek）2024年12月26日发布的开源大语言模型，采用混合专家（MoE）架构：总参数6710亿，每token推理仅激活约370亿参数。发布时多项基准接近或超越GPT-4o、Claude 3.5 Sonnet，训练成本据称仅约557万美元。权重以MIT许可证开源，支持128K上下文与函数调用。2025年相继推出V3.1（稀疏注意力）与V3.2系列，稳居开源第一梯队。",
-    "background": "继2024年初DeepSeek-V2以低价API引发国内'价格战'后，V3以'低成本训练+极低API价格'震动全球，被视为中国开源大模型崛起的关键节点。",
-    "core": [
-      "671B总参数MoE，单次推理仅激活37B，兼顾性能与效率",
-      "多项基准接近GPT-4o与Claude 3.5 Sonnet，数学、代码突出",
-      "MIT许可证开源，权重可免费商用与二次开发",
-      "API价格极低（约0.27美元/百万输入tokens），引发价格战"
-    ],
-    "applications": [
-      "API构建聊天与代码助手",
-      "开源权重私有化部署与行业微调",
-      "Agent与函数调用底座"
-    ],
-    "misconceptions": [
-      "误把'激活37B'当总大小：实际总参数671B，全量部署显存要求仍高",
-      "价格低不等于能力弱，V3系列与顶级闭源模型互有胜负"
-    ],
-    "related": [
-      "DeepSeek-R1",
-      "Qwen系列",
-      "Llama系列",
-      "GPT-4o"
-    ],
-    "references": [
-      "DeepSeek-V3 官方发布公告",
-      "DeepSeek-V3.1 发布说明",
-      "百度百科：DeepSeek-V3"
-    ],
-    "sources": [
-      "https://api-docs.deepseek.com/zh-cn/news/news1226/",
-      "https://api-docs.deepseek.com/zh-cn/news/news250325/",
-      "https://baike.baidu.com/item/DeepSeek-V3/65348724"
-    ],
-    "searchedAt": "2026-08-14"
-  },
-  {
-    "id": "deepseek-r1",
-    "name": "DeepSeek-R1",
-    "aliases": [
-      "深度求索R1",
-      "DeepSeek R1"
-    ],
-    "field": "大模型横评",
-    "tags": [
-      "推理模型",
-      "强化学习",
-      "开源"
-    ],
-    "difficulty": 3,
-    "summary": "深度求索开源推理大模型，数学代码推理对标OpenAI o1。",
-    "definition": "DeepSeek-R1是深度求索2025年1月20日发布的推理大模型，通过大规模强化学习训练出显式'思考'过程——先生成推理链再作答，数学、编程、逻辑任务达到与OpenAI o1相当的水平。权重以MIT许可证开源可免费商用，关键技术包括纯强化学习冷启动与可验证奖励。官方同时发布基于Qwen、Llama蒸馏的R1-Distill系列（1.5B-70B），让小模型也具备部分推理能力。",
-    "background": "R1以不到o1数十分之一的推理成本实现接近性能，叠加V3冲击，2025年1月底引发全球科技股（尤其英伟达）剧烈波动，是'低成本AI'路线的重要里程碑。",
-    "core": [
-      "671B MoE架构，推理能力对标OpenAI o1，多项基准超越",
-      "MIT协议开源，可免费商用、蒸馏与二次开发",
-      "推理API价格仅为同类闭源模型的数十分之一",
-      "R1-Distill覆盖1.5B-70B，可部署于消费级硬件"
-    ],
-    "applications": [
-      "数学解题与代码调试",
-      "蒸馏版端侧/本地智能助手",
-      "Agent规划与工具调用推理引擎"
-    ],
-    "misconceptions": [
-      "高延迟来自显式推理链，可关闭思考模式提速",
-      "R1并非只会数学题，代码、Agent等通用任务同样优秀"
-    ],
-    "related": [
-      "DeepSeek-V3",
-      "Qwen系列",
-      "Llama系列",
-      "GPT-4o"
-    ],
-    "references": [
-      "DeepSeek-R1 官方发布公告",
-      "36氪：DeepSeek-R1 发布报道",
-      "百度百科：DeepSeek-R1"
-    ],
-    "sources": [
-      "https://api-docs.deepseek.com/zh-cn/news/news250120/",
-      "https://m.36kr.com/p/3131848450317056",
-      "https://baike.baidu.com/item/DeepSeek-R1/65329552"
-    ],
-    "searchedAt": "2026-08-14"
-  },
-  {
-    "id": "gpt-4o",
-    "name": "GPT-4o",
-    "aliases": [
-      "GPT-4 Omni",
-      "GPT-4o"
-    ],
-    "field": "大模型横评",
-    "tags": [
-      "多模态",
-      "OpenAI",
-      "闭源模型"
-    ],
-    "difficulty": 1,
-    "summary": "OpenAI多模态旗舰，文本图像音频实时交互，曾免费开放。",
-    "definition": "GPT-4o（o即Omni'全能'）是OpenAI 2024年5月13日发布的原生多模态旗舰，统一处理文本、图像与音频，实现数百毫秒级实时语音对话与视觉理解。相比GPT-4 Turbo速度提升约2倍、API降价约50%（输入5美元/百万tokens），发布初期向ChatGPT用户免费开放，同年7月推出低成本GPT-4o mini。作为横评基准，它长期是衡量通用与多模态能力的'对照组'。",
-    "background": "在Gemini等竞品压力下，OpenAI发布GPT-4o主打多模态实时交互与降价，后被GPT-5等新一代模型取代，但其原生多模态、端到端语音理念深刻影响后续模型设计。",
-    "core": [
-      "原生多模态：文本+图像+音频统一处理，支持实时语音对话",
-      "速度约为GPT-4 Turbo的2倍，API价格下调约50%",
-      "发布初期向ChatGPT免费用户开放，带动行业普及",
-      "GPT-4o mini以极低成本提供接近能力，适合高频调用"
-    ],
-    "applications": [
-      "多模态客服与语音助手",
-      "图像理解与视频分析",
-      "Agent与RAG通用底座"
-    ],
-    "misconceptions": [
-      "'免费'仅限当时ChatGPT额度，API仍需付费，且其地位已被新模型取代",
-      "'全能'不等于样样最强，复杂推理弱于o1、DeepSeek-R1等推理模型"
-    ],
-    "related": [
-      "Claude系列",
-      "Gemini系列",
-      "DeepSeek-V3",
-      "DeepSeek-R1"
-    ],
-    "references": [
-      "OpenAI：Hello GPT-4o",
-      "新浪财经：GPT-4o 发布报道",
-      "OpenAI：GPT-4o mini 发布说明"
-    ],
-    "sources": [
-      "https://openai.com/zh-Hans-CN/index/hello-gpt-4o/",
-      "https://finance.sina.cn/tech/2024-05-14/detail-inavczvs1596042.d.html",
-      "http://szb.xdplus.cn/xdkb/pc/content/202405/15/content_38016.html"
-    ],
-    "searchedAt": "2026-08-14"
-  },
-  {
-    "id": "claude-series",
-    "name": "Claude系列",
-    "aliases": [
-      "Claude",
-      "Anthropic Claude",
-      "Claude 3/4/4.5"
-    ],
-    "field": "大模型横评",
-    "tags": [
-      "Anthropic",
-      "编程能力",
-      "长上下文"
-    ],
-    "difficulty": 2,
-    "summary": "Anthropic旗舰模型家族，编程与长文本能力长期领先。",
-    "definition": "Claude系列是Anthropic的大语言模型家族，以安全性、长上下文与编程能力著称。2024年3月发布Claude 3（Haiku/Sonnet/Opus三档），6月Claude 3.5 Sonnet以200K上下文和顶级编程成绩成为开发者热门选择；2025年5月发布Claude 4（Opus 4/Sonnet 4，支持100万token上下文并强化Agent能力），11月推出Claude 4.5家族。该系列闭源，通过API与Claude Code等产品提供服务，价格整体偏高，在SWE-bench等编码基准上长期居首。",
-    "background": "Anthropic由前OpenAI高管2021年创立，主打'安全对齐'路线；从Claude 3到4.5两代完成能力跃迁，Claude Code成为AI编程重要竞争者，与OpenAI、Google三足鼎立。",
-    "core": [
-      "编程能力突出：SWE-bench等编码基准长期第一梯队",
-      "Claude 4系列支持100万token上下文，适合长文档与代码库",
-      "Claude Code与MCP协议推动Agent工具生态",
-      "以'宪法式AI'安全框架著称，对齐研究领先"
-    ],
-    "applications": [
-      "AI编程助手与代码审查",
-      "长文档、法律与金融文本分析",
-      "复杂Agent工作流"
-    ],
-    "misconceptions": [
-      "Claude并非全面最强：多模态与部分中文能力较弱，价格明显偏高",
-      "'Sonnet强于Opus'只是特定版本现象，不应泛化"
-    ],
-    "related": [
-      "GPT-4o",
-      "Gemini系列",
-      "DeepSeek-R1",
-      "Kimi系列"
-    ],
-    "references": [
-      "Anthropic：Claude 4 官方公告",
-      "TechRepublic：Claude 4 报道",
-      "百度百科：Claude 4"
-    ],
-    "sources": [
-      "https://www.anthropic.com/news/claude-4",
-      "https://www.techrepublic.com/article/news-anthropic-claude-4-sonnet-opus/",
-      "https://wapbaike.baidu.com/item/Claude%204/65713768"
-    ],
-    "searchedAt": "2026-08-14"
-  },
-  {
-    "id": "gemini-series",
-    "name": "Gemini系列",
-    "aliases": [
-      "Gemini",
-      "双子座",
-      "Google Gemini"
-    ],
-    "field": "大模型横评",
-    "tags": [
-      "Google",
-      "多模态",
-      "超长上下文"
-    ],
-    "difficulty": 2,
-    "summary": "谷歌多模态旗舰系列，原生多模态与百万级上下文。",
-    "definition": "Gemini（双子座）是Google DeepMind的大模型系列，主打原生多模态与超长上下文。2023年12月发布1.0，2024年2月Gemini 1.5 Pro引入100万token上下文；2025年3月Gemini 2.5 Pro以'原生多模态+思考模式'登上多模态榜单前列，默认100万token（付费层可至200万），通过Gemini API、Google AI Studio及安卓、搜索等大规模分发。系列闭源，但2025年6月开源了Gemma 3分支。横评中Gemini长期是多模态与长上下文测试的头部选手。",
-    "background": "谷歌为应对OpenAI整合DeepMind资源推出Gemini，两年内完成多模态与推理跃迁，并借搜索、安卓渠道实现最大规模用户触达。",
-    "core": [
-      "原生多模态：文本、图像、音视频统一建模，视频理解领先",
-      "100万token默认上下文（可扩至200万），长文档处理标杆",
-      "Gemini 2.5 Pro引入隐式思考模式，推理与编码大幅提升",
-      "与搜索、Workspace、安卓生态深度集成"
-    ],
-    "applications": [
-      "多模态内容与视频分析",
-      "超长文档与代码库处理",
-      "Gemini API构建Agent应用"
-    ],
-    "misconceptions": [
-      "'免费'额度（AI Studio）与付费API是两回事，高额度需按量付费",
-      "并非只在英文环境强，已覆盖中文等多语种，但个别中文细节或不如国产优化模型"
-    ],
-    "related": [
-      "GPT-4o",
-      "Claude系列",
-      "DeepSeek-V3",
-      "开源大模型生态"
-    ],
-    "references": [
-      "Google：Gemini 2.5 Pro 官方文档",
-      "谷歌中国博客：Gemini 2.5 发布",
-      "百度百科：双子座2.5"
-    ],
-    "sources": [
-      "https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro",
-      "https://china.googleblog.com/2025/05/gemini-25.html",
-      "https://baike.baidu.com/item/%E5%8F%8C%E5%AD%90%E5%BA%A72.5/65719772"
-    ],
-    "searchedAt": "2026-08-14"
-  },
-  {
-    "id": "qwen-series",
-    "name": "Qwen系列",
-    "aliases": [
-      "通义千问",
-      "Qwen",
-      "阿里云千问"
-    ],
-    "field": "大模型横评",
-    "tags": [
-      "阿里",
-      "开源模型",
-      "多尺寸"
-    ],
-    "difficulty": 2,
-    "summary": "阿里通义千问开源家族，尺寸齐全生态完善，全球下载量居前。",
-    "definition": "Qwen（通义千问）是阿里巴巴的大模型系列，开源与闭源旗舰并行。开源线从Qwen1.5、Qwen2发展到2024年9月的Qwen2.5（0.5B-72B全覆盖），2025年4月发布Qwen3（0.6B-235B，含235B-A22B MoE与思考/非思考双模式），以Apache 2.0等宽松许可开源，是Hugging Face下载量最高的开源系列之一。闭源Qwen2.5-Max、Qwen3-Max对标顶级闭源模型。其中文能力强、多尺寸覆盖，多模态与Agent工具链完整，是国产开源生态的'扛旗者'。",
-    "background": "阿里2023年推出通义千问并坚持开源，2025年随Qwen3发布，全球开源模型下载量与衍生模型数量多次登顶，成为开源社区事实上的标准底座之一。",
-    "core": [
-      "全尺寸覆盖：0.5B到235B（含MoE），适配手机到服务器",
-      "Qwen3思考/非思考双模式，推理能力对标DeepSeek-R1",
-      "Apache 2.0等宽松许可，商用友好，衍生模型全球领先",
-      "中文与多语言均衡，多模态、代码、Agent工具链完整"
-    ],
-    "applications": [
-      "企业私有化部署与行业微调",
-      "Agent、RAG与代码助手",
-      "端侧小模型（0.5B-3B）"
-    ],
-    "misconceptions": [
-      "Qwen并非只有开源小模型：Max闭源旗舰同样对标顶级模型",
-      "同参数下性能非恒定，量化或劣质微调会显著拉低效果"
-    ],
-    "related": [
-      "DeepSeek-V3",
-      "Kimi系列",
-      "Llama系列",
-      "开源大模型生态"
-    ],
-    "references": [
-      "通义千问官方文档",
-      "百度百科：Qwen2.5",
-      "科技日报：Qwen3 发布报道"
-    ],
-    "sources": [
-      "https://qwen.readthedocs.io/zh-cn/stable/getting_started/concepts.html",
-      "https://baike.baidu.com/item/Qwen2.5/65355879",
-      "https://www.stdaily.com/web/gdxw/2025-04/29/content_333250.html"
-    ],
-    "searchedAt": "2026-08-14"
-  },
-  {
-    "id": "kimi-series",
-    "name": "Kimi系列",
-    "aliases": [
-      "月之暗面Kimi",
-      "Kimi K2",
-      "Moonshot AI"
-    ],
-    "field": "大模型横评",
-    "tags": [
-      "月之暗面",
-      "长上下文",
-      "开源"
-    ],
-    "difficulty": 2,
-    "summary": "月之暗面出品，以长上下文起家，K2开源万亿参数MoE。",
-    "definition": "Kimi系列是月之暗面（Moonshot AI）的大模型家族，以超长上下文与强代码能力著称。早期Kimi（2023年10月）以200万字上下文出圈，成为中文长文本应用的代名词；2025年1月推出Kimi K1.5强化推理，7月发布Kimi K2——总参数约1万亿的MoE模型（激活约320亿），代码、数学与Agent基准对标GPT-5、Claude 4级别，并以Modified MIT协议开源。后续K2 Thinking、K2.5继续强化深度推理。Kimi API价格低于多数同档闭源模型，是'闭源+开源'双线并举的国产代表。",
-    "background": "月之暗面由清华系创业者杨植麟创办，2023年以超长上下文Kimi打响品牌，2025年K2开源引发全球关注，成为继DeepSeek之后又一家以开源冲击国际格局的中国AI公司。",
-    "core": [
-      "万亿参数MoE：K2总参数约1T、激活约32B，性能对标顶级闭源模型",
-      "长上下文基因：早期200万字输入开创中文长文本市场",
-      "K2以Modified MIT协议开源，可免费商用",
-      "代码与Agent能力突出，工具调用基准排名靠前"
-    ],
-    "applications": [
-      "超长文档、论文与合同分析",
-      "编程助手与代码库Agent",
-      "企业私有化部署与Agent工作流"
-    ],
-    "misconceptions": [
-      "Kimi不只是'长文本聊天工具'：K2已具备顶级编码与推理能力",
-      "'1万亿参数'是总参数，激活仅约320亿，部署成本远低于想象"
-    ],
-    "related": [
-      "DeepSeek-V3",
-      "Qwen系列",
-      "Claude系列",
-      "开源大模型生态"
-    ],
-    "references": [
-      "百度百科：Kimi K2",
-      "IT之家：Kimi K2 发布报道",
-      "人民邮电报：Kimi K2 报道"
-    ],
-    "sources": [
-      "https://baike.baidu.com/item/Kimi%20K2/66209805",
-      "https://m.ithome.com/html/867572.htm",
-      "https://www.cnii.com.cn/rmydb/202507/t20250717_672932.html"
-    ],
-    "searchedAt": "2026-08-14"
-  },
-  {
-    "id": "llama-series",
-    "name": "Llama系列",
-    "aliases": [
-      "Llama",
-      "Meta Llama",
-      "羊驼模型"
-    ],
-    "field": "大模型横评",
-    "tags": [
-      "Meta",
-      "开源模型",
-      "开源生态基石"
-    ],
-    "difficulty": 2,
-    "summary": "Meta开源大模型家族，开源生态基石，衍生模型最多。",
-    "definition": "Llama（Large Language Model Meta AI）是Meta的开源大模型系列，被视为全球开源生态的'基石'。2023年2月Llama 1发布，7月Llama 2开放商用；2024年4月Llama 3发布，7月Llama 3.1带来首个405B开源旗舰并引入128K上下文；12月Llama 3.3-70B以小体积逼近405B；2025年4月Llama 4发布（Scout 109B支持1000万token上下文、Maverick 400B多模态）。该系列采用自定义社区许可（非严格OSI开源），衍生模型数量长期全球第一。",
-    "background": "Meta 2023年以'免费开放'入局，Llama 2与3.1带动全球开源浪潮，催生海量衍生模型；2025年后Llama 4遭遇评测争议，与DeepSeek、Qwen等正面竞争。",
-    "core": [
-      "Llama 3.1-405B是当时最大开源旗舰，推动开源进入千亿参数时代",
-      "Llama 4 Scout支持1000万token上下文，创开源纪录",
-      "衍生生态庞大：数千微调/蒸馏模型基于Llama构建",
-      "与AWS、微软、谷歌等云平台深度集成"
-    ],
-    "applications": [
-      "行业微调与私有化部署",
-      "学术研究与模型压缩实验",
-      "云平台一键部署（Bedrock、Azure）"
-    ],
-    "misconceptions": [
-      "Llama'开源'是自定义社区许可，商用有月活超10亿等限制，并非MIT式自由",
-      "Llama 4发布时被指基准污染与质量滑坡，'Meta出品'不等于自动最强"
-    ],
-    "related": [
-      "Qwen系列",
-      "DeepSeek-V3",
-      "开源大模型生态",
-      "本地部署大模型"
-    ],
-    "references": [
-      "Llama 3.1 官方发布",
-      "Ultralytics：Llama 3.1 介绍",
-      "百度百科：Llama 4"
-    ],
-    "sources": [
-      "https://baike.baidu.com/item/Llama%203.1/64697430",
-      "https://www.ultralytics.com/zh/blog/getting-to-know-llama-3-1-meta-latest-open-source-model-family",
-      "https://baike.baidu.com/item/Llama%204/65351969"
-    ],
-    "searchedAt": "2026-08-14"
-  },
-  {
-    "id": "local-llm-deployment",
-    "name": "本地部署大模型",
-    "aliases": [
-      "私有化部署",
-      "本地大模型",
-      "自托管LLM"
-    ],
-    "field": "大模型横评",
-    "tags": [
-      "部署",
-      "Ollama",
-      "数据安全"
-    ],
-    "difficulty": 3,
-    "summary": "把大模型跑在自己服务器上，保障数据隐私与控制成本。",
-    "definition": "本地部署大模型指将开源模型权重部署到自有服务器或个人电脑上推理，而非通过云端API调用，是'私有化部署'的核心实践。主流工具有Ollama（一键管理）、llama.cpp（CPU/边缘优化）、vLLM（高吞吐）、LM Studio（图形界面）等。显存（VRAM）是最大瓶颈，实践中普遍用GGUF、GPTQ、AWQ等量化把模型压缩至原体积1/4-1/2，使7B-32B级模型可在消费级显卡运行，70B以上需多卡或专业服务器。核心价值是数据不出域、无按量计费、可离线运行。",
-    "background": "2023年Llama开源与llama.cpp普及使个人跑模型成为可能；2024-2025年Qwen、DeepSeek能力跃升叠加Ollama成熟，本地部署从极客玩法变为企业AI战略标配。",
-    "core": [
-      "数据隐私与合规：推理全程在本地，敏感数据不出内网",
-      "硬件门槛：显存决定上限，量化可降4-8倍显存需求",
-      "工具生态成熟：Ollama、llama.cpp、vLLM、LM Studio全覆盖",
-      "7B-32B量化模型可跑消费级显卡，70B+需多卡集群"
-    ],
-    "applications": [
-      "金融、医疗、政务敏感行业私有化助手",
-      "离线内网与边缘设备应用",
-      "本地RAG与Agent原型验证"
-    ],
-    "misconceptions": [
-      "本地部署不等于免费：硬件与电力成本长期可能高于API",
-      "跑得动不等于好用：小模型复杂推理明显弱于云端旗舰"
-    ],
-    "related": [
-      "开源大模型生态",
-      "Llama系列",
-      "Qwen系列",
-      "DeepSeek-V3"
-    ],
-    "references": [
-      "华为云社区：本地大模型部署实践",
-      "Qwen 本地部署指南",
-      "awesome-skills：本地LLM专家技能"
-    ],
-    "sources": [
-      "https://bbs.huaweicloud.com/blogs/471218",
-      "https://qwen35.com/zh/blog/qwen3.5-local",
-      "https://github.com/ranbot-ai/awesome-skills/blob/main/skills/local-llm-expert/SKILL.md"
-    ],
-    "searchedAt": "2026-08-14"
-  },
-  {
-    "id": "open-source-llm-ecosystem",
-    "name": "开源大模型生态",
-    "aliases": [
-      "开源模型生态",
-      "开放权重模型",
-      "Open Source LLM"
-    ],
-    "field": "大模型横评",
-    "tags": [
-      "开源",
-      "Hugging Face",
-      "生态"
-    ],
-    "difficulty": 3,
-    "summary": "开放权重模型与工具社区构成的生态，中国开源力量崛起。",
-    "definition": "开源大模型生态指围绕开放权重模型形成的'模型-工具-社区-商业'体系，包含模型权重（Llama、Qwen、DeepSeek、Kimi K2等）、推理框架（llama.cpp、vLLM、Ollama）、微调评测工具（LLaMA-Factory、OpenCompass）、托管平台（Hugging Face、魔搭）及数千衍生模型。2025年起中国模型（DeepSeek、Qwen等）在Hugging Face下载量上反超美国，2026年初份额已超越美国。许可证（MIT/Apache 2.0/社区许可）决定商用自由度，是评估生态的重要维度。",
-    "background": "从2023年Llama 2开放商用起步，开源生态从'追赶闭源'到'局部反超'；DeepSeek-V3/R1引爆全球，开源成为企业AI落地主流路径。",
-    "core": [
-      "中国开源崛起：DeepSeek、Qwen等在HF下载量反超美国模型",
-      "模型-工具-社区闭环：HF/魔搭 + vLLM/Ollama + 海量衍生",
-      "许可证分层：MIT/Apache 2.0自由商用，Llama社区许可有月活限制",
-      "评测透明化：OpenCompass等榜单公开对比"
-    ],
-    "applications": [
-      "企业私有化部署与微调标准底座",
-      "学术研究与蒸馏对齐实验",
-      "开发者构建垂直Agent与产品"
-    ],
-    "misconceptions": [
-      "LLM'开源'通常指开放权重而非数据与代码，可复现性有限",
-      "下载量/榜单排名不等于可用性，需结合许可、硬件与实测评估"
-    ],
-    "related": [
-      "Llama系列",
-      "Qwen系列",
-      "DeepSeek-V3",
-      "本地部署大模型"
-    ],
-    "references": [
-      "2025中国开源发展报告",
-      "澎湃新闻：中国开源模型下载量反超",
-      "DigitalToday：中国AI模型下载份额超越美国"
-    ],
-    "sources": [
-      "https://github.com/kaiyuanshe/2025-China-Open-Source-Report/blob/main/preface.md",
-      "https://m.thepaper.cn/newsDetail_forward_32391069",
-      "https://www.digitaltoday.co.kr/cn/view/49865"
-    ],
-    "searchedAt": "2026-08-14"
-  }
+{
+  "id": "deepseek-v4",
+  "name": "DeepSeek-V4",
+  "aliases": ["DeepSeek-V4 系列", "深度求索 V4"],
+  "field": "大模型横评",
+  "tags": ["国产开源", "通用对话", "MoE"],
+  "difficulty": 3,
+  "summary": "深度求索 2026 年旗舰开源大模型，性能与成本兼顾",
+  "definition": "DeepSeek-V4 是深度求索（DeepSeek）于 2026 年推出的旗舰开源大模型系列，采用混合专家（MoE）架构，延续 V3 时代的高性价比路线。相比 V3，V4 在数学推理、代码生成与长文本理解上显著提升，同时保持极低的使用价格，被誉为「开源模型性价比之王」。其 Flash 版本主打轻量与低延迟，Pro 版本则面向高难度任务开放更强算力配置。V4 系列上线后迅速占据全球开源模型调用量前列，成为国产大模型全球化的标志性产品。",
+  "background": "DeepSeek 自 2023 年发布 DeepSeek LLM 以来，历经 V2、V3 与 R1（推理增强）数代迭代，V3 凭借 MoE 架构与超低训练成本震动业界。2026 年 V4 系列发布，进一步优化稀疏激活效率与推理速度，并伴随 Flash/Pro 分层定价策略，开启「价格战」式竞争。",
+  "core": [
+    "MoE 稀疏激活架构：单次推理仅激活部分专家，成本优势明显",
+    "Flash 版以极低 token 价格主打高吞吐场景，Pro 版支持 100 万上下文与 38.4 万最大输出",
+    "数学/代码基准较 V3 大幅提升，接近同期闭源旗舰",
+    "开源权重可本地部署，生态（Ollama/vLLM 等）支持完善"
+  ],
+  "applications": ["企业 API 接入与私有化部署", "高并发聊天/客服系统", "代码生成与重构", "科研辅助与数学推理"],
+  "misconceptions": ["V4 并非完全免费——开源权重免费，云端 API 按 token 计费", "Flash 与 Pro 能力差异明显，不能混为一谈"],
+  "related": ["DeepSeek-V4-Pro", "Kimi K3", "Qwen3.8-Max", "Llama 3.3"],
+  "references": ["DeepSeek API Docs", "DeepSeek V4 Pro正式版上线：100万上下文、38.4万最大输出"],
+  "sources": ["https://api-docs.deepseek.com/", "https://news.pconline.com.cn/2180/21802839.html"],
+  "searchedAt": "2026-08-14"
+},
+{
+  "id": "deepseek-v4-pro",
+  "name": "DeepSeek-V4-Pro",
+  "aliases": ["V4 Pro 正式版"],
+  "field": "大模型横评",
+  "tags": ["国产", "旗舰", "长上下文"],
+  "difficulty": 3,
+  "summary": "V4 系列旗舰版：100 万上下文、38.4 万最大输出",
+  "definition": "DeepSeek-V4-Pro 是深度求索 2026 年 8 月推出的 V4 系列旗舰版本，定位对标 Anthropic Claude Fable 5 等国际前沿闭源模型。其核心卖点是超长上下文能力：支持 100 万 token 上下文窗口与 38.4 万 token 最大输出，可一次性处理长篇小说级材料并生成超长结构化内容。Pro 版在数学、代码、长文本综合任务上表现接近顶级闭源模型，同时价格约为自家 Flash 版的三倍，凭借「临时价格战」策略以远低于竞品的价格争夺企业市场。",
+  "background": "2026 年 8 月 13 日前后，DeepSeek-V4-Pro 正式版上线，官方同步宣布限时价格优惠，媒体称之为「发动临时价格战」。此前 V4 Flash 版已先行铺开市场，Pro 版补足高端场景，形成 Flash/Pro 高低搭配的产品矩阵。",
+  "core": [
+    "100 万 token 上下文 + 38.4 万 token 最大输出，行业领先",
+    "对标 Claude Fable 5 的旗舰级综合能力，价格显著更低",
+    "「临时价格战」限时优惠进一步拉低企业接入成本",
+    "支持结构化输出与长文档深度处理"
+  ],
+  "applications": ["超长文档智能分析", "代码库级重构与生成", "金融/法律专业报告", "Agent 长链路任务执行"],
+  "misconceptions": ["百万上下文不等于无限——超长输入仍受算力与延迟约束", "Pro 版价格是 Flash 三倍，非高吞吐场景用 Flash 更划算"],
+  "related": ["DeepSeek-V4", "Claude Fable 5", "GPT-5.4", "Kimi K3"],
+  "references": ["DeepSeek V4 Pro正式版上线：100万上下文、38.4万最大输出", "Deepseek V4 Pro正式版上线，发动临时价格战"],
+  "sources": ["https://news.pconline.com.cn/2180/21802839.html", "https://news.qq.com/rain/a/20260813A052FR00", "https://www.tmtpost.com/8101755.html"],
+  "searchedAt": "2026-08-14"
+},
+{
+  "id": "gpt-5-4",
+  "name": "GPT-5.4",
+  "aliases": ["GPT-5.4 系列", "OpenAI 旗舰"],
+  "field": "大模型横评",
+  "tags": ["闭源", "智能体", "专业工作"],
+  "difficulty": 3,
+  "summary": "OpenAI 2026 年最新旗舰，强化专业工作与智能体能力",
+  "definition": "GPT-5.4 是 OpenAI 于 2026 年发布的最新旗舰大模型系列，在 GPT-5.x 基础上重点强化「专业工作」与「智能体（Agent）」能力。它能够自动操作电脑、调用插件（如直接操作 Excel、金融分析工具），把模型从「对话问答」推向「端到端任务执行」。GPT-5.4 系列同时提供多个规模档位（含轻量版），在复杂多步推理、工具调用稳定性与长程任务一致性上较前代显著提升，是闭源商用大模型的代表。",
+  "background": "OpenAI 自 GPT-5 起全面转向「推理 + Agentic」范式，o 系列与 GPT 系列逐步融合。2026 年 GPT-5.4 发布时，官方强调其对企业生产力场景的优化：自动操作电脑、插件生态、Excel/金融分析等专业工作流成为核心卖点，反映行业从「聊天」到「干活」的转型。",
+  "core": [
+    "自动操作电脑：可驱动桌面/浏览器完成端到端任务",
+    "插件体系成熟：Excel、金融分析、代码环境等专业工具接入",
+    "多档位部署，兼顾成本与性能",
+    "长程多步任务稳定执行，适合 Agent 工作流"
+  ],
+  "applications": ["企业办公自动化", "金融数据分析与报表", "软件开发全流程", "复杂业务流程代理"],
+  "misconceptions": ["GPT-5.4 并非「自动驾驶」——复杂任务仍需人工监督", "自动操作电脑能力受权限与环境限制，并非万能"],
+  "related": ["Claude Fable 5", "Gemini 3.7 Flash", "DeepSeek-V4-Pro"],
+  "references": ["GPT-5.4 Model - OpenAI API", "OpenAI发布GPT-5.4系列模型，强化专业工作与智能体能力"],
+  "sources": ["https://developers.openai.com/api/docs/models/gpt-5.4", "https://www.pingwest.com/w/311850", "https://awtmt.com/articles/3766836"],
+  "searchedAt": "2026-08-14"
+},
+{
+  "id": "claude-fable-5",
+  "name": "Claude Fable 5",
+  "aliases": ["Fable 5", "Anthropic 最强模型"],
+  "field": "大模型横评",
+  "tags": ["闭源", "编码", "旗舰"],
+  "difficulty": 3,
+  "summary": "Anthropic 最强通用模型，SWE-Bench Pro 得分 80.3%",
+  "definition": "Claude Fable 5 是 Anthropic 于 2026 年推出的新一代旗舰通用大模型，发布即被媒体称为「全球最强 AI 模型」，综合能力全面碾压上一代。其最大亮点是编码能力：在 SWE-Bench Pro 基准上得分 80.3%，创下当时 SOTA 纪录，大幅领先竞品。定价约为 Opus 4.8 的两倍，定位高端企业级市场，官方在发布初期提供限时免费试用（如 6 月 22 日前免费）。Fable 5 同时强化了推理深度、诚实性与长文档处理，被视为通用智能新标杆。",
+  "background": "Anthropic 继 Opus 4.8 后仅间隔约 11 天便发布 Fable 5，节奏之快引发热议；随后又推出专注安全攻防的 Mythos 5，形成通用 + 安全的双旗舰格局。Fable 5 的 SWE-Bench Pro 80.3% 与定价翻倍策略，标志着前沿模型进入「能力天花板竞赛」阶段。",
+  "core": [
+    "SWE-Bench Pro 80.3%，编码能力 SOTA",
+    "推理深度与多步任务能力全面领先",
+    "强化诚实性，减少幻觉与编造",
+    "支持动态工作流与算力调节"
+  ],
+  "applications": ["复杂软件工程", "高难度代码审查与重构", "深度研究分析", "Agent 长链路编排"],
+  "misconceptions": ["80.3% 是基准分而非真实工程能力——实际项目仍需验证", "定价为 Opus 4.8 两倍，成本敏感场景需评估 ROI"],
+  "related": ["Claude Mythos 5", "GPT-5.4", "DeepSeek-V4-Pro", "Gemini 3.7 Flash"],
+  "references": ["Claude Fable 5 正式发布：SWE-Bench Pro 得分 80.3%", "Claude Fable 5 API - 价格与基准"],
+  "sources": ["https://wavespeed.ai/blog/zh-CN/posts/claude-fable-5-launch-benchmarks-pricing/", "https://www.orcarouter.ai/zh-CN/models/anthropic/claude-fable-5", "https://llm-stats.com/blog/research/claude-fable-5-review"],
+  "searchedAt": "2026-08-14"
+},
+{
+  "id": "claude-mythos-5",
+  "name": "Claude Mythos 5",
+  "aliases": ["Mythos 5", "Anthropic 安全模型"],
+  "field": "大模型横评",
+  "tags": ["闭源", "安全", "攻防"],
+  "difficulty": 4,
+  "summary": "Anthropic 安全攻防旗舰，号称颠覆全球攻防格局",
+  "definition": "Claude Mythos 5 是 Anthropic 与 Fable 5 同期推出的安全特化旗舰模型，专注于网络安全攻防、漏洞分析与对抗场景，被安全媒体称为「颠覆全球攻防格局」的模型。它在漏洞挖掘、渗透测试、恶意代码识别等任务上具备专业级能力，同时强化了安全对齐与有害内容拒答。Mythos 5 的发布标志着前沿大模型从「通用助手」向「行业垂直专家」分化，也引发了对 AI 武器化风险的讨论。",
+  "background": "2026 年 Anthropic 采取「双旗舰」策略：Fable 5 主打通用能力，Mythos 5 主打安全攻防，二者共用底层技术栈但针对不同场景优化。安全圈普遍认为 Mythos 5 的出现将显著改变攻防不对等的现状。",
+  "core": [
+    "专业级漏洞挖掘与渗透测试能力",
+    "恶意代码与攻击链识别",
+    "强化安全对齐，降低滥用风险",
+    "与 Fable 5 构成通用 + 安全双旗舰"
+  ],
+  "applications": ["企业安全审计", "红蓝队对抗演练", "漏洞情报分析", "安全培训与教育"],
+  "misconceptions": ["Mythos 5 的能力是「双刃剑」——官方与监管对其滥用风险保持高度警惕", "安全模型不等于绝对安全，仍需人机协同"],
+  "related": ["Claude Fable 5", "GPT-5.4"],
+  "references": ["Claude Mythos 5正式发布，颠覆全球攻防格局", "Anthropic 同时推出 Claude Fable 5 和 Mythos 5"],
+  "sources": ["https://www.secrss.com/articles/91160", "https://www.aitop100.cn/infomation/details/34018.html"],
+  "searchedAt": "2026-08-14"
+},
+{
+  "id": "gemini-3-7-flash",
+  "name": "Gemini 3.7 Flash",
+  "aliases": ["Gemini 3.7 Flash", "Google Gemini"],
+  "field": "大模型横评",
+  "tags": ["闭源", "编程", "Agent"],
+  "difficulty": 3,
+  "summary": "谷歌专为编程与 Agent 打造的轻量旗舰，首发半价",
+  "definition": "Gemini 3.7 Flash 是谷歌 DeepMind 于 2026 年推出的 Flash 系列最新模型，专为「编程与 Agents」场景设计，在代码生成、工具调用与多步任务执行上针对性地优化。发布时以 3.6 Flash 一半的价格促销，主打高性价比的开发者与智能体市场。Flash 系列定位低于旗舰（Pro/Ultra），但 3.7 版本在编程基准与 Agent 稳定性上大幅追近旗舰，成为开源替代之外的「闭源性价比之选」。",
+  "background": "谷歌 2026 年密集更新 Gemini Flash 系列，先后发布 3.6 Flash 与 3.7 Flash，主打价格腰斩与编程/Agent 能力提升；旗舰 Pro 版本发布时间一度推迟，Flash 成为谷歌对抗竞品的主力武器。",
+  "core": [
+    "专为编程与 Agents 优化，工具调用稳定",
+    "首发价仅为 3.6 Flash 一半，性价比突出",
+    "低延迟高吞吐，适合生产级调用",
+    "与谷歌生态（Vertex AI/Android）深度集成"
+  ],
+  "applications": ["代码生成与辅助编程", "Agent 工作流", "高并发 API 服务", "移动端智能应用"],
+  "misconceptions": ["Flash 定位轻量——复杂推理仍不及旗舰 Pro", "半价是首发促销，长期价格以官方为准"],
+  "related": ["Claude Fable 5", "GPT-5.4", "Qwen3.8-Max"],
+  "references": ["谷歌推出 Gemini 3.7 Flash 模型，专为编程与 Agents 打造", "Gemini 3.7 Flash 发布，谷歌半价促销"],
+  "sources": ["https://www.donews.com/news/detail/1/6670816.html", "https://m.163.com/news/article/L49HEPIL00097U7T.html", "https://tech.ifeng.com/c/8vYGCajr2EL"],
+  "searchedAt": "2026-08-14"
+},
+{
+  "id": "qwen3-8-max",
+  "name": "Qwen3.8-Max",
+  "aliases": ["Qwen3.8", "通义千问 3.8"],
+  "field": "大模型横评",
+  "tags": ["国产开源", "超大参数", "2.4T"],
+  "difficulty": 3,
+  "summary": "阿里 2.4 万亿参数旗舰，开源权重",
+  "definition": "Qwen3.8-Max 是阿里通义千问团队于 2026 年发布的超大规模旗舰模型，总参数达 2.4 万亿（2.4T），采用 MoE 架构，官方随后开放开源权重。它是 Qwen 系列「从 3.5 到 3.8」大版本迭代的顶配产品，编程与办公场景被重点优化，推理速度与稳定性较前代明显提升。Qwen3.8 系列还包括不同规模的 Flash/Nano 档位，构成完整的开源产品矩阵，是全球开源生态中与 Kimi K3、DeepSeek-V4 并列的头部玩家。",
+  "background": "阿里 Qwen 系列持续保持「旗舰超大参数 + 开源」路线，Qwen3.8-Max 发布后官方宣布下周开源权重；同期媒体指出国产超大模型架构「走向趋同」（均转向 MoE + 超长上下文），Qwen3.8 成为该趋势的代表作。",
+  "core": [
+    "2.4 万亿总参数，MoE 稀疏激活",
+    "编程与办公场景专项优化",
+    "开源权重，支持本地化部署",
+    "推理更快更稳定"
+  ],
+  "applications": ["企业私有化大模型", "编程助手", "办公智能化", "科研与多语言任务"],
+  "misconceptions": ["2.4T 是总参数——实际激活参数远小于此，别被数字误导", "开源权重仍需合规评估（许可协议）"],
+  "related": ["Kimi K3", "DeepSeek-V4", "智谱 GLM"],
+  "references": ["阿里正式发布 Qwen3.8-Max，2.4万亿参数", "2.4T参数，Qwen 3.8模型开源"],
+  "sources": ["https://news.iresearch.cn/content/202608/562334.shtml", "https://news.qq.com/rain/a/20260813A09YCS00", "https://www.qbitai.com/2026/08/465215.html"],
+  "searchedAt": "2026-08-14"
+},
+{
+  "id": "kimi-k3",
+  "name": "Kimi K3",
+  "aliases": ["Kimi K3", "月之暗面"],
+  "field": "大模型横评",
+  "tags": ["国产开源", "3万亿参数", "MoE"],
+  "difficulty": 3,
+  "summary": "全球首个 3 万亿级参数开源模型",
+  "definition": "Kimi K3 是月之暗面（Moonshot AI）于 2026 年推出的旗舰大模型，总参数规模达 3 万亿（3T），是**全球首个公开开放权重（开源）的 3 万亿级参数模型**，其开放力度震惊业界，直接冲击了 Anthropic 等闭源厂商的估值叙事。K3 采用大规模 MoE 架构，在数学、代码、长上下文与多语言任务上达到世界顶级水平，同时通过稀疏激活控制推理成本。Kimi 品牌自 K2 起便以「超长上下文 + 强推理」著称，K3 将规模推向新量级。",
+  "background": "月之暗面 2025 年发布 Kimi K2（1 万亿级开源）后引发轰动；2026 年 K3 将参数规模推至 3 万亿并保持开源路线，媒体以「3万亿模型权重全球开放」「冲击 Anthropic 估值」报道，被视为中国开源大模型从追赶转向引领的标志。",
+  "core": [
+    "3 万亿总参数，全球首个同规模开源模型",
+    "数学/代码/长文本综合能力顶级",
+    "MoE 稀疏激活控制推理成本",
+    "开源路线冲击闭源厂商商业模式"
+  ],
+  "applications": ["前沿科研", "超长文档处理", "复杂推理与代码", "开源生态共建"],
+  "misconceptions": ["3T 总参数≠推理成本高——实际激活参数约数百亿", "开源权重对硬件要求极高，普通设备无法本地运行"],
+  "related": ["Qwen3.8-Max", "DeepSeek-V4", "Llama 3.3"],
+  "references": ["全球首个3万亿级参数开源模型落地，月之暗面Kimi", "刚刚，Kimi K3开源！3万亿模型权重全球开放"],
+  "sources": ["https://hub.baai.ac.cn/view/56714", "https://tidenews.com.cn/news.html?id=3514572", "https://platform.kimi.com/docs/guide/kimi-k3-quickstart"],
+  "searchedAt": "2026-08-14"
+},
+{
+  "id": "xiaomi-mimo",
+  "name": "小米 MiMo",
+  "aliases": ["MiMo-V2.5", "MiMo-V2-Flash"],
+  "field": "大模型横评",
+  "tags": ["国产开源", "调用量第一", "效率"],
+  "difficulty": 3,
+  "summary": "全球大模型调用量第一，MiMo-V2.5 登顶",
+  "definition": "小米 MiMo 是小米集团推出的开源大模型系列，2026 年以 **MiMo-V2.5 登顶全球大模型调用量第一**，前五名全部为中国产品，成为国产大模型规模化落地的标志。MiMo-V2-Flash 则主打「重新定义开源大模型的性能与效率」，在保持高能力的同时大幅降低推理成本，适合端侧与高并发场景。MiMo 依托小米庞大的设备与生态（手机、IoT、汽车），走「高效 + 普惠」路线，与追求超大参数的 Kimi K3、Qwen3.8 形成差异化。",
+  "background": "小米自研大模型从端侧小模型起家，逐步扩展至云端旗舰；2026 年 7-8 月多家媒体与数据平台显示 MiMo 系列在全球大模型调用量榜单登顶，前六名均为中国模型，国产模型生态完成对全球的「霸榜」。",
+  "core": [
+    "全球大模型调用量第一（MiMo-V2.5）",
+    "性能与效率并重，推理成本低",
+    "端云协同，覆盖手机/IoT/汽车场景",
+    "开源生态完善"
+  ],
+  "applications": ["智能设备端侧 AI", "高并发 ToC 服务", "车机助手", "开源社区"],
+  "misconceptions": ["调用量第一≠能力最强——榜单反映的是落地规模而非基准", "登顶与促销/免费策略相关，需理性看待"],
+  "related": ["智谱 GLM", "DeepSeek-V4", "Qwen3.8-Max"],
+  "references": ["全球大模型调用量前五均为中国产品，小米MiMo-V2.5登顶", "小米发布MiMo-V2-Flash"],
+  "sources": ["https://www.jiemian.com/article/14837166.html", "https://www.toutiao.com/article/7667465248891077154/", "https://aistudio.baidu.com/blog/detail/753182597068869"],
+  "searchedAt": "2026-08-14"
+},
+{
+  "id": "zhipu-glm",
+  "name": "智谱 GLM",
+  "aliases": ["GLM-5.2", "GLM-4.7-Flash", "智谱清言"],
+  "field": "大模型横评",
+  "tags": ["国产开源", "旗舰", "混合模型"],
+  "difficulty": 3,
+  "summary": "智谱新旗舰 GLM-5.2，另推 GLM-4.7-Flash 轻量模型",
+  "definition": "智谱 AI 的 GLM 系列是国产开源大模型的代表性产品线。2026 年智谱发布新旗舰 **GLM-5.2**，在综合能力上对标国际第一梯队；同时推出 **GLM-4.7-Flash**（约 300 亿参数的混合模型），主打轻量与高性价比，覆盖高并发与端侧场景。GLM 系列以其「开源 + 大模型+Agent 平台」生态著称，GLM-4.5 时代便以「卷飞所有开源模型」著称，5.x 系列进一步巩固其在国产模型第一梯队的位置，并入选全球调用量前六。",
+  "background": "智谱自 GLM-4 起确立开源路线，GLM-4.5 引发开源模型性能竞赛，GLM-5.2 成为新一代旗舰；GLM-4.7-Flash 则回应市场对轻量模型的旺盛需求，形成「旗舰 + Flash」双轨产品矩阵。",
+  "core": [
+    "GLM-5.2 旗舰综合能力对标国际第一梯队",
+    "GLM-4.7-Flash：300 亿参数混合模型，轻量高效",
+    "开源 + Agent 平台生态完整",
+    "全球调用量前六（国产霸榜）"
+  ],
+  "applications": ["企业 Agent 平台", "对话与客服", "端侧轻量部署", "开源研究"],
+  "misconceptions": ["GLM 系列版本众多（4.5/4.7/5.2）——选购时按场景而非版本号", "Flash 轻量模型能力有限，复杂任务需旗舰版"],
+  "related": ["小米 MiMo", "DeepSeek-V4", "Qwen3.8-Max"],
+  "references": ["智谱发布新旗舰模型GLM-5.2", "智谱开源GLM-4.7-Flash：300亿参数混合模型"],
+  "sources": ["http://www.iheima.com/article-398536.html", "https://ai.zol.com.cn/1121/11213395.html", "https://cloud.tencent.com.cn/developer/article/2686753"],
+  "searchedAt": "2026-08-14"
+},
+{
+  "id": "llama-3-3",
+  "name": "Llama 3.3",
+  "aliases": ["Llama 3.3 70B", "Meta Llama"],
+  "field": "大模型横评",
+  "tags": ["开源", "Meta", "英语生态"],
+  "difficulty": 2,
+  "summary": "Meta 开源旗舰，海外开源生态基石",
+  "definition": "Llama 3.3（70B）是 Meta 于 2024 年底发布的 Llama 3 系列增强版，以 70B 稠密模型提供接近 Llama 3.1 405B 的能力，显著降低部署门槛。作为海外开源生态的基石模型，Llama 3.3 在英语、工具调用与基础 Agent 任务上表现扎实，被大量企业用于私有化部署与微调。进入 2026 年，Meta 面对 DeepSeek-V4、Kimi K3、Qwen3.8 等国产超大参数开源模型的冲击，Llama 系列的参数规模与中文能力相对落后，市场号召力被分流，但其庞大的社区与工具链（Ollama/LlamaStack/llama.cpp）仍是优势。",
+  "background": "Llama 系列开创「开源大模型民主化」浪潮，Llama 3.3 是该路线 2024-2026 年的主力出货型号；2026 年面对国产开源模型在参数规模与性价比上的双重压制，Meta 亟需新一代模型重振生态。",
+  "core": [
+    "70B 稠密架构，部署门槛低",
+    "英语/工具调用扎实，海外生态完善",
+    "社区工具链丰富，微调资料多",
+    "许可证相对宽松（Llama 3.3 Community License）"
+  ],
+  "applications": ["海外企业私有化部署", "英语场景助手", "开源研究", "微调基座"],
+  "misconceptions": ["Llama 3.3 已非最新旗舰——2026 年国内开源模型在规模与中文能力上全面超越", "70B 参数仍需较高硬件，并非「小模型」"],
+  "related": ["Kimi K3", "DeepSeek-V4", "Qwen3.8-Max"],
+  "references": ["Meta Llama 3.3 (70B)", "2026 开源大模型生态报告"],
+  "sources": ["https://huggingface.co/meta-llama/Llama-3.3-70B-Instruct", "https://llama.com/"],
+  "searchedAt": "2026-08-14"
+},
+{
+  "id": "open-weights-2026",
+  "name": "2026 开源大模型生态",
+  "aliases": ["开源模型格局", "中国开源霸榜"],
+  "field": "大模型横评",
+  "tags": ["开源", "生态", "中国主导"],
+  "difficulty": 2,
+  "summary": "全球开源模型调用量前六被中国包揽，生态全面重构",
+  "definition": "2026 年全球开源大模型生态发生结构性剧变：**全球大模型调用量榜单前六名全部被中国模型包揽**（小米 MiMo-V2.5 登顶，智谱 GLM、DeepSeek、Qwen、Kimi 等上榜），中国从「追赶者」变为开源生态的主导者。特征包括：超大参数开源（Kimi K3 三万亿、Qwen3.8-Max 2.4 万亿）、价格战（DeepSeek-V4 系列限时降价）、端云协同（小米/字节等依托硬件生态）、以及「总参数膨胀 + 稀疏激活」的架构趋同。开源与闭源的边界也日益模糊——开源模型能力逼近闭源旗舰，倒逼 OpenAI、Anthropic 加速迭代。",
+  "background": "2025 年 DeepSeek-V3 以低成本训练震撼业界，开启中国开源模型崛起；2026 年调用量霸榜与万亿参数开源（Kimi K3）成为标志性事件，Meta Llama 等老牌开源阵营受到全面冲击，全球开源生态中心向中国转移。",
+  "core": [
+    "全球调用量前六全为中国模型，国产霸榜",
+    "万亿级参数开源成为新常态（Kimi K3 3T / Qwen3.8 2.4T）",
+    "价格战与端云协同加速普惠",
+    "开源能力逼近闭源旗舰，倒逼海外厂商加速"
+  ],
+  "applications": ["企业选型参考", "开源社区共建", "本地化部署", "政策与投资研究"],
+  "misconceptions": ["「开源」不等于「免费」——权重免费但算力/商用需成本", "调用量第一反映落地规模，不直接等于综合能力第一"],
+  "related": ["小米 MiMo", "Kimi K3", "Qwen3.8-Max", "DeepSeek-V4"],
+  "references": ["全球开源模型调用量前六，国产大模型包揽", "2026中国AI大模型竞争力TOP20"],
+  "sources": ["https://m.thepaper.cn/newsDetail_forward_33691487", "https://finance.sina.com.cn/jjxw/2026-08-01/doc-inikuwea8922", "http://dongshihui.net/news/china/2026-07-28/23532.html"],
+  "searchedAt": "2026-08-14"
+}
 ];
