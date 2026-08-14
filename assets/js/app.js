@@ -14,16 +14,14 @@
     if (vp === "3d" || vp === "list" || vp === "shelf") { X.state.viewMode = vp; X.saveState(); }
     X.applyTheme(X.state.theme);
 
-    // 今日探索（今日概念 + 关联预览）
-    const dt = X.dailyTerm();
+    // 知识漫游（从历史/收藏/关系生成探索路径，带理由）
     const dw = document.getElementById("daily-term");
-    if (dw && dt) {
-      const rels = X.getRelations(dt).filter(r => r.resolved).slice(0, 4);
-      dw.innerHTML = "今日探索 <b>" + X.esc(dt.name) + "</b> · " + X.esc(dt.domain) +
-        (rels.length ? " · 关联：" + rels.map(r => "<u data-rel='" + X.esc(r.concept.id) + "'>" + X.esc(r.concept.name) + "</u>").join(" / ") : "");
-      dw.style.cursor = "pointer";
-      dw.addEventListener("click", () => X.openConcept(dt.id));
-      dw.querySelectorAll("[data-rel]").forEach(u => u.addEventListener("click", e => { e.stopPropagation(); X.openConcept(u.dataset.rel); }));
+    if (dw) {
+      X.renderWalk(dw);
+      if (!dw.innerHTML) {
+        const dt = X.dailyTerm();
+        if (dt) { dw.innerHTML = "今日探索 <b>" + X.esc(dt.name) + "</b> · " + X.esc(dt.domain); dw.style.cursor = "pointer"; dw.addEventListener("click", () => X.openConcept(dt.id)); }
+      }
     }
     // 首页访问触发一次自动发现（自增长：低频、免费）
     fetch("/api/discover", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ limit: 1 }) }).catch(() => {});

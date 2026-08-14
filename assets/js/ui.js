@@ -276,6 +276,7 @@
         '<button class="btn" id="fav-btn">' + (X.isFav(c.id) ? "♥ 已收藏" : "☆ 收藏") + "</button>" +
         '<button class="btn" id="copyfull-btn">📋 复制全文</button>' +
         '<button class="btn" id="copy-btn">🔗 复制链接</button>' +
+        '<button class="btn" id="report-btn" title="纠错反馈，进入审核队列，不直接修改数据">纠错</button>' +
         '<button class="btn" id="print-btn">🖨 打印</button>' +
       "</div>";
     ov.appendChild(card);
@@ -396,7 +397,8 @@
     if (m) html += '<div class="fp-row">掌握度 <span class="mastery-badge ' + X.masteryLabel(c.id).cls + '">' + X.masteryLabel(c.id).text + " " + m.score + "%</span>（" + m.correct + "/" + m.total + "）</div>";
     fetch("/api/version?id=" + encodeURIComponent(c.id)).then(r => r.json()).then(d => {
       if (d.ok && d.versions && d.versions.length) {
-        html += '<div class="fp-row">版本历史（AI 自增长）' + d.versions.map(v => "<span class='fp-ver'>" + X.fmtTime(v.at) + " · " + X.esc(v.domain) + "</span>").join("") + "</div>";
+        const act = { create: "新增", update: "更新", enrich: "纵向补全", rollback: "回滚", "moderation-wrong-source": "来源修正", "moderation-wrong-relation": "关系修正", "moderation-flag": "标记复审" };
+        html += '<div class="fp-row">版本时间线</div><div class="fp-timeline">' + d.versions.slice(-8).map(v => '<div class="fp-node"><i></i><span>' + (act[v.action] || v.action) + "</span><small>" + X.fmtTime(v.at) + "</small></div>").join("") + "</div>";
       }
       if (html) { sec.style.display = ""; box.innerHTML = html; }
     }).catch(() => { if (html) { sec.style.display = ""; box.innerHTML = html; } });
@@ -431,6 +433,7 @@
       } catch (e) { X.toast("复制失败，请手动复制地址栏链接"); }
     });
     ov.querySelector("#print-btn").addEventListener("click", () => X.printConcept(c));
+    ov.querySelector("#report-btn").addEventListener("click", () => X.openReport(c));
     ov.querySelector("#copyfull-btn").addEventListener("click", () => {
       const parts = [c.name + "（" + c.domain + "）", c.summary, c.definition, c.background,
         "核心要点：\n- " + (c.core || []).join("\n- "),

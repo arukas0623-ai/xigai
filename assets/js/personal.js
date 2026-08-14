@@ -109,6 +109,7 @@
         (gaps.length ? '<ul class="sp-list">' + gaps.map(g => '<li data-id="' + X.esc(g.concept.id) + '"><span class="nm">' + X.esc(g.concept.name) + '</span><span class="fd">' + X.esc(g.reason) + "</span></li>").join("") + "</ul>" : '<div class="sp-empty">暂无知识盲区 🎉（学过更基础的相关概念或通过测试后消除）</div>') + "</div>" +
       '<div class="p-tab hidden" data-ptab="recs">' +
         (recs.length ? '<ul class="sp-list">' + recs.map(r => '<li data-id="' + X.esc(r.concept.id) + '"><span class="nm">' + X.esc(r.concept.name) + '</span><span class="fd">' + X.esc(r.why) + "</span></li>").join("") + "</ul>" : '<div class="sp-empty">多读几本书后会有推荐</div>') + "</div>" +
+      '<div class="p-tab hidden" data-ptab="health" id="health-tab"><div class="sp-empty">加载中…</div></div>' +
       '<div class="p-tab hidden" data-ptab="pending">' +
         (X.pendingConcepts().length ? '<ul class="sp-list">' + X.pendingConcepts().map(c => '<li data-id="' + X.esc(c.id) + '"><span class="nm">' + X.esc(c.name) + '</span><span class="fd">confidence ' + (c.confidence != null ? c.confidence : "?") + ' · ' + X.esc(c.status || "?") + "</span><span class='rm' data-rv='1'>↻ 重验</span></li>").join("") + "</ul>" : '<div class="sp-empty">没有待验证条目 🎉</div>') + "</div>";
     ov.appendChild(card);
@@ -119,7 +120,9 @@
     ov.querySelectorAll(".sp-tab").forEach(t => t.addEventListener("click", () => {
       ov.querySelectorAll(".sp-tab").forEach(x => x.classList.toggle("active", x === t));
       ov.querySelectorAll(".p-tab").forEach(x => x.classList.toggle("hidden", x.dataset.ptab !== t.dataset.ptab));
+      if (t.dataset.ptab === "health") X.renderHealthTab();
     }));
+    X.renderHealthTab();
     ov.querySelectorAll(".kg-node[data-id]").forEach(g => g.addEventListener("click", () => { ov.classList.add("hidden"); document.body.style.overflow = ""; X.openConcept(g.dataset.id); }));
     ov.querySelectorAll(".sp-list li[data-id]").forEach(li => li.addEventListener("click", (e) => {
       if (e.target.classList.contains("rm")) return;
@@ -173,6 +176,63 @@
     ov.querySelector(".panel-close").addEventListener("click", () => { ov.classList.add("hidden"); document.body.style.overflow = ""; });
     ov.addEventListener("click", e => { if (e.target === ov) { ov.classList.add("hidden"); document.body.style.overflow = ""; } });
     ov.querySelectorAll("[data-id]").forEach(b => b.addEventListener("click", () => { ov.classList.add("hidden"); document.body.style.overflow = ""; X.openConcept(b.dataset.id); }));
+  };
+
+  /* 知识缺口视图（来自 /api/health） */
+  X.renderHealthTab = function () {
+    const box = document.getElementById("health-tab");
+    if (!box) return;
+    fetch("/api/health").then(r => r.json()).then(h => {
+      if (!h || !h.gaps) { box.innerHTML = '<div class="sp-empty">健康数据不可用</div>'; return; }
+      const stat = '<div class="health-stats">' +
+        '<span><b>' + h.avgCompleteness + '%</b> 完整度</span><span><b>' + h.relationEfficiency + '%</b> 关系有效</span><span><b>' + h.isolated + '</b> 孤立节点</span>' +
+        '<span><b>' + h.pendingRelations + '</b> 待补全关系</span><span><b>' + h.pending + '</b> pending</span><span><b>' + h.relationPool + '</b> 候选关系</span></div>';
+      const list = h.gaps.slice(0, 12).map(g =>
+        '<li data-id="' + X.esc(g.id) + '"><span class="nm">' + X.esc(g.name) + '</span><span class="fd">' +
+        ({ source: "缺来源", fields: "缺字段", isolated: "孤立节点" }[g.kind] || g.kind) + " · " + X.esc(g.domain) + "</span></li>"
+      ).join("");
+      box.innerHTML = stat + '<div class="health-title">优先完善清单（自动补全队列按此处理）</div>' +
+        '<ul class="sp-list">' + (list || '<li class="sp-empty">无缺口 🎉</li>') + "</ul>";
+      box.querySelectorAll("li[data-id]").forEach(li => li.addEventListener("click", () => { document.getElementById("personal-panel").classList.add("hidden"); document.body.style.overflow = ""; X.openConcept(li.dataset.id); }));
+    }).catch(() => { box.innerHTML = '<div class="sp-empty">健康数据加载失败</div>'; });
+  };
+
+  /* 知识漫游：从最近读过/收藏的概念出发，沿关系生成探索路径（带理由） */
+  X.explorationWalk = function (len) {
+    len = len || 5;
+    let seed = null;
+    // 起点：最近阅读 → 收藏 → 今日
+    const hist = X.state.history.map(h => X.byId.get(h.id)).filter(Boolean);
+    if (hist.length) seed = hist[0];
+    if (!seed) { const fav = X.state.favorites.map(id => X.byId.get(id)).filter(Boolean); if (fav.length) seed = fav[0]; }
+    if (!seed) seed = X.dailyTerm();
+    if (!seed) return [];
+    const walk = [{ c: seed, rel: null }];
+    const seen = new Set([seed.id]);
+    let cur = seed;
+    for (let i = 0; i < len - 1; i++) {
+      const rels = X.getRelations(cur).filter(r => r.resolved && !seen.has(r.concept.id));
+      if (!rels.length) break;
+      // 优先 followup/related 且同域，其次任意
+      const pick = rels.find(r => r.type === "followup") || rels.find(r => r.type === "related") || rels[0];
+      seen.add(pick.concept.id);
+      walk.push({ c: pick.concept, rel: pick });
+      cur = pick.concept;
+    }
+    return walk;
+  };
+  /* 渲染知识漫游（首页） */
+  X.renderWalk = function (el) {
+    if (!el) return;
+    const walk = X.explorationWalk(5);
+    if (!walk.length) { el.innerHTML = ""; return; }
+    el.innerHTML = "知识漫游 <b>" + X.esc(walk[0].c.name) + "</b> " +
+      walk.slice(1).map(s => {
+        const label = { prerequisite: "前置", followup: "进阶", related: "相关", dependsOn: "依赖", evolvedFrom: "演化", appliesTo: "应用" }[s.rel && s.rel.type] || "相关";
+        return '→ <u data-walk="' + X.esc(s.c.id) + '">' + X.esc(s.c.name) + '</u><small>(' + label + ")</small>";
+      }).join(" ");
+    el.querySelectorAll("[data-walk]").forEach(u => u.addEventListener("click", e => { e.stopPropagation(); X.openConcept(u.dataset.walk); }));
+    el.addEventListener("click", () => X.openConcept(walk[0].c.id));
   };
 
   /* 聊天 GraphRAG 问答 */

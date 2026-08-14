@@ -2413,5 +2413,63 @@ window.XIGAI["计算机术语"] = [
         "confidence": 0.85
       }
     ]
+  },
+  {
+    "name": "丘奇-图灵论题",
+    "aliases": [],
+    "field": "计算机术语",
+    "tags": [
+      "理论",
+      "极限"
+    ],
+    "difficulty": 4,
+    "summary": "关于可计算性的假设",
+    "definition": "丘奇-图灵论题是关于所有有效计算方法都能被图灵机模拟的假设，它探讨了可计算性的问题。",
+    "background": "1930年代，阿兰·图灵和斯蒂芬·丘奇分别独立提出了图灵机的概念和λ演算系统，两者都试图定义一个通用的数学模型来表示所有可能的计算过程。丘奇-图灵论题提出，任何有效的方法都可以被图灵机模拟。",
+    "core": [
+      "图灵机可以模拟任何有效的计算方法",
+      "可计算性是基于图灵机的概念",
+      "λ演算与图灵机等价"
+    ],
+    "pros": [],
+    "cons": [],
+    "applications": [
+      "理论计算机科学",
+      "算法设计"
+    ],
+    "misconceptions": [
+      "丘奇-图灵论题是一个实证结论，而非数学定理",
+      "它并不保证所有问题都能被有效解决"
+    ],
+    "related": [
+      "图灵机",
+      "λ演算"
+    ],
+    "relations": [
+      {
+        "type": "followup",
+        "target": "图灵机",
+        "note": "",
+        "confidence": 0.85
+      },
+      {
+        "type": "evolvedFrom",
+        "target": "丘奇-图灵论题",
+        "note": "",
+        "confidence": 0.3
+      }
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Church%E2%80%93Turing_thesis",
+      "https://www.cs.virginia.edu/~robins/Turing_1936.pdf",
+      "https://plato.stanford.edu/entries/church-turing/"
+    ],
+    "principle": "",
+    "id": "丘奇-图灵论题",
+    "confidence": 0.9,
+    "sourceConfidence": 1,
+    "relationConfidence": 0.57,
+    "status": "verified",
+    "searchedAt": "2026-08-14"
   }
 ];

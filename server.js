@@ -565,14 +565,7 @@ function appendConcept(domain, concept) {
     const tmp = fp + ".tmp";
     fs.writeFileSync(tmp, out, "utf8");
     fs.renameSync(tmp, fp);   // 原子替换
-    // 版本历史
-    try {
-      fs.mkdirSync(VERSION_DIR, { recursive: true });
-      const vf = path.join(VERSION_DIR, concept.id + ".json");
-      const hist = fs.existsSync(vf) ? JSON.parse(fs.readFileSync(vf, "utf8")) : [];
-      hist.push({ at: Date.now(), domain: dom, name: concept.name });
-      fs.writeFileSync(vf, JSON.stringify(hist, null, 2));
-    } catch (e) {}
+    pushVersion(concept.id, dom, "create", concept);
     loadCorpus();
     return { ok: true, file, domain: dom, concept };
   });
@@ -688,13 +681,7 @@ function updateConcept(domain, oldConcept, newConcept) {
     const tmp = fp + ".tmp";
     fs.writeFileSync(tmp, out, "utf8");
     fs.renameSync(tmp, fp);
-    try {
-      fs.mkdirSync(VERSION_DIR, { recursive: true });
-      const vf = path.join(VERSION_DIR, oldConcept.id + ".json");
-      const hist = fs.existsSync(vf) ? JSON.parse(fs.readFileSync(vf, "utf8")) : [];
-      hist.push({ at: Date.now(), domain, action: "update", status: merged.status });
-      fs.writeFileSync(vf, JSON.stringify(hist, null, 2));
-    } catch (e) {}
+    pushVersion(oldConcept.id, domain, "update", merged);
     loadCorpus();
     return { ok: true, concept: merged };
   });
@@ -885,6 +872,161 @@ function handleQuiz(res, payload) {
 
 
 /* ═══ 阶段3（P2）：版本历史 + GraphRAG ═══ */
+
+/* ═══ P0 自维护 ═══ */
+const RELPOOL_FILE = path.join(ROOT, '.cache', 'relpool.json');
+const MODERATION_FILE = path.join(ROOT, '.cache', 'moderation.json');
+const MAX_RELATIONS = 24;
+function readRelPool() { try { return JSON.parse(fs.readFileSync(RELPOOL_FILE, 'utf8')); } catch (e) { return {}; } }
+function writeRelPool(p) { try { fs.writeFileSync(RELPOOL_FILE, JSON.stringify(p)); } catch (e) {} }
+function readModeration() { try { return JSON.parse(fs.readFileSync(MODERATION_FILE, 'utf8')); } catch (e) { return []; } }
+function writeModeration(m) { try { fs.writeFileSync(MODERATION_FILE, JSON.stringify(m)); } catch (e) {} }
+
+function healthScore() {
+  if (!CORPUS) loadCorpus();
+  let concepts = 0, compSum = 0, sourceCovered = 0, multiSource = 0, isolated = 0, pendingC = 0;
+  let relations = 0, valid = 0, lowConfRels = 0, pendingRel = 0;
+  const gapList = [];
+  for (const c of CORPUS.all) {
+    concepts++;
+    let comp = 0;
+    if (c.definition && c.definition.length >= 60) comp++;
+    if (c.principle) comp++;
+    if ((c.pros || []).length) comp++;
+    if ((c.cons || []).length) comp++;
+    if ((c.applications || []).length) comp++;
+    if ((c.background || '').length >= 40) comp++;
+    compSum += comp / 6;
+    const srcs = (c.sources || []).filter(Boolean);
+    if (srcs.length) sourceCovered++;
+    const doms = new Set();
+    srcs.forEach(s => { try { doms.add(new URL(s).hostname); } catch (e) {} });
+    if (doms.size >= 2) multiSource++;
+    if (c.status === 'pending' || (c.confidence != null && c.confidence < 0.6)) pendingC++;
+    const rels = c.relations || [];
+    let eff = 0;
+    for (const r of rels) {
+      const ok = CORPUS.byId.has(r.target);
+      const rc = r.confidence != null ? r.confidence : (ok ? 0.6 : 0.3);
+      if (ok) { if (rc >= 0.6) eff++; } else pendingRel++;
+      if (rc < 0.6) lowConfRels++;
+    }
+    relations += rels.length; valid += eff;
+    if (eff < 2) isolated++;
+    if (gapList.length < 40) {
+      if (!srcs.length) gapList.push({ kind: 'source', id: c.id, name: c.name, domain: c.domain });
+      else if (!c.principle || !(c.pros || []).length || !(c.cons || []).length) gapList.push({ kind: 'fields', id: c.id, name: c.name, domain: c.domain });
+      else if (eff < 2) gapList.push({ kind: 'isolated', id: c.id, name: c.name, domain: c.domain });
+    }
+  }
+  return { concepts, avgCompleteness: concepts ? Math.round(compSum / concepts * 100) : 0, relationEfficiency: relations ? Math.round(valid / relations * 100) : 0,
+    sourceCoverage: concepts ? Math.round(sourceCovered / concepts * 100) : 0, multiSourceRate: concepts ? Math.round(multiSource / concepts * 100) : 0,
+    pending: pendingC, pendingRelations: pendingRel, isolated, lowConfidenceRelations: lowConfRels,
+    relationPool: Object.keys(readRelPool()).length, moderationQueue: readModeration().length, gaps: gapList };
+}
+
+function runPatrol() {
+  const h = healthScore();
+  let enqueued = 0;
+  const seen = new Set();
+  for (const g of h.gaps) {
+    if (enqueued >= 3) break;
+    const key = g.kind + '|' + g.id;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    if (enqueueTask('enrich', g.id, 'patrol-' + g.kind)) enqueued++;
+  }
+  bumpStat('patrolRuns', 1);
+  return { ok: true, health: h, enqueued };
+}
+
+function applyRelationBudget(c) {
+  const rels = c.relations || [];
+  if (rels.length <= MAX_RELATIONS) return rels;
+  const sorted = rels.slice().sort((a, b) => (b.confidence || 0) - (a.confidence || 0));
+  const keep = sorted.slice(0, MAX_RELATIONS);
+  const overflow = sorted.slice(MAX_RELATIONS);
+  const pool = readRelPool();
+  pool[c.id] = (pool[c.id] || []).concat(overflow.map(r => ({ type: r.type, target: r.target, confidence: r.confidence, at: Date.now() }))).slice(-60);
+  writeRelPool(pool);
+  c.relations = keep;
+  return keep;
+}
+
+function pushVersion(id, domain, action, concept) {
+  try {
+    fs.mkdirSync(VERSION_DIR, { recursive: true });
+    const vf = path.join(VERSION_DIR, id + '.json');
+    const hist = fs.existsSync(vf) ? JSON.parse(fs.readFileSync(vf, 'utf8')) : [];
+    hist.push({ at: Date.now(), domain, action, snap: concept ? { name: concept.name, definition: concept.definition, relations: (concept.relations || []).length, confidence: concept.confidence, status: concept.status } : null });
+    fs.writeFileSync(vf, JSON.stringify(hist.slice(-50), null, 2));
+  } catch (e) {}
+}
+
+function handleRollback(res, payload) {
+  const id = String(payload.id || '').replace(/[^a-zA-Z0-9\u4e00-\u9fa5-]/g, '').slice(0, 60);
+  const vf = path.join(VERSION_DIR, id + '.json');
+  try {
+    const hist = JSON.parse(fs.readFileSync(vf, 'utf8'));
+    const c = findLocalById(id);
+    if (!c) return send(res, 200, JSON.stringify({ ok: false, error: '概念不存在' }));
+    c.status = 'needs_update';
+    pushVersion(id, c.domain, 'rollback', c);
+    writeConcept(c).then(r => send(res, 200, JSON.stringify({ ok: true, concept: c })));
+  } catch (e) { send(res, 200, JSON.stringify({ ok: false, error: '回滚失败' })); }
+}
+
+function handleFeedback(res, payload) {
+  const type = ['wrong-concept', 'wrong-relation', 'duplicate', 'wrong-source'].includes(payload.type) ? payload.type : 'wrong-concept';
+  const conceptId = String(payload.conceptId || '').slice(0, 60);
+  const detail = String(payload.detail || '').slice(0, 500);
+  const relationTarget = String(payload.relationTarget || '').slice(0, 60);
+  if (!conceptId) return send(res, 200, JSON.stringify({ ok: false, error: '缺少概念' }));
+  const m = readModeration();
+  m.push({ id: 'm' + Date.now(), at: Date.now(), type, conceptId, relationTarget, detail, status: 'pending' });
+  writeModeration(m.slice(-200));
+  bumpStat('feedback', 1);
+  send(res, 200, JSON.stringify({ ok: true, queued: m.length }));
+}
+
+function processModeration() {
+  const m = readModeration();
+  const pending = m.filter(x => x.status === 'pending').slice(0, 2);
+  if (!pending.length) return Promise.resolve({ ok: true, processed: 0 });
+  return Promise.all(pending.map(item => {
+    const c = findLocalById(item.conceptId);
+    if (!c) { item.status = 'ignored'; return Promise.resolve(item); }
+    const prompt = ['用户对概念「' + c.name + '」提交纠错：类型=' + item.type + '，详情=' + (item.detail || '无') + (item.relationTarget ? '，关系目标=' + item.relationTarget : ''),
+      '概念定义：' + (c.definition || '').slice(0, 200),
+      '判断反馈是否合理，只输出 JSON：{"valid":true或false,"reason":"一句话"}'].join('\n');
+    return growOllama(item.conceptId, prompt).then(text => {
+      bumpStat('ollamaCalls', 1);
+      const obj = extractJSON(text);
+      const valid = obj && obj.valid === true;
+      item.valid = valid;
+      item.reason = obj && obj.reason ? String(obj.reason).slice(0, 200) : '';
+      if (valid) {
+        if (item.type === 'wrong-source' && item.detail && c.sources) {
+          c.sources = c.sources.filter(s => !s.includes(item.detail));
+          pushVersion(c.id, c.domain, 'moderation-wrong-source', c);
+          writeConcept(c);
+        } else if (item.type === 'wrong-relation' && item.relationTarget) {
+          c.relations = (c.relations || []).filter(r => !(r.target === item.relationTarget || normStr(r.target) === normStr(item.relationTarget)));
+          pushVersion(c.id, c.domain, 'moderation-wrong-relation', c);
+          writeConcept(c);
+        } else {
+          c.status = 'needs_update';
+          pushVersion(c.id, c.domain, 'moderation-flag', c);
+          writeConcept(c);
+        }
+        item.status = 'fixed';
+        bumpStat('moderationFixed', 1);
+      } else { item.status = 'pending-review'; bumpStat('moderationPending', 1); }
+      return item;
+    }).catch(() => { item.status = 'error'; return item; });
+  })).then(items => { writeModeration(m); return { ok: true, processed: items.length }; });
+}
+
 function handleVersion(res, payload) {
   const id = String(payload.id || "").replace(/[^a-zA-Z0-9\u4e00-\u9fa5-]/g, "").slice(0, 60);
   const vf = path.join(VERSION_DIR, id + ".json");
@@ -1091,8 +1233,8 @@ function handleMaintain(res) {
       if (t) resolved++;
       if (t && conf >= 0.6) valid++;
     }
-    c.relations = keep;
-    c.relationConfidence = keep.length ? Math.round(keep.reduce((s, x) => s + (x.confidence || 0.3), 0) / keep.length * 100) / 100 : 0.3;
+    c.relations = applyRelationBudget(c);   // 关系预算：超额进候选池
+    c.relationConfidence = c.relations.length ? Math.round(c.relations.reduce((s, x) => s + (x.confidence || 0.3), 0) / c.relations.length * 100) / 100 : 0.3;
   }
   // 回写数据文件
   const dataDir = path.join(ROOT, "data");
@@ -1204,13 +1346,7 @@ function writeConcept(c) {
     const out = "window.XIGAI = window.XIGAI || {};\nwindow.XIGAI[" + JSON.stringify(domain) + "] = " + JSON.stringify(arr, null, 2) + ";\n";
     const tmp = fp + ".tmp";
     try { fs.writeFileSync(tmp, out, "utf8"); fs.renameSync(tmp, fp); } catch (e) { return { ok: false }; }
-    try {
-      fs.mkdirSync(VERSION_DIR, { recursive: true });
-      const vf = path.join(VERSION_DIR, c.id + ".json");
-      const hist = fs.existsSync(vf) ? JSON.parse(fs.readFileSync(vf, "utf8")) : [];
-      hist.push({ at: Date.now(), domain, action: "enrich", status: c.status });
-      fs.writeFileSync(vf, JSON.stringify(hist, null, 2));
-    } catch (e) {}
+    pushVersion(c.id, domain, "enrich", c);
     loadCorpus();
     return { ok: true, concept: c };
   });
@@ -1249,7 +1385,19 @@ function handleDiscover(res, payload) {
 
 const server = http.createServer((req, res) => {
   const url = new URL(req.url, "http://x");
-  if (url.pathname === "/api/health") return send(res, 200, "ok");
+  if (url.pathname === "/api/health") return send(res, 200, JSON.stringify(healthScore()));
+  if (req.method === "POST" && url.pathname === "/api/rollback") {
+    let b2 = ""; req.on("data", c => (b2 += c)); req.on("end", () => { let p = {}; try { p = JSON.parse(b2 || "{}"); } catch (e) {} handleRollback(res, p); });
+    return;
+  }
+  if (req.method === "POST" && (url.pathname === "/api/feedback" || url.pathname === "/api/moderation")) {
+    let b3 = ""; req.on("data", c => (b3 += c)); req.on("end", () => {
+      let p = {}; try { p = JSON.parse(b3 || "{}"); } catch (e) {}
+      if (url.pathname === "/api/feedback") handleFeedback(res, p);
+      else processModeration().then(r => send(res, 200, JSON.stringify(r)));
+    });
+    return;
+  }
   if (url.pathname === "/api/free-tools") return handleFreeTools(res);
   if (url.pathname === "/api/stats") {
     const s = readStats();
@@ -1274,6 +1422,20 @@ const server = http.createServer((req, res) => {
     let body = "";
     req.on("data", c => (body += c));
     req.on("end", () => { let p = {}; try { p = JSON.parse(body || "{}"); } catch (e) {} handleGraphRag(res, p); });
+    return;
+  }
+  if (url.pathname === "/api/health") return send(res, 200, JSON.stringify(healthScore()));
+  if (req.method === "POST" && url.pathname === "/api/patrol") return send(res, 200, JSON.stringify(runPatrol()));
+  if (req.method === "POST" && url.pathname === "/api/rollback") {
+    let b2 = ""; req.on("data", c => (b2 += c)); req.on("end", () => { let p = {}; try { p = JSON.parse(b2 || "{}"); } catch (e) {} handleRollback(res, p); });
+    return;
+  }
+  if (req.method === "POST" && (url.pathname === "/api/feedback" || url.pathname === "/api/moderation")) {
+    let b3 = ""; req.on("data", c => (b3 += c)); req.on("end", () => {
+      let p = {}; try { p = JSON.parse(b3 || "{}"); } catch (e) {}
+      if (url.pathname === "/api/feedback") handleFeedback(res, p);
+      else processModeration().then(r => send(res, 200, JSON.stringify(r)));
+    });
     return;
   }
   if (url.pathname === "/api/completion-status") {
@@ -1337,6 +1499,8 @@ server.on("error", e => {
   else console.error("[析概] 服务器错误:", e.message);
   process.exit(1);
 });
+setInterval(() => { try { processModeration(); } catch (e) {} }, 15 * 60e3);
+setInterval(() => { try { if (GROW_QUEUE.length < 3) runPatrol(); } catch (e) {} }, 15 * 60e3);
 server.listen(PORT, () => {
   console.log("[析概] 知识图书馆服务已启动: http://127.0.0.1:" + PORT);
 });

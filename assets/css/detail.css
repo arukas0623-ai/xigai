@@ -426,3 +426,22 @@
 .rel-chip.growing { opacity: .7; border-style: dashed; cursor: wait; color: var(--accent); }
 .rel-chip.todo { border-style: dashed; }
 .rel-chip.waiting { border-style: dotted; opacity: .7; }
+
+/* 健康面板 */
+.health-stats { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+.health-stats span { font-size: 12px; color: var(--ink-3); border: 1px solid var(--line); border-radius: 8px; padding: 5px 10px; background: color-mix(in srgb, var(--bg2) 35%, var(--bg3)); }
+.health-stats b { color: var(--accent); font-size: 14px; margin-right: 3px; }
+.health-title { font-size: 13px; font-weight: 600; color: var(--ink-2); margin-bottom: 8px; }
+/* 版本时间线 */
+.fp-timeline { display: flex; flex-direction: column; gap: 6px; margin-top: 8px; }
+.fp-node { display: flex; align-items: center; gap: 10px; font-size: 12.5px; color: var(--ink-2); }
+.fp-node i { width: 9px; height: 9px; border-radius: 50%; background: var(--accent); flex: none; box-shadow: 0 0 0 3px var(--sel); }
+.fp-node span { flex: 1; }
+.fp-node small { color: var(--ink-3); font-size: 11px; }
+/* 纠错表单 */
+.report-card { max-width: 480px; padding: 22px 26px; }
+.report-type { display: flex; flex-direction: column; gap: 6px; margin-top: 10px; }
+/* 知识漫游 */
+#daily-term u { text-decoration: none; color: var(--accent); cursor: pointer; border-bottom: 1px dashed var(--accent); padding-bottom: 1px; }
+#daily-term u:hover { background: var(--sel); }
+#daily-term small { color: var(--ink-3); font-size: 11px; margin: 0 2px; }
