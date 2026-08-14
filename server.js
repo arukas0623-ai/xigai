@@ -57,7 +57,11 @@ function handleAi(res, payload) {
     "## 定义 / ## 背景与历史 / ## 核心要点（3-5 条）/ ## 实际应用 / ## 常见误解 / ## 相关概念 / ## 参考来源（列出你搜索到的来源 URL）。",
     "全文 500-900 字，事实准确。如果 web_search 不可用，则基于你的知识回答并在开头注明「（未联网，基于知识库）」。",
   ].join("");
-  console.log("[ai] 开始深度解析:", name);
+  // 付费预算守卫（用户主动路径）
+  const budgetBlock = paidBudgetCheck();
+  if (budgetBlock) return send(res, 200, JSON.stringify({ ok: false, error: budgetBlock }));
+  bumpPaid("deep-dive", "user", 0);
+  console.log("[ai] 开始深度解析(付费):", name, "| 本次搜索上限", AI_POLICY.searchMaxUses);
   execFile(process.execPath, [DSH_BIN, "--profile", "headless", prompt],
     { cwd: researchDir, timeout: 300000, maxBuffer: 16 * 1024 * 1024, windowsHide: true },
     (err, stdout, stderr) => {
@@ -210,7 +214,10 @@ function handleAsk(res, payload) {
     "用户问题：",
     q,
   ].join("\n");
-  console.log("[ask] 提问:", q.slice(0, 60));
+  const budgetBlock2 = paidBudgetCheck();
+  if (budgetBlock2) return send(res, 200, JSON.stringify({ ok: false, error: budgetBlock2 }));
+  bumpPaid("chat-ask", "user", 0);
+  console.log("[ask] 提问(付费):", q.slice(0, 60), "| 搜索上限", AI_POLICY.searchMaxUses);
   execFile(process.execPath, [DSH_BIN, "--profile", "headless", prompt],
     { cwd: rdir, timeout: 300000, maxBuffer: 16 * 1024 * 1024, windowsHide: true },
     (err, stdout, stderr) => {
@@ -348,12 +355,54 @@ loadCorpus();
 
 /* 统计 */
 function readStats() {
-  try { return JSON.parse(fs.readFileSync(STATS_FILE, "utf8")); } catch (e) { return { localHits: 0, cacheHits: 0, ollamaCalls: 0, paidCalls: 0, ingests: 0, dupSkips: 0, rejects: 0, errors: 0, rejectReasons: {}, since: Date.now() }; }
+  try { return JSON.parse(fs.readFileSync(STATS_FILE, "utf8")); } catch (e) {
+    return { localHits: 0, cacheHits: 0, ollamaCalls: 0, paidCalls: 0, paidSpawns: 0, webSearchCalls: 0, ingests: 0, updates: 0, dupSkips: 0, rejects: 0, errors: 0, quizzes: 0, graphragCalls: 0, rejectReasons: {}, since: Date.now(), paid: { byEntry: {}, bySource: {} } };
+  }
 }
 function bumpStat(key, by) {
   try {
     const s = readStats();
     s[key] = (s[key] || 0) + (by || 1);
+    fs.writeFileSync(STATS_FILE, JSON.stringify(s, null, 2));
+  } catch (e) {}
+}
+/* ── AI 调用策略与预算（P3/P4） ─────────────────────── */
+const AI_POLICY = {
+  autoPaidEnabled: false,            // 系统自动任务禁用付费（硬开关）
+  searchMaxUses: 2,                  // DeepSeek web_search 每会话上限（headless patch 同步）
+  budget: { perTask: { calls: 4 }, daily: { calls: 20 }, monthly: { calls: 500 } },
+};
+function todayStr() { const d = new Date(); return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0"); }
+function monthStr() { const d = new Date(); return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0"); }
+/* 付费预算检查：达到上限立即阻断（返回原因或 null=允许） */
+function paidBudgetCheck() {
+  const s = readStats();
+  const day = todayStr(), mon = monthStr();
+  const d = s.paid.daily || (s.paid.daily = { date: day, calls: 0 });
+  const m = s.paid.monthly || (s.paid.monthly = { month: mon, calls: 0 });
+  if (d.date !== day) { d.date = day; d.calls = 0; }
+  if (m.month !== mon) { m.month = mon; m.calls = 0; }
+  if (d.calls >= AI_POLICY.budget.daily.calls) return "今日付费预算已用尽（" + AI_POLICY.budget.daily.calls + " 次/日）";
+  if (m.calls >= AI_POLICY.budget.monthly.calls) return "本月付费预算已用尽（" + AI_POLICY.budget.monthly.calls + " 次/月）";
+  return null;
+}
+/* 记录一次付费调用（按入口/来源），并估算 webSearch 次数（≤maxUses，预估上限） */
+function bumpPaid(entry, source, tokens) {
+  try {
+    const s = readStats();
+    s.paidCalls = (s.paidCalls || 0) + 1;
+    s.paidSpawns = (s.paidSpawns || 0) + 1;
+    s.paid.byEntry = s.paid.byEntry || {};
+    s.paid.byEntry[entry] = (s.paid.byEntry[entry] || 0) + 1;
+    s.paid.bySource = s.paid.bySource || {};
+    s.paid.bySource[source] = (s.paid.bySource[source] || 0) + 1;
+    s.paid.tokens = (s.paid.tokens || 0) + (tokens || 0);
+    s.paid.daily = s.paid.daily || { date: todayStr(), calls: 0 };
+    s.paid.monthly = s.paid.monthly || { month: monthStr(), calls: 0 };
+    if (s.paid.daily.date !== todayStr()) { s.paid.daily = { date: todayStr(), calls: 0 }; }
+    if (s.paid.monthly.month !== monthStr()) { s.paid.monthly = { month: monthStr(), calls: 0 }; }
+    s.paid.daily.calls++; s.paid.monthly.calls++;
+    s.webSearchCalls = (s.webSearchCalls || 0) + AI_POLICY.searchMaxUses;  // 预估上限（真实值在 headless 内部）
     fs.writeFileSync(STATS_FILE, JSON.stringify(s, null, 2));
   } catch (e) {}
 }
@@ -545,12 +594,23 @@ function domain2file(domain) {
 function computeConfidence(c) {
   let conf = 0.5;
   const defLen = String(c.definition || "").length;
-  const srcs = (c.sources || []).length;
-  if (defLen >= 150) conf += 0.2;
-  if (srcs >= 2) conf += 0.2;
-  else if (srcs === 1) conf += 0.05;
-  if ((c.core || []).length >= 3) conf += 0.1;
-  if (/https?:\/\//.test(String(c.definition || ""))) conf -= 0.1;
+  const srcs = (c.sources || []).filter(Boolean);
+  const defs = String(c.definition || "");
+  // 来源质量：权威域加权
+  const QUALITY = /(wikipedia|baike|edu|ac\.cn|gov|org|stanford|mit|nature|science|w3c|mdn|github|arxiv|openai|anthropic|google|microsoft|aliyun|tencent|baidu|zhihu|kepuchina|case|sci)/i;
+  const qDoms = srcs.filter(s => QUALITY.test(s)).length;
+  // 多源一致性：≥2 个不同域名
+  const doms = new Set();
+  for (const s of srcs) { try { doms.add(new URL(s).hostname); } catch (e) {} }
+  // 内容完整度
+  let complete = 0;
+  if (defLen >= 150) conf += 0.15; else if (defLen >= 80) conf += 0.08;
+  if (srcs.length >= 2) conf += 0.15; else if (srcs.length === 1) conf += 0.05;
+  if (qDoms >= 2) conf += 0.15; else if (qDoms === 1) conf += 0.08;
+  if (doms.size >= 2) conf += 0.10;
+  if (c.definition) complete++; if (c.background) complete++; if ((c.core || []).length >= 3) complete++; if ((c.applications || []).length) complete++;
+  conf += complete * 0.05;
+  if (/https?:\/\//.test(defs)) conf -= 0.10;
   return Math.min(1, Math.max(0, Math.round(conf * 100) / 100));
 }
 function statusOf(conf) { return conf >= 0.7 ? "verified" : conf >= 0.5 ? "generated" : "pending"; }
@@ -615,8 +675,9 @@ function handleGrow(res, payload) {
   }
   // 3) 联网 + AI 结构化（Ollama 优先，付费兜底）
   const prompt = growPrompt(q);
+  if (!AI_POLICY.autoPaidEnabled) { /* 系统任务禁用付费（硬开关） */ }
   growOllama(q, prompt).then(text => {
-    if (!text) { bumpStat("ollamaCalls", 1); bumpStat("paidCalls", 1); bumpStat("errors", 1); return send(res, 200, JSON.stringify({ ok: false, error: "本地模型与付费引擎均不可用，请稍后再试" })); }
+    if (!text) { bumpStat("ollamaCalls", 1); bumpStat("errors", 1); return send(res, 200, JSON.stringify({ ok: false, error: "本地模型不可用（系统自动任务已禁用付费兜底），已跳过" })); }
     bumpStat("ollamaCalls", 1);
     const obj = extractJSON(text);
     if (!obj) { bumpStat("errors", 1); return send(res, 200, JSON.stringify({ ok: false, error: "AI 输出无法解析为结构化词条" })); }
@@ -667,6 +728,28 @@ function handleGrow(res, payload) {
 }
 
 
+
+/* 语料指标：关系有效率 / 高置信率 */
+function corpusMetrics() {
+  if (!CORPUS) loadCorpus();
+  const all = CORPUS.all;
+  let relations = 0, resolved = 0, highConf = 0;
+  for (const c of all) {
+    const rels = c.relations || [];
+    relations += rels.length;
+    resolved += rels.filter(r => CORPUS.byId.has(r.target)).length;
+    const conf = c.confidence != null ? c.confidence : 1;  // 旧数据视为可信
+    if (conf >= 0.7) highConf++;
+  }
+  return {
+    concepts: all.length,
+    relations,
+    resolvedRate: relations ? Math.round(resolved / relations * 100) : 0,
+    highConfidenceRate: all.length ? Math.round(highConf / all.length * 100) : 0,
+    pending: all.filter(c => c.status === "pending" || (c.confidence != null && c.confidence < 0.5)).length,
+    withConfidence: all.filter(c => c.confidence != null).length,
+  };
+}
 /* ── AI 测试（P1-4）：Ollama 出题 + 缓存 ─────────────── */
 function handleQuiz(res, payload) {
   const name = String(payload.name || "").trim();
@@ -693,7 +776,7 @@ function handleQuiz(res, payload) {
     "要求：answer 为正确选项索引(0-3)；题目有区分度（含一个易错项）；解析简洁准确。",
   ].join("\n");
   growOllama(name, prompt).then(text => {
-    if (!text) { bumpStat("paidCalls", 1); return growPaid(name, prompt).then(pt => finish(pt)); }
+    if (!text) { bumpStat("ollamaCalls", 1); bumpStat("errors", 1); return send(res, 200, JSON.stringify({ ok: false, error: "本地模型不可用（系统任务已禁用付费）" })); }
     bumpStat("ollamaCalls", 1);
     finish(text);
     function finish(t) {
@@ -755,7 +838,7 @@ function handleGraphRag(res, payload) {
     "请结合上下文与你的知识，用简体中文清晰回答：先一句话核心结论，再展开关键细节与相关概念。300-700 字。",
   ].join("\n");
   growOllama(q, prompt).then(text => {
-    if (!text) { bumpStat("paidCalls", 1); return growPaid(q, prompt).then(pt => finish(pt)); }
+    if (!text) { bumpStat("ollamaCalls", 1); bumpStat("errors", 1); return send(res, 200, JSON.stringify({ ok: false, error: "本地模型不可用（系统任务已禁用付费）" })); }
     bumpStat("ollamaCalls", 1);
     finish(text);
     function finish(t) {
@@ -778,7 +861,7 @@ function handleExtract(res, payload) {
     text.slice(0, 1500),
   ].join("\n");
   growOllama(text.slice(0, 20), prompt).then(t => {
-    if (!t) { bumpStat("paidCalls", 1); return growPaid(text.slice(0, 20), prompt).then(pt => finish(pt)); }
+    if (!t) { bumpStat("ollamaCalls", 1); bumpStat("errors", 1); return send(res, 200, JSON.stringify({ ok: false, error: "本地模型不可用（系统任务已禁用付费）" })); }
     bumpStat("ollamaCalls", 1);
     finish(t);
     function finish(t) {
@@ -796,7 +879,21 @@ const server = http.createServer((req, res) => {
   const url = new URL(req.url, "http://x");
   if (url.pathname === "/api/health") return send(res, 200, "ok");
   if (url.pathname === "/api/free-tools") return handleFreeTools(res);
-  if (url.pathname === "/api/stats") return send(res, 200, JSON.stringify(readStats()));
+  if (url.pathname === "/api/stats") {
+    const s = readStats();
+    const day = todayStr(), mon = monthStr();
+    const d = (s.paid && s.paid.daily) || { date: day, calls: 0 };
+    const m = (s.paid && s.paid.monthly) || { month: mon, calls: 0 };
+    const dl = AI_POLICY.budget.daily.calls, ml = AI_POLICY.budget.monthly.calls;
+    s.costPanel = {
+      today: { calls: d.date === day ? d.calls : 0, limit: dl, remaining: Math.max(0, dl - (d.date === day ? d.calls : 0)) },
+      month: { calls: m.month === mon ? m.calls : 0, limit: ml, remaining: Math.max(0, ml - (m.month === mon ? m.calls : 0)) },
+      tokens: s.paid && s.paid.tokens || 0,
+      policy: { autoPaidEnabled: AI_POLICY.autoPaidEnabled, searchMaxUses: AI_POLICY.searchMaxUses },
+    };
+    s.corpus = corpusMetrics();
+    return send(res, 200, JSON.stringify(s));
+  }
   if (url.pathname === "/api/version") {
     let qs = new URL(req.url, "http://x").searchParams;
     return handleVersion(res, { id: qs.get("id") || "" });

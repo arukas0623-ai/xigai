@@ -1342,5 +1342,63 @@ window.XIGAI["前沿科技"] = [
     "confidence": 0.8,
     "status": "generated",
     "searchedAt": "2026-08-14"
+  },
+  {
+    "name": "磁悬浮列车",
+    "aliases": [],
+    "field": "前沿科技",
+    "tags": [
+      "交通",
+      "技术"
+    ],
+    "difficulty": 3,
+    "summary": "利用电磁力实现悬浮和驱动的高速交通工具。",
+    "definition": "一种利用电磁力使车辆悬浮于轨道之上，并通过直线电机提供动力，从而实现无接触行驶的新型交通工具。",
+    "principle": "通过超导磁体或常导磁体产生磁场，使列车与轨道之间形成斥力，实现悬浮；再通过直线电机驱动列车前进。",
+    "background": "磁悬浮技术起源于20世纪初，经过数十年的发展，已在德国、日本等国家投入实际运营。其优势在于高速度和低噪音，但成本和技术要求较高。",
+    "core": [
+      "无接触行驶",
+      "高稳定性和安全性",
+      "低维护成本"
+    ],
+    "pros": [
+      "运行速度快"
+    ],
+    "cons": [
+      "技术复杂且成本高昂",
+      "对环境温度敏感，影响稳定性"
+    ],
+    "applications": [
+      "城市间快速交通",
+      "旅游观光线路"
+    ],
+    "misconceptions": [
+      "磁悬浮列车的悬浮和驱动原理是基于电磁力而非重力。",
+      "并非所有磁悬浮列车都采用超导技术，也有常导技术的应用。"
+    ],
+    "related": [
+      "高速铁路",
+      "直线电机"
+    ],
+    "relations": [
+      {
+        "type": "evolvedFrom",
+        "target": "直线电机",
+        "note": ""
+      },
+      {
+        "type": "followup",
+        "target": "超导磁悬浮列车",
+        "note": ""
+      }
+    ],
+    "sources": [
+      "https://www.transportation.gov/",
+      "http://www.maglev.org/"
+    ],
+    "id": "磁悬浮列车",
+    "confidence": 1,
+    "status": "generated",
+    "searchedAt": "2026-08-14"
   }
 ];

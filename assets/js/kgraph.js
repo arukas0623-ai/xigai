@@ -119,7 +119,7 @@
       if (!a || !b) return "";
       const mx = (a.x + b.x) / 2, my = (a.y + b.y) / 2;
       const color = X.relColor(e.type);
-      return '<line x1="' + a.x + '" y1="' + a.y + '" x2="' + b.x + '" y2="' + b.y + '" stroke="' + color + '" stroke-width="1.6"' + (e.pending ? ' stroke-dasharray="5 4" opacity=".4"' : ' opacity=".7"') + "/>" +
+      return '<line class="kg-line" data-edge="' + X.esc(e.from + "→" + e.to) + '" x1="' + a.x + '" y1="' + a.y + '" x2="' + b.x + '" y2="' + b.y + '" stroke="' + color + '" stroke-width="2"' + (e.pending ? ' stroke-dasharray="5 4" opacity=".4"' : ' opacity=".75"') + "/>" +
         '<text x="' + (mx + 4) + '" y="' + (my - 4) + '" class="kg-edge" fill="' + color + '">' + X.esc(X.relLabel(e.type)) + "</text>";
     }).join("");
     const nodeSvg = data.nodes.map(n => {
@@ -155,6 +155,13 @@
     ov.querySelector(".panel-close").addEventListener("click", X.closeGraph);
     ov.addEventListener("click", e => { if (e.target === ov) X.closeGraph(); });
     ov.querySelectorAll(".kg-node:not(.pending)").forEach(g => g.addEventListener("click", () => X.openGraph(g.dataset.id)));
+    // 关系边点击 → 可解释性信息卡
+    ov.querySelectorAll(".kg-line").forEach(ln => ln.addEventListener("click", ev => {
+      ev.stopPropagation();
+      const e = data.edges.find(x => x.from + "→" + x.to === ln.dataset.edge);
+      if (!e) return;
+      X.showRelInfo(ov, e, data);
+    }));
     ov.querySelectorAll("[data-path]").forEach(b => b.addEventListener("click", () => X.openConcept(b.dataset.path)));
     X.initKgPanZoom(ov, id);
   };
@@ -218,6 +225,40 @@
     }
     reset.addEventListener("click", () => { view = { tx: 0, ty: 0, k: 1 }; apply(); });
     apply();
+  };
+
+  /* 关系可解释性：点击边显示类型说明与跳转 */
+  X.showRelInfo = function (ov, e, data) {
+    let info = ov.querySelector("#kg-edge-info");
+    if (!info) {
+      info = document.createElement("div");
+      info.id = "kg-edge-info";
+      info.className = "kg-edge-info";
+      ov.querySelector(".kg-body").appendChild(info);
+    }
+    const from = data.nodes.find(n => n.id === e.from);
+    const to = data.nodes.find(n => n.id === e.to);
+    const fname = from ? from.name : e.from;
+    const tname = to ? (to.pending ? to.name : to.name) : e.to;
+    const desc = {
+      prerequisite: "「" + tname + "」是「" + fname + "」的前置知识，建议先学",
+      followup: "「" + fname + "」之后可进阶学习「" + tname + "」",
+      related: "「" + fname + "」与「" + tname + "」互为相关概念",
+      dependsOn: "「" + fname + "」依赖「" + tname + "」",
+      evolvedFrom: "「" + fname + "」由「" + tname + "」演化而来",
+      appliesTo: "「" + fname + "」可应用于「" + tname + "」",
+    }[e.type] || "「" + fname + "」与「" + tname + "」存在" + X.relLabel(e.type) + "关系";
+    info.innerHTML =
+      '<div class="kg-edge-title" style="background:' + X.relColor(e.type) + '">' + X.relLabel(e.type) + " 关系</div>" +
+      "<div class='kg-edge-desc'>" + X.esc(desc) + (e.note ? "<br><small>说明：" + X.esc(e.note) + "</small>" : "") + "</div>" +
+      "<div class='kg-edge-actions'>" +
+      (!(to && to.pending) ? '<button class="mini-btn" data-jump="' + X.esc(e.to) + '">打开「' + X.esc(tname) + "」</button>" : "") +
+      (!(from && from.pending) && data.root.id !== e.from ? '<button class="mini-btn" data-jump="' + X.esc(e.from) + '">回到「' + X.esc(fname) + "」</button>" : "") +
+      '<button class="mini-btn" data-close="1">关闭</button></div>';
+    info.classList.add("show");
+    info.querySelectorAll("[data-jump]").forEach(b => b.addEventListener("click", () => { ov.classList.add("hidden"); document.body.style.overflow = ""; X.openConcept(b.dataset.jump); }));
+    const cl = info.querySelector("[data-close]");
+    if (cl) cl.addEventListener("click", () => info.classList.remove("show"));
   };
 
   X.closeGraph = function () {
