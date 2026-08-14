@@ -1,0 +1,6 @@
+.cache/
+tools/
+*.zip
+_preview_*
+*.log
+node_modules/

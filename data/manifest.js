@@ -1,0 +1,1 @@
+window.XIGAI_MANIFEST = ["ai.js","aieng.js","art.js","astro.js","bio.js","cs.js","econ.js","eng.js","generated.js","geo.js","history.js","lang.js","law.js","llm.js","math.js","med.js","media.js","music.js","philosophy.js","physics.js","psych.js"];

@@ -1,0 +1,169 @@
+/* ============================================================
+   析概 · 主题系统 themes.css
+   每个主题通过 body[data-theme="..."] 切换一组 CSS 变量
+   ============================================================ */
+:root {
+  --ease: cubic-bezier(.4,0,.2,1);
+  --radius-s: 6px;
+  --radius-m: 12px;
+  --radius-l: 20px;
+  --font-serif: Georgia, "Times New Roman", "Songti SC", "STSong", "SimSun", serif;
+  --font-sans: "Segoe UI", "Microsoft YaHei", "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "Cascadia Code", Consolas, "Courier New", monospace;
+}
+
+/* ── 主题一：鎏金学院（默认） ─────────────────────────── */
+body[data-theme="gold"] {
+  --bg0: #1d150e;
+  --bg1: #2a1f15;
+  --bg2: #33261a;
+  --bg3: #f6efdf;
+  --ink: #2e2417;
+  --ink-2: #5c4d38;
+  --ink-3: #8a7a60;
+  --line: rgba(201,162,39,.28);
+  --accent: #c9a227;
+  --accent-2: #e8c95c;
+  --accent-3: #8a6d1d;
+  --accent-ink: #2a2006;
+  --wood: #5a3d28;
+  --wood-2: #3c2817;
+  --wood-3: #6d4b30;
+  --plaque: #d8b64a;
+  --glow: rgba(255, 196, 92, .16);
+  --shadow: rgba(0,0,0,.45);
+  --sel: rgba(201,162,39,.22);
+  --ok: #3f7d3f; --warn: #b06a1d; --err: #a33;
+  --scroll-track: rgba(255,255,255,.05);
+  --scroll-thumb: rgba(201,162,39,.5);
+}
+
+/* ── 主题二：深蓝夜读 ────────────────────────────────── */
+body[data-theme="midnight"] {
+  --bg0: #0a101c;
+  --bg1: #0e1626;
+  --bg2: #131f33;
+  --bg3: #1b2b45;
+  --ink: #e9eef8;
+  --ink-2: #aebdd4;
+  --ink-3: #6f7f99;
+  --line: rgba(120,170,255,.18);
+  --accent: #e0b94a;
+  --accent-2: #f4d678;
+  --accent-3: #9c7c24;
+  --accent-ink: #241c05;
+  --wood: #27405f;
+  --wood-2: #17283c;
+  --wood-3: #35577d;
+  --plaque: #e6c257;
+  --glow: rgba(120, 190, 255, .14);
+  --shadow: rgba(0,0,0,.55);
+  --sel: rgba(224,185,74,.25);
+  --ok: #5cb85c; --warn: #e0a33a; --err: #e06464;
+  --scroll-track: rgba(255,255,255,.06);
+  --scroll-thumb: rgba(224,185,74,.45);
+}
+
+/* ── 主题三：古典羊皮 ────────────────────────────────── */
+body[data-theme="parchment"] {
+  --bg0: #d8c9a8;
+  --bg1: #e3d5b5;
+  --bg2: #e9dcc0;
+  --bg3: #f4ead2;
+  --ink: #3a2f1e;
+  --ink-2: #5f5136;
+  --ink-3: #8d7d5d;
+  --line: rgba(120,85,40,.22);
+  --accent: #8c6a1f;
+  --accent-2: #b8933a;
+  --accent-3: #5e4713;
+  --accent-ink: #f5ecd6;
+  --wood: #8a5a38;
+  --wood-2: #66401f;
+  --wood-3: #9d6c46;
+  --plaque: #7d5c1e;
+  --glow: rgba(160, 110, 40, .14);
+  --shadow: rgba(70,50,20,.35);
+  --sel: rgba(140,106,31,.22);
+  --ok: #4c7a3a; --warn: #9c6a1d; --err: #96413a;
+  --scroll-track: rgba(90,60,20,.08);
+  --scroll-thumb: rgba(124,92,35,.55);
+}
+
+/* ── 主题四：墨绿学者 ────────────────────────────────── */
+body[data-theme="emerald"] {
+  --bg0: #0c1612;
+  --bg1: #111f19;
+  --bg2: #172a21;
+  --bg3: #1e3529;
+  --ink: #e7f0e9;
+  --ink-2: #b4c8ba;
+  --ink-3: #77907f;
+  --line: rgba(160,220,170,.16);
+  --accent: #d4af37;
+  --accent-2: #eed27a;
+  --accent-3: #93721f;
+  --accent-ink: #241c05;
+  --wood: #27493a;
+  --wood-2: #163024;
+  --wood-3: #356049;
+  --plaque: #d8b64a;
+  --glow: rgba(120, 220, 150, .12);
+  --shadow: rgba(0,0,0,.5);
+  --sel: rgba(212,175,55,.24);
+  --ok: #5fb06a; --warn: #d0a03a; --err: #d06a6a;
+  --scroll-track: rgba(255,255,255,.05);
+  --scroll-thumb: rgba(212,175,55,.45);
+}
+
+/* ── 主题五：晨光极简 ────────────────────────────────── */
+body[data-theme="light"] {
+  --bg0: #efede6;
+  --bg1: #f6f4ee;
+  --bg2: #fdfcf8;
+  --bg3: #ffffff;
+  --ink: #2b2924;
+  --ink-2: #5c584d;
+  --ink-3: #9a9486;
+  --line: rgba(180,150,90,.25);
+  --accent: #b8860b;
+  --accent-2: #d4af37;
+  --accent-3: #8a6406;
+  --accent-ink: #fff;
+  --wood: #d8c09a;
+  --wood-2: #c2a679;
+  --wood-3: #e5d2b4;
+  --plaque: #a37e1f;
+  --glow: rgba(255, 200, 120, .18);
+  --shadow: rgba(90,70,40,.18);
+  --sel: rgba(184,134,11,.18);
+  --ok: #4c8a3a; --warn: #a57a1d; --err: #b04a42;
+  --scroll-track: rgba(0,0,0,.05);
+  --scroll-thumb: rgba(160,125,50,.4);
+}
+
+/* ── 主题六：蔷薇暖阳 ────────────────────────────────── */
+body[data-theme="rose"] {
+  --bg0: #f0e3e0;
+  --bg1: #f6ebe8;
+  --bg2: #fbf2f0;
+  --bg3: #fff9f7;
+  --ink: #432f2c;
+  --ink-2: #6d544f;
+  --ink-3: #a0857f;
+  --line: rgba(190,120,110,.22);
+  --accent: #b76e3c;
+  --accent-2: #d99a63;
+  --accent-3: #8a4a22;
+  --accent-ink: #fff;
+  --wood: #c98f7d;
+  --wood-2: #a96b58;
+  --wood-3: #d8a996;
+  --plaque: #b76e3c;
+  --glow: rgba(255, 160, 140, .2);
+  --shadow: rgba(120,60,50,.2);
+  --sel: rgba(183,110,60,.16);
+  --ok: #5c9a5c; --warn: #b57f2d; --err: #b04a48;
+  --scroll-track: rgba(0,0,0,.05);
+  --scroll-thumb: rgba(183,110,60,.4);
+}

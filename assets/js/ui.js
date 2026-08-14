@@ -1,0 +1,645 @@
+/* ============================================================
+   析概 · 界面 ui.js
+   书架渲染 / 概念详情 / 搜索下拉 / 面板 / 主题 / 交互
+   ============================================================ */
+(function () {
+  const X = (window.Xigai = window.Xigai || {});
+
+  /* ── 主题 ─────────────────────────────────────────── */
+  X.THEMES = [
+    { key: "gold",     name: "鎏金学院", emoji: "📚" },
+    { key: "midnight", name: "深蓝夜读", emoji: "🌙" },
+    { key: "parchment",name: "古典羊皮", emoji: "📜" },
+    { key: "emerald",  name: "墨绿学者", emoji: "🌿" },
+    { key: "light",    name: "晨光极简", emoji: "☀️" },
+    { key: "rose",     name: "蔷薇暖阳", emoji: "🌹" },
+  ];
+  X.applyTheme = function (key) {
+    X.state.theme = key;
+    X.saveState();
+    document.body.dataset.theme = key;
+    document.documentElement.style.fontSize = (X.state.fontScale * 100) + "%";
+    document.documentElement.style.setProperty("--body-lh", String(X.state.lineHeight || 1));
+    const sw = document.getElementById("theme-panel");
+    if (sw) sw.querySelectorAll(".theme-item").forEach(el => el.classList.toggle("active", el.dataset.key === key));
+    if (X._shelvesRendered) X.renderShelves(X._currentFilter);
+    X.fire("theme", key);
+  };
+
+  /* ── Toast ────────────────────────────────────────── */
+  X.toast = function (msg, ms) {
+    let t = document.getElementById("toast");
+    if (!t) { t = document.createElement("div"); t.id = "toast"; document.body.appendChild(t); }
+    t.textContent = msg;
+    t.classList.add("show");
+    clearTimeout(X._toastT);
+    X._toastT = setTimeout(() => t.classList.remove("show"), ms || 2400);
+  };
+
+  /* ── 书架渲染 ─────────────────────────────────────── */
+  X._shelvesRendered = false;
+  X._currentFilter = "";
+  X.renderShelves = function (filter) {
+    X._currentFilter = filter || "";
+    X._shelvesRendered = true;
+    const wrap = document.getElementById("shelves");
+    if (!wrap) return;
+    const doms = X.domains.filter(d => !X._currentFilter || d.name === X._currentFilter);
+    if (!doms.length) { wrap.innerHTML = '<div class="empty-tip">书架空空如也——知识正在路上…</div>'; return; }
+    const frag = document.createDocumentFragment();
+    // 按馆区分组渲染（筛选时不分馆区）
+    const grouped = X._currentFilter ? [[null, doms]] : X.WINGS.map(w => [w, doms.filter(d => w.domains.includes(d.name))]).filter(g => g[1].length);
+    grouped.forEach((grp) => {
+      const wing = grp[0], list = grp[1];
+      if (wing) {
+        const wh = document.createElement("div");
+        wh.className = "wing-head";
+        wh.innerHTML = '<span class="wing-seal">' + X.esc(wing.name.slice(0, 1)) + "</span><div><h3>" + X.esc(wing.name) + '</h3><small>' + X.esc(wing.desc) + "</small></div>";
+        frag.appendChild(wh);
+      }
+      list.forEach(d => {
+        const row = document.createElement("section");
+        row.className = "shelf-row";
+        row.id = "shelf-" + X.esc(d.key);
+        const books = d.concepts.filter(c => !X.isHidden(c.id)).map(c => {
+          const st = X.spineStyle(c, X.state.theme);
+          const fav = X.isFav(c.id);
+          const title = X.esc(c.name.length > 9 ? c.name.slice(0, 9) : c.name);
+          const depth = X.state.viewMode === "3d" ? " --book-depth:" + st.depth + "px" : "";
+          return '<div class="book' + (fav ? " faved" : "") + '" draggable="true" data-id="' + X.esc(c.id) + '" title="' + X.esc(c.name + " — " + (c.summary || "")) + '" style="width:' + st.width + ";height:" + st.height + ";background:" + st.background + ";--spine-ink:" + st["--spine-ink"] + ";transform:" + st.transform + depth + '">' +
+            '<div class="book-title">' + title + "</div>" +
+            '<div class="book-tag">' + X.esc(d.seal) + "</div>" +
+            '<div class="fav-dot">♥</div></div>';
+        }).join("");
+        row.innerHTML =
+          '<div class="cornice"></div>' +
+          '<div class="shelf-plaque" data-scroll-to="shelf-' + X.esc(d.key) + '"><span class="seal">' + X.esc(d.seal) + "</span><div><h2>" + X.esc(d.name) + '</h2><small>' + d.concepts.length + " 册 · 拖书可收藏/藏起/放桌面</small></div></div>" +
+          '<div class="shelf-books">' + books + '<div class="bookend"></div></div>' +
+          '<div class="shelf-plank"></div>';
+        frag.appendChild(row);
+      });
+    });
+    wrap.innerHTML = "";
+    wrap.appendChild(frag);
+    wrap.querySelectorAll(".book").forEach(b => {
+      b.addEventListener("click", () => X.openConcept(b.dataset.id));
+      b.addEventListener("dragstart", X.onBookDragStart);
+    });
+    wrap.querySelectorAll(".shelf-plaque").forEach(p => {
+      p.addEventListener("click", () => {
+        const t = document.getElementById(p.dataset.scrollTo);
+        if (t) t.scrollIntoView({ behavior: "smooth", block: "center" });
+      });
+    });
+    X.updateChips();
+    X.applyViewMode();
+  };
+  X.applyViewMode = function () {
+    const lib = document.getElementById("library");
+    if (!lib) return;
+    lib.classList.toggle("list-view", X.state.viewMode === "list");
+    lib.classList.toggle("view-3d", X.state.viewMode === "3d");
+  };
+
+  X.updateChips = function () {
+    const rail = document.getElementById("domains-rail");
+    if (!rail) return;
+    rail.innerHTML = X.domains.map(d =>
+      '<button class="chip' + (X._currentFilter === d.name ? " active" : "") + '" data-dom="' + X.esc(d.name) + '">' + X.esc(d.name) + '<span class="cnt">' + d.concepts.length + "</span></button>"
+    ).join("");
+    rail.querySelectorAll(".chip").forEach(ch => ch.addEventListener("click", () => {
+      if (X._currentFilter === ch.dataset.dom) { X._currentFilter = ""; X.renderShelves(""); }
+      else X.renderShelves(ch.dataset.dom);
+    }));
+  };
+
+  /* ── 搜索下拉 ─────────────────────────────────────── */
+  X.searchResults = [];
+  X._selIdx = -1;
+  X.renderSearch = function (q) {
+    const box = document.getElementById("search-results");
+    if (!q) { box.classList.remove("open"); return; }
+    const res = X.search(q, 24);
+    X.searchResults = res;
+    X._selIdx = -1;
+    if (!res.length) {
+      box.innerHTML = '<div class="sr-empty">没有找到「' + X.esc(q) + '」<br>试试拼音、别名或更换关键词<br><span style="font-size:12px;color:var(--ink-3)">也可以点击下方「AI 深度解析」让 AI 联网研究</span></div>' +
+        '<div class="sr-hint">按 ⏎ 让 AI 联网研究 · Esc 关闭</div>';
+    } else {
+      let html = '<div class="sr-head">共 ' + res.length + " 个结果</div>";
+      res.forEach((c, i) => {
+        const st = X.spineStyle(c, X.state.theme);
+        html += '<div class="sr-item" data-idx="' + i + '">' +
+          '<span class="sr-book" style="background:' + st.background + '"></span>' +
+          '<div class="sr-main"><div class="sr-name">' + X.hl(c.name, q) + "</div>" +
+          '<div class="sr-meta">' + X.esc(c.summary || "") + "</div></div>" +
+          '<span class="sr-field">' + X.esc(c.domain) + "</span></div>";
+      });
+      html += '<div class="sr-hint">↑↓ 选择 · ⏎ 打开 · Esc 关闭 · 模糊匹配拼音/别名/标签</div>';
+      box.innerHTML = html;
+      box.querySelectorAll(".sr-item").forEach(el => el.addEventListener("click", () => {
+        const c = X.searchResults[+el.dataset.idx];
+        if (c) { X.closeSearch(); X.openConcept(c.id); }
+      }));
+    }
+    box.classList.add("open");
+    X._updateSel();
+  };
+  X.hl = function (text, q) {
+    const e = X.esc(text);
+    const ql = q.trim().toLowerCase();
+    if (!ql || !/[\u4e00-\u9fa5]/.test(ql)) return e;
+    let out = "", rest = text, idx;
+    while ((idx = rest.toLowerCase().indexOf(ql)) >= 0) {
+      out += X.esc(rest.slice(0, idx)) + "<mark>" + X.esc(rest.slice(idx, idx + ql.length)) + "</mark>";
+      rest = rest.slice(idx + ql.length);
+    }
+    return out + X.esc(rest);
+  };
+  X._updateSel = function () {
+    const box = document.getElementById("search-results");
+    if (!box) return;
+    box.querySelectorAll(".sr-item").forEach(el => el.classList.toggle("sel", +el.dataset.idx === X._selIdx));
+    const cur = box.querySelector(".sr-item.sel");
+    if (cur) cur.scrollIntoView({ block: "nearest" });
+  };
+  X.moveSel = function (dir) {
+    if (!X.searchResults.length) return;
+    X._selIdx = (X._selIdx + dir + X.searchResults.length) % X.searchResults.length;
+    X._updateSel();
+  };
+  X.closeSearch = function () {
+    const box = document.getElementById("search-results");
+    if (box) box.classList.remove("open");
+    X.searchResults = [];
+  };
+
+  /* ── 概念详情 ─────────────────────────────────────── */
+  X.currentId = null;
+  X.openConcept = function (id) {
+    const c = X.byId.get(id) || X.byId.get(X.slug(id)) || X.data.find(x => x.id === id || X.slug(x.name) === X.slug(id));
+    if (!c) { X.toast("未找到该概念"); return; }
+    X.currentId = c.id;
+    X.recordRead(c);
+    try { history.replaceState(null, "", "?c=" + encodeURIComponent(c.id)); } catch (e) {}
+    const ov = document.getElementById("detail");
+    ov.innerHTML = "";
+    const card = document.createElement("div");
+    card.className = "panel-card";
+    const aliases = (c.aliases || []).map(a => "<span>" + X.esc(a) + "</span>").join("");
+    const tags = (c.tags || []).map(t => '<span class="tag">' + X.esc(t) + "</span>").join("");
+    const diffDots = Array.from({ length: 5 }, (_, i) => "<i class='" + (i < (c.difficulty || 3) ? "on" : "off") + "'></i>").join("");
+    const core = (c.core || []).map(s => "<li>" + X.md(s) + "</li>").join("");
+    const apps = (c.applications || []).map(s => "<li>" + X.md(s) + "</li>").join("");
+    const miscon = (c.misconceptions || []).map(s => "<li>" + X.md(s) + "</li>").join("");
+    const rels = (c.related || []).map(r => {
+      const t = X.byName.get(r) || X.data.find(x => x.name === r);
+      return '<span class="rel-chip" data-rel="' + X.esc(r) + '">' + X.esc(r) + "</span>";
+    }).join("");
+    const srcs = (c.sources || []).map(s =>
+      '<li><a href="' + X.esc(s) + '" target="_blank" rel="noopener">' + X.esc(s) + "</a></li>"
+    ).join("") || '<li style="color:var(--ink-3)">（本条目由 AI 综合整理，未标注外部来源）</li>';
+
+    card.innerHTML =
+      '<button class="panel-close" title="关闭 (Esc)">✕</button>' +
+      '<div class="detail-head">' +
+        '<div class="detail-crumb"><a data-goto="home">🏛 图书馆</a> › <a data-goto="dom" data-dom="' + X.esc(c.domain) + '">' + X.esc(c.domain) + "</a> › " + X.esc(c.name) + "</div>" +
+        '<div class="detail-title-row"><div class="detail-title"><h2>' + X.esc(c.name) + "</h2>" +
+        (aliases ? '<div class="aliases">' + aliases + "</div>" : "") + "</div>" +
+        '<span class="detail-field">' + X.esc(c.domain) + "</span></div>" +
+        (tags ? '<div class="detail-tags">' + tags + "</div>" : "") +
+        '<div class="detail-diff">理解难度 <span class="diff-dots">' + diffDots + "</span><span>" + (c.difficulty || 3) + "/5 · 已读 " + (X.state.readCount[c.id] || 0) + " 次</span></div>" +
+      "</div>" +
+      '<div class="detail-body">' +
+        (c.summary ? '<div class="detail-summary">' + X.esc(c.summary) + "</div>" : "") +
+        (c.definition ? '<div class="sec"><h3>定义与解释</h3><p>' + X.md(c.definition) + "</p></div>" : "") +
+        (c.background ? '<div class="sec"><h3>背景与历史</h3><p>' + X.md(c.background) + "</p></div>" : "") +
+        (core ? '<div class="sec"><h3>核心要点</h3><ul>' + core + "</ul></div>" : "") +
+        (apps ? '<div class="sec"><h3>现实应用</h3><ul>' + apps + "</ul></div>" : "") +
+        (miscon ? '<div class="sec"><h3>常见误解</h3><ul>' + miscon + "</ul></div>" : "") +
+        (rels ? '<div class="sec"><h3>相关概念</h3><div class="related-chips">' + rels + "</div></div>" : "") +
+        '<div class="sec"><h3>参考来源</h3><ul class="src-list">' + srcs + "</ul></div>" +
+        '<div id="ai-area"></div><div id="baike-box"></div>' +
+      "</div>" +
+      '<div class="detail-actions">' +
+        '<button class="btn primary" id="ai-btn">✨ AI 深度解析</button>' +
+        '<button class="btn" id="bk-btn">📖 百科速览</button>' +
+        '<button class="btn" id="fav-btn">' + (X.isFav(c.id) ? "♥ 已收藏" : "☆ 收藏") + "</button>" +
+        '<button class="btn" id="copyfull-btn">📋 复制全文</button>' +
+        '<button class="btn" id="copy-btn">🔗 复制链接</button>' +
+        '<button class="btn" id="print-btn">🖨 打印</button>' +
+      "</div>";
+    ov.appendChild(card);
+    ov.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+    X.wireDetail(c);
+    X.updateReadProgress();
+  };
+
+  X.wireDetail = function (c) {
+    const ov = document.getElementById("detail");
+    ov.querySelector(".panel-close").addEventListener("click", X.closeDetail);
+    ov.querySelectorAll("[data-goto=home]").forEach(a => a.addEventListener("click", X.closeDetail));
+    ov.querySelectorAll("[data-goto=dom]").forEach(a => a.addEventListener("click", () => {
+      X.closeDetail();
+      X.renderShelves(a.dataset.dom);
+      const el = document.getElementById("shelf-" + X.slug(a.dataset.dom));
+      if (el) setTimeout(() => el.scrollIntoView({ behavior: "smooth", block: "center" }), 60);
+    }));
+    ov.querySelectorAll(".rel-chip").forEach(ch => ch.addEventListener("click", () => {
+      const name = ch.dataset.rel;
+      const t = X.byName.get(name) || X.data.find(x => x.name === name);
+      if (t) X.openConcept(t.id);
+      else { X.toast("「" + name + "」尚未收录——可用 AI 深度解析研究"); }
+    }));
+    ov.querySelector("#fav-btn").addEventListener("click", () => {
+      const on = X.toggleFav(c.id);
+      ov.querySelector("#fav-btn").textContent = on ? "♥ 已收藏" : "☆ 收藏";
+      X.renderShelves(X._currentFilter);
+      X.updateFavBadge();
+      X.toast(on ? "已加入收藏 ♥" : "已取消收藏");
+    });
+    ov.querySelector("#copy-btn").addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(location.origin + location.pathname + "?c=" + encodeURIComponent(c.id));
+        X.toast("链接已复制");
+      } catch (e) { X.toast("复制失败，请手动复制地址栏链接"); }
+    });
+    ov.querySelector("#print-btn").addEventListener("click", () => X.printConcept(c));
+    ov.querySelector("#copyfull-btn").addEventListener("click", () => {
+      const parts = [c.name + "（" + c.domain + "）", c.summary, c.definition, c.background,
+        "核心要点：\n- " + (c.core || []).join("\n- "),
+        "现实应用：\n- " + (c.applications || []).join("\n- "),
+        "常见误解：\n- " + (c.misconceptions || []).join("\n- "),
+        "相关概念：\n- " + (c.related || []).join("\n- "),
+        "参考来源：\n- " + (c.sources || []).join("\n- ")];
+      const txt = parts.filter(Boolean).join("\n\n");
+      navigator.clipboard.writeText(txt).then(() => X.toast("全文已复制")).catch(() => X.toast("复制失败"));
+    });
+    ov.querySelector("#bk-btn").addEventListener("click", () => X.baikeLookup(c.name));
+    ov.querySelector("#ai-btn").addEventListener("click", () => X.aiDeepDive(c));
+    // 滚动进度
+    const card = ov.querySelector(".panel-card");
+    card.addEventListener("scroll", X.updateReadProgress);
+  };
+
+  X.closeDetail = function () {
+    document.getElementById("detail").classList.add("hidden");
+    document.body.style.overflow = "";
+    X.updateReadProgress(true);
+  };
+
+  X.updateReadProgress = function (reset) {
+    const bar = document.getElementById("read-progress");
+    if (!bar) return;
+    const card = document.querySelector("#detail .panel-card");
+    if (!card || reset) { bar.style.width = "0%"; return; }
+    const p = card.scrollTop / Math.max(1, card.scrollHeight - card.clientHeight);
+    bar.style.width = Math.min(100, p * 100) + "%";
+  };
+
+  /* ── markdown 轻渲染 ─────────────────────────────── */
+  X.md = function (s) {
+    return X.esc(s).replace(/\*\*(.+?)\*\*/g, "<b>$1</b>").replace(/\*([^*]+?)\*/g, "<i>$1</i>").replace(/`([^`]+)`/g, "<code style='font-family:var(--font-mono);background:var(--sel);padding:1px 5px;border-radius:4px;font-size:.92em'>$1</code>");
+  };
+
+  /* ── 打印 ─────────────────────────────────────────── */
+  X.printConcept = function (c) {
+    const w = window.open("", "_blank", "width=820,height=900");
+    if (!w) { X.toast("浏览器阻止了弹窗，请允许后重试"); return; }
+    const core = (c.core || []).map(s => "<li>" + X.md(s) + "</li>").join("");
+    const apps = (c.applications || []).map(s => "<li>" + X.md(s) + "</li>").join("");
+    const srcs = (c.sources || []).map(s => "<li>" + X.esc(s) + "</li>").join("");
+    w.document.write("<!doctype html><html lang=zh-CN><head><meta charset=utf-8><title>" + X.esc(c.name) + " · 析概</title>" +
+      "<style>body{font-family:'Songti SC',SimSun,serif;max-width:720px;margin:30px auto;padding:0 20px;color:#2e2417;line-height:1.9}h1{letter-spacing:4px;border-bottom:2px solid #c9a227;padding-bottom:10px}h2{color:#8a6d1d;letter-spacing:2px;margin-top:26px;font-size:18px}li{margin:5px 0}code{background:#f2ead2;padding:1px 5px}.meta{color:#8a7a60;font-size:13px}.sum{font-style:italic;font-size:17px;border-left:3px solid #c9a227;padding-left:14px;margin:20px 0}a{color:#8a6d1d;word-break:break-all}@media print{body{margin:0}}</style></head><body>" +
+      "<h1>" + X.esc(c.name) + "</h1>" +
+      '<div class="meta">' + X.esc(c.domain) + " · " + (c.aliases || []).join(" / ") + " · 难度 " + (c.difficulty || 3) + "/5 · 析概知识库 AI 整理" + "</div>" +
+      (c.summary ? '<p class="sum">' + X.esc(c.summary) + "</p>" : "") +
+      (c.definition ? "<h2>定义与解释</h2><p>" + X.md(c.definition) + "</p>" : "") +
+      (c.background ? "<h2>背景与历史</h2><p>" + X.md(c.background) + "</p>" : "") +
+      (core ? "<h2>核心要点</h2><ul>" + core + "</ul>" : "") +
+      (apps ? "<h2>现实应用</h2><ul>" + apps + "</ul>" : "") +
+      (srcs ? "<h2>参考来源</h2><ul>" + srcs + "</ul>" : "") +
+      '<p class="meta" style="margin-top:30px">由「析概 · 知识图书馆」生成 · ' + X.fmtTime(Date.now()) + "</p>" +
+      "</body></html>");
+    w.document.close();
+    setTimeout(() => { try { w.print(); } catch (e) {} }, 300);
+  };
+
+  /* ── 百度百科速览 ─────────────────────────────────── */
+  X.baikeLookup = function (name) {
+    const box = document.getElementById("baike-box");
+    box.innerHTML = '<div class="ai-box"><div class="ai-head"><span class="spin">⏳</span> 正在查询百科词条「' + X.esc(name) + '」…</div></div>';
+    const url = "https://baike.baidu.com/api/openapi/BaikeLemmaCardApi?scope=103&format=json&appid=379020&bk_key=" + encodeURIComponent(name) + "&bk_length=600&callback=__xigai_baike";
+    window.__xigai_baike = function (data) {
+      if (!data || !data.title) {
+        box.innerHTML = '<div class="baike-card">未找到「' + X.esc(name) + '」的百科词条。</div>';
+        return;
+      }
+      const cards = (data.card || []).map(c =>
+        '<div><b>' + X.esc(c.name || "") + "</b>：" + X.esc(c.value || c.text || "") + "</div>"
+      ).join("");
+      box.innerHTML = '<div class="baike-card"><div class="bk-title">📖 ' + X.esc(data.title) + '</div><div>' + X.esc(data.desc || "") + "</div>" + cards +
+        '<div class="bk-desc">来源：百度百科 · ' + X.esc(data.url || "") + "</div></div>";
+      delete window.__xigai_baike;
+    };
+    const s = document.createElement("script");
+    s.src = url;
+    s.onerror = function () {
+      box.innerHTML = '<div class="baike-card">百科查询失败（网络受限或词条不存在）。</div>';
+      delete window.__xigai_baike;
+    };
+    document.head.appendChild(s);
+    setTimeout(() => { if (window.__xigai_baike) { box.innerHTML = '<div class="baike-card">百科查询超时。</div>'; delete window.__xigai_baike; } }, 12000);
+  };
+
+  /* ── AI 深度解析（走本地服务 → dsh headless） ─────── */
+  X.aiDeepDive = function (c) {
+    const area = document.getElementById("ai-area");
+    const cachedKey = "ai:" + c.id;
+    const cached = X.store.get(cachedKey, null);
+    if (cached && cached.t > Date.now() - 7 * 864e5) {
+      area.innerHTML = '<div class="ai-box"><div class="ai-head">🤖 AI 深度解析（缓存）</div><pre>' + X.esc(cached.text) + '</pre><div class="ai-meta">生成于 ' + X.fmtTime(cached.t) + '</div><div style="margin-top:10px"><button class="mini-btn" id="ai-add">📥 加入书库（自生长）</button></div></div>';
+      const addBtn2 = area.querySelector("#ai-add");
+      if (addBtn2) addBtn2.addEventListener("click", () => X.addConceptToLibrary(c, cached.text));
+      X.toast("已展示缓存的 AI 解析");
+      return;
+    }
+    if (!confirm("将调用本地 AI 引擎联网研究「" + c.name + "」，约需 1-3 分钟，消耗少量模型额度，结果缓存 7 天。是否继续？")) return;
+    area.innerHTML = '<div class="ai-box"><div class="ai-head"><span class="spin">⏳</span> AI 研究员正在联网检索与深度分析「' + X.esc(c.name) + '」…</div></div>';
+    fetch("/api/ai", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id: c.id, name: c.name, domain: c.domain }),
+    }).then(r => r.json()).then(data => {
+      if (data.ok) {
+        X.store.set(cachedKey, { t: Date.now(), text: data.text });
+        area.innerHTML = '<div class="ai-box"><div class="ai-head">🤖 AI 深度解析' + (data.cached ? "（缓存）" : "（联网生成）") + '</div><pre>' + X.esc(data.text) + '</pre><div class="ai-meta">' + (data.cached ? "来自缓存" : "AI 联网研究完成 · 结果已缓存 7 天") + '</div><div style="margin-top:10px"><button class="mini-btn" id="ai-add">📥 加入书库（自生长）</button></div></div>';
+        const addBtn = area.querySelector("#ai-add");
+        if (addBtn) addBtn.addEventListener("click", () => X.addConceptToLibrary(c, data.text));
+      } else {
+        area.innerHTML = '<div class="ai-error">AI 深度解析失败：' + X.esc(data.error || "未知错误") + '<br><span style="font-size:12px">请确认本地服务（server.js）正在运行。</span></div>';
+      }
+    }).catch(e => {
+      area.innerHTML = '<div class="ai-error">无法连接本地 AI 服务（' + X.esc(e.message) + "）。<br><span style='font-size:12px'>提示：在 D:\析概 目录运行 <b>node server.js</b> 启动服务后重试。</span></div>";
+    });
+  };
+
+  /* ── 侧边面板：收藏/历史 ──────────────────────────── */
+  X._panelTab = "fav";
+  X.showSidePanel = function (tab) {
+    X._panelTab = tab || X._panelTab;
+    const ov = document.getElementById("side-panel");
+    ov.innerHTML = "";
+    const card = document.createElement("div");
+    card.className = "panel-card";
+    const favs = X.state.favorites.map(id => X.byId.get(id)).filter(Boolean);
+    const hist = X.state.history.map(h => ({ ...h, c: X.byId.get(h.id) })).filter(h => h.c);
+    const li = arr => arr.map(it => {
+      const c = it.c || it;
+      const st = X.spineStyle(c, X.state.theme);
+      return '<li data-id="' + X.esc(c.id) + '"><span class="bk" style="background:' + st.background + '"></span>' +
+        '<span class="nm">' + X.esc(c.name) + '</span><span class="fd">' + X.esc(c.domain) + "</span>" +
+        (it.t ? '<span class="tm">' + X.fmtTime(it.t) + "</span>" : "") +
+        '<span class="rm" data-rm="' + X.esc(c.id) + '">✕</span></li>';
+    }).join("");
+    card.innerHTML =
+      '<button class="panel-close">✕</button>' +
+      "<h3>我的书斋 <span class='count'>" + (X._panelTab === "fav" ? favs.length + " 本收藏" : hist.length + " 条足迹") + "</span></h3>" +
+      '<div class="sp-tabs"><button class="sp-tab' + (X._panelTab === "fav" ? " active" : "") + '" data-tab="fav">♥ 收藏</button>' +
+      '<button class="sp-tab' + (X._panelTab === "hist" ? " active" : "") + '" data-tab="hist">🕘 阅读历史</button></div>' +
+      '<ul class="sp-list">' + (X._panelTab === "fav" ? (li(favs) || '<li class="sp-empty">还没有收藏——点开一本书，点 ♥ 收藏</li>') : (li(hist) || '<li class="sp-empty">还没有阅读记录</li>')) + "</ul>" +
+      '<div class="sp-actions"><button class="mini-btn" id="sp-clear">清空' + (X._panelTab === "fav" ? "收藏" : "历史") + "</button>" +
+      '<button class="mini-btn" id="sp-export">导出' + (X._panelTab === "fav" ? "收藏" : "历史") + "</button></div>";
+    ov.appendChild(card);
+    ov.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+    ov.querySelector(".panel-close").addEventListener("click", () => { ov.classList.add("hidden"); document.body.style.overflow = ""; });
+    ov.querySelectorAll(".sp-tab").forEach(t => t.addEventListener("click", () => X.showSidePanel(t.dataset.tab)));
+    ov.querySelectorAll("li[data-id]").forEach(li => li.addEventListener("click", e => {
+      if (e.target.classList.contains("rm")) return;
+      ov.classList.add("hidden"); document.body.style.overflow = "";
+      X.openConcept(li.dataset.id);
+    }));
+    ov.querySelectorAll("[data-rm]").forEach(rm => rm.addEventListener("click", e => {
+      e.stopPropagation();
+      const id = rm.dataset.rm;
+      if (X._panelTab === "fav") { X.state.favorites = X.state.favorites.filter(x => x !== id); }
+      else { X.state.history = X.state.history.filter(h => h.id !== id); }
+      X.saveState(); X.updateFavBadge(); X.showSidePanel(X._panelTab); X.toast("已移除");
+    }));
+    ov.querySelector("#sp-clear").addEventListener("click", () => {
+      if (X._panelTab === "fav") X.state.favorites = []; else X.state.history = [];
+      X.saveState(); X.updateFavBadge(); X.showSidePanel(X._panelTab); X.toast("已清空");
+    });
+    ov.querySelector("#sp-export").addEventListener("click", () => {
+      const list = X._panelTab === "fav" ? X.state.favorites.map(id => X.byId.get(id)).filter(Boolean).map(c => ({ name: c.name, domain: c.domain })) : X.state.history;
+      const txt = JSON.stringify(list, null, 2);
+      const ta = document.createElement("textarea");
+      ta.value = txt; document.body.appendChild(ta); ta.select();
+      try { document.execCommand("copy"); X.toast("已复制到剪贴板"); } catch (e) { X.toast(txt); }
+      ta.remove();
+    });
+  };
+  X.updateFavBadge = function () {
+    const b = document.getElementById("fav-badge");
+    if (b) { b.textContent = X.state.favorites.length; b.classList.toggle("hidden", !X.state.favorites.length); }
+  };
+
+  /* ── 主题面板 ─────────────────────────────────────── */
+  X.showThemePanel = function () {
+    const ov = document.getElementById("theme-panel");
+    ov.innerHTML = "";
+    const card = document.createElement("div");
+    card.className = "panel-card";
+    const items = X.THEMES.map(t =>
+      '<div class="theme-item' + (t.key === X.state.theme ? " active" : "") + '" data-key="' + t.key + '"><div class="theme-swatch" data-swatch="' + t.key + '">' + t.emoji + "</div><p>" + t.name + "</p></div>"
+    ).join("");
+    card.innerHTML =
+      '<button class="panel-close">✕</button><h3>🖌 主题换肤</h3>' +
+      '<div class="theme-grid">' + items + "</div>" +
+      '<div class="settings-row"><label>阅读字号</label><div class="ctrl"><button class="mini-btn" id="fs-dec">A−</button><span id="fs-val" style="min-width:44px;text-align:center;font-size:13px">' + Math.round(X.state.fontScale * 100) + '%</span><button class="mini-btn" id="fs-inc">A+</button></div></div>' +
+      '<div class="settings-row"><label>行距</label><div class="ctrl"><button class="mini-btn" id="lh-dec">紧凑</button><span id="lh-val" style="min-width:56px;text-align:center;font-size:13px">' + (X.state.lineHeight ? "舒适" : "紧凑") + '</span><button class="mini-btn" id="lh-inc">宽松</button></div></div>' +
+      '<div class="settings-row"><label>书架视图</label><div class="ctrl"><button class="mini-btn" id="vw-toggle">' + X.VIEW_LABELS[X.state.viewMode] + '</button><button class="mini-btn" id="vw-restore">恢复被藏书 (' + X.state.hiddenBooks.length + ')</button></div></div>';
+    ov.appendChild(card);
+    ov.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+    ov.querySelector(".panel-close").addEventListener("click", () => { ov.classList.add("hidden"); document.body.style.overflow = ""; });
+    ov.querySelectorAll(".theme-item").forEach(it => it.addEventListener("click", () => X.applyTheme(it.dataset.key)));
+    ov.querySelectorAll(".theme-swatch").forEach(s => {
+      const k = s.dataset.swatch;
+      s.style.background = X.swatchBg(k);
+    });
+    ov.querySelector("#fs-dec").addEventListener("click", () => { X.state.fontScale = Math.max(.8, +(X.state.fontScale - .05).toFixed(2)); X.applyTheme(X.state.theme); ov.querySelector("#fs-val").textContent = Math.round(X.state.fontScale * 100) + "%"; });
+    ov.querySelector("#fs-inc").addEventListener("click", () => { X.state.fontScale = Math.min(1.3, +(X.state.fontScale + .05).toFixed(2)); X.applyTheme(X.state.theme); ov.querySelector("#fs-val").textContent = Math.round(X.state.fontScale * 100) + "%"; });
+    ov.querySelector("#lh-dec").addEventListener("click", () => { X.state.lineHeight = 0; X.applyTheme(X.state.theme); ov.querySelector("#lh-val").textContent = "紧凑"; });
+    ov.querySelector("#lh-inc").addEventListener("click", () => { X.state.lineHeight = 1; X.applyTheme(X.state.theme); ov.querySelector("#lh-val").textContent = "舒适"; });
+    ov.querySelector("#vw-toggle").addEventListener("click", () => {
+      const order = ["shelf", "3d", "list"];
+      X.state.viewMode = order[(order.indexOf(X.state.viewMode) + 1) % order.length];
+      X.saveState();
+      X.renderShelves(X._currentFilter);
+      ov.querySelector("#vw-toggle").textContent = X.VIEW_LABELS[X.state.viewMode];
+      X.toast("已切换为" + X.VIEW_LABELS[X.state.viewMode]);
+    });
+    ov.querySelector("#vw-restore").addEventListener("click", () => {
+      X.state.hiddenBooks = [];
+      X.saveState();
+      X.renderShelves(X._currentFilter);
+      X.toast("已恢复全部被藏书籍");
+      X.showThemePanel();
+    });
+  };
+  X.VIEW_LABELS = { shelf: "平面书架", "3d": "3D 书架", list: "列表视图" };
+  X.swatchBg = function (key) {
+    const map = {
+      gold: "linear-gradient(135deg,#2a1f15 45%,#c9a227)", midnight: "linear-gradient(135deg,#0e1626 45%,#e0b94a)",
+      parchment: "linear-gradient(135deg,#e3d5b5 45%,#8c6a1f)", emerald: "linear-gradient(135deg,#111f19 45%,#d4af37)",
+      light: "linear-gradient(135deg,#f6f4ee 45%,#b8860b)", rose: "linear-gradient(135deg,#f6ebe8 45%,#b76e3c)",
+    };
+    return map[key] || map.gold;
+  };
+
+  /* ── 随机 / 每日 ──────────────────────────────────── */
+  X.randomBook = function () {
+    if (!X.data.length) return;
+    const c = X.data[Math.floor(Math.random() * X.data.length)];
+    X.openConcept(c.id);
+    X.toast("随机翻开一本书：" + c.name);
+  };
+  X.dailyTerm = function () {
+    if (!X.data.length) return null;
+    const i = X.daySeed() % X.data.length;
+    return X.data[i];
+  };
+
+
+  /* ── 桌面书（拖到页面的浮窗书） ───────────────────── */
+  X.renderDesk = function () {
+    let holder = document.getElementById("desk-layer");
+    if (!holder) { holder = document.createElement("div"); holder.id = "desk-layer"; document.body.appendChild(holder); }
+    holder.innerHTML = "";
+    X.state.deskBooks.forEach(b => {
+      const c = X.byId.get(b.id);
+      if (!c) return;
+      const st = X.spineStyle(c, X.state.theme);
+      const el = document.createElement("div");
+      el.className = "desk-book";
+      el.dataset.id = c.id;
+      el.title = c.name + "（双击打开）";
+      el.style.cssText = "left:" + b.x + "px;top:" + b.y + "px;background:" + st.background + ";--spine-ink:" + st["--spine-ink"] + ";width:36px;height:58px";
+      el.innerHTML = '<div class="book-title" style="font-size:10px;letter-spacing:1px">' + X.esc(c.name.length > 6 ? c.name.slice(0, 6) : c.name) + '</div><button class="db-x" title="收起">✕</button>';
+      el.addEventListener("mousedown", e => { if (e.target.classList.contains("db-x")) return; X.dragDesk(el, e); });
+      el.querySelector(".db-x").addEventListener("click", e => { e.stopPropagation(); X.removeDeskBook(c.id); X.renderDesk(); });
+      el.addEventListener("dblclick", () => X.openConcept(c.id));
+      holder.appendChild(el);
+    });
+  };
+  X.dragDesk = function (el, e) {
+    e.preventDefault();
+    const move = ev => { el.style.left = (ev.clientX - 18) + "px"; el.style.top = (ev.clientY - 29) + "px"; };
+    const up = ev => {
+      document.removeEventListener("mousemove", move);
+      document.removeEventListener("mouseup", up);
+      const entry = X.state.deskBooks.find(b => b.id === el.dataset.id);
+      if (entry) { entry.x = Math.max(0, ev.clientX - 18); entry.y = Math.max(0, ev.clientY - 29); X.saveState(); }
+    };
+    document.addEventListener("mousemove", move);
+    document.addEventListener("mouseup", up);
+  };
+  X.onBookDragStart = function (e) {
+    const book = e.target.closest(".book");
+    if (!book) return;
+    const id = book.dataset.id;
+    document.body.classList.add("dragging");
+    e.dataTransfer.setData("text/xigai-id", id);
+    e.dataTransfer.effectAllowed = "copyMove";
+    const c = X.byId.get(id);
+    if (c) {
+      const st = X.spineStyle(c, X.state.theme);
+      const g = document.createElement("div");
+      g.style.cssText = "width:" + st.width + ";height:" + st.height + ";background:" + st.background + ";border-radius:4px;opacity:.85";
+      document.body.appendChild(g);
+      e.dataTransfer.setDragImage(g, 14, 14);
+      setTimeout(() => g.remove(), 0);
+    }
+  };
+  X.initDnD = function () {
+    ["btn-fav", "btn-hist"].forEach(bid => {
+      const t = document.getElementById(bid);
+      if (!t) return;
+      t.addEventListener("dragover", e => { e.preventDefault(); e.dataTransfer.dropEffect = "move"; });
+      t.addEventListener("drop", e => {
+        e.preventDefault();
+        const cid = e.dataTransfer.getData("text/xigai-id");
+        const c = X.byId.get(cid);
+        if (!c) return;
+        if (t.id === "btn-fav") { X.toggleFav(cid); X.updateFavBadge(); X.renderShelves(X._currentFilter); X.toast(c.name + (X.isFav(cid) ? " 已收藏 ♥" : " 已取消收藏")); }
+        else { X.recordRead(c); X.openConcept(c.id); }
+      });
+    });
+    const trash = document.getElementById("btn-trash");
+    if (trash) {
+      trash.addEventListener("dragover", e => { e.preventDefault(); e.dataTransfer.dropEffect = "move"; });
+      trash.addEventListener("drop", e => {
+        e.preventDefault();
+        const cid = e.dataTransfer.getData("text/xigai-id");
+        if (!cid) return;
+        X.toggleHidden(cid);
+        X.renderShelves(X._currentFilter);
+        X.toast("已藏起此书（可在主题面板恢复）");
+      });
+    }
+    document.addEventListener("dragend", () => document.body.classList.remove("dragging"));
+    document.addEventListener("dragover", e => { if (e.target.closest(".book,.desk-book,#search-results,.overlay")) return; e.preventDefault(); e.dataTransfer.dropEffect = "copy"; });
+    document.addEventListener("drop", e => {
+      if (e.target.closest(".book,.desk-book,#search-results,.overlay,button")) return;
+      const cid = e.dataTransfer.getData("text/xigai-id");
+      if (!cid) return;
+      e.preventDefault();
+      X.addDeskBook(cid, e.clientX - 18, e.clientY - 29);
+      X.renderDesk();
+      X.toast("书已放到你的书桌上 📌（可拖动、双击打开）");
+    });
+  };
+
+  /* ── 3D 视差 ──────────────────────────────────────── */
+  X.initParallax = function () {
+    const lib = document.getElementById("library");
+    if (!lib) return;
+    lib.addEventListener("mousemove", e => {
+      if (X.state.viewMode !== "3d") { lib.style.setProperty("--rx", "0deg"); lib.style.setProperty("--ry", "0deg"); return; }
+      const r = lib.getBoundingClientRect();
+      const nx = (e.clientX - r.left) / r.width - 0.5;
+      const ny = (e.clientY - r.top) / r.height - 0.5;
+      lib.style.setProperty("--rx", (-ny * 6).toFixed(2) + "deg");
+      lib.style.setProperty("--ry", (nx * 8).toFixed(2) + "deg");
+    });
+  };
+
+  /* ── AI 解析回填书库（自生长） ────────────────────── */
+  X.addConceptToLibrary = function (c, text) {
+    fetch("/api/add-concept", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id: c.id, name: c.name, domain: c.domain, analysis: text }),
+    }).then(r => r.json()).then(d => {
+      if (d.ok) {
+        const cnew = d.concept;
+        window.XIGAI["AI 生成"] = window.XIGAI["AI 生成"] || [];
+        if (!X.byId.has(cnew.id)) window.XIGAI["AI 生成"].push(cnew);
+        X.reloadData();
+        X.renderShelves(X._currentFilter);
+        X.renderDesk();
+        X.toast("已加入书库「AI 生成」架 📚 刷新后永久保留");
+      } else {
+        X.toast("加入失败：" + (d.error || "未知错误"));
+      }
+    }).catch(() => X.toast("无法连接本地服务，加入失败"));
+  };
+
+  /* ── 事件总线（极简） ─────────────────────────────── */
+  X._ev = {};
+  X.on = function (name, fn) { (X._ev[name] = X._ev[name] || []).push(fn); };
+  X.fire = function (name, ...a) { (X._ev[name] || []).forEach(f => f(...a)); };
+})();

@@ -1,0 +1,179 @@
+/* ============================================================
+   析概 · 基础样式 base.css
+   ============================================================ */
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  font-family: var(--font-sans);
+  background: var(--bg1);
+  color: var(--ink);
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: background .5s var(--ease), color .5s var(--ease);
+}
+body[data-theme="gold"], body[data-theme="midnight"], body[data-theme="emerald"] {
+  color-scheme: dark;
+}
+::-webkit-scrollbar { width:10px; height:10px; }
+::-webkit-scrollbar-track { background: var(--scroll-track); }
+::-webkit-scrollbar-thumb { background: var(--scroll-thumb); border-radius:6px; }
+::selection { background: var(--sel); }
+
+a { color: var(--accent); text-decoration:none; }
+a:hover { text-decoration:underline; }
+
+button { font-family:inherit; cursor:pointer; border:none; background:none; color:inherit; }
+input { font-family:inherit; }
+.hidden { display:none !important; }
+
+/* ── 顶栏 ─────────────────────────────────────────────── */
+#topbar {
+  position: sticky; top:0; z-index: 60;
+  display:flex; align-items:center; gap:18px;
+  padding: 12px 22px;
+  background: color-mix(in srgb, var(--bg1) 82%, transparent);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+.brand { display:flex; align-items:center; gap:12px; user-select:none; }
+.brand .logo { width:44px; height:44px; filter: drop-shadow(0 2px 6px var(--shadow)); }
+.brand-text h1 {
+  font-family: var(--font-serif);
+  font-size: 24px; letter-spacing: 6px; line-height:1.1;
+  background: linear-gradient(120deg, var(--accent-2), var(--accent), var(--accent-3));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.brand-text small { display:block; font-size:11px; letter-spacing:3px; color:var(--ink-3); }
+
+.search-wrap { flex:1; max-width:640px; margin:0 auto; position:relative; }
+.search-box {
+  display:flex; align-items:center; gap:10px;
+  background: var(--bg3); border:1.5px solid var(--line);
+  border-radius: 999px; padding: 9px 16px;
+  box-shadow: 0 2px 10px var(--shadow);
+  transition: box-shadow .3s, border-color .3s;
+}
+.search-box:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px var(--sel), 0 2px 14px var(--shadow); }
+.search-box svg { width:18px; height:18px; flex:none; color: var(--accent); }
+.search-box input {
+  flex:1; border:none; outline:none; background:transparent;
+  font-size:15px; color: var(--ink);
+}
+.search-box input::placeholder { color: var(--ink-3); }
+#search-clear { color:var(--ink-3); font-size:16px; padding:2px 6px; border-radius:50%; }
+#search-clear:hover { color:var(--ink); background:var(--sel); }
+
+#search-results {
+  position:absolute; top: calc(100% + 8px); left:0; right:0;
+  background: var(--bg3); border:1px solid var(--line); border-radius: var(--radius-m);
+  box-shadow: 0 14px 40px var(--shadow); overflow:hidden; display:none;
+  max-height: 62vh; overflow-y:auto; z-index: 80;
+}
+#search-results.open { display:block; }
+.sr-head { padding:8px 14px; font-size:12px; letter-spacing:1px; color:var(--ink-3); border-bottom:1px solid var(--line); }
+.sr-item { display:flex; align-items:center; gap:12px; padding:10px 14px; cursor:pointer; border-bottom:1px solid color-mix(in srgb, var(--line) 45%, transparent); }
+.sr-item:last-child { border-bottom:none; }
+.sr-item:hover, .sr-item.sel { background: var(--sel); }
+.sr-book { width:26px; height:38px; border-radius:3px; flex:none; box-shadow: inset -2px 0 3px rgba(0,0,0,.3); }
+.sr-main { flex:1; min-width:0; }
+.sr-name { font-weight:600; font-size:14px; }
+.sr-name mark { background: var(--accent-2); color: var(--accent-ink); border-radius:2px; padding:0 2px; }
+.sr-meta { font-size:12px; color:var(--ink-3); margin-top:2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.sr-field { flex:none; font-size:11px; color:var(--ink-2); border:1px solid var(--line); padding:2px 8px; border-radius:999px; }
+.sr-empty { padding:22px; text-align:center; color:var(--ink-3); font-size:13px; }
+.sr-hint { padding:10px 14px; font-size:12px; color:var(--ink-3); border-top:1px solid var(--line); }
+
+.top-actions { display:flex; gap:8px; }
+.icon-btn {
+  display:flex; align-items:center; gap:6px;
+  padding:8px 12px; border-radius:999px; font-size:13px;
+  color: var(--ink-2); border:1px solid var(--line); background: color-mix(in srgb, var(--bg3) 60%, transparent);
+  transition: all .25s;
+}
+.icon-btn:hover { color:var(--accent); border-color:var(--accent); background:var(--sel); }
+.icon-btn svg { width:16px; height:16px; }
+.icon-btn .badge {
+  min-width:18px; height:18px; padding:0 5px; border-radius:999px; font-size:11px; line-height:18px; text-align:center;
+  background: var(--accent); color: var(--accent-ink);
+}
+
+/* ── 主体布局 ─────────────────────────────────────────── */
+#library { padding: 26px 30px 60px; max-width: 1500px; margin: 0 auto; }
+
+.domains-rail {
+  display:flex; gap:8px; flex-wrap:wrap; justify-content:center;
+  margin-bottom: 26px;
+}
+.chip {
+  padding:6px 14px; border-radius:999px; font-size:13px;
+  border:1px solid var(--line); color:var(--ink-2); background: color-mix(in srgb, var(--bg2) 70%, transparent);
+  transition: all .25s;
+}
+.chip:hover { border-color:var(--accent); color:var(--accent); transform: translateY(-1px); }
+.chip.active { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight:600; }
+.chip .cnt { opacity:.7; font-size:11px; margin-left:4px; }
+
+#welcome {
+  text-align:center; padding: 30px 10px 40px;
+  font-family: var(--font-serif);
+}
+#welcome .wl-title { font-size: 34px; letter-spacing: 10px; color: var(--accent); text-shadow: 0 2px 8px var(--shadow); }
+#welcome .wl-sub { margin-top:10px; color:var(--ink-2); letter-spacing:2px; font-size:14px; }
+#welcome .wl-stats { margin-top:14px; display:flex; gap:22px; justify-content:center; font-family:var(--font-sans); }
+#welcome .wl-stats b { color:var(--accent-2); font-size:18px; margin-right:4px; }
+
+/* ── 覆盖层（详情 / 面板） ────────────────────────────── */
+.overlay {
+  position: fixed; inset:0; z-index: 100;
+  background: color-mix(in srgb, var(--bg0) 60%, transparent);
+  backdrop-filter: blur(6px);
+  display:flex; align-items:center; justify-content:center;
+  padding: 26px;
+  animation: fadeIn .3s var(--ease);
+}
+@keyframes fadeIn { from{opacity:0} to{opacity:1} }
+@keyframes popIn { from{opacity:0; transform:translateY(26px) scale(.97)} to{opacity:1; transform:none} }
+
+.panel-card {
+  background: var(--bg3); border:1px solid var(--line);
+  border-radius: var(--radius-l);
+  box-shadow: 0 30px 80px var(--shadow);
+  max-width: 860px; width:100%;
+  max-height: 92vh; overflow-y:auto;
+  position:relative;
+  animation: popIn .35s var(--ease);
+}
+.panel-close {
+  position:absolute; top:14px; right:14px; z-index:5;
+  width:36px; height:36px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-size:20px; color:var(--ink-2); background: var(--bg2); border:1px solid var(--line);
+  transition: all .25s;
+}
+.panel-close:hover { color:var(--err); border-color:var(--err); transform:rotate(90deg); }
+
+/* ── Toast ────────────────────────────────────────────── */
+#toast {
+  position: fixed; bottom: 26px; left:50%; transform: translateX(-50%) translateY(80px);
+  z-index: 300; background: var(--bg3); color: var(--ink);
+  border:1px solid var(--line); border-radius: 999px;
+  padding: 11px 24px; box-shadow: 0 10px 34px var(--shadow);
+  font-size:14px; opacity:0; transition: all .4s var(--ease); pointer-events:none;
+  max-width: 80vw;
+}
+#toast.show { opacity:1; transform: translateX(-50%) translateY(0); }
+
+/* ── 页脚 ─────────────────────────────────────────────── */
+#footer {
+  text-align:center; padding: 26px; color: var(--ink-3); font-size:12px;
+  letter-spacing: 1px; border-top: 1px solid var(--line);
+}
+#footer b { color: var(--accent); }
+
+/* ── 响应式 ───────────────────────────────────────────── */
+@media (max-width: 860px) {
+  #topbar { flex-wrap:wrap; padding:10px 14px; gap:10px; }
+  .search-wrap { order:3; flex-basis:100%; max-width:none; }
+  #library { padding: 18px 12px 40px; }
+  #welcome .wl-title { font-size:26px; }
+}

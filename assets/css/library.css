@@ -1,0 +1,244 @@
+/* ============================================================
+   析概 · 图书馆场景 library.css
+   书架墙 / 图书 / 氛围层
+   ============================================================ */
+
+/* ── 场景氛围层 ───────────────────────────────────────── */
+#scene { position: fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden; }
+#scene .moon {
+  position:absolute; top:-90px; left:50%; transform:translateX(-50%);
+  width: 560px; height: 340px;
+  background: radial-gradient(ellipse at top, var(--glow) 0%, transparent 70%);
+  border-radius: 50%;
+}
+#scene .dust { position:absolute; border-radius:50%; background: var(--accent-2); opacity:.25; animation: floaty linear infinite; }
+@keyframes floaty {
+  0%   { transform: translate(0, 0); opacity:0; }
+  12%  { opacity:.3; }
+  88%  { opacity:.2; }
+  100% { transform: translate(40px, -260px); opacity:0; }
+}
+#scene .vignette {
+  position:absolute; inset:0;
+  background: radial-gradient(ellipse at center, transparent 55%, color-mix(in srgb, var(--bg0) 55%, transparent) 100%);
+}
+
+/* ── 书架墙 ───────────────────────────────────────────── */
+#library { position:relative; z-index:1; }
+.shelf-row {
+  position: relative;
+  margin: 34px 6px 8px;
+  padding: 0 18px 26px;
+  animation: shelfIn .6s var(--ease) both;
+}
+@keyframes shelfIn { from { opacity:0; transform: translateY(24px); } to { opacity:1; transform:none; } }
+
+/* 木墙板背景 */
+#library::before {
+  content:""; position:fixed; inset:0; z-index:-1; pointer-events:none;
+  background:
+    repeating-linear-gradient(90deg, transparent 0 220px, color-mix(in srgb, var(--bg0) 14%, transparent) 220px 222px),
+    repeating-linear-gradient(0deg, transparent 0 260px, color-mix(in srgb, var(--bg0) 10%, transparent) 260px 262px);
+}
+
+/* 檐口装饰（书柜顶部） */
+.cornice {
+  position:absolute; top:-34px; left:6px; right:6px; height:20px;
+  background: linear-gradient(180deg, var(--wood-3), var(--wood) 60%, var(--wood-2));
+  border-radius: 6px 6px 0 0;
+  box-shadow: 0 6px 14px var(--shadow);
+}
+.cornice::after {
+  content:""; position:absolute; left:0; right:0; bottom:-6px; height:6px;
+  background: linear-gradient(180deg, var(--wood-2), var(--wood-3));
+  border-radius: 0 0 3px 3px;
+}
+
+/* 领域铭牌 */
+.shelf-plaque {
+  display:flex; align-items:center; gap:12px;
+  position:absolute; left:18px; top:-52px; z-index:3;
+  padding: 6px 16px 6px 10px;
+  background: linear-gradient(160deg, var(--plaque), var(--accent-3));
+  color: var(--accent-ink);
+  border-radius: 8px 8px 0 0;
+  box-shadow: 0 4px 12px var(--shadow);
+  clip-path: polygon(0 0, 100% 0, calc(100% - 14px) 100%, 0 100%);
+  cursor:pointer; user-select:none;
+  transition: filter .25s, transform .25s;
+}
+.shelf-plaque:hover { filter: brightness(1.12); transform: translateY(1px); }
+.shelf-plaque .seal {
+  width:30px; height:30px; flex:none;
+  display:flex; align-items:center; justify-content:center;
+  background: color-mix(in srgb, var(--accent-ink) 88%, transparent);
+  border-radius: 50%; font-family: var(--font-serif); font-size:17px; font-weight:700;
+}
+.shelf-plaque h2 { font-family: var(--font-serif); font-size:17px; letter-spacing:3px; line-height:1.15; }
+.shelf-plaque small { display:block; font-size:10.5px; letter-spacing:1px; opacity:.85; }
+
+/* 书排容器 */
+.shelf-books {
+  display:flex; align-items:flex-end; gap:7px;
+  min-height: 218px;
+  padding: 14px 26px 0;
+  position:relative; z-index:1;
+}
+/* 木板 */
+.shelf-plank {
+  position:absolute; left:6px; right:6px; bottom:0; height:16px; z-index:2;
+  background:
+    repeating-linear-gradient(90deg, transparent 0 34px, color-mix(in srgb, var(--bg0) 22%, transparent) 34px 36px),
+    linear-gradient(180deg, var(--wood-3) 0%, var(--wood) 55%, var(--wood-2) 100%);
+  border-radius: 3px;
+  box-shadow: 0 10px 18px var(--shadow);
+}
+/* 撑书板 */
+.bookend {
+  width:14px; align-self:stretch; margin-left:auto; flex:none;
+  background: linear-gradient(180deg, var(--wood-3), var(--wood-2));
+  border-radius: 2px 2px 0 0; opacity:.9;
+}
+
+/* ── 书 ───────────────────────────────────────────────── */
+.book {
+  position:relative; flex:none; cursor:pointer;
+  border-radius: 3px 5px 5px 3px;
+  box-shadow:
+    inset 3px 0 4px rgba(255,255,255,.22),
+    inset -3px 0 6px rgba(0,0,0,.28),
+    2px 6px 12px var(--shadow);
+  transition: transform .28s var(--ease), box-shadow .28s, filter .28s;
+  transform-origin: bottom center;
+  overflow:hidden;
+}
+.book:hover {
+  transform: translateY(-9px) rotate(-1.2deg) scale(1.045);
+  box-shadow:
+    inset 3px 0 4px rgba(255,255,255,.22),
+    inset -3px 0 6px rgba(0,0,0,.28),
+    0 18px 30px var(--shadow),
+    0 0 18px var(--sel);
+  z-index: 5;
+  filter: saturate(1.15) brightness(1.06);
+}
+.book:active { transform: translateY(-3px) scale(.98); }
+/* 书脊烫金标题 */
+.book-title {
+  position:absolute; inset: 0;
+  writing-mode: vertical-rl; text-orientation: upright;
+  letter-spacing: 2px; font-size: 12px;
+  font-family: var(--font-serif); font-weight:600;
+  color: var(--spine-ink, #f5e6b8);
+  text-shadow: 0 1px 2px rgba(0,0,0,.5);
+  display:flex; align-items:center; justify-content:center;
+  padding: 20px 0;
+  text-align:center;
+}
+/* 书脊上下金线（书头布） */
+.book::before, .book::after {
+  content:""; position:absolute; left:1px; right:1px; height:6px; z-index:2;
+  background: linear-gradient(90deg, var(--accent-3), var(--accent-2) 40%, var(--accent-3));
+  opacity:.9;
+}
+.book::before { top:2px; border-radius: 2px 2px 0 0; }
+.book::after { bottom:2px; border-radius: 0 0 2px 2px; }
+/* 书底标签（领域缩写） */
+.book-tag {
+  position:absolute; bottom:10px; left:0; right:0; text-align:center; z-index:3;
+  font-size: 8.5px; letter-spacing:1px; color: rgba(255,235,180,.92);
+  opacity:.85; font-family: var(--font-sans);
+}
+.book .fav-dot {
+  position:absolute; top:8px; right:4px; z-index:4; font-size:9px; color: var(--accent-2);
+  opacity:0; transition: opacity .25s; text-shadow: 0 0 4px rgba(0,0,0,.6);
+}
+.book.faved .fav-dot { opacity:1; }
+
+/* 列表视图（可选） */
+#library.list-view .shelf-row { margin-bottom: 4px; }
+#library.list-view .shelf-books { flex-wrap:wrap; gap:10px; padding-top:6px; min-height:auto; }
+#library.list-view .book { writing-mode:initial; }
+#library.list-view .book-title { writing-mode:initial; text-orientation:initial; padding:0 8px; font-size:13px; }
+
+/* ── 空状态 ───────────────────────────────────────────── */
+.empty-tip { text-align:center; padding:60px 20px; color: var(--ink-3); font-family: var(--font-serif); font-size:17px; letter-spacing:2px; }
+
+/* ── 侧边快捷面板（随机/每日） ────────────────────────── */
+#quickbar {
+  position: fixed; right:18px; bottom:22px; z-index:50;
+  display:flex; flex-direction:column; gap:10px; align-items:center;
+}
+.quick-btn {
+  width:52px; height:52px; border-radius:50%;
+  background: color-mix(in srgb, var(--bg3) 88%, transparent);
+  border:1px solid var(--line); box-shadow: 0 8px 24px var(--shadow);
+  display:flex; align-items:center; justify-content:center; font-size:20px;
+  color: var(--accent); backdrop-filter: blur(8px);
+  transition: all .25s;
+}
+.quick-btn:hover { transform: translateY(-3px) scale(1.06); color: var(--accent-2); border-color: var(--accent); }
+.quick-btn .tip {
+  position:absolute; right:60px; white-space:nowrap;
+  background: var(--bg3); color: var(--ink-2); font-size:12px;
+  padding:5px 12px; border-radius:999px; border:1px solid var(--line);
+  opacity:0; transform: translateX(6px); transition: all .25s; pointer-events:none;
+  box-shadow: 0 6px 16px var(--shadow);
+}
+.quick-btn:hover .tip { opacity:1; transform:none; }
+
+/* ── 馆区标题 ─────────────────────────────────────────── */
+.wing-head {
+  display:flex; align-items:center; gap:14px;
+  margin: 26px 6px 34px; padding-bottom: 12px;
+  border-bottom: 2px solid var(--line);
+}
+.wing-head .wing-seal {
+  width:42px; height:42px; flex:none; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-family: var(--font-serif); font-size:21px; font-weight:700;
+  color: var(--accent-ink);
+  background: linear-gradient(160deg, var(--accent-2), var(--accent-3));
+  box-shadow: 0 4px 14px var(--shadow);
+}
+.wing-head h3 { font-family:var(--font-serif); font-size:21px; letter-spacing:5px; color:var(--ink); }
+.wing-head small { color:var(--ink-3); letter-spacing:1px; font-size:12px; }
+
+/* ── 3D 书架 ─────────────────────────────────────────── */
+#library.view-3d { perspective: 1700px; }
+#library.view-3d .shelf-row {
+  transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition: transform .12s ease-out;
+}
+#library.view-3d .book {
+  box-shadow:
+    inset 3px 0 4px rgba(255,255,255,.18),
+    inset -3px 0 6px rgba(0,0,0,.3),
+    calc(var(--book-depth, 10px) * .7px) calc(var(--book-depth, 10px) * .9px) calc(var(--book-depth, 10px) * 1.4px) var(--shadow);
+}
+#library.view-3d .shelf-plank {
+  transform: translateZ(calc(var(--book-depth, 10px) * -1px));
+}
+
+/* ── 桌面书 ──────────────────────────────────────────── */
+#desk-layer { position:fixed; inset:0; z-index:45; pointer-events:none; }
+.desk-book {
+  position:fixed; pointer-events:auto; cursor:grab; z-index:46;
+  border-radius: 3px 4px 4px 3px;
+  box-shadow: inset 3px 0 4px rgba(255,255,255,.2), inset -3px 0 6px rgba(0,0,0,.3), 4px 10px 20px var(--shadow);
+  user-select:none; transition: transform .2s, box-shadow .2s;
+}
+.desk-book:hover {
+  z-index:50; transform: translateY(-3px) scale(1.05);
+  box-shadow: inset 3px 0 4px rgba(255,255,255,.2), inset -3px 0 6px rgba(0,0,0,.3), 6px 16px 28px var(--shadow), 0 0 16px var(--sel);
+}
+.desk-book .book-title { position:static; inset:auto; padding:14px 0; }
+.desk-book .db-x {
+  position:absolute; top:-9px; right:-9px; width:20px; height:20px;
+  border-radius:50%; background: var(--bg3); color: var(--ink-2);
+  border:1px solid var(--line); font-size:11px; line-height:1;
+  display:none; align-items:center; justify-content:center;
+}
+.desk-book:hover .db-x { display:flex; }
+.desk-book .db-x:hover { color:var(--err); border-color:var(--err); }
+body.dragging .icon-btn, body.dragging .quick-btn { outline: 2px dashed var(--accent); outline-offset: 2px; }
