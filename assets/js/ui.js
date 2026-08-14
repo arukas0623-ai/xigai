@@ -48,7 +48,12 @@
     if (!doms.length) { wrap.innerHTML = '<div class="empty-tip">书架空空如也——知识正在路上…</div>'; return; }
     const frag = document.createDocumentFragment();
     // 按馆区分组渲染（筛选时不分馆区）
-    const grouped = X._currentFilter ? [[null, doms]] : X.WINGS.map(w => [w, doms.filter(d => w.domains.includes(d.name))]).filter(g => g[1].length);
+    let grouped = X._currentFilter ? [[null, doms]] : X.WINGS.map(w => [w, doms.filter(d => w.domains.includes(d.name))]).filter(g => g[1].length);
+    // 附加未分区领域（如 AI 生成架）
+    const groupedNames = new Set();
+    grouped.forEach(g => g[1].forEach(d => groupedNames.add(d.name)));
+    const rest = doms.filter(d => !groupedNames.has(d.name));
+    if (rest.length) grouped.push([{ name: "其他馆区", desc: "AI 生成与未分区新书", domains: [] }, rest]);
     grouped.forEach((grp) => {
       const wing = grp[0], list = grp[1];
       if (wing) {
