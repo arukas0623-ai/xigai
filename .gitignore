@@ -4,3 +4,5 @@ tools/
 _preview_*
 *.log
 node_modules/
+
+.jsorg/
