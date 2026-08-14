@@ -888,5 +888,60 @@ window.XIGAI["计算机科学"] = [
     "relationConfidence": 0.3,
     "status": "verified",
     "searchedAt": "2026-08-14"
+  },
+  {
+    "name": "有限自动机",
+    "aliases": [],
+    "field": "计算机科学/理论计算",
+    "tags": [
+      "自动机",
+      "形式语言"
+    ],
+    "difficulty": 3,
+    "summary": "用于识别字符串的数学模型。",
+    "definition": "有限自动机是一种数学模型，用来描述和识别由字母表生成的语言。它包含一个有穷的状态集合、一个输入符号集、一个初始状态以及一个定义了在每个状态下读取不同符号后如何改变当前状态的转换函数。",
+    "principle": ",",
+    "background": "有限自动机的概念最早由阿兰·图灵提出，用于研究计算问题。它被广泛应用于文本处理、编译器设计等领域。",
+    "core": [
+      "定义了状态集合和输入符号集",
+      "包含初始状态和转换函数",
+      "用于识别语言"
+    ],
+    "pros": [
+      "简洁且易于实现",
+      "适用于多种应用场景"
+    ],
+    "cons": [
+      "处理复杂问题时效率较低"
+    ],
+    "applications": [
+      "文本搜索与匹配",
+      "编译器设计"
+    ],
+    "misconceptions": [
+      "有限自动机只能识别正则语言"
+    ],
+    "related": [
+      "正规表达式",
+      "图灵机"
+    ],
+    "relations": [
+      {
+        "type": "followup",
+        "target": "图灵机",
+        "note": "",
+        "confidence": 0.85
+      }
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Finite_automaton",
+      "https://www.cs.princeton.edu/courses/archive/spring13/cos406/lectures/finite-automata.pdf"
+    ],
+    "id": "有限自动机",
+    "confidence": 0.9,
+    "sourceConfidence": 0.85,
+    "relationConfidence": 0.85,
+    "status": "verified",
+    "searchedAt": "2026-08-14"
   }
 ];

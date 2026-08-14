@@ -203,6 +203,7 @@
     if (!c) { X.toast("未找到该概念"); return; }
     X.currentId = c.id;
     X.recordRead(c);
+    fetch("/api/heat", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ id: c.id }) }).catch(() => {});
     try { history.replaceState(null, "", "?c=" + encodeURIComponent(c.id)); } catch (e) {}
     const ov = document.getElementById("detail");
     ov.innerHTML = "";
@@ -253,6 +254,7 @@
       "</div>" +
       '<div class="detail-body">' +
         (c.summary ? '<div class="detail-summary">' + X.esc(c.summary) + "</div>" : "") +
+        '<div class="selfcheck">' + X.selfCheck(c) + "</div>" +
         (c.definition ? '<div class="sec"><h3>定义与解释</h3><p>' + X.md(c.definition) + "</p></div>" : "") +
         (principle ? principle : "") +
         (relHtml ? '<div class="sec" id="rel-sec"><h3>概念关系</h3>' + relHtml + "</div>" : "") +
@@ -371,6 +373,20 @@
       }
     }).catch(() => { X._relGrowing[target] = false; });
   };
+  /* 概念自检报告：各字段完整度 */
+  X.selfCheck = function (c) {
+    const f = [
+      ["定义", c.definition && c.definition.length >= 60],
+      ["原理", !!c.principle],
+      ["应用", !!(c.applications || []).length],
+      ["前置", !!c.prerequisites || (c.relations || []).some(r => r.type === "prerequisite")],
+      ["后续", (c.relations || []).some(r => r.type === "followup")],
+      ["来源", !!(c.sources || []).length],
+      ["关系", (c.relations || []).length >= 2],
+    ];
+    return '<span class="sc-title">自检</span>' + f.map(x => '<span class="sc-item ' + (x[1] ? "on" : "off") + '">' + x[0] + (x[1] ? "✓" : "✗") + "</span>").join("");
+  };
+
   X.renderInlinePath = function (c) {
     const box = document.getElementById("path-box");
     if (!box) return;

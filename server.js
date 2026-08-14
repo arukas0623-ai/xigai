@@ -349,7 +349,21 @@ function loadCorpus() {
       for (const a of (c.aliases || [])) { const ak = normStr(a); if (ak && !byAlias.has(ak)) byAlias.set(ak, c); }
     }
   }
-  CORPUS = { byId, byName, byAlias, all, domains: Object.keys(w.XIGAI) };
+  // 图谱中心度：degree / in-degree / out-degree
+  const cent = {};
+  for (const c of all) {
+    cent[c.id] = { in: 0, out: 0, deg: 0 };
+  }
+  for (const c of all) {
+    for (const r of (c.relations || [])) {
+      if (byId.has(r.target) && byId.get(r.target).id !== c.id) {
+        cent[c.id].out++;
+        cent[byId.get(r.target).id].in++;
+      }
+    }
+  }
+  for (const id of Object.keys(cent)) cent[id].deg = cent[id].in + cent[id].out;
+  CORPUS = { byId, byName, byAlias, all, domains: Object.keys(w.XIGAI), centrality: cent };
 }
 loadCorpus();
 
@@ -873,10 +887,23 @@ function handleQuiz(res, payload) {
 
 /* ═══ 阶段3（P2）：版本历史 + GraphRAG ═══ */
 
+
+/* 浏览热度（客户端 openConcept 时上报，用于 Patrol 优先级） */
+const HEAT_FILE = path.join(ROOT, ".cache", "heat.json");
+function readHeat() { try { return JSON.parse(fs.readFileSync(HEAT_FILE, "utf8")); } catch (e) { return {}; } }
+function bumpHeat(id) { try { const h = readHeat(); h[id] = (h[id] || 0) + 1; if (Object.keys(h).length > 5000) { for (const k of Object.keys(h)) if (h[k] <= 1) delete h[k]; } fs.writeFileSync(HEAT_FILE, JSON.stringify(h)); } catch (e) {} }
+function handleHeat(res, payload) {
+  const id = String(payload.id || "").slice(0, 60);
+  if (!id) return send(res, 200, JSON.stringify({ ok: false }));
+  bumpHeat(id);
+  bumpStat("heatSync", 1);
+  send(res, 200, JSON.stringify({ ok: true }));
+}
 /* ═══ P0 自维护 ═══ */
 const RELPOOL_FILE = path.join(ROOT, '.cache', 'relpool.json');
 const MODERATION_FILE = path.join(ROOT, '.cache', 'moderation.json');
-const MAX_RELATIONS = 24;
+const MAX_RELATIONS = 24;   // 普通概念关系预算
+const MAX_RELATIONS_CORE = 40; // 核心节点（图谱中心度前10%）动态提高
 function readRelPool() { try { return JSON.parse(fs.readFileSync(RELPOOL_FILE, 'utf8')); } catch (e) { return {}; } }
 function writeRelPool(p) { try { fs.writeFileSync(RELPOOL_FILE, JSON.stringify(p)); } catch (e) {} }
 function readModeration() { try { return JSON.parse(fs.readFileSync(MODERATION_FILE, 'utf8')); } catch (e) { return []; } }
@@ -884,9 +911,25 @@ function writeModeration(m) { try { fs.writeFileSync(MODERATION_FILE, JSON.strin
 
 function healthScore() {
   if (!CORPUS) loadCorpus();
+  const heat = readHeat();
+  const cent = CORPUS.centrality || {};
+  const maxDeg = Math.max(1, ...Object.values(cent).map(c => c.deg || 0));
+  // 领域重要性（按领域规模归一）
+  const domSize = {};
+  CORPUS.all.forEach(c => { domSize[c.domain] = (domSize[c.domain] || 0) + 1; });
+  const maxDom = Math.max(1, ...Object.values(domSize));
+  // 核心节点：degree 前 10%
+  const sortedDeg = Object.values(cent).map(c => c.deg || 0).sort((a, b) => b - a);
+  const coreThreshold = sortedDeg[Math.max(0, Math.floor(sortedDeg.length * 0.1))] || 1;
+  const coreIds = new Set(Object.keys(cent).filter(id => (cent[id].deg || 0) >= coreThreshold && (cent[id].deg || 0) > 0));
+
   let concepts = 0, compSum = 0, sourceCovered = 0, multiSource = 0, isolated = 0, pendingC = 0;
-  let relations = 0, valid = 0, lowConfRels = 0, pendingRel = 0;
+  let relations = 0, valid = 0, lowConfRels = 0, pendingRel = 0, debtSum = 0;
+  let coreTotal = coreIds.size, coreComplete = 0, coreWithRel = 0;
+  const pendingGrade = { high: 0, normal: 0, low: 0 };
+  const conflictList = [];
   const gapList = [];
+  // 前置循环冲突检测
   for (const c of CORPUS.all) {
     concepts++;
     let comp = 0;
@@ -895,14 +938,14 @@ function healthScore() {
     if ((c.pros || []).length) comp++;
     if ((c.cons || []).length) comp++;
     if ((c.applications || []).length) comp++;
-    if ((c.background || '').length >= 40) comp++;
+    if ((c.background || "").length >= 40) comp++;
     compSum += comp / 6;
     const srcs = (c.sources || []).filter(Boolean);
     if (srcs.length) sourceCovered++;
     const doms = new Set();
     srcs.forEach(s => { try { doms.add(new URL(s).hostname); } catch (e) {} });
     if (doms.size >= 2) multiSource++;
-    if (c.status === 'pending' || (c.confidence != null && c.confidence < 0.6)) pendingC++;
+    if (c.status === "pending" || (c.confidence != null && c.confidence < 0.6)) pendingC++;
     const rels = c.relations || [];
     let eff = 0;
     for (const r of rels) {
@@ -912,29 +955,102 @@ function healthScore() {
       if (rc < 0.6) lowConfRels++;
     }
     relations += rels.length; valid += eff;
-    if (eff < 2) isolated++;
+    const iso = eff < 2;
+    if (iso) isolated++;
+    // 知识债务：缺失字段 + 缺来源 + 低置信关系 + 孤立
+    const missingCount = 6 - comp;
+    let debt = missingCount / 6 * 50;
+    if (!srcs.length) debt += 25;
+    debt += Math.min(15, lowConfRelsIn(c, rels) * 5);
+    if (iso) debt += 10;
+    debt = Math.round(Math.min(100, debt));
+    debtSum += debt;
+    // 冲突：前置循环（A 前置 B 且 B 前置 A）
+    for (const r of rels) {
+      if (r.type === "prerequisite" && CORPUS.byId.has(r.target)) {
+        const t = CORPUS.byId.get(r.target);
+        if (t.relations && t.relations.some(x => x.type === "prerequisite" && (x.target === c.id || (CORPUS.byId.get(x.target) || {}).id === c.id))) {
+          conflictList.push({ type: "prereq-cycle", a: c.id, b: r.target, aName: c.name, bName: t.name });
+        }
+      }
+    }
+    // 核心节点
+    if (coreIds.has(c.id)) {
+      if (eff >= 1) coreWithRel++;
+      if (comp >= 4) coreComplete++;
+    }
+    // 缺口列表（带优先级）
     if (gapList.length < 40) {
-      if (!srcs.length) gapList.push({ kind: 'source', id: c.id, name: c.name, domain: c.domain });
-      else if (!c.principle || !(c.pros || []).length || !(c.cons || []).length) gapList.push({ kind: 'fields', id: c.id, name: c.name, domain: c.domain });
-      else if (eff < 2) gapList.push({ kind: 'isolated', id: c.id, name: c.name, domain: c.domain });
+      const heatN = heat[c.id] || 0;
+      const heatMax = Math.max(1, ...Object.values(heat));
+      const priority = Math.round((debt / 100) * 0.4 + (heatN / heatMax) * 0.25 + ((cent[c.id] ? cent[c.id].deg : 0) / maxDeg) * 0.25 + (domSize[c.domain] / maxDom) * 0.1 * 100);
+      if (debt > 25) gapList.push({ kind: debt >= 60 ? "high-debt" : debt >= 40 ? "mid-debt" : "low-debt", id: c.id, name: c.name, domain: c.domain, debt, priority, isolated: iso, heat: heatN, degree: cent[c.id] ? cent[c.id].deg : 0 });
     }
   }
-  return { concepts, avgCompleteness: concepts ? Math.round(compSum / concepts * 100) : 0, relationEfficiency: relations ? Math.round(valid / relations * 100) : 0,
-    sourceCoverage: concepts ? Math.round(sourceCovered / concepts * 100) : 0, multiSourceRate: concepts ? Math.round(multiSource / concepts * 100) : 0,
-    pending: pendingC, pendingRelations: pendingRel, isolated, lowConfidenceRelations: lowConfRels,
-    relationPool: Object.keys(readRelPool()).length, moderationQueue: readModeration().length, gaps: gapList };
+  function lowConfRelsIn(c, rels) { return rels.filter(r => (r.confidence != null ? r.confidence : (CORPUS.byId.has(r.target) ? 0.6 : 0.3)) < 0.6).length; }
+  // pending 目标分级
+  const pendingFreq = {};
+  for (const c of CORPUS.all) {
+    for (const r of (c.relations || [])) {
+      if (!CORPUS.byId.has(r.target)) pendingFreq[r.target] = (pendingFreq[r.target] || 0) + 1;
+    }
+  }
+  for (const [t, n] of Object.entries(pendingFreq)) {
+    if (n >= 3) pendingGrade.high++;
+    else if (n === 2) pendingGrade.normal++;
+    else pendingGrade.low++;
+  }
+  gapList.sort((a, b) => b.priority - a.priority);
+  return {
+    concepts,
+    avgCompleteness: concepts ? Math.round(compSum / concepts * 100) : 0,
+    knowledgeDebt: concepts ? Math.round(debtSum / concepts) : 0,
+    relationEfficiency: relations ? Math.round(valid / relations * 100) : 0,
+    sourceCoverage: concepts ? Math.round(sourceCovered / concepts * 100) : 0,
+    multiSourceRate: concepts ? Math.round(multiSource / concepts * 100) : 0,
+    pending: pendingC,
+    pendingRelations: pendingRel,
+    pendingQuality: pendingGrade,
+    isolated,
+    lowConfidenceRelations: lowConfRels,
+    coreNodes: coreTotal,
+    coreCoverage: coreTotal ? Math.min(100, Math.round(coreWithRel / coreTotal * 100)) : 100,
+    coreCompleteness: coreTotal ? Math.round(coreComplete / coreTotal * 100) : 100,
+    conflicts: conflictList.length,
+    conflictList: conflictList.slice(0, 10),
+    relationPool: Object.keys(readRelPool()).length,
+    moderationQueue: readModeration().length,
+    gaps: gapList,
+  };
 }
 
 function runPatrol() {
   const h = healthScore();
   let enqueued = 0;
   const seen = new Set();
+  // 1) 冲突 → moderation（不自动覆盖）
+  (h.conflictList || []).slice(0, 2).forEach(cf => {
+    const m = readModeration();
+    if (!m.some(x => x.type === 'conflict' && x.conceptId === cf.a && x.relationTarget === cf.b)) {
+      m.push({ id: 'm' + Date.now() + Math.random().toString(36).slice(2, 5), at: Date.now(), type: 'conflict', conceptId: cf.a, relationTarget: cf.b, detail: '前置循环冲突：' + cf.aName + ' ↔ ' + cf.bName, status: 'pending' });
+      writeModeration(m.slice(-200));
+    }
+  });
+  // 2) 高优先级缺口（debt × heat × centrality × domain 已排序）
   for (const g of h.gaps) {
     if (enqueued >= 3) break;
-    const key = g.kind + '|' + g.id;
+    if (!g.id) continue;
+    const key = 'enrich|' + g.id;
     if (seen.has(key)) continue;
     seen.add(key);
     if (enqueueTask('enrich', g.id, 'patrol-' + g.kind)) enqueued++;
+  }
+  // 3) 高频 pending 目标（高价值补全）
+  if (enqueued < 3) {
+    const freq = {};
+    for (const c of CORPUS.all) for (const r of (c.relations || [])) if (!CORPUS.byId.has(r.target)) freq[r.target] = (freq[r.target] || 0) + 1;
+    const top = Object.entries(freq).sort((a, b) => b[1] - a[1])[0];
+    if (top && top[1] >= 3 && enqueueTask('concept', top[0], 'patrol-pending')) enqueued++;
   }
   bumpStat('patrolRuns', 1);
   return { ok: true, health: h, enqueued };
@@ -942,7 +1058,12 @@ function runPatrol() {
 
 function applyRelationBudget(c) {
   const rels = c.relations || [];
-  if (rels.length <= MAX_RELATIONS) return rels;
+  const cent = (CORPUS && CORPUS.centrality) || {};
+  const sortedDeg = Object.values(cent).map(x => x.deg || 0).sort((a, b) => b - a);
+  const coreThreshold = sortedDeg[Math.max(0, Math.floor(sortedDeg.length * 0.1))] || 1;
+  const isCore = (cent[c.id] ? cent[c.id].deg : 0) >= coreThreshold && (cent[c.id] ? cent[c.id].deg : 0) > 0;
+  const budget = isCore ? MAX_RELATIONS_CORE : MAX_RELATIONS;   // 核心节点动态提高
+  if (rels.length <= budget) return rels;
   const sorted = rels.slice().sort((a, b) => (b.confidence || 0) - (a.confidence || 0));
   const keep = sorted.slice(0, MAX_RELATIONS);
   const overflow = sorted.slice(MAX_RELATIONS);
@@ -1386,6 +1507,10 @@ function handleDiscover(res, payload) {
 const server = http.createServer((req, res) => {
   const url = new URL(req.url, "http://x");
   if (url.pathname === "/api/health") return send(res, 200, JSON.stringify(healthScore()));
+  if (req.method === "POST" && url.pathname === "/api/heat") {
+    let b1 = ""; req.on("data", c => (b1 += c)); req.on("end", () => { let p = {}; try { p = JSON.parse(b1 || "{}"); } catch (e) {} handleHeat(res, p); });
+    return;
+  }
   if (req.method === "POST" && url.pathname === "/api/rollback") {
     let b2 = ""; req.on("data", c => (b2 += c)); req.on("end", () => { let p = {}; try { p = JSON.parse(b2 || "{}"); } catch (e) {} handleRollback(res, p); });
     return;

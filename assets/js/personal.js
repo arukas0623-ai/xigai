@@ -184,9 +184,11 @@
     if (!box) return;
     fetch("/api/health").then(r => r.json()).then(h => {
       if (!h || !h.gaps) { box.innerHTML = '<div class="sp-empty">健康数据不可用</div>'; return; }
+      const pg = h.pendingQuality || {};
       const stat = '<div class="health-stats">' +
-        '<span><b>' + h.avgCompleteness + '%</b> 完整度</span><span><b>' + h.relationEfficiency + '%</b> 关系有效</span><span><b>' + h.isolated + '</b> 孤立节点</span>' +
-        '<span><b>' + h.pendingRelations + '</b> 待补全关系</span><span><b>' + h.pending + '</b> pending</span><span><b>' + h.relationPool + '</b> 候选关系</span></div>';
+        '<span><b>' + h.avgCompleteness + '%</b> 完整度</span><span><b>' + h.knowledgeDebt + '</b> 知识债务</span><span><b>' + h.relationEfficiency + '%</b> 关系有效</span>' +
+        '<span><b>' + h.isolated + '</b> 孤立</span><span><b>' + h.pendingRelations + '</b> 待补全</span><span><b>' + h.coreNodes + '</b> 核心节点·' + h.coreCoverage + '%覆盖</span>' +
+        '<span><b>' + (h.conflicts || 0) + '</b> 冲突</span><span><b>' + (pg.high || 0) + '</b> 高价值pending</span><span><b>' + (pg.normal || 0) + '</b> 普通</span><span><b>' + (pg.low || 0) + '</b> 低价值</span></div>';
       const list = h.gaps.slice(0, 12).map(g =>
         '<li data-id="' + X.esc(g.id) + '"><span class="nm">' + X.esc(g.name) + '</span><span class="fd">' +
         ({ source: "缺来源", fields: "缺字段", isolated: "孤立节点" }[g.kind] || g.kind) + " · " + X.esc(g.domain) + "</span></li>"
