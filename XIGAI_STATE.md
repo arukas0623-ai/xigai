@@ -32,7 +32,7 @@
 - 缓存：深度解析 7d、聊天 24h、quiz 24h、grow/verify 7d
 - 自动任务上限：小时 6 / 日 40 / 队列 50（`autoOps` 计数）
 - 防重复：QUEUE_DONE 冷却 5min、单飞 Map、队列去重
-- 统计：`/api/stats`（localHits/cacheHits/ollamaCalls/paidCalls/webSearchCalls/ingests/updates/quizzes/graphragCalls/queue*/patrolRuns/reviews/candidatesFound/searchLog/feedback/moderationFixed/autoOps/costPanel）
+- 统计：`/api/stats`（localHits/cacheHits/ollamaCalls/paidCalls/webSearchCalls/ingests/updates/quizzes/graphragCalls/queue*/patrolRuns/reviews/candidatesFound/searchLog/feedback/moderationFixed/autoOps/costPanel/verifies/verifyCacheHits/subdomainProposals/conflictsDetected）
 
 ## 4. 已完成系统（按时间）
 1. 基础：图书馆书架 UI、模糊+拼音搜索、详情、主题换肤、拖拽、收藏/历史、AI 聊天（Ollama 免费 + 付费兜底）、AI 深度解析、回填书库
@@ -60,6 +60,11 @@
   - [ ] 同义词/缩写候选规范化
 - 后续候选：GraphRAG 升级向量检索、UI 持续精修、xigai.js.org 上线（PR 合并后加 CNAME）
 
+## 5b. 本轮新增（2026-08-14 知识可信度 + 领域体系）
+- **AI 解析质量门（P0）**：AI解析→提取候选→去重/匹配→规范化别名→Ollama 独立校验（与生成分离，结果参与置信度：生成60%+校验40%，缓存7天）→必要时百科免费验证→conf/status→≥0.85 verified 入库 / 0.6~0.85 generated / <0.6 pending 不公开；校验 score<0.5 进人工审核队列（不直接入库）；已有概念优先更新合并（别名/来源/关系取并集），不重复创建
+- **AI 答案可信度（P1）**：聊天/识别芯片显示 已收录/待验证/未公开 + 可信度 + 独立核验 + 来源数；详情页新增「收录依据」区块（独立核验%、结论、待核查项）
+- **降 AI 味（P1）**：文案去营销化（概念答疑/深入解析/联网检索生成 替代 AI 解析员/深度解析/AI 生成）；视觉去聊天气泡渐变/发光/径向光晕；概念详情以知识内容为主
+- **领域体系（P1/P2）**：/api/domain-analysis 覆盖分析（藏书量/债务/孤立/跨域×优先级）+ 子领域候选生成（Ollama，7天缓存）+ 严格校验（≥2 个同域真实概念才落盘，防伪造）+ openDomain 领域层级展示（无层级时回退 tags 分组）
 ## 6. 禁止事项
 - 大规模重构；删除/降级 pending 关系；无依据制造关系；自动任务启用付费（autoPaidEnabled 恒 false）；追求概念数量；破坏现有 API/数据/Ollama 策略；移动端输入对比度回退
 

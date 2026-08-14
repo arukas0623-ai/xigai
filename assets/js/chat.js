@@ -76,7 +76,7 @@
     if (!body) return;
     body.innerHTML = "";
     if (!X.chatHistory.length) {
-      body.innerHTML = '<div class="chat-empty">🤖 你好，我是析概的 AI 解析员。<br>可以问我任何概念、术语、缩写或行业黑话的含义——我会联网搜索并给出深度解析。<br>例如：</div>';
+      body.innerHTML = '<div class="chat-empty">你好，我是析概的概念答疑。<br>可查询任何概念、术语、缩写或行业黑话的含义——已收录的直接引用书库，未收录的将联网检索整理。<br>例如：</div>';
       return;
     }
     X.chatHistory.forEach((m, i) => {
@@ -135,7 +135,11 @@
       const local = X.findLocalConcept(q);
       if (local) {
         X.chatHistory.push({ role: "q", t: Date.now(), text: q });
-        X.chatHistory.push({ role: "a", t: Date.now(), text: "📚 本地书库已收录「" + local.name + "」（" + local.domain + "），无需联网：\n" + (local.summary || ""), isHtml: false, localId: local.id });
+        const _st = local.status === "verified" ? "已收录" : local.status === "generated" ? "待验证" : "未公开";
+        const _conf = local.confidence != null ? " · 可信度 " + Math.round(local.confidence * 100) + "%" : "";
+        const _src = " · 来源 " + ((local.sources || []).length) + " 处";
+        const _ver = local.verification && local.verification.score != null ? " · 已独立核验(" + Math.round(local.verification.score * 100) + ")" : "";
+        X.chatHistory.push({ role: "a", t: Date.now(), text: "已收录「" + local.name + "」（" + local.domain + " · " + _st + _conf + _src + _ver + "）：\n" + (local.summary || ""), isHtml: false, localId: local.id });
         X.store.set("chatHistory", X.chatHistory.slice(-40));
         const inp = document.getElementById("chat-input");
         if (inp) inp.value = "";
@@ -144,7 +148,7 @@
         if (body && body.lastElementChild) {
           const btn = document.createElement("button");
           btn.className = "chat-addbtn";
-          btn.textContent = "📖 打开详情";
+          btn.textContent = "查看收录依据";
           btn.addEventListener("click", () => X.openConcept(local.id));
           body.lastElementChild.appendChild(btn);
         }
@@ -182,7 +186,11 @@
         const chip = document.createElement("button");
         chip.className = "chat-addbtn";
         if (cn.exists) {
-          chip.textContent = "✓ " + cn.name + "（已在库）";
+          const stc = cn.status === "verified" ? "已收录" : cn.status === "generated" ? "待验证" : "未公开";
+          const confc = cn.confidence != null ? " · 可信度" + Math.round(cn.confidence * 100) + "%" : "";
+          const whyc = cn.verification && cn.verification.score != null ? " · 已核验" : "";
+          chip.textContent = "✓ " + cn.name + "（" + stc + confc + whyc + "）";
+          chip.title = "已收录：查看收录依据（来源/独立校验）";
           chip.addEventListener("click", () => X.openConcept(cn.concept.id));
         } else {
           chip.textContent = "+ " + cn.name + "（缺失·入库）";
@@ -247,9 +255,9 @@
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ q }),
     }).then(r => r.json()).then(d => {
-      if (d.ok) done("💠 深度解析（联网+模型）\n\n" + d.text);
-      else done("（AI 解析失败：" + (d.error || "未知错误") + "）");
-    }).catch(() => done("（无法连接本地 AI 服务）"));
+      if (d.ok) done("深入解析（联网检索）\n\n" + d.text);
+      else done("（解析失败：" + (d.error || "未知错误") + "）");
+    }).catch(() => done("（无法连接本地服务）"));
   };
   /* 免费问 AI 面板：打开本机 AI 应用 / 免费网页 AI */
   X.freeAIPanel = function (q, typing) {

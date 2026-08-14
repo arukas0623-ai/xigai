@@ -75,6 +75,7 @@
 
   /* 打开个人面板 */
   X.openPersonal = function () {
+    X.loadDomainHierarchy();
     let ov = document.getElementById("personal-panel");
     if (!ov) { ov = document.createElement("div"); ov.id = "personal-panel"; ov.className = "overlay hidden"; document.body.appendChild(ov); }
     ov.innerHTML = "";
@@ -144,7 +145,38 @@
   };
 
   /* 领域首页：子领域导航 + 概念列表 + 跨域关系 + 学习入口 */
+  X._domHierarchy = null;
+  X.renderDomainGroups = function (dom) {
+    const byId = {};
+    dom.concepts.forEach(c => { byId[c.id] = c; });
+    let subs = null;
+    if (X._domHierarchy && X._domHierarchy[dom.name]) subs = X._domHierarchy[dom.name];
+    if (subs && subs.length) {
+      return subs.map(s => {
+        const cs = (s.concepts || []).map(id => byId[id]).filter(Boolean);
+        if (cs.length < 2) return "";
+        return '<div class="dom-group"><div class="dom-group-title">' + X.esc(s.name) + '<small>' + cs.length + " 个概念 · " + X.esc(s.boundary || "") + '</small></div><div class="dom-concepts">' +
+          cs.map(c => '<span class="dom-concept" data-id="' + X.esc(c.id) + '">' + X.esc(c.name) + "</span>").join("") + "</div></div>";
+      }).join("");
+    }
+    const groups = {};
+    dom.concepts.forEach(c => { const g = (c.tags && c.tags[0]) || "其他"; (groups[g] = groups[g] || []).push(c); });
+    return Object.keys(groups).map(g =>
+      '<div class="dom-group"><div class="dom-group-title">' + X.esc(g) + '<small>' + groups[g].length + " 个概念</small></div><div class='dom-concepts'>" +
+      groups[g].map(c => '<span class="dom-concept" data-id="' + X.esc(c.id) + '">' + X.esc(c.name) + "</span>").join("") + "</div></div>"
+    ).join("");
+  };
+  X.loadDomainHierarchy = function () {
+    return fetch("/api/domain-analysis").then(r => r.json()).then(d => { X._domHierarchy = d.hierarchy || null; return X._domHierarchy; }).catch(() => { X._domHierarchy = null; return null; });
+  };
   X.openDomain = function (name) {
+    if (X._domHierarchy === null) {
+      X.loadDomainHierarchy().then(() => X._renderDomain(name)).catch(() => X._renderDomain(name));
+      return;
+    }
+    X._renderDomain(name);
+  };
+  X._renderDomain = function (name) {
     const dom = X.domains.find(d => d.name === name);
     if (!dom) { X.toast("领域不存在"); return; }
     let ov = document.getElementById("domain-panel");
@@ -152,13 +184,8 @@
     ov.innerHTML = "";
     const card = document.createElement("div");
     card.className = "panel-card domain-card";
-    // 子领域分组（按 tags[0]）
-    const groups = {};
-    dom.concepts.forEach(c => { const g = (c.tags && c.tags[0]) || "其他"; (groups[g] = groups[g] || []).push(c); });
-    const groupHtml = Object.keys(groups).map(g =>
-      '<div class="dom-group"><div class="dom-group-title">' + X.esc(g) + '<small>' + groups[g].length + " 个概念</small></div><div class='dom-concepts'>" +
-      groups[g].map(c => '<span class="dom-concept" data-id="' + X.esc(c.id) + '">' + X.esc(c.name) + "</span>").join("") + "</div></div>"
-    ).join("");
+    // 子领域分组：优先使用领域体系（/api/domain-analysis），否则按 tags[0]
+    const groupHtml = X.renderDomainGroups(dom);
     // 跨域关系（本领域概念指向其他领域的关系目标）
     const cross = {};
     dom.concepts.forEach(c => X.getRelations(c).forEach(r => { if (r.resolved && r.concept.domain !== name) { cross[r.concept.name] = r.concept; } }));
@@ -168,7 +195,7 @@
     const pathHtml = '<div class="dom-path"><h4>学习路径建议（按难度）</h4><ol>' + ordered.slice(0, 6).map((c, i) => '<li><button data-id="' + X.esc(c.id) + '">' + (i + 1) + '. ' + X.esc(c.name) + '</button><small>难度 ' + (c.difficulty || 3) + "</small></li>").join("") + "</ol></div>";
     card.innerHTML =
       '<button class="panel-close">✕</button>' +
-      '<div class="dom-head"><span class="dom-seal">' + X.esc(dom.seal) + '</span><div><h3>' + X.esc(dom.name) + '</h3><small>' + dom.concepts.length + " 个概念 · " + Object.keys(groups).length + " 个子领域 · " + Object.keys(cross).length + " 个跨域关联</small></div></div>" +
+      '<div class="dom-head"><span class="dom-seal">' + X.esc(dom.seal) + '</span><div><h3>' + X.esc(dom.name) + '</h3><small>' + dom.concepts.length + " 个概念 · " + Object.keys(cross).length + " 个跨域关联</small></div></div>" +
       '<div class="dom-body">' + groupHtml + crossHtml + pathHtml + "</div>";
     ov.appendChild(card);
     ov.classList.remove("hidden");

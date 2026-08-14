@@ -236,12 +236,20 @@
       (prosHtml ? '<div class="pc pros"><h4>✓ 优点</h4><ul>' + prosHtml + "</ul></div>" : "") +
       (consHtml ? '<div class="pc cons"><h4>✕ 缺点</h4><ul>' + consHtml + "</ul></div>" : "") +
       "</div></div>" : "";
+    // 收录依据：独立核验 + 可信度 + 状态（P1 可解释）
+    let whyHtml = "";
+    if (c.verification && c.verification.score != null) {
+      const vs = Math.round(c.verification.score * 100);
+      whyHtml = '<div class="why-block"><span class="why-item">独立核验 ' + vs + "%</span>" +
+        (c.verification.note ? '<span class="why-note">' + X.esc(c.verification.note) + "</span>" : "") +
+        ((c.verification.issues || []).length ? '<span class="why-issue">待核查：' + X.esc((c.verification.issues || []).join("；")) + "</span>" : "") + "</div>";
+    }
     // 来源卡片化：标题 + URL + 检索日期（references 与 sources 按序对应）
     const refs = c.references || [];
     const srcItems = (c.sources || []).map((s, i) =>
       '<li class="src-card"><a href="' + X.esc(s) + '" target="_blank" rel="noopener">' + X.esc(refs[i] || s) + '</a><span class="src-url">' + X.esc(s) + '</span>' + (c.searchedAt ? '<span class="src-date">检索于 ' + X.esc(c.searchedAt) + "</span>" : "") + "</li>"
     );
-    const srcs = srcItems.join("") || '<li class="src-card" style="color:var(--ink-3)">（本条目由 AI 综合整理，未标注外部来源）</li>';
+    const srcs = srcItems.join("") || '<li class="src-card" style="color:var(--ink-3)">（本条内容暂未标注外部来源，仅供学习参考）</li>';
 
     card.innerHTML =
       '<button class="panel-close" title="关闭 (Esc)">✕</button>' +
@@ -266,13 +274,13 @@
         (core ? '<div class="sec"><h3>核心要点</h3><ul>' + core + "</ul></div>" : "") +
         (proscons ? proscons : "") +
         (miscon ? '<div class="sec"><h3>常见误解</h3><ul>' + miscon + "</ul></div>" : "") +
-        '<div class="sec"><h3>参考来源' + (c.generated ? ' <span class="gen-badge">🤖 AI 联网生成</span>' : "") + '</h3><ul class="src-list">' + srcs + "</ul></div>" +
+        '<div class="sec"><h3>参考来源' + (c.generated ? ' <span class="gen-badge">联网检索生成</span>' : "") + '</h3>' + (whyHtml || "") + '<ul class="src-list">' + srcs + "</ul></div>" +
         '<div class="sec" id="footprint-sec" style="display:none"><h3>学习足迹</h3><div id="footprint-box"></div></div>' +
         '<div id="ai-area"></div><div id="baike-box"></div>' +
       "</div>" +
       '<div class="detail-actions">' +
-        '<button class="btn primary" id="free-btn">🆓 免费问 AI</button>' +
-        '<button class="btn" id="ai-btn">💠 AI 深度解析</button>' +
+        '<button class="btn primary" id="free-btn">免费查询</button>' +
+        '<button class="btn" id="ai-btn">深入解析</button>' +
         '<button class="btn" id="bk-btn">📖 百科速览</button>' +
         '<button class="btn" id="quiz-btn">📝 测试</button>' +
         '<button class="btn" id="graph-btn">🕸 图谱</button>' +
@@ -433,7 +441,7 @@
       if (el) setTimeout(() => el.scrollIntoView({ behavior: "smooth", block: "center" }), 60);
     }));
     ov.querySelectorAll(".rel-chip[data-rel]").forEach(ch => ch.addEventListener("click", () => X.openConcept(ch.dataset.rel)));
-    ov.querySelectorAll(".rel-chip.miss").forEach(ch => ch.addEventListener("click", () => X.toast("「" + ch.dataset.miss + "」尚未收录——可用 AI 深度解析研究")));
+    ov.querySelectorAll(".rel-chip.miss").forEach(ch => ch.addEventListener("click", () => X.toast("「" + ch.dataset.miss + "」尚未收录——可深入解析研究")));
     ov.querySelector("#graph-btn").addEventListener("click", () => X.openGraph(c.id));
     ov.querySelector("#quiz-btn").addEventListener("click", () => X.openQuiz(c));
     ov.querySelector("#cmp-btn").addEventListener("click", () => X.compareAdd(c.id));
@@ -465,7 +473,7 @@
     ov.querySelector("#bk-btn").addEventListener("click", () => X.baikeLookup(c.name));
     ov.querySelector("#free-btn").addEventListener("click", () => {
       X.closeDetail();
-      X.askAI("深度解析概念「" + c.name + "」：" + (c.summary || ""));
+      X.askAI("解析概念「" + c.name + "」：" + (c.summary || ""));
     });
     ov.querySelector("#ai-btn").addEventListener("click", () => X.aiDeepDive(c));
     // 滚动进度
@@ -503,14 +511,14 @@
     w.document.write("<!doctype html><html lang=zh-CN><head><meta charset=utf-8><title>" + X.esc(c.name) + " · 析概</title>" +
       "<style>body{font-family:'Songti SC',SimSun,serif;max-width:720px;margin:30px auto;padding:0 20px;color:#2e2417;line-height:1.9}h1{letter-spacing:4px;border-bottom:2px solid #c9a227;padding-bottom:10px}h2{color:#8a6d1d;letter-spacing:2px;margin-top:26px;font-size:18px}li{margin:5px 0}code{background:#f2ead2;padding:1px 5px}.meta{color:#8a7a60;font-size:13px}.sum{font-style:italic;font-size:17px;border-left:3px solid #c9a227;padding-left:14px;margin:20px 0}a{color:#8a6d1d;word-break:break-all}@media print{body{margin:0}}</style></head><body>" +
       "<h1>" + X.esc(c.name) + "</h1>" +
-      '<div class="meta">' + X.esc(c.domain) + " · " + (c.aliases || []).join(" / ") + " · 难度 " + (c.difficulty || 3) + "/5 · 析概知识库 AI 整理" + "</div>" +
+      '<div class="meta">' + X.esc(c.domain) + " · " + (c.aliases || []).join(" / ") + " · 难度 " + (c.difficulty || 3) + "/5 · 析概知识库整理" + "</div>" +
       (c.summary ? '<p class="sum">' + X.esc(c.summary) + "</p>" : "") +
       (c.definition ? "<h2>定义与解释</h2><p>" + X.md(c.definition) + "</p>" : "") +
       (c.background ? "<h2>背景与历史</h2><p>" + X.md(c.background) + "</p>" : "") +
       (core ? "<h2>核心要点</h2><ul>" + core + "</ul>" : "") +
       (apps ? "<h2>现实应用</h2><ul>" + apps + "</ul>" : "") +
       (srcs ? "<h2>参考来源</h2><ul>" + srcs + "</ul>" : "") +
-      '<p class="meta" style="margin-top:30px">由「析概 · 知识图书馆」生成 · ' + X.fmtTime(Date.now()) + "</p>" +
+      '<p class="meta" style="margin-top:30px">由「析概 · 知识图书馆」整理 · ' + X.fmtTime(Date.now()) + "</p>" +
       "</body></html>");
     w.document.close();
     setTimeout(() => { try { w.print(); } catch (e) {} }, 300);
@@ -563,14 +571,14 @@
     const cachedKey = "ai:" + c.id;
     const cached = X.store.get(cachedKey, null);
     if (cached && cached.t > Date.now() - 7 * 864e5) {
-      area.innerHTML = '<div class="ai-box"><div class="ai-head">🤖 AI 深度解析（缓存）</div><pre>' + X.esc(cached.text) + '</pre><div class="ai-meta">生成于 ' + X.fmtTime(cached.t) + '</div><div style="margin-top:10px"><button class="mini-btn" id="ai-add">📥 加入书库（自生长）</button></div></div>';
+      area.innerHTML = '<div class="ai-box"><div class="ai-head">深入解析（缓存）</div><pre>' + X.esc(cached.text) + '</pre><div class="ai-meta">生成于 ' + X.fmtTime(cached.t) + '</div><div style="margin-top:10px"><button class="mini-btn" id="ai-add">📥 加入书库（自生长）</button></div></div>';
       const addBtn2 = area.querySelector("#ai-add");
       if (addBtn2) addBtn2.addEventListener("click", () => X.addConceptToLibrary(c, cached.text));
       X.toast("已展示缓存的 AI 解析");
       return;
     }
     if (!confirm("本机没有可免费调用的本地 AI 引擎。付费方式将调用 DeepSeek 模型联网研究「" + c.name + "」，消耗少量模型额度，结果缓存 7 天。是否继续？")) return;
-    area.innerHTML = '<div class="ai-box"><div class="ai-head"><span class="spin">⏳</span> AI 研究员正在联网检索与深度分析「' + X.esc(c.name) + '」…</div></div>';
+    area.innerHTML = '<div class="ai-box"><div class="ai-head"><span class="spin">⏳</span> 正在联网检索与分析「' + X.esc(c.name) + '」…</div></div>';
     fetch("/api/ai", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -578,14 +586,14 @@
     }).then(r => r.json()).then(data => {
       if (data.ok) {
         X.store.set(cachedKey, { t: Date.now(), text: data.text });
-        area.innerHTML = '<div class="ai-box"><div class="ai-head">🤖 AI 深度解析' + (data.cached ? "（缓存）" : "（联网生成）") + '</div><pre>' + X.esc(data.text) + '</pre><div class="ai-meta">' + (data.cached ? "来自缓存" : "AI 联网研究完成 · 结果已缓存 7 天") + '</div><div style="margin-top:10px"><button class="mini-btn" id="ai-add">📥 加入书库（自生长）</button></div></div>';
+        area.innerHTML = '<div class="ai-box"><div class="ai-head">深入解析' + (data.cached ? "（缓存）" : "（联网生成）") + '</div><pre>' + X.esc(data.text) + '</pre><div class="ai-meta">' + (data.cached ? "来自缓存" : "检索整理完成 · 结果已缓存 7 天") + '</div><div style="margin-top:10px"><button class="mini-btn" id="ai-add">📥 加入书库（自生长）</button></div></div>';
         const addBtn = area.querySelector("#ai-add");
         if (addBtn) addBtn.addEventListener("click", () => X.addConceptToLibrary(c, data.text));
       } else {
-        area.innerHTML = '<div class="ai-error">AI 深度解析失败：' + X.esc(data.error || "未知错误") + '<br><span style="font-size:12px">请确认本地服务（server.js）正在运行。</span></div>';
+        area.innerHTML = '<div class="ai-error">解析失败：' + X.esc(data.error || "未知错误") + '<br><span style="font-size:12px">请确认本地服务（server.js）正在运行。</span></div>';
       }
     }).catch(e => {
-      area.innerHTML = '<div class="ai-error">无法连接本地 AI 服务（' + X.esc(e.message) + "）。<br><span style='font-size:12px'>提示：在 D:\析概 目录运行 <b>node server.js</b> 启动服务后重试。</span></div>";
+      area.innerHTML = '<div class="ai-error">无法连接本地检索服务（' + X.esc(e.message) + "）。<br><span style='font-size:12px'>提示：在 D:\析概 目录运行 <b>node server.js</b> 启动服务后重试。</span></div>";
     });
   };
 

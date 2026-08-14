@@ -1148,5 +1148,93 @@ window.XIGAI["人工智能"] = [
     "relationConfidence": 0.55,
     "status": "verified",
     "searchedAt": "2026-08-14"
+  },
+  {
+    "name": "贝叶斯定理",
+    "aliases": [
+      "Bayes' theorem"
+    ],
+    "field": "人工智能/统计学",
+    "tags": [
+      "概率论",
+      "统计推断"
+    ],
+    "difficulty": 3,
+    "summary": "用于计算条件概率的公式。",
+    "definition": "贝叶斯定理是一种用于计算在已知某些条件下，某个假设成立的概率的方法。具体来说，它是根据先验概率和似然度来更新后验概率的公式。",
+    "background": "1763年，托马斯·贝叶斯提出了一种关于条件概率的理论，后来由理查德·皮尔逊进一步发展。该定理由贝叶斯的论文《论机会游戏中的一些问题》中推导而来。",
+    "core": [
+      "先验概率：在获得新信息之前对假设的概率估计。",
+      "似然度：给定假设为真时，观察到数据的概率。",
+      "后验概率：结合先验概率和似然度后的最终概率。",
+      "贝叶斯更新：通过调整先验概率来反映新的证据或数据。"
+    ],
+    "pros": [
+      "能够利用新数据不断修正概率估计，提高预测准确性。",
+      "适用于不确定性分析和决策制定。"
+    ],
+    "cons": [
+      "需要准确的先验概率，否则可能导致偏差。",
+      "计算复杂度可能较高，特别是在处理大量数据时。"
+    ],
+    "applications": [
+      "机器学习中的模型训练",
+      "医学诊断",
+      "推荐系统"
+    ],
+    "misconceptions": [
+      "贝叶斯定理仅适用于数学问题，而不涉及实际决策。",
+      "先验概率总是客观的，不需要主观判断。"
+    ],
+    "related": [
+      "先验概率",
+      "后验概率"
+    ],
+    "relations": [
+      {
+        "type": "followup",
+        "target": "贝叶斯网络",
+        "note": "",
+        "confidence": 0.3
+      },
+      {
+        "type": "dependsOn",
+        "target": "条件概率",
+        "note": "",
+        "confidence": 0.3
+      },
+      {
+        "type": "dependsOn",
+        "target": "先验概率",
+        "note": "",
+        "confidence": 0.3
+      }
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Bayes%27_theorem",
+      "https://www.statlect.com/fundamentals-of-statistics/bayes-theorem",
+      "https://machinelearningmastery.com/a-gentle-introduction-to-bayesian-probability-for-machine-learning/",
+      "https://mathworld.wolfram.com/BayessTheorem.html"
+    ],
+    "principle": "",
+    "id": "贝叶斯定理",
+    "provenance": {
+      "discoveredBy": "user",
+      "discoveredAt": 1786696405936,
+      "evidence": "user-request:贝叶斯定理"
+    },
+    "confidence": 0.9,
+    "sourceConfidence": 0.7,
+    "relationConfidence": 0.3,
+    "status": "verified",
+    "verification": {
+      "by": "ollama",
+      "score": 1,
+      "issues": [],
+      "note": "贝叶斯定理的定义和原理准确无误，关系描述也符合实际情况。",
+      "at": 1786696383349
+    },
+    "searchedAt": "2026-08-14",
+    "domain": "人工智能"
   }
 ];

@@ -53,10 +53,10 @@
           X.closeSearch(); input.value = ""; X.state.lastSearch = ""; X.saveState();
           X.openConcept(c.id);
         } else {
-          // 无结果 → 询问是否 AI 深度解析
+          // 无结果 → 询问是否深入解析
           const name = input.value.trim();
           X.closeSearch();
-          if (name && confirm("本地书库没有「" + name + "」。要让 AI 联网研究这个新概念吗？（消耗少量模型额度，结果缓存 7 天）")) {
+          if (name && confirm("本地书库没有「" + name + "」。要联网检索整理这个新概念吗？（仅用本地免费能力，结果缓存 7 天）")) {
             const fake = { id: X.slug(name), name, domain: "待收录" };
             input.value = "";
             X.openConcept(fake.id);
@@ -211,7 +211,7 @@
       '<div class="detail-head"><div class="detail-crumb"><a data-goto="home">🏛 图书馆</a> › 新概念研究</div>' +
       '<div class="detail-title"><h2>' + X.esc(name) + "</h2></div></div>" +
       '<div class="detail-body"><div id="ai-area"></div><div id="baike-box"></div></div>' +
-      '<div class="detail-actions"><button class="btn primary" id="ai-btn">✨ AI 深度解析</button><button class="btn" id="bk-btn">📖 百科速览</button></div>';
+      '<div class="detail-actions"><button class="btn primary" id="ai-btn">✨ 深入解析</button><button class="btn" id="bk-btn">📖 百科速览</button></div>';
     ov.appendChild(card);
     ov.classList.remove("hidden");
     document.body.style.overflow = "hidden";

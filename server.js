@@ -323,6 +323,7 @@ const GROW_DIR = path.join(ROOT, ".cache", "grow");
 const VERSION_DIR = path.join(ROOT, ".cache", "versions");
 const STATS_FILE = path.join(ROOT, ".cache", "stats.json");
 const GROW_TTL = 7 * 864e5;
+const VERIFY_TTL = 7 * 864e5;   // 独立校验结果缓存 7 天
 
 /* 内存语料索引（启动与每次入库后重建） */
 let CORPUS = null;
@@ -651,6 +652,45 @@ function verifyViaBaike(name) {
     }).catch(() => ({ ok: false, verified: false, at: Date.now() }));
 }
 
+/* 独立校验：生成后由独立核查（与生成提示分离），结果参与置信度；缓存 7 天避免重复消耗 */
+function verifyConceptStep(obj) {
+  const key = normStr(obj.name || "").slice(0, 40);
+  const cf = path.join(VERIFY_DIR, key + ".verify.json");
+  try {
+    const st = fs.statSync(cf);
+    if (Date.now() - st.mtimeMs < VERIFY_TTL) {
+      const cached = JSON.parse(fs.readFileSync(cf, "utf8"));
+      if (cached && typeof cached.score === "number") { bumpStat("verifyCacheHits", 1); return Promise.resolve(cached); }
+    }
+  } catch (e) {}
+  const prompt = [
+    "你是一名独立的事实核查员（与词条生成者无关）。以下词条由 AI 生成，请逐项核对 定义/原理/关系 是否事实准确、有无明显错误或编造。",
+    "词条：",
+    "名称：" + (obj.name || ""),
+    "定义：" + String(obj.definition || "").slice(0, 400),
+    "原理：" + String(obj.principle || "").slice(0, 300),
+    "关系：" + (obj.relations || []).slice(0, 5).map(r => r.type + "→" + r.target).join("；"),
+    "只输出一个 JSON 对象，不要其他文字：",
+    '{"score":0到1的小数,"issues":["问题1","问题2"],"note":"一句话结论"}',
+    "score=1 表示完全可信；有明显事实错误或编造时 score≤0.4 并列出 issues。",
+  ].join("\n");
+  return growOllama(obj.name, prompt).then(text => {
+    bumpStat("ollamaCalls", 1);
+    const out = { by: "ollama", score: null, issues: [], note: "", at: Date.now(), cached: false };
+    if (text) {
+      const j = extractJSON(text);
+      if (j) {
+        out.score = Math.max(0, Math.min(1, Number(j.score) || 0.5));
+        out.issues = Array.isArray(j.issues) ? j.issues.slice(0, 4).map(String) : [];
+        out.note = String(j.note || "").slice(0, 120);
+      }
+    }
+    bumpStat("verifies", 1);
+    try { fs.mkdirSync(VERIFY_DIR, { recursive: true }); fs.writeFileSync(cf, JSON.stringify(out)); } catch (e) {}
+    return out;
+  });
+}
+
 function computeConfidence(c) {
   let conf = 0.5;
   const defLen = String(c.definition || "").length;
@@ -688,7 +728,17 @@ function updateConcept(domain, oldConcept, newConcept) {
     const idx = arr.findIndex(c => c.id === oldConcept.id || c.name === oldConcept.name);
     if (idx < 0) return { ok: false, error: "目标概念不存在" };
     const merged = Object.assign({}, oldConcept, newConcept, { id: oldConcept.id, name: oldConcept.name, domain: oldConcept.domain });
-    merged.status = statusOf(merged.confidence || 0.5) === "pending" ? "needs_update" : merged.status || "verified";
+    // 智能合并：保留更长定义、别名/来源取并集、关系取并集去重、置信度取高
+    const oldDef = String(oldConcept.definition || ""), newDef = String(newConcept.definition || "");
+    if (newDef.length > oldDef.length) merged.definition = newDef; else if (oldDef) merged.definition = oldDef;
+    merged.aliases = [...new Set([...(oldConcept.aliases || []), ...(newConcept.aliases || [])].map(String).filter(Boolean))].slice(0, 8);
+    merged.sources = [...new Set([...(oldConcept.sources || []), ...(newConcept.sources || [])].filter(Boolean))].slice(0, 6);
+    const relMap = new Map();
+    for (const r of [...(oldConcept.relations || []), ...(newConcept.relations || [])]) if (r && r.target) relMap.set((r.type || "related") + "|" + r.target, r);
+    merged.relations = [...relMap.values()].slice(0, 40);
+    merged.confidence = Math.min(0.9, Math.max(oldConcept.confidence || 0.3, newConcept.confidence || 0.3));
+    merged.verification = newConcept.verification || oldConcept.verification || null;
+    merged.status = statusOf(merged.confidence);
     merged.searchedAt = new Date().toISOString().slice(0, 10);
     arr[idx] = merged;
     const out = "window.XIGAI = window.XIGAI || {};\nwindow.XIGAI[" + JSON.stringify(domain) + "] = " + JSON.stringify(arr, null, 2) + ";\n";
@@ -706,6 +756,10 @@ function updateConcept(domain, oldConcept, newConcept) {
 function enrichConcept(obj, q) {
   obj.confidence = Math.min(0.9, computeConfidence(obj));   // conceptConfidence（自动不封顶 1）
   obj.sourceConfidence = sourceConfidence(obj);
+  // 规范化别名：去"又称/又名"前缀、去重
+  if (Array.isArray(obj.aliases)) {
+    obj.aliases = [...new Set(obj.aliases.map(a => String(a).replace(/^(又称|又名|也称|亦作|简称|俗称|也叫|即)\s*/, "").trim()).filter(Boolean))].slice(0, 8);
+  } else obj.aliases = [];
   // 关系置信度（写入每条关系）
   (obj.relations || []).forEach(r => {
     r.confidence = relationConfidenceFor(r.type, !!findLocal(r.target), r.note, classifyDomain(obj), null);
@@ -770,19 +824,29 @@ function handleGrow(res, payload) {
     obj.id = normStr(obj.name).slice(0, 48) || "concept-" + Date.now();
     obj.provenance = { discoveredBy: "user", discoveredAt: Date.now(), evidence: "user-request:" + q.slice(0, 40) };
     obj = await enrichConcept(obj, q);
-    // 4) 去重
+    // 4a) 独立校验（质量门）：生成与校验分离，禁止自我验证
+    const v = await verifyConceptStep(obj);
+    obj.verification = { by: v.by, score: v.score, issues: (v.issues || []).slice(0, 2), note: v.note, at: v.at };
+    if (v.score != null) {
+      obj.confidence = Math.min(0.9, Math.round((obj.confidence * 0.6 + v.score * 0.4) * 100) / 100);
+      obj.status = statusOf(obj.confidence);
+    }
+    if (v.score != null && v.score < 0.5) {
+      // 事实疑点：不直接入库，进入人工审核队列
+      const mq = readModeration();
+      mq.push({ status: "pending", kind: "concept-verify-fail", conceptId: obj.id || normStr(obj.name).slice(0, 48), name: obj.name, definition: String(obj.definition || "").slice(0, 200), issues: (v.issues || []).slice(0, 3), note: v.note, at: Date.now() });
+      writeModeration(mq);
+      bumpStat("conflictsDetected", 1);
+      return send(res, 200, JSON.stringify({ ok: false, pending: true, reason: "存在事实疑点，已进入人工审核队列", verification: v }));
+    }
+    // 4b) 去重：已有概念优先更新/补全（不重复创建）
     const dup = dedupCheck(obj);
     if (dup) {
-      if (force) {
-        // 强制重新验证：更新已有概念
-        bumpStat("updates", 1);
-        return updateConcept(dup.domain, dup, obj).then(r => {
-          if (r.ok) { try { fs.writeFileSync(cacheFile, JSON.stringify(obj)); } catch (e) {} send(res, 200, JSON.stringify({ ok: true, source: "ai", updated: true, domain: dup.domain, concept: r.concept })); }
-          else send(res, 200, JSON.stringify({ ok: false, error: r.error || "更新失败" }));
-        });
-      }
-      bumpStat("dupSkips", 1);
-      return send(res, 200, JSON.stringify({ ok: false, dup: true, existing: dup, reason: "与已有概念重复" }));
+      bumpStat("updates", 1);
+      return updateConcept(dup.domain, dup, obj).then(r => {
+        if (r.ok) { try { fs.writeFileSync(cacheFile, JSON.stringify(obj)); } catch (e) {} send(res, 200, JSON.stringify({ ok: true, source: "ai", updated: true, domain: dup.domain, concept: r.concept })); }
+        else send(res, 200, JSON.stringify({ ok: false, error: r.error || "更新失败" }));
+      });
     }
     // 5) 可信度/垃圾过滤
     const reason = junkCheck(obj, q);
@@ -1123,7 +1187,7 @@ function handleFeedback(res, payload) {
 
 function processModeration() {
   const m = readModeration();
-  const pending = m.filter(x => x.status === 'pending').slice(0, 2);
+  const pending = m.filter(x => x.status === 'pending' && x.conceptId && findLocalById(x.conceptId)).slice(0, 2);
   if (!pending.length) return Promise.resolve({ ok: true, processed: 0 });
   return Promise.all(pending.map(item => {
     const c = findLocalById(item.conceptId);
@@ -1390,7 +1454,11 @@ function handleExtract(res, payload) {
       if (!t) { bumpStat("errors", 1); return send(res, 200, JSON.stringify({ ok: false, error: "引擎不可用" })); }
       const arr = extractJSON(t) || [];
       const names = (Array.isArray(arr) ? arr : Array.isArray(arr.questions) ? arr.questions : []).map(String).map(s => s.trim()).filter(s => s.length >= 2 && s.length <= 24).slice(0, 6);
-      const out = names.map(n => ({ name: n, exists: !!findLocal(n), concept: findLocal(n) || null }));
+      const out = names.map(n => {
+        const c = findLocal(n);
+        if (c) return { name: n, exists: true, concept: c, status: c.status, confidence: c.confidence, verification: c.verification || null, domain: c.domain };
+        return { name: n, exists: false };
+      });
       send(res, 200, JSON.stringify({ ok: true, concepts: out }));
     }
   });
@@ -1673,6 +1741,98 @@ function handleDiscover(res, payload) {
   send(res, 200, JSON.stringify({ ok: true, added, pendingTotal: Object.keys(freq).length, queue: GROW_QUEUE.length }));
 }
 
+
+/* ═══ 领域体系扩展：覆盖分析 → 子领域候选 → 校验落盘 ═══ */
+const SUBDOMAIN_DIR = path.join(ROOT, ".cache", "subdomains");
+const SUBDOMAIN_FILE = path.join(SUBDOMAIN_DIR, "hierarchy.json");
+function readSubdomains() { try { return JSON.parse(fs.readFileSync(SUBDOMAIN_FILE, "utf8")); } catch (e) { return {}; } }
+function writeSubdomains(h) { try { fs.mkdirSync(SUBDOMAIN_DIR, { recursive: true }); fs.writeFileSync(SUBDOMAIN_FILE, JSON.stringify(h)); } catch (e) {} }
+function domainCoverage() {
+  if (!CORPUS) loadCorpus();
+  const size = {}, debt = {}, isolated = {}, cross = {};
+  for (const c of CORPUS.all) {
+    size[c.domain] = (size[c.domain] || 0) + 1;
+    if (!c.principle || !(c.applications || []).length) debt[c.domain] = (debt[c.domain] || 0) + 1;
+    const rels = (c.relations || []).filter(r => CORPUS.byId.has(r.target));
+    const cc = rels.filter(r => CORPUS.byId.get(r.target).domain !== c.domain).length;
+    cross[c.domain] = (cross[c.domain] || 0) + cc;
+    if (rels.length < 2) isolated[c.domain] = (isolated[c.domain] || 0) + 1;
+  }
+  return Object.keys(size).filter(d => d !== "AI 生成").map(d => {
+    const n = size[d];
+    const priority = (n < 8 ? 3 : 0) + ((debt[d] || 0) >= n * 0.5 ? 2 : 0) + ((cross[d] || 0) >= 3 ? 1 : 0) + ((isolated[d] || 0) >= n * 0.5 ? 1 : 0);
+    return { domain: d, size: n, debt: debt[d] || 0, isolated: isolated[d] || 0, cross: cross[d] || 0, priority };
+  }).sort((a, b) => b.priority - a.priority);
+}
+function proposeSubdomains(domain) {
+  const key = normStr(domain).slice(0, 30);
+  const cf = path.join(SUBDOMAIN_DIR, key + ".propose.json");
+  try {
+    const st = fs.statSync(cf);
+    if (Date.now() - st.mtimeMs < VERIFY_TTL) return Promise.resolve(JSON.parse(fs.readFileSync(cf, "utf8")));
+  } catch (e) {}
+  const prompt = [
+    "知识库「析概」的领域「" + domain + "」需要建立「子领域 → 概念」的体系。",
+    "请基于该领域的通用知识体系，提出 3-5 个子领域，每个子领域给出：名称、边界（一句话）、2-3 个代表性概念名（该领域常见、成体系、有独立知识含量的概念）。",
+    '只输出 JSON 数组：[{"name":"子领域名","boundary":"边界说明","reps":["概念1","概念2"]}]',
+    "要求：子领域边界清晰、互不重叠；代表概念真实存在；宁缺毋滥，不要为凑数编造。",
+  ].join("\n");
+  return growOllama(domain, prompt).then(text => {
+    bumpStat("ollamaCalls", 1);
+    const out = { domain, subs: [], at: Date.now() };
+    if (text) {
+      const arr = extractJSON(text);
+      if (Array.isArray(arr)) out.subs = arr.slice(0, 5).map(s => ({ name: String(s.name || "").trim(), boundary: String(s.boundary || "").slice(0, 80), reps: Array.isArray(s.reps) ? s.reps.slice(0, 4).map(String) : [] })).filter(s => s.name.length >= 2);
+    }
+    bumpStat("subdomainProposals", 1);
+    try { fs.mkdirSync(SUBDOMAIN_DIR, { recursive: true }); fs.writeFileSync(cf, JSON.stringify(out)); } catch (e) {}
+    return out;
+  });
+}
+function validateSubdomains(domain, subs) {
+  const out = [];
+  for (const s of (subs || [])) {
+    const matched = [];
+    for (const rp of (s.reps || [])) {
+      const c = CORPUS.byId.get(rp) || CORPUS.byName.get(normStr(rp)) || CORPUS.byAlias.get(normStr(rp));
+      if (c && c.domain === domain && !matched.includes(c.id)) matched.push(c.id);
+    }
+    if (matched.length < 2) {
+      const sk = normStr(s.name);
+      for (const c of CORPUS.all) {
+        if (c.domain !== domain || matched.length >= 6) continue;
+        const tagHit = (c.tags || []).some(t => { const tk = normStr(t); return tk && (tk.includes(sk) || sk.includes(tk)); });
+        const nameHit = normStr(c.name).includes(sk) || (c.aliases || []).some(a => normStr(a).includes(sk));
+        if ((tagHit || nameHit) && !matched.includes(c.id)) matched.push(c.id);
+      }
+    }
+    if (matched.length >= 2) out.push({ name: s.name, boundary: s.boundary || "", concepts: [...new Set(matched)].slice(0, 8), at: Date.now() });
+  }
+  return out;
+}
+function handleDomainAnalysis(res, payload) {
+  const build = !!(payload && payload.build);
+  const coverage = domainCoverage();
+  const h = readSubdomains();
+  const result = { ok: true, coverage: coverage.slice(0, 12), hierarchy: h, built: [] };
+  if (build) {
+    const priority = coverage.slice(0, 4);
+    Promise.all(priority.map(d => proposeSubdomains(d.domain))).then(results => {
+      const nh = Object.assign({}, h);
+      for (const r of results) {
+        if (!r.subs || !r.subs.length) continue;
+        const valid = validateSubdomains(r.domain, r.subs);
+        if (valid.length) { nh[r.domain] = valid; result.built.push({ domain: r.domain, subdomains: valid.length }); }
+      }
+      writeSubdomains(nh);
+      result.hierarchy = nh;
+      send(res, 200, JSON.stringify(result));
+    }).catch(e => send(res, 200, JSON.stringify(Object.assign(result, { error: String(e).slice(0, 120) }))));
+    return;
+  }
+  send(res, 200, JSON.stringify(result));
+}
+
 const server = http.createServer((req, res) => {
   const url = new URL(req.url, "http://x");
   if (url.pathname === "/api/health") return send(res, 200, JSON.stringify(healthScore()));
@@ -1748,6 +1908,9 @@ const server = http.createServer((req, res) => {
   if (req.method === "POST" && url.pathname === "/api/search-log") {
     let b4 = ""; req.on("data", c => (b4 += c)); req.on("end", () => { let p = {}; try { p = JSON.parse(b4 || "{}"); } catch (e) {} handleSearchLog(res, p); });
     return;
+  }
+  if ((req.method === "GET" || req.method === "POST") && url.pathname === "/api/domain-analysis") {
+    let bd = ""; req.on("data", c => (bd += c)); req.on("end", () => { let p = {}; try { p = JSON.parse(bd || "{}"); } catch (e) {} handleDomainAnalysis(res, p); }); return;
   }
   if (req.method === "POST" && (url.pathname === "/api/grow" || url.pathname === "/api/quiz" || url.pathname === "/api/extract-concepts" || url.pathname === "/api/grow-target")) {
     let body = "";
