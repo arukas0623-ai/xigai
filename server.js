@@ -506,7 +506,7 @@ function appendConcept(domain, concept) {
     try { new Function("window", fs.readFileSync(fp, "utf8"))(w); } catch (e) {}
     const dom = domain || "AI 生成";
     const arr = w.XIGAI[dom] || (w.XIGAI[dom] = []);
-    if (arr.some(c => c.id === concept.id || c.name === concept.name)) return { ok: false, dup: true };
+    if (arr.some(c => (concept.id && c.id === concept.id) || c.name === concept.name)) return { ok: false, dup: true };
     arr.push(concept);
     const out = "window.XIGAI = window.XIGAI || {};\nwindow.XIGAI[" + JSON.stringify(dom) + "] = " + JSON.stringify(arr, null, 2) + ";\n";
     const tmp = fp + ".tmp";
@@ -573,6 +573,7 @@ function handleGrow(res, payload) {
     if (!Array.isArray(obj.pros)) obj.pros = [];
     if (!Array.isArray(obj.cons)) obj.cons = [];
     if (obj.principle == null) obj.principle = "";
+    obj.id = normStr(obj.name).slice(0, 48) || "concept-" + Date.now();
     // 4) 去重
     const dup = dedupCheck(obj);
     if (dup) { bumpStat("dupSkips", 1); return send(res, 200, JSON.stringify({ ok: false, dup: true, existing: dup, reason: "与已有概念重复" })); }

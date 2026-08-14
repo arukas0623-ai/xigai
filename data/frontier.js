@@ -1222,5 +1222,65 @@ window.XIGAI["前沿科技"] = [
     ],
     "searchedAt": "2026-08-14",
     "status": "generated"
+  },
+  {
+    "name": "低空经济",
+    "aliases": [],
+    "field": "前沿科技/城市规划",
+    "tags": [
+      "无人机",
+      "低空飞行"
+    ],
+    "difficulty": 3,
+    "summary": "利用低空空间进行经济活动。",
+    "definition": "低空经济是指在低空空间（高度一般在100-2000米之间）开展的各种经济活动，包括无人机物流、旅游观光、农业植保等。",
+    "principle": ",",
+    "background": "随着无人机技术的发展和政策的逐步放开，利用低空空间进行各种经济活动成为可能。这不仅提高了效率，还带来了新的经济增长点。",
+    "core": [
+      "无人机物流：提高配送速度与效率。",
+      "旅游观光：提供独特的空中视角体验。",
+      "农业植保：降低农药使用量，提升作物质量。",
+      "应急救援：快速响应，减少损失。"
+    ],
+    "pros": [
+      "高效性",
+      "环保性",
+      "多样性"
+    ],
+    "cons": [
+      "安全性问题",
+      "隐私保护挑战"
+    ],
+    "applications": [
+      "物流配送",
+      "农业植保"
+    ],
+    "misconceptions": [
+      "低空经济仅限于无人机应用。",
+      "所有地区都适合开展低空经济活动。"
+    ],
+    "related": [
+      "无人机技术",
+      "智慧城市"
+    ],
+    "relations": [
+      {
+        "type": "dependsOn",
+        "target": "无人机技术",
+        "note": ""
+      },
+      {
+        "type": "appliesTo",
+        "target": "智慧城市",
+        "note": ""
+      }
+    ],
+    "sources": [
+      "http://www.gov.cn/xinwen/2018-05/30/content_5769475.htm",
+      "https://baike.baidu.com/item/%E9%BD%BB%E9%A2%98%E7%BB%8F%E6%B5%8E"
+    ],
+    "id": "低空经济",
+    "searchedAt": "2026-08-14",
+    "status": "generated"
   }
 ];
