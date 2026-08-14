@@ -768,6 +768,7 @@ function handleGrow(res, payload) {
     if (!Array.isArray(obj.cons)) obj.cons = [];
     if (obj.principle == null) obj.principle = "";
     obj.id = normStr(obj.name).slice(0, 48) || "concept-" + Date.now();
+    obj.provenance = { discoveredBy: "user", discoveredAt: Date.now(), evidence: "user-request:" + q.slice(0, 40) };
     obj = await enrichConcept(obj, q);
     // 4) 去重
     const dup = dedupCheck(obj);
@@ -1050,7 +1051,16 @@ function runPatrol() {
     const freq = {};
     for (const c of CORPUS.all) for (const r of (c.relations || [])) if (!CORPUS.byId.has(r.target)) freq[r.target] = (freq[r.target] || 0) + 1;
     const top = Object.entries(freq).sort((a, b) => b[1] - a[1])[0];
-    if (top && top[1] >= 3 && enqueueTask('concept', top[0], 'patrol-pending')) enqueued++;
+    if (top && top[1] >= 3 && enqueueTask('concept', top[0], 'patrol-pending', { priority: 15 })) enqueued++;
+  }
+  // 4) 自动复查：抽样低置信/旧来源/高热度概念
+  if (enqueued < 3) {
+    const heat = readHeat();
+    const cands = CORPUS.all
+      .filter(c => (c.confidence || 0.9) < 0.7 || (c.searchedAt || "").slice(0, 7) < "2026-07" || (heat[c.id] || 0) >= 5)
+      .sort((a, b) => ((a.confidence || 1) - (b.confidence || 1)) || ((heat[b.id] || 0) - (heat[a.id] || 0)));
+    const pick = cands[0];
+    if (pick && enqueueTask('review', pick.id, 'patrol-review', { priority: 8 })) enqueued++;
   }
   bumpStat('patrolRuns', 1);
   return { ok: true, health: h, enqueued };
@@ -1146,6 +1156,154 @@ function processModeration() {
       return item;
     }).catch(() => { item.status = 'error'; return item; });
   })).then(items => { writeModeration(m); return { ok: true, processed: items.length }; });
+}
+
+
+/* ═══ 主动发现：候选池 / 搜索驱动 / 溯源 / 复查 / 任务上限 ═══ */
+const CANDIDATES_FILE = path.join(ROOT, ".cache", "candidates.json");
+const SEARCHLOG_FILE = path.join(ROOT, ".cache", "searchlog.json");
+function readCandidates() { try { return JSON.parse(fs.readFileSync(CANDIDATES_FILE, "utf8")); } catch (e) { return {}; } }
+function writeCandidates(p) { try { fs.writeFileSync(CANDIDATES_FILE, JSON.stringify(p)); } catch (e) {} }
+function readSearchLog() { try { return JSON.parse(fs.readFileSync(SEARCHLOG_FILE, "utf8")); } catch (e) { return {}; } }
+function writeSearchLog(p) { try { fs.writeFileSync(SEARCHLOG_FILE, JSON.stringify(p)); } catch (e) {} }
+/* 搜索词登记（客户端搜索未命中时上报） */
+function handleSearchLog(res, payload) {
+  const q = String(payload.q || "").trim().slice(0, 30);
+  const k = normStr(q);
+  if (k.length >= 2) {
+    const s = readSearchLog();
+    s[k] = { name: q, count: (s[k] ? s[k].count : 0) + 1, at: Date.now() };
+    if (s[k].count > 99) s[k].count = 99;
+    writeSearchLog(s);
+    bumpStat("searchLog", 1);
+  }
+  send(res, 200, JSON.stringify({ ok: true }));
+}
+/* 候选概念池生成：pending 关系目标 + 高频搜索词 + 别名（去重/规范化/垃圾过滤） */
+function generateCandidates() {
+  if (!CORPUS) loadCorpus();
+  const cand = {};
+  for (const c of CORPUS.all) for (const r of (c.relations || [])) if (!CORPUS.byId.has(r.target)) {
+    const k = normStr(r.target);
+    if (k.length >= 2 && !findLocal(r.target)) { cand[k] = cand[k] || { name: r.target, freq: 0, sources: {} }; cand[k].freq++; cand[k].sources.relation = true; }
+  }
+  const sl = readSearchLog();
+  for (const k of Object.keys(sl)) {
+    if (sl[k].count >= 2 && !findLocal(sl[k].name)) {
+      cand[k] = cand[k] || { name: sl[k].name, freq: 0, sources: {} };
+      cand[k].freq += Math.min(3, sl[k].count);
+      cand[k].sources.search = true;
+    }
+  }
+  for (const c of CORPUS.all) for (const a of (c.aliases || [])) {
+    const k = normStr(a);
+    if (k.length >= 2 && !findLocal(a)) {
+      cand[k] = cand[k] || { name: a, freq: 0, sources: {} };
+      cand[k].freq += 0.5;
+      cand[k].sources.alias = true;
+    }
+  }
+  const JUNK = /(什么|如何|怎么|为什么|是不是|有没有|好吗|可以吗|你是谁|你好|^[a-zA-Z0-9]{1,2}$|^.$)/;
+  for (const k of Object.keys(cand)) if (JUNK.test(cand[k].name) || cand[k].name.length > 24) delete cand[k];
+  return cand;
+}
+/* 自动任务上限（防爆量/防循环）：小时 6 / 日 40；队列上限 50 */
+function autoCapOK() {
+  const s = readStats();
+  const now = new Date();
+  const hk = now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + now.getDate() + "H" + now.getHours();
+  const dk = now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + now.getDate();
+  s.autoOps = s.autoOps || { hour: { k: "", n: 0 }, day: { k: "", n: 0 } };
+  if (s.autoOps.hour.k !== hk) { s.autoOps.hour = { k: hk, n: 0 }; }
+  if (s.autoOps.day.k !== dk) { s.autoOps.day = { k: dk, n: 0 }; }
+  try { fs.writeFileSync(STATS_FILE, JSON.stringify(s)); } catch (e) {}
+  return s.autoOps.hour.n < 6 && s.autoOps.day.n < 40 && GROW_QUEUE.length < 50;
+}
+function autoOpUsed() {
+  const s = readStats();
+  const now = new Date();
+  const hk = now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + now.getDate() + "H" + now.getHours();
+  const dk = now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + now.getDate();
+  s.autoOps = s.autoOps || { hour: { k: "", n: 0 }, day: { k: "", n: 0 } };
+  if (s.autoOps.hour.k !== hk) s.autoOps.hour = { k: hk, n: 0 };
+  if (s.autoOps.day.k !== dk) s.autoOps.day = { k: dk, n: 0 };
+  s.autoOps.hour.n++; s.autoOps.day.n++;
+  try { fs.writeFileSync(STATS_FILE, JSON.stringify(s)); } catch (e) {}
+}
+/* 学习队列：任务带优先级（pump 按优先级处理） */
+function queueKey(kind, key) { return kind + "|" + key; }
+function enqueueTask(kind, key, source, data) {
+  if (!key) return false;
+  const k = queueKey(kind, key);
+  const done = QUEUE_DONE.get(k);
+  if (done && Date.now() - done.at < QUEUE_COOLDOWN) return false;
+  if (GROW_QUEUE.some(t => t.k === k)) return false;
+  if (!autoCapOK()) return false;
+  const priority = (data && data.priority) || 5;
+  GROW_QUEUE.push({ k, kind, key, source, data: data || {}, at: Date.now(), priority });
+  return true;
+}
+/* pump：按优先级处理 */
+function pumpQueue() {
+  if (queueBusy) return;
+  if (!GROW_QUEUE.length) return;
+  queueBusy = true;
+  GROW_QUEUE.sort((a, b) => (b.priority || 0) - (a.priority || 0));
+  const task = GROW_QUEUE.shift();
+  autoOpUsed();
+  try {
+    let r;
+    if (task.kind === "concept") r = growTarget({ target: task.key });
+    else if (task.kind === "enrich") r = enrichConceptTask(task.key);
+    else if (task.kind === "review") r = reviewConceptTask(task.key);
+    QUEUE_DONE.set(task.k, { at: Date.now(), ok: !!(r && (r.ok || r.concept)) });
+    if (task.kind === "concept") bumpStat("queueConcepts", 1);
+    if (task.kind === "enrich") bumpStat("queueEnriches", 1);
+    if (task.kind === "review") bumpStat("reviews", 1);
+  } catch (e) {
+    QUEUE_DONE.set(task.k, { at: Date.now(), ok: false });
+    bumpStat("errors", 1);
+  }
+  queueBusy = false;
+  if (GROW_QUEUE.length) setTimeout(pumpQueue, 8000);
+}
+/* 自动复查：抽样低置信/旧来源/高热度概念，重新检查；变化入版本，不确定保留旧版 */
+function reviewConceptTask(id) {
+  const c = findLocalById(id);
+  if (!c) return Promise.resolve({ ok: false, error: "概念不存在" });
+  const prompt = [
+    "复查知识库概念「" + c.name + "」：现有定义=" + (c.definition || "").slice(0, 250) + " 来源=" + ((c.sources || []).slice(0, 2).join("; ")),
+    "请判断并只输出 JSON：{\"confirmed\":true或false,\"note\":\"一句话\",\"conflict\":false或\"描述冲突\"}",
+    "confirmed=true 表示定义与来源仍可信；conflict 若发现明显矛盾则描述。",
+  ].join("\n");
+  return growOllama(c.name, prompt).then(text => {
+    bumpStat("ollamaCalls", 1);
+    if (!text) return { ok: false, error: "本地模型不可用" };
+    const obj = extractJSON(text);
+    if (!obj) return { ok: false, error: "解析失败" };
+    if (obj.conflict) {
+      const m = readModeration();
+      m.push({ id: "m" + Date.now() + Math.random().toString(36).slice(2, 5), at: Date.now(), type: "conflict", conceptId: c.id, detail: String(obj.conflict).slice(0, 200), status: "pending" });
+      writeModeration(m.slice(-200));
+      bumpStat("conflictsDetected", 1);
+    }
+    c.searchedAt = new Date().toISOString().slice(0, 10);
+    pushVersion(c.id, c.domain, obj.confirmed ? "review-pass" : "review-uncertain", c);
+    if (obj.confirmed) { /* 保留旧内容，仅刷新检查时间 */ writeConcept(c); }
+    return { ok: true, confirmed: !!obj.confirmed, conflict: !!obj.conflict, note: obj.note };
+  });
+}
+/* 主动发现入口（升级版 /api/discover）：生成候选→按优先级入队 */
+function handleDiscover2(res, payload) {
+  const cand = generateCandidates();
+  const limit = Math.min(5, Math.max(1, payload.limit || 3));
+  const scored = Object.keys(cand).map(k => ({ k, c: cand[k], p: cand[k].freq + (cand[k].sources.search ? 3 : 0) })).sort((a, b) => b.p - a.p);
+  let added = 0;
+  for (const s of scored.slice(0, limit)) {
+    if (enqueueTask("concept", s.c.name, "discover", { priority: Math.min(20, Math.round(s.p * 2)) })) added++;
+  }
+  bumpStat("candidatesFound", Object.keys(cand).length);
+  send(res, 200, JSON.stringify({ ok: true, candidates: Object.keys(cand).length, enqueued: added, top: scored.slice(0, 5).map(x => x.c.name) }));
 }
 
 function handleVersion(res, payload) {
@@ -1251,6 +1409,7 @@ function handleCompletionStatus(res, payload) {
 /* 后台补全单个目标（本地→缓存→Ollama 结构化→去重→质量→入库；禁付费；单飞） */
 function growTarget(payload) {
   const raw = String(payload.target || "").trim();
+  const provenanceSource = String(payload.source || "system").slice(0, 20);
   const target = raw.length > 40 ? raw.slice(0, 40) : raw;
   if (!target) return Promise.resolve({ ok: false, error: "目标为空" });
   const key = normStr(target);
@@ -1286,6 +1445,7 @@ function growTarget(payload) {
     if (!Array.isArray(obj.cons)) obj.cons = [];
     if (obj.principle == null) obj.principle = "";
     obj.id = normStr(obj.name).slice(0, 48) || "concept-" + Date.now();
+    obj.provenance = { discoveredBy: provenanceSource, discoveredAt: Date.now(), evidence: "candidate:" + provenanceSource };
     obj = await enrichConcept(obj, target);
     // 4) 去重
     const dup = dedupCheck(obj);
@@ -1385,37 +1545,6 @@ const QUEUE_DONE = new Map();        // key → {at, ok}  去重/冷却
 const QUEUE_COOLDOWN = 5 * 60e3;     // 同类任务 5 分钟冷却
 let queueBusy = false;
 
-function queueKey(kind, key) { return kind + "|" + key; }
-function enqueueTask(kind, key, source, data) {
-  if (!key) return false;
-  const k = queueKey(kind, key);
-  const done = QUEUE_DONE.get(k);
-  if (done && Date.now() - done.at < QUEUE_COOLDOWN) return false;   // 冷却
-  if (GROW_QUEUE.some(t => t.k === k)) return false;                  // 已在队列
-  GROW_QUEUE.push({ k, kind, key, source, data: data || {}, at: Date.now() });
-  return true;
-}
-async function pumpQueue() {
-  if (queueBusy) return;
-  if (!GROW_QUEUE.length) return;
-  queueBusy = true;
-  const task = GROW_QUEUE.shift();
-  try {
-    let r;
-    if (task.kind === "concept") r = await growTarget({ target: task.key });
-    else if (task.kind === "enrich") r = await enrichConceptTask(task.key);
-    QUEUE_DONE.set(task.k, { at: Date.now(), ok: !!(r && (r.ok || r.concept)) });
-    if (task.kind === "concept") bumpStat("queueConcepts", 1);
-    if (task.kind === "enrich") bumpStat("queueEnriches", 1);
-  } catch (e) {
-    QUEUE_DONE.set(task.k, { at: Date.now(), ok: false });
-    bumpStat("errors", 1);
-  }
-  queueBusy = false;
-  if (GROW_QUEUE.length) setTimeout(pumpQueue, 8000);   // 节奏：每 8s 处理一项
-}
-function ensurePump() { if (!queueBusy) setTimeout(pumpQueue, 100); }
-
 /* 纵向补全：为概念生成缺失字段（principle/pros/cons/applications/misconceptions） */
 function enrichConceptTask(id) {
   const c = findLocalById(id);
@@ -1474,10 +1603,10 @@ function writeConcept(c) {
 }
 /* 队列处理入口 */
 function handleEnqueue(res, payload) {
-  const kind = payload.kind === "enrich" ? "enrich" : "concept";
-  const key = String(kind === "enrich" ? payload.id : payload.target || "").trim();
+  const kind = payload.kind === "enrich" ? "enrich" : payload.kind === "review" ? "review" : "concept";
+  const key = String(kind === "concept" ? payload.target : payload.id || "").trim();
   const added = enqueueTask(kind, key, payload.source || "user", payload);
-  ensurePump();
+  setTimeout(pumpQueue, 100);
   send(res, 200, JSON.stringify({ ok: true, added, queue: GROW_QUEUE.length }));
 }
 /* 自动发现：扫描待补全关系目标 → 入队（按被引用频次） */
@@ -1500,7 +1629,7 @@ function handleDiscover(res, payload) {
     const raw = (CORPUS.all.flatMap(c => c.relations || []).find(r => normStr(r.target) === k) || {}).target || k;
     if (enqueueTask("concept", raw, "discover")) added++;
   }
-  ensurePump();
+  setTimeout(pumpQueue, 100);
   send(res, 200, JSON.stringify({ ok: true, added, pendingTotal: Object.keys(freq).length, queue: GROW_QUEUE.length }));
 }
 
@@ -1573,7 +1702,11 @@ const server = http.createServer((req, res) => {
     return;
   }
   if (req.method === "POST" && url.pathname === "/api/discover") {
-    let b3 = ""; req.on("data", c => (b3 += c)); req.on("end", () => { let p = {}; try { p = JSON.parse(b3 || "{}"); } catch (e) {} handleDiscover(res, p); });
+    let b3 = ""; req.on("data", c => (b3 += c)); req.on("end", () => { let p = {}; try { p = JSON.parse(b3 || "{}"); } catch (e) {} handleDiscover2(res, p); });
+    return;
+  }
+  if (req.method === "POST" && url.pathname === "/api/search-log") {
+    let b4 = ""; req.on("data", c => (b4 += c)); req.on("end", () => { let p = {}; try { p = JSON.parse(b4 || "{}"); } catch (e) {} handleSearchLog(res, p); });
     return;
   }
   if (req.method === "POST" && (url.pathname === "/api/grow" || url.pathname === "/api/quiz" || url.pathname === "/api/extract-concepts" || url.pathname === "/api/grow-target")) {

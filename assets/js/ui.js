@@ -126,6 +126,8 @@
     X._selIdx = -1;
     const intent = X.detectIntent(q);
     if (!res.length) {
+      // 搜索驱动增长：未命中 → 登记候选（Patrol 后续自动学习）
+      fetch("/api/search-log", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ q }) }).catch(() => {});
       box.innerHTML = '<div class="sr-empty">没有找到「' + X.esc(q) + '」<br>试试拼音、别名或更换关键词<br><span style="font-size:12px;color:var(--ink-3)">也可以直接问 AI 解析员</span></div>' +
         '<div class="sr-hint"><button class="mini-btn" id="sr-ask">💬 问 AI 解析「' + X.esc(q) + '」</button> · Esc 关闭</div>';
       const srAsk = box.querySelector("#sr-ask");

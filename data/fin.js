@@ -2416,5 +2416,68 @@ window.XIGAI["金融投资"] = [
     "relationConfidence": 0.3,
     "status": "verified",
     "searchedAt": "2026-08-14"
+  },
+  {
+    "name": "移动支付",
+    "aliases": [],
+    "field": "金融投资",
+    "tags": [
+      "便捷",
+      "电子"
+    ],
+    "difficulty": 2,
+    "summary": "通过手机进行的在线支付。",
+    "definition": "利用智能手机或其他移动设备，通过互联网或近场通信技术（NFC）完成支付的一种方式。用户可通过第三方支付平台、银行应用等进行转账、缴费和购物。",
+    "principle": ",",
+    "background": "随着智能手机普及和技术进步，移动支付成为人们日常生活中的重要工具。它简化了交易流程，提高了支付效率，并促进了电子商务的发展。",
+    "core": [
+      "通过手机完成支付",
+      "利用互联网或NFC技术",
+      "第三方支付平台或银行应用支持",
+      "广泛应用于购物、缴费和转账"
+    ],
+    "pros": [
+      "提高支付便捷性",
+      "减少现金使用，降低交易成本"
+    ],
+    "cons": [
+      "安全风险增加，如信息泄露",
+      "过度依赖手机可能影响日常生活"
+    ],
+    "applications": [
+      "在线购物",
+      "公共交通",
+      "餐饮服务"
+    ],
+    "misconceptions": [
+      "所有移动支付都使用NFC技术是错误的。",
+      "移动支付只能通过智能手机完成是错误的，部分支持蓝牙或Wi-Fi的设备也可实现。"
+    ],
+    "related": [],
+    "relations": [
+      {
+        "type": "followup",
+        "target": "电子支付",
+        "note": "",
+        "confidence": 0.85
+      },
+      {
+        "type": "followup",
+        "target": "电子商务",
+        "note": "",
+        "confidence": 0.3
+      }
+    ],
+    "sources": [
+      "https://baike.baidu.com/item/%E7%A7%BB%E5%8A%A8%E6%94%B9%E6%9F%A5/12036174,",
+      "https://www.cnbc.com/id/102281762/",
+      "https://www.forbes.com/sites/forbestechcouncil/2021/03/11/mobil-payments-what-you-need-to-know/"
+    ],
+    "id": "移动支付",
+    "confidence": 0.9,
+    "sourceConfidence": 0.7,
+    "relationConfidence": 0.57,
+    "status": "verified",
+    "searchedAt": "2026-08-14"
   }
 ];

@@ -1946,5 +1946,72 @@ window.XIGAI["前沿科技"] = [
     "relationConfidence": 0.83,
     "status": "verified",
     "searchedAt": "2026-08-14"
+  },
+  {
+    "name": "广义相对论",
+    "aliases": [],
+    "field": "前沿科技/物理学",
+    "tags": [
+      "理论物理",
+      "引力"
+    ],
+    "difficulty": 4,
+    "summary": "描述重力的理论。",
+    "definition": "广义相对论是爱因斯坦提出的一种描述引力的理论，认为物质的存在会扭曲周围的时空结构，物体在这样的时空中运动时会产生惯性效应，即我们所感知到的‘重力’。",
+    "principle": ",",
+    "background": "1905年狭义相对论发表后，爱因斯坦继续研究如何将引力纳入相对论体系。1915年广义相对论正式提出，它不仅解释了水星轨道进动等天文现象，还预言了黑洞和引力波的存在。",
+    "core": [
+      "时空的弯曲是重力的表现",
+      "能量-动量张量决定时空的曲率",
+      "光线在强引力场中会发生偏折"
+    ],
+    "pros": [
+      "成功解释了水星轨道进动等天文现象"
+    ],
+    "cons": [
+      "难以精确计算，需要高精度数学工具"
+    ],
+    "applications": [
+      "黑洞研究",
+      "引力波探测"
+    ],
+    "misconceptions": [
+      "广义相对论中的‘弯曲’是物理空间的扭曲而非视觉上的弯曲。",
+      "广义相对论并不适用于所有情况下的重力，如量子尺度的重力现象。"
+    ],
+    "related": [
+      "狭义相对论",
+      "黑洞"
+    ],
+    "relations": [
+      {
+        "type": "evolvedFrom",
+        "target": "狭义相对论",
+        "note": "",
+        "confidence": 0.75
+      },
+      {
+        "type": "dependsOn",
+        "target": "数学工具",
+        "note": "",
+        "confidence": 0.3
+      }
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/General_relativity",
+      "https://www.nasa.gov/mission_pages/grandchallenge/content/generals.html",
+      "https://www.mathpages.com/home/rg2/rg205.htm"
+    ],
+    "id": "广义相对论",
+    "provenance": {
+      "discoveredBy": "system",
+      "discoveredAt": 1786692995248,
+      "evidence": "candidate:system"
+    },
+    "confidence": 0.9,
+    "sourceConfidence": 0.85,
+    "relationConfidence": 0.53,
+    "status": "verified",
+    "searchedAt": "2026-08-14"
   }
 ];

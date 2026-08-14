@@ -1058,5 +1058,73 @@ window.XIGAI["人工智能"] = [
     "relationConfidence": 0.83,
     "status": "verified",
     "searchedAt": "2026-08-14"
+  },
+  {
+    "name": "步态识别",
+    "aliases": [],
+    "field": "人工智能/计算机视觉",
+    "tags": [
+      "生物特征识别",
+      "安全认证"
+    ],
+    "difficulty": 3,
+    "summary": "通过分析人的行走姿态进行身份验证。",
+    "definition": "步态识别是一种基于人体行走时的姿态和运动模式来进行身份识别的技术，属于生物特征识别的一种。它利用了人类在行走过程中特有的动态轮廓和动作特点来实现个体的唯一性识别。",
+    "principle": "通过对步态视频或图像序列进行分析，提取出描述步态特性的参数，并与数据库中的模板进行匹配。",
+    "background": "步态识别技术起源于20世纪80年代，近年来随着计算机视觉和机器学习的发展而得到迅速发展。它具有非接触、不易伪装等优点，在安防监控、身份验证等领域有广泛应用。",
+    "core": [
+      "基于动态图像的特征提取",
+      "模式识别算法的应用",
+      "步态数据库的构建"
+    ],
+    "pros": [
+      "非接触式，易于实现",
+      "不易被模仿或伪装"
+    ],
+    "cons": [
+      "受环境因素影响较大",
+      "识别精度有待提高"
+    ],
+    "applications": [
+      "安防监控系统",
+      "机场、车站等重要场所的身份验证"
+    ],
+    "misconceptions": [
+      "步态识别可以完全替代其他生物特征识别方法",
+      "步态识别不受光照和角度影响"
+    ],
+    "related": [
+      "面部识别",
+      "指纹识别"
+    ],
+    "relations": [
+      {
+        "type": "followup",
+        "target": "计算机视觉",
+        "note": "",
+        "confidence": 0.3
+      },
+      {
+        "type": "dependsOn",
+        "target": "机器学习算法",
+        "note": "",
+        "confidence": 0.8
+      }
+    ],
+    "sources": [
+      "https://www.sciencedirect.com/topics/computer-science/gait-recognition",
+      "https://ieeexplore.ieee.org/document/8354902,"
+    ],
+    "id": "步态识别",
+    "provenance": {
+      "discoveredBy": "system",
+      "discoveredAt": 1786692942908,
+      "evidence": "candidate:system"
+    },
+    "confidence": 0.9,
+    "sourceConfidence": 0.85,
+    "relationConfidence": 0.55,
+    "status": "verified",
+    "searchedAt": "2026-08-14"
   }
 ];
