@@ -273,3 +273,15 @@
 @media (max-width: 480px) {
   #chat-drawer { right: 10px; bottom: 82px; left: 10px; width: auto; height: min(560px, 72vh); }
 }
+
+/* ── 免费问 AI 面板 ─────────────────────────────────── */
+.free-title { font-size: 13px; color: var(--ink-2); margin: 2px 0 10px; line-height: 1.7; }
+.free-opts { display: flex; flex-direction: column; gap: 8px; }
+.free-opt {
+  text-align: left; padding: 10px 14px; border-radius: 10px;
+  border: 1px solid var(--line); color: var(--ink);
+  background: color-mix(in srgb, var(--bg2) 40%, var(--bg3));
+  font-size: 13px; transition: all .2s; display: block;
+}
+.free-opt:hover { border-color: var(--accent); color: var(--accent); background: var(--sel); }
+.free-note { font-size: 11.5px; color: var(--ink-3); margin-top: 8px; line-height: 1.7; }

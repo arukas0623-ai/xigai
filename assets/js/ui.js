@@ -229,8 +229,8 @@
         '<div id="ai-area"></div><div id="baike-box"></div>' +
       "</div>" +
       '<div class="detail-actions">' +
-        '<button class="btn primary" id="ai-btn">✨ AI 深度解析</button>' +
-        '<button class="btn" id="ask-btn">🤖 问 AI</button>' +
+        '<button class="btn primary" id="free-btn">🆓 免费问 AI</button>' +
+        '<button class="btn" id="ai-btn">💠 AI 深度解析</button>' +
         '<button class="btn" id="bk-btn">📖 百科速览</button>' +
         '<button class="btn" id="fav-btn">' + (X.isFav(c.id) ? "♥ 已收藏" : "☆ 收藏") + "</button>" +
         '<button class="btn" id="copyfull-btn">📋 复制全文</button>' +
@@ -285,9 +285,9 @@
       navigator.clipboard.writeText(txt).then(() => X.toast("全文已复制")).catch(() => X.toast("复制失败"));
     });
     ov.querySelector("#bk-btn").addEventListener("click", () => X.baikeLookup(c.name));
-    ov.querySelector("#ask-btn").addEventListener("click", () => {
+    ov.querySelector("#free-btn").addEventListener("click", () => {
       X.closeDetail();
-      X.askAI("解释概念「" + c.name + "」：" + (c.summary || ""));
+      X.askAI("深度解析概念「" + c.name + "」：" + (c.summary || ""));
     });
     ov.querySelector("#ai-btn").addEventListener("click", () => X.aiDeepDive(c));
     // 滚动进度
@@ -368,6 +368,20 @@
   /* ── AI 深度解析（走本地服务 → dsh headless） ─────── */
   X.aiDeepDive = function (c) {
     const area = document.getElementById("ai-area");
+    // 免费优先：先看本地是否有可免费调用的引擎
+    fetch("/api/free-ai", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ q: "深度解析概念「" + c.name + "」：" + (c.summary || "") }),
+    }).then(r => r.json()).then(fd => {
+      if (fd.ok) {
+        area.innerHTML = '<div class="ai-box"><div class="ai-head">🆓 免费 · ' + (fd.engine === "ollama" ? "Ollama" : "LM Studio") + "（" + fd.model + "）</div><pre>" + X.esc(fd.text) + "</pre></div>";
+        return;
+      }
+      X.aiDeepDivePaid(c, area);
+    }).catch(() => X.aiDeepDivePaid(c, area));
+  };
+  X.aiDeepDivePaid = function (c, area) {
     const cachedKey = "ai:" + c.id;
     const cached = X.store.get(cachedKey, null);
     if (cached && cached.t > Date.now() - 7 * 864e5) {
@@ -377,7 +391,7 @@
       X.toast("已展示缓存的 AI 解析");
       return;
     }
-    if (!confirm("将调用本地 AI 引擎联网研究「" + c.name + "」，约需 1-3 分钟，消耗少量模型额度，结果缓存 7 天。是否继续？")) return;
+    if (!confirm("本机没有可免费调用的本地 AI 引擎。付费方式将调用 DeepSeek 模型联网研究「" + c.name + "」，消耗少量模型额度，结果缓存 7 天。是否继续？")) return;
     area.innerHTML = '<div class="ai-box"><div class="ai-head"><span class="spin">⏳</span> AI 研究员正在联网检索与深度分析「' + X.esc(c.name) + '」…</div></div>';
     fetch("/api/ai", {
       method: "POST",

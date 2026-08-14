@@ -81,7 +81,7 @@
     X.chatHistory.forEach((m, i) => {
       const div = document.createElement("div");
       div.className = m.role === "q" ? "chat-msg q" : "chat-msg a";
-      div.innerHTML = '<div class="chat-bubble">' + (m.role === "a" ? X.mdChat(m.text) : X.esc(m.text)) + "</div>";
+      div.innerHTML = '<div class="chat-bubble">' + (m.isHtml ? m.text : (m.role === "a" ? X.mdChat(m.text) : X.esc(m.text))) + "</div>";
       if (m.role === "a" && m.text.length > 40) {
         const add = document.createElement("button");
         add.className = "chat-addbtn";
@@ -121,25 +121,84 @@
     X.renderChat();
     X.store.set("chatHistory", X.chatHistory.slice(-40));
 
+    X._askResolve(typing, q);
+  };
+  /* 免费优先：本地引擎（Ollama/LM Studio）→ 免费面板 → 付费兜底 */
+  X._askResolve = function (typing, q) {
+    const done = text => {
+      const idx = X.chatHistory.indexOf(typing);
+      if (idx >= 0) X.chatHistory.splice(idx, 1);
+      X.chatHistory.push({ role: "a", t: Date.now(), text });
+      X.store.set("chatHistory", X.chatHistory.slice(-40));
+      X.renderChat();
+    };
+    fetch("/api/free-ai", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ q }),
+    }).then(r => r.json()).then(fd => {
+      if (fd.ok) {
+        done("🆓 免费·" + (fd.engine === "ollama" ? "Ollama" : "LM Studio") + "（" + fd.model + "）本地回答：\n\n" + fd.text);
+      } else {
+        X.freeAIPanel(q, typing);
+      }
+    }).catch(() => X.freeAIPanel(q, typing));
+  };
+  /* 付费引擎（显式选择，消耗模型额度） */
+  X.askPaid = function (q, typing) {
+    const done = text => {
+      const idx = typing ? X.chatHistory.indexOf(typing) : -1;
+      if (idx >= 0) X.chatHistory.splice(idx, 1);
+      X.chatHistory.push({ role: "a", t: Date.now(), text });
+      X.store.set("chatHistory", X.chatHistory.slice(-40));
+      X.renderChat();
+    };
     fetch("/api/ask", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ q }),
     }).then(r => r.json()).then(d => {
+      if (d.ok) done("💠 深度解析（联网+模型）\n\n" + d.text);
+      else done("（AI 解析失败：" + (d.error || "未知错误") + "）");
+    }).catch(() => done("（无法连接本地 AI 服务）"));
+  };
+  /* 免费问 AI 面板：打开本机 AI 应用 / 免费网页 AI */
+  X.freeAIPanel = function (q, typing) {
+    fetch("/api/free-tools").then(r => r.json()).then(d => {
+      const tools = (d && d.tools) || [];
+      let html = "<div class='free-title'>🆓 免费问 AI —— 本机未检测到可免费调用的本地引擎，任选一种免费方式：</div><div class='free-opts'>";
+      tools.forEach(t => {
+        html += '<button class="free-opt" data-tool="' + t.key + '">📱 打开 ' + t.name + '（已安装）</button>';
+        html += '<a class="free-opt" href="' + t.web + '" target="_blank" rel="noopener">🌐 ' + t.name + ' 网页版</a>';
+      });
+      html += '<a class="free-opt" href="https://www.bing.com/search?q=' + encodeURIComponent(q) + '" target="_blank" rel="noopener">🆓 Bing AI 搜索（自动填入）</a>';
+      html += '<a class="free-opt" href="https://metaso.cn/?q=' + encodeURIComponent(q) + '" target="_blank" rel="noopener">🆓 秘塔 AI 搜索（自动填入）</a>';
+      html += '<a class="free-opt" href="https://www.perplexity.ai/search?q=' + encodeURIComponent(q) + '" target="_blank" rel="noopener">🆓 Perplexity（自动填入）</a>';
+      html += "</div><div class='free-note'>点击「打开」会自动把问题复制到剪贴板并启动应用，粘贴即可提问。</div>";
+      html += '<button class="chat-addbtn" id="free-paid-fallback">💠 也可用付费本地引擎解析（消耗少量额度）</button>';
       const idx = X.chatHistory.indexOf(typing);
       if (idx >= 0) X.chatHistory.splice(idx, 1);
-      if (d.ok) {
-        X.chatHistory.push({ role: "a", t: Date.now(), text: d.text });
-      } else {
-        X.chatHistory.push({ role: "a", t: Date.now(), text: "（AI 解析失败：" + (d.error || "未知错误") + "。请确认本地服务运行中。）" });
-      }
+      X.chatHistory.push({ role: "a", t: Date.now(), text: html, isHtml: true });
       X.store.set("chatHistory", X.chatHistory.slice(-40));
       X.renderChat();
+      const body = document.getElementById("chat-body");
+      if (body) {
+        body.querySelectorAll(".free-opt[data-tool]").forEach(b => b.addEventListener("click", () => {
+          const tool = b.dataset.tool;
+          navigator.clipboard.writeText(q).catch(() => {});
+          fetch("/api/launch-tool", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ tool }) })
+            .then(r => r.json()).then(d2 => {
+              if (d2.ok) X.toast("已打开 " + d2.name + "，问题已复制到剪贴板，粘贴即可提问");
+              else X.toast(d2.error || "打开失败，可用网页版");
+            }).catch(() => X.toast("打开失败，可用网页版"));
+        }));
+        const fb = body.querySelector("#free-paid-fallback");
+        if (fb) fb.addEventListener("click", () => X.askPaid(q, typing));
+      }
     }).catch(() => {
       const idx = X.chatHistory.indexOf(typing);
       if (idx >= 0) X.chatHistory.splice(idx, 1);
-      X.chatHistory.push({ role: "a", t: Date.now(), text: "（无法连接本地 AI 服务。请确认 D:\\析概 下运行 node server.js）" });
-      X.store.set("chatHistory", X.chatHistory.slice(-40));
+      X.chatHistory.push({ role: "a", t: Date.now(), text: "（无法获取免费 AI 选项，请确认本地服务运行中）" });
       X.renderChat();
     });
   };
