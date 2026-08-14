@@ -233,7 +233,8 @@
         (aliases ? '<div class="aliases">' + aliases + "</div>" : "") + "</div>" +
         '<span class="detail-field">' + X.esc(c.domain) + "</span></div>" +
         (tags ? '<div class="detail-tags">' + tags + "</div>" : "") +
-        '<div class="detail-diff">理解难度 <span class="diff-dots">' + diffDots + "</span><span>" + (c.difficulty || 3) + "/5 · 已读 " + (X.state.readCount[c.id] || 0) + " 次</span></div>" +
+        '<div class="detail-diff">理解难度 <span class="diff-dots">' + diffDots + "</span><span>" + (c.difficulty || 3) + "/5 · 已读 " + (X.state.readCount[c.id] || 0) + " 次</span>" +
+        (function(){ const m = X.masteryLabel(c.id); return m ? ' <span class="mastery-badge ' + m.cls + '">' + m.text + "（" + X.masteryOf(c.id).score + "%）</span>" : ""; })() + "</div>" +
       "</div>" +
       '<div class="detail-body">' +
         (c.summary ? '<div class="detail-summary">' + X.esc(c.summary) + "</div>" : "") +
@@ -252,6 +253,8 @@
         '<button class="btn primary" id="free-btn">🆓 免费问 AI</button>' +
         '<button class="btn" id="ai-btn">💠 AI 深度解析</button>' +
         '<button class="btn" id="bk-btn">📖 百科速览</button>' +
+        '<button class="btn" id="quiz-btn">📝 测试</button>' +
+        '<button class="btn" id="graph-btn">🕸 图谱</button>' +
         '<button class="btn" id="cmp-btn">⚖ 对比</button>' +
         '<button class="btn" id="fav-btn">' + (X.isFav(c.id) ? "♥ 已收藏" : "☆ 收藏") + "</button>" +
         '<button class="btn" id="copyfull-btn">📋 复制全文</button>' +
@@ -277,6 +280,8 @@
     }));
     ov.querySelectorAll(".rel-chip[data-rel]").forEach(ch => ch.addEventListener("click", () => X.openConcept(ch.dataset.rel)));
     ov.querySelectorAll(".rel-chip.miss").forEach(ch => ch.addEventListener("click", () => X.toast("「" + ch.dataset.miss + "」尚未收录——可用 AI 深度解析研究")));
+    ov.querySelector("#graph-btn").addEventListener("click", () => X.openGraph(c.id));
+    ov.querySelector("#quiz-btn").addEventListener("click", () => X.openQuiz(c));
     ov.querySelector("#cmp-btn").addEventListener("click", () => X.compareAdd(c.id));
     ov.querySelector("#fav-btn").addEventListener("click", () => {
       const on = X.toggleFav(c.id);

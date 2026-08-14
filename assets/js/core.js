@@ -25,6 +25,7 @@
     lastSearch: X.store.get("lastSearch", ""),
     hiddenBooks: X.store.get("hiddenBooks", []),      // 从书架藏起的书 id
     deskBooks: X.store.get("deskBooks", []),          // 桌面浮窗书 [{id,x,y}]
+    mastery: X.store.get("mastery", {}),              // 掌握度 {id: {correct,total,score,at}}
   };
   X.saveState = function () {
     X.store.set("theme", X.state.theme);
@@ -36,6 +37,7 @@
     X.store.set("readCount", X.state.readCount);
     X.store.set("hiddenBooks", X.state.hiddenBooks.slice(0, 200));
     X.store.set("deskBooks", X.state.deskBooks.slice(0, 24));
+    X.store.set("mastery", X.state.mastery);
   };
 
   /* ── 小工具 ───────────────────────────────────────── */
@@ -335,6 +337,22 @@
       }
     }
     return X._synRev.get(tk.replace(/\s+/g, "")) || null;
+  };
+
+  /* ── 掌握度（P1-4） ──────────────────────────────── */
+  X.masteryOf = function (id) { return X.state.mastery[id] || null; };
+  X.recordMastery = function (id, correct, total) {
+    const score = total ? Math.round((correct / total) * 100) : 0;
+    X.state.mastery[id] = { correct, total, score, at: Date.now() };
+    X.saveState();
+    return X.state.mastery[id];
+  };
+  X.masteryLabel = function (id) {
+    const m = X.masteryOf(id);
+    if (!m) return null;
+    if (m.score >= 80) return { text: "已掌握", cls: "master" };
+    if (m.score >= 50) return { text: "学习中", cls: "learning" };
+    return { text: "未掌握", cls: "weak" };
   };
 
   /* ── 收藏 / 历史 / 藏书 / 桌面书 ──────────────────── */

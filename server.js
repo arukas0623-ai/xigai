@@ -601,16 +601,64 @@ function handleGrow(res, payload) {
   });
 }
 
+
+/* ── AI 测试（P1-4）：Ollama 出题 + 缓存 ─────────────── */
+function handleQuiz(res, payload) {
+  const name = String(payload.name || "").trim();
+  if (!name) return send(res, 200, JSON.stringify({ ok: false, error: "缺少概念名" }));
+  const key = "quiz_" + normStr(name).slice(0, 40);
+  const cacheFile = path.join(CACHE_DIR, key + ".json");
+  try {
+    const st = fs.statSync(cacheFile);
+    if (Date.now() - st.mtimeMs < 24 * 3600e3) {
+      return send(res, 200, JSON.stringify({ ok: true, cached: true, quiz: JSON.parse(fs.readFileSync(cacheFile, "utf8")) }));
+    }
+  } catch (e) {}
+  // 附上书库已知内容帮助出题
+  let context = "";
+  const known = findLocal(name);
+  if (known) {
+    context = "概念要点：" + (known.definition || "").slice(0, 300) + " 核心：" + ((known.core || []).slice(0, 3).join("；"));
+  }
+  const prompt = [
+    "你是「析概」知识库的出题老师。请为概念「" + name + "」出 3 道中文单选题，检验对该概念的理解。",
+    context,
+    "只输出一个 JSON 对象，不要任何其他文字：",
+    '{"questions":[{"q":"题干","options":["选项A","选项B","选项C","选项D"],"answer":0,"explain":"解析"}]}',
+    "要求：answer 为正确选项索引(0-3)；题目有区分度（含一个易错项）；解析简洁准确。",
+  ].join("\n");
+  growOllama(name, prompt).then(text => {
+    if (!text) { bumpStat("paidCalls", 1); return growPaid(name, prompt).then(pt => finish(pt)); }
+    bumpStat("ollamaCalls", 1);
+    finish(text);
+    function finish(t) {
+      if (!t) { bumpStat("errors", 1); return send(res, 200, JSON.stringify({ ok: false, error: "出题引擎不可用" })); }
+      const obj = extractJSON(t);
+      if (!obj || !Array.isArray(obj.questions) || !obj.questions.length) { bumpStat("errors", 1); return send(res, 200, JSON.stringify({ ok: false, error: "题目解析失败" })); }
+      const qs = obj.questions.slice(0, 3).map(q => ({
+        q: String(q.q || "").slice(0, 200),
+        options: (Array.isArray(q.options) ? q.options.slice(0, 4) : []).map(String),
+        answer: Math.min(3, Math.max(0, parseInt(q.answer, 10) || 0)),
+        explain: String(q.explain || "").slice(0, 200),
+      })).filter(q => q.q && q.options.length >= 2);
+      if (!qs.length) { bumpStat("errors", 1); return send(res, 200, JSON.stringify({ ok: false, error: "题目无效" })); }
+      try { fs.writeFileSync(cacheFile, JSON.stringify(qs)); } catch (e) {}
+      bumpStat("quizzes", 1);
+      send(res, 200, JSON.stringify({ ok: true, cached: false, quiz: qs }));
+    }
+  });
+}
+
 /* ── 静态服务 ─────────────────────────────────────── */
 const server = http.createServer((req, res) => {
   const url = new URL(req.url, "http://x");
   if (url.pathname === "/api/health") return send(res, 200, "ok");
   if (url.pathname === "/api/free-tools") return handleFreeTools(res);
   if (url.pathname === "/api/stats") return send(res, 200, JSON.stringify(readStats()));
-  if (req.method === "POST" && url.pathname === "/api/grow") {
+  if (req.method === "POST" && (url.pathname === "/api/grow" || url.pathname === "/api/quiz")) {
     let body = "";
     req.on("data", c => (body += c));
-    req.on("end", () => { let p = {}; try { p = JSON.parse(body || "{}"); } catch (e) {} handleGrow(res, p); });
+    req.on("end", () => { let p = {}; try { p = JSON.parse(body || "{}"); } catch (e) {} if (url.pathname === "/api/quiz") handleQuiz(res, p); else handleGrow(res, p); });
     return;
   }
   if (req.method === "POST" && url.pathname === "/api/launch-tool") {

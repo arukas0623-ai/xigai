@@ -11,6 +11,7 @@
   ];
 
   X.chatHistory = X.store.get("chatHistory", []); // [{role:'q'|'a', t, text}]
+  X.tutorMode = false;   // 苏格拉底导师模式（P1-3）
 
   X.openChat = function () {
     const d = document.getElementById("chat-drawer");
@@ -142,7 +143,15 @@
     X.renderChat();
     X.store.set("chatHistory", X.chatHistory.slice(-40));
 
+    if (X.tutorMode) {
+      X.chatHistory.push({ role: "a", t: Date.now(), text: "🧑🏫 导师模式已开启：我将通过提问引导你思考，先不直接给答案。你可以输入「提示」「答案」「退出导师」切换。" });
+      X.renderChat();
+    }
     X._askResolve(typing, q);
+  };
+  /* 苏格拉底导师包装 */
+  X.tutorWrap = function (q) {
+    return "（苏格拉底式导师模式）请针对「" + q + "」通过层层提问引导用户独立思考，先不要直接给出答案；每次只问 1 个引导性问题。如果用户说「提示」给一个小提示；说「答案」才给出解释。";
   };
   /* 免费优先：本地引擎（Ollama/LM Studio）→ 免费面板 → 付费兜底 */
   X._askResolve = function (typing, q) {
@@ -153,13 +162,14 @@
       X.store.set("chatHistory", X.chatHistory.slice(-40));
       X.renderChat();
     };
+    const sendQ = X.tutorMode ? X.tutorWrap(q) : q;
     fetch("/api/free-ai", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ q }),
+      body: JSON.stringify({ q: sendQ }),
     }).then(r => r.json()).then(fd => {
       if (fd.ok) {
-        done("🆓 免费·" + (fd.engine === "ollama" ? "Ollama" : "LM Studio") + "（" + fd.model + "）本地回答：\n\n" + fd.text);
+        done("🆓 免费·" + (fd.engine === "ollama" ? "Ollama" : "LM Studio") + "（" + fd.model + "）" + (X.tutorMode ? "🧑🏫 导师：\n\n" : "本地回答：\n\n") + fd.text);
       } else {
         X.freeAIPanel(q, typing);
       }
@@ -272,6 +282,21 @@
     }
     const clear = document.getElementById("chat-clear");
     if (clear) clear.addEventListener("click", X.clearChat);
+    const head = document.querySelector("#chat-drawer .chat-head");
+    if (head && !document.getElementById("chat-tutor")) {
+      const tb = document.createElement("button");
+      tb.id = "chat-tutor";
+      tb.title = "苏格拉底导师模式：通过提问引导思考";
+      tb.textContent = "🧑🏫";
+      tb.style.cssText = "font-size:14px;width:28px;height:28px;border-radius:50%;color:var(--ink-3);";
+      tb.addEventListener("click", () => {
+        X.tutorMode = !X.tutorMode;
+        tb.style.background = X.tutorMode ? "var(--sel)" : "";
+        tb.style.color = X.tutorMode ? "var(--accent)" : "var(--ink-3)";
+        X.toast(X.tutorMode ? "🧑🏫 苏格拉底导师模式已开启" : "已退出导师模式");
+      });
+      head.querySelector(".chat-tools").appendChild(tb);
+    }
     X.renderSuggestions();
   };
 })();

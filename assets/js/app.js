@@ -76,6 +76,8 @@
       if (e.key === "/" && !typing) { e.preventDefault(); input.focus(); return; }
       if ((e.key === "k" || e.key === "K") && (e.ctrlKey || e.metaKey)) { e.preventDefault(); input.focus(); return; }
       if (e.key === "Escape") {
+        const kg = document.getElementById("kgraph-panel");
+        if (kg && !kg.classList.contains("hidden")) { X.closeGraph(); return; }
         const cmp = document.getElementById("compare-panel");
         if (cmp && !cmp.classList.contains("hidden")) { cmp.classList.add("hidden"); document.body.style.overflow = ""; return; }
         if (!document.getElementById("detail").classList.contains("hidden")) X.closeDetail();
@@ -127,6 +129,8 @@
     });
 
     // URL 参数直达
+    const gp = new URLSearchParams(location.search).get("graph");
+    if (gp) { const gc = X.byId.get(gp) || X.data.find(x => X.slug(x.name) === X.slug(gp)); if (gc) setTimeout(() => X.openGraph(gc.id), 120); }
     const q = new URLSearchParams(location.search).get("c");
     if (q) {
       const c = X.byId.get(q) || X.data.find(x => X.slug(x.name) === X.slug(q));
