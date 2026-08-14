@@ -108,7 +108,7 @@ async function detectEngines() {
       if (!r.ok) continue;
       const d = await r.json();
       const models = e.type === "generate" ? (d.models || []).map(m => m.name) : (d.data || []).map(m => m.id);
-      if (models.length) found.push({ name: e.name, models });
+      if (models.length) found.push({ name: e.name, models, type: e.type, url: e.url, gen: e.gen, chat: e.chat });
     } catch (e2) {}
   }
   return found;
