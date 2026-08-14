@@ -477,7 +477,6 @@ window.XIGAI["音乐"] = [
         "confidence": 0.85
       }
     ],
-    "principle": "[object Object]",
     "pros": [
       "优点1：易于传播和推广",
       "优点2：受众广泛，容易引起共鸣"
@@ -486,7 +485,8 @@ window.XIGAI["音乐"] = [
       "缺点1：可能缺乏深度和艺术性"
     ],
     "confidence": 0.9,
-    "status": "verified"
+    "status": "verified",
+    "principle": "流行音乐的创作和传播依赖于录音技术和媒体平台，通过简明易懂的旋律、易于记忆的歌词以及鲜明的节奏来吸引听众。其生产模式通常包括作曲、编曲、演唱、录制、混音、制作等一系列步骤，最终通过广播、电视、互联网等渠道广泛传播。"
   },
   {
     "id": "opera",
@@ -709,5 +709,61 @@ window.XIGAI["音乐"] = [
         "confidence": 0.85
       }
     ]
+  },
+  {
+    "name": "王力宏",
+    "aliases": [],
+    "field": "音乐/流行文化",
+    "tags": [
+      "歌手",
+      "作曲家"
+    ],
+    "difficulty": 2,
+    "summary": "台湾著名歌手、作曲家。",
+    "definition": "王力宏，台湾知名歌手及作曲家。以其多元化的音乐风格和深厚的文化底蕴著称，在华语乐坛享有盛誉。",
+    "background": "1970年生于台北，自幼学习钢琴，后成为职业歌手。其作品融合了流行、摇滚、民谣等多种元素，并融入中国传统文化的元素，如古筝、琵琶等乐器和诗词文化。",
+    "core": [
+      "多元化的音乐风格",
+      "深厚的中国文化底蕴",
+      "多次获得音乐奖项"
+    ],
+    "pros": [],
+    "cons": [],
+    "applications": [
+      "演唱会",
+      "影视作品原声带"
+    ],
+    "misconceptions": [
+      "王力宏的作品仅限于流行音乐，实际上他的作品融合了多种风格。",
+      "王力宏的创作仅限于中文歌曲，实际上他也有英文及其他语言的作品。"
+    ],
+    "related": [
+      "周杰伦",
+      "罗大佑"
+    ],
+    "relations": [
+      {
+        "type": "followup",
+        "target": "台湾流行音乐发展史",
+        "note": "",
+        "confidence": 0.85
+      }
+    ],
+    "sources": [
+      "https://baike.baidu.com/item/%E7%8E%8B%E5%8A%A9%E9%BE%99/104263,",
+      "https://music.migu.cn/singer/1000000222,"
+    ],
+    "principle": "",
+    "id": "王力宏",
+    "provenance": {
+      "discoveredBy": "user",
+      "discoveredAt": 1786694262175,
+      "evidence": "user-request:王力宏"
+    },
+    "confidence": 0.9,
+    "sourceConfidence": 0.7,
+    "relationConfidence": 0.85,
+    "status": "verified",
+    "searchedAt": "2026-08-14"
   }
 ];

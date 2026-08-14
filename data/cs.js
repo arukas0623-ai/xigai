@@ -57,19 +57,19 @@ window.XIGAI["计算机科学"] = [
         "type": "related",
         "target": "计算理论",
         "note": "",
-        "confidence": 0.3
+        "confidence": 0.85
       },
       {
         "type": "related",
         "target": "丘奇-图灵论题",
         "note": "",
-        "confidence": 0.3
+        "confidence": 0.75
       },
       {
         "type": "related",
         "target": "有限自动机",
         "note": "",
-        "confidence": 0.3
+        "confidence": 0.85
       },
       {
         "type": "related",

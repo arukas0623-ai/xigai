@@ -53,5 +53,271 @@ window.XIGAI["AI 生成"] = [
         "confidence": 0.3
       }
     ]
+  },
+  {
+    "name": "自身免疫性疾病",
+    "aliases": [],
+    "field": "医学/免疫学",
+    "tags": [
+      "疾病",
+      "免疫"
+    ],
+    "difficulty": 3,
+    "summary": "机体免疫系统攻击正常组织的疾病。",
+    "definition": "自身免疫性疾病是指人体免疫系统错误地识别自身组织为外来物质，从而导致对自身组织进行攻击的一类疾病。常见的有风湿性关节炎、红斑狼疮等。",
+    "principle": ",",
+    "background": "自身免疫性疾病的发生与遗传因素、环境因素及激素水平有关。这类疾病的病因复杂，目前尚无根治方法。",
+    "core": [
+      "免疫系统错误识别",
+      "攻击正常组织",
+      "多种类型疾病",
+      "病因复杂"
+    ],
+    "pros": [],
+    "cons": [
+      "难以治愈",
+      "长期管理"
+    ],
+    "applications": [
+      "临床诊断和治疗",
+      "生物制剂的研发"
+    ],
+    "misconceptions": [
+      "自身免疫性疾病可以完全治愈。",
+      "所有自身免疫性疾病都是由单一因素引起的。"
+    ],
+    "related": [
+      "过敏反应",
+      "免疫缺陷病"
+    ],
+    "relations": [
+      {
+        "type": "related",
+        "target": "过敏反应",
+        "note": "",
+        "confidence": 0.3
+      },
+      {
+        "type": "related",
+        "target": "免疫缺陷病",
+        "note": "",
+        "confidence": 0.3
+      }
+    ],
+    "sources": [
+      "https://www.niams.nih.gov/health_info/autoimmune",
+      "https://www.cdc.gov/cadence/autoimmune-diseases.html",
+      "https://medlineplus.gov/ency/article/009127.htm"
+    ],
+    "id": "自身免疫性疾病",
+    "provenance": {
+      "discoveredBy": "user",
+      "discoveredAt": 1786694094108,
+      "evidence": "user-request:自身免疫性疾病"
+    },
+    "confidence": 0.9,
+    "sourceConfidence": 1,
+    "relationConfidence": 0.3,
+    "status": "verified",
+    "searchedAt": "2026-08-14"
+  },
+  {
+    "name": "Cortis",
+    "aliases": [],
+    "field": "健康与医疗",
+    "tags": [
+      "药物",
+      "激素"
+    ],
+    "difficulty": 2,
+    "summary": "一种皮质醇类药物",
+    "definition": "Cortis 是一种皮质醇类药物，用于治疗炎症和自身免疫性疾病。它通过模拟人体自然产生的皮质醇来发挥作用。",
+    "principle": ",",
+    "background": "Cortis 属于糖皮质激素类药物，广泛应用于临床治疗多种疾病，包括哮喘、过敏反应、关节炎等。其作用机制是抑制炎症反应和自身免疫过程。",
+    "core": [
+      "抗炎",
+      "免疫抑制",
+      "快速起效"
+    ],
+    "pros": [
+      "疗效显著",
+      "适用范围广"
+    ],
+    "cons": [
+      "长期使用可能产生副作用",
+      "依赖性"
+    ],
+    "applications": [
+      "治疗哮喘",
+      "缓解过敏反应"
+    ],
+    "misconceptions": [
+      "Cortis 不是维生素，而是激素类药物。",
+      "不应随意使用或滥用 Cortis。"
+    ],
+    "related": [
+      "皮质醇",
+      "糖皮质激素"
+    ],
+    "relations": [
+      {
+        "type": "dependsOn",
+        "target": "皮质醇",
+        "note": "",
+        "confidence": 0.3
+      }
+    ],
+    "sources": [
+      "https://www.mayoclinic.org/drugs-supplements/cortis-full-dose-info",
+      "https://medlineplus.gov/druginfo/meds/a68201.html"
+    ],
+    "id": "cortis",
+    "provenance": {
+      "discoveredBy": "user",
+      "discoveredAt": 1786694101424,
+      "evidence": "user-request:Cortis"
+    },
+    "confidence": 0.9,
+    "sourceConfidence": 0.85,
+    "relationConfidence": 0.3,
+    "status": "verified",
+    "searchedAt": "2026-08-14"
+  },
+  {
+    "name": "糖皮质激素",
+    "aliases": [],
+    "field": "医学/内分泌学",
+    "tags": [
+      "激素",
+      "免疫抑制剂"
+    ],
+    "difficulty": 3,
+    "summary": "一类具有抗炎和免疫抑制作用的药物",
+    "definition": "糖皮质激素是一类由肾上腺皮质分泌或人工合成的甾体激素，主要功能是调节炎症反应、免疫系统以及代谢过程。",
+    "principle": ",",
+    "background": "自20世纪40年代发现天然糖皮质激素以来，这类药物在临床上被广泛应用。它们通过影响细胞内的信号通路来发挥抗炎和免疫抑制作用。",
+    "core": [
+      "具有广泛的抗炎效果",
+      "调节免疫系统功能",
+      "影响代谢过程"
+    ],
+    "pros": [
+      "有效控制炎症反应",
+      "改善多种自身免疫性疾病症状"
+    ],
+    "cons": [
+      "长期使用可能导致副作用如骨质疏松、高血压等"
+    ],
+    "applications": [
+      "治疗过敏性鼻炎",
+      "缓解哮喘症状"
+    ],
+    "misconceptions": [
+      "不应将糖皮质激素与所有激素混淆，它们具有特定的功能。",
+      "不应认为所有免疫抑制剂都是糖皮质激素，还有其他类型的免疫抑制药物。"
+    ],
+    "related": [
+      "肾上腺素",
+      "皮质醇"
+    ],
+    "relations": [
+      {
+        "type": "evolvedFrom",
+        "target": "肾上腺皮质分泌的激素",
+        "note": "",
+        "confidence": 0.3
+      },
+      {
+        "type": "dependsOn",
+        "target": "免疫系统功能",
+        "note": "",
+        "confidence": 0.8
+      }
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/books/NBK493625/",
+      "https://www.sciencedirect.com/topics/pharmacology-toxicology-and-pharmaceutical-science/glucocorticoids",
+      "https://medlineplus.gov/ency/article/000447.htm"
+    ],
+    "id": "糖皮质激素",
+    "provenance": {
+      "discoveredBy": "user",
+      "discoveredAt": 1786694111211,
+      "evidence": "user-request:糖皮质激素"
+    },
+    "confidence": 0.9,
+    "sourceConfidence": 1,
+    "relationConfidence": 0.55,
+    "status": "verified",
+    "searchedAt": "2026-08-14"
+  },
+  {
+    "name": "激素治疗",
+    "aliases": [],
+    "field": "医学/内分泌学",
+    "tags": [
+      "药物治疗",
+      "内分泌调节"
+    ],
+    "difficulty": 2,
+    "summary": "利用激素进行疾病治疗的方法。",
+    "definition": "通过使用外源性或调整体内固有激素水平来治疗各种疾病的医疗手段，常用于调节生理功能和治疗代谢性疾病、自身免疫病等。",
+    "principle": ",",
+    "background": "激素是人体内重要的信号分子，参与调控生长发育、代谢、生殖等功能。当内分泌系统失衡时，可通过补充或抑制特定激素进行干预。",
+    "core": [
+      "识别需要调节的激素类型",
+      "确定治疗剂量和给药途径",
+      "监测患者生理指标变化"
+    ],
+    "pros": [
+      "针对性强，能精确调控特定生理过程",
+      "改善多种慢性疾病症状"
+    ],
+    "cons": [
+      "可能引起副作用或依赖性",
+      "需长期监控以调整剂量"
+    ],
+    "applications": [
+      "甲状腺功能减退症的治疗",
+      "糖尿病患者的血糖控制"
+    ],
+    "misconceptions": [
+      "激素治疗等同于增强体质或美容",
+      "所有疾病都可通过激素治疗解决"
+    ],
+    "related": [
+      "内分泌疗法",
+      "激素替代疗法"
+    ],
+    "relations": [
+      {
+        "type": "followup",
+        "target": "内分泌失调",
+        "note": "",
+        "confidence": 0.3
+      },
+      {
+        "type": "dependsOn",
+        "target": "激素水平检测",
+        "note": "",
+        "confidence": 0.3
+      }
+    ],
+    "sources": [
+      "https://www.ncbi.nlm.nih.gov/books/NBK493618/",
+      "https://www.endocrine.org/conditions/hormone-therapy",
+      "https://www.mayoclinic.org/diseases-conditions/endocrine-disorder/symptoms-causes/syc-20357537,"
+    ],
+    "id": "激素治疗",
+    "provenance": {
+      "discoveredBy": "user",
+      "discoveredAt": 1786694120356,
+      "evidence": "user-request:激素治疗"
+    },
+    "confidence": 0.9,
+    "sourceConfidence": 1,
+    "relationConfidence": 0.3,
+    "status": "verified",
+    "searchedAt": "2026-08-14"
   }
 ];

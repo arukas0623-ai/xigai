@@ -1,0 +1,12 @@
+# XIGAI 变更日志（仅近期，简短）
+- 2026-08-14 收尾修复：extractJSON 尾逗号正则修复(关系解析) + principle 规范化(修复5处 [object Object] 污染) + enrich-relations 实盘验证(relationsAdded=2) + 候选失败降级(fail≥3) + 关系置信度复查 + 全量回归 33/33 通过
+- 2026-08-14 主动知识采集：候选池(关系/搜索/别名) + 学习队列优先级(debt×heat×中心度×领域×搜索频) + 自动复查(review) + 溯源字段(discoveredBy/At/evidence) + 自动任务上限(时6/日40/队列50) + 搜索驱动增长(search-log)
+- 2026-08-14 移动端适配：mobile.css(五档断点/输入对比度硬化/触控/底部弹层/安全区) + 图谱touch + 移动自检(mobilecheck) + CDP仿真测试
+- 2026-08-14 Knowledge Intelligence：知识债务/优先级Patrol/pending分级/图谱中心度/动态关系预算(核心40)/冲突检测/概念自检报告/热度上报
+- 2026-08-14 自维护：Knowledge Patrol + Health Score + 孤立检测 + 关系预算 + 版本快照回滚 + moderation审核 + 知识缺口视图 + 纠错入口 + 版本时间线 + 知识漫游
+- 2026-08-14 自增长队列：grow-target单飞+冷却+状态芯片 + confidence拆分+封顶0.9 + 关系维护
+- 2026-08-14 免费AI：Ollama(qwen2.5:7b)部署 + 免费优先 + 付费预算守卫 + 成本面板
+- 2026-08-14 质量阶段：relations归一化(100%覆盖) + 术语库13领域 + AI解析员聊天
+- 2026-08-14 v3：AI聊天 + 13术语领域 + 六馆区
+- 2026-08-14 v2：3D书架/拖拽/AI回填自生长/公网隧道/GitHub Pages/js.org PR
+- 2026-08-14 v1：图书馆书架/搜索/详情/主题/收藏/历史

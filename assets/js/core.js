@@ -139,7 +139,7 @@
     const seen = new Set();
     c.relations = c.relations
       .filter(r => r && r.target && typeof r.target === "string")
-      .map(r => ({ type: X.RELATION_TYPES.some(t => t.key === r.type) ? r.type : "related", target: r.target, note: r.note || "" }))
+      .map(r => ({ type: X.RELATION_TYPES.some(t => t.key === r.type) ? r.type : "related", target: r.target, note: r.note || "", confidence: r.confidence, evidence: r.evidence || "" }))
       .filter(r => {
         const t = X.resolveConcept(r.target);
         if (t && t.id === c.id) return false;          // 自循环丢弃

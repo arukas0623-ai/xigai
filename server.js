@@ -493,7 +493,7 @@ function extractJSON(text) {
   const fenced = t.match(/```(?:json)?\s*([\s\S]*?)```/i);
   const body = fenced ? fenced[1] : t;
   const tryParse = raw0 => {
-    const raw = raw0.replace(/,([\s}\]])/g, "$1");
+    const raw = raw0.replace(/,(\s*[}\]])/g, "$1");
     const attempts = [raw, repairJSON(raw), repairJSON(repairJSON(raw))];
     for (const a of attempts) { try { return JSON.parse(a); } catch (e) {} }
     return null;
@@ -1063,6 +1063,7 @@ function runPatrol() {
     if (pick && enqueueTask('review', pick.id, 'patrol-review', { priority: 8 })) enqueued++;
   }
   bumpStat('patrolRuns', 1);
+  if (GROW_QUEUE.length) setTimeout(pumpQueue, 100);
   return { ok: true, health: h, enqueued };
 }
 
@@ -1163,6 +1164,13 @@ function processModeration() {
 const CANDIDATES_FILE = path.join(ROOT, ".cache", "candidates.json");
 const SEARCHLOG_FILE = path.join(ROOT, ".cache", "searchlog.json");
 function readCandidates() { try { return JSON.parse(fs.readFileSync(CANDIDATES_FILE, "utf8")); } catch (e) { return {}; } }
+function demoteCandidate(name) {
+  try {
+    const c = readCandidates();
+    const k = normStr(name);
+    if (c[k]) { c[k].fail = (c[k].fail || 0) + 1; if (c[k].fail >= 3) delete c[k]; writeCandidates(c); }
+  } catch (e) {}
+}
 function writeCandidates(p) { try { fs.writeFileSync(CANDIDATES_FILE, JSON.stringify(p)); } catch (e) {} }
 function readSearchLog() { try { return JSON.parse(fs.readFileSync(SEARCHLOG_FILE, "utf8")); } catch (e) { return {}; } }
 function writeSearchLog(p) { try { fs.writeFileSync(SEARCHLOG_FILE, JSON.stringify(p)); } catch (e) {} }
@@ -1288,9 +1296,16 @@ function reviewConceptTask(id) {
       bumpStat("conflictsDetected", 1);
     }
     c.searchedAt = new Date().toISOString().slice(0, 10);
+    // 刷新关系置信度（低置信/未解析保留为 pending，不删除）
+    let relChanged = false;
+    (c.relations || []).forEach(r => {
+      const t = CORPUS.byId.get(r.target) || CORPUS.byName.get(normStr(r.target));
+      const nc = relationConfidenceFor(r.type, !!t, r.note, c.domain, t && t.domain);
+      if (r.confidence == null || Math.abs(r.confidence - nc) > 0.05) { r.confidence = nc; relChanged = true; }
+    });
     pushVersion(c.id, c.domain, obj.confirmed ? "review-pass" : "review-uncertain", c);
-    if (obj.confirmed) { /* 保留旧内容，仅刷新检查时间 */ writeConcept(c); }
-    return { ok: true, confirmed: !!obj.confirmed, conflict: !!obj.conflict, note: obj.note };
+    if (obj.confirmed || relChanged) { writeConcept(c); }
+    return { ok: true, confirmed: !!obj.confirmed, conflict: !!obj.conflict, note: obj.note, relationsRefreshed: relChanged };
   });
 }
 /* 主动发现入口（升级版 /api/discover）：生成候选→按优先级入队 */
@@ -1433,6 +1448,7 @@ function growTarget(payload) {
     bumpStat("ollamaCalls", 1);
     if (!text) {
       const p = readPending(); p[key] = { at: Date.now(), reason: "ollama-empty" }; writePending(p);
+      demoteCandidate(target);
       return { ok: false, error: "本地模型不可用", pending: true };
     }
     let obj = extractJSON(text);
@@ -1461,6 +1477,7 @@ function growTarget(payload) {
       bumpStat("ingests", 1);
       try { fs.writeFileSync(cacheFile, JSON.stringify(obj)); } catch (e) {}
       const p = readPending(); delete p[key]; writePending(p);
+      const cpool = readCandidates(); const ck = normStr(obj.name); if (cpool[ck]) { delete cpool[ck]; writeCandidates(cpool); }
       return { ok: true, source: "ai", domain, concept: obj };
     }
     if (r.dup) { bumpStat("dupSkips", 1); return { ok: true, source: "dup" }; }
@@ -1556,11 +1573,13 @@ function enrichConceptTask(id) {
   if (!(c.applications || []).length) missing.push("applications(应用)");
   if (!(c.misconceptions || []).length) missing.push("misconceptions(误解)");
   if (!missing.length) return Promise.resolve({ ok: true, noop: true });
+  const eff = (c.relations || []).filter(r => findLocal(r.target) && (r.confidence != null ? r.confidence : 0.6) >= 0.6).length;
+  const relReq = eff < 2 ? ',"relations":[{"type":"related","target":"已收录概念A","reason":"依据1"},{"type":"prerequisite","target":"已收录概念B","reason":"依据2"}]' : "";
   const prompt = [
     "为概念「" + c.name + "」补充以下缺失字段。已知定义：" + (c.definition || "").slice(0, 300),
     "只输出一个 JSON 对象（不要其他文字），只包含有意义的字段：",
-    '{"principle":"原理(机制/工作方式，100-200字)","pros":["优点1","优点2"],"cons":["缺点1"],"applications":["应用1"],"misconceptions":["误解1"]}',
-    "缺失字段：" + missing.join("、") + "。已存在字段不要重复输出。",
+    '{"principle":"原理(机制/工作方式，100-200字)","pros":["优点1","优点2"],"cons":["缺点1"],"applications":["应用1"],"misconceptions":["误解1"]' + relReq + "}",
+    "缺失字段：" + missing.join("、") + "。已存在字段不要重复输出。" + (relReq ? " 必须输出 2-4 条 relations，target 必须是知识库中确实已收录的概念名（如 图灵机、机器学习、算法复杂度 这类真实存在的概念），reason 写一句依据。": ""),
   ].join("\n");
   return growOllama(c.name, prompt).then(text => {
     bumpStat("ollamaCalls", 1);
@@ -1568,15 +1587,36 @@ function enrichConceptTask(id) {
     const obj = extractJSON(text);
     if (!obj) return { ok: false, error: "解析失败" };
     // 合并（仅缺失字段）
-    if (c.principle == null && obj.principle) c.principle = String(obj.principle).slice(0, 400);
+    // principle 规范化：嵌套对象取首个字符串值，数组取 join，避免 [object Object]
+    let princRaw = obj.principle;
+    if (princRaw && typeof princRaw === "object") {
+      if (Array.isArray(princRaw)) princRaw = princRaw.join("；");
+      else princRaw = Object.values(princRaw).find(v => typeof v === "string") || Object.values(princRaw).filter(v => typeof v === "object").map(v => JSON.stringify(v)).join("；");
+    }
+    if (c.principle == null && princRaw) c.principle = String(princRaw).slice(0, 400);
     if (!(c.pros || []).length && Array.isArray(obj.pros)) c.pros = obj.pros.slice(0, 4).map(String);
     if (!(c.cons || []).length && Array.isArray(obj.cons)) c.cons = obj.cons.slice(0, 4).map(String);
     if (!(c.applications || []).length && Array.isArray(obj.applications)) c.applications = obj.applications.slice(0, 4).map(String);
     if (!(c.misconceptions || []).length && Array.isArray(obj.misconceptions)) c.misconceptions = obj.misconceptions.slice(0, 3).map(String);
-    c.confidence = Math.min(0.9, computeConfidence(c));   // 完整度提升可能上调置信
+    c.confidence = Math.min(0.9, computeConfidence(c));
     c.status = statusOf(c.confidence);
     c.searchedAt = new Date().toISOString().slice(0, 10);
-    return writeConcept(c);   // 更新文件 + 版本 + 语料重建
+    // 孤立概念补关系：仅保留可解析目标，带 evidence（禁止无依据建边）
+    const eff = (c.relations || []).filter(r => CORPUS.byId.has(r.target) && (r.confidence != null ? r.confidence : 0.6) >= 0.6).length;
+    if (eff < 2 && Array.isArray(obj.relations) && obj.relations.length) {
+      const kept = [];
+      for (const r of obj.relations.slice(0, 6)) {
+        const t = CORPUS.byId.get(r.target) || CORPUS.byName.get(normStr(r.target)) || CORPUS.byAlias.get(normStr(r.target));
+        if (t && t.id !== c.id && !(c.relations || []).some(x => x.type === (GROW_VOCAB.includes(r.type) ? r.type : "related") && x.target === t.id)) {
+          kept.push({ type: GROW_VOCAB.includes(r.type) ? r.type : "related", target: t.id, evidence: String(r.reason || r.note || "纵向补全发现").slice(0, 120), confidence: relationConfidenceFor(r.type, true, r.note, c.domain, t.domain) });
+        }
+      }
+      if (kept.length) {
+        c.relations = (c.relations || []).concat(kept).slice(0, MAX_RELATIONS);
+        bumpStat("relationsAdded", kept.length);
+      }
+    }
+    return writeConcept(c);
   });
 }
 function findLocalById(id) {
@@ -1759,6 +1799,7 @@ server.on("error", e => {
 });
 setInterval(() => { try { processModeration(); } catch (e) {} }, 15 * 60e3);
 setInterval(() => { try { if (GROW_QUEUE.length < 3) runPatrol(); } catch (e) {} }, 15 * 60e3);
+setInterval(() => { try { if (GROW_QUEUE.length && !queueBusy) setTimeout(pumpQueue, 100); } catch (e) {} }, 30e3);
 server.listen(PORT, () => {
   console.log("[析概] 知识图书馆服务已启动: http://127.0.0.1:" + PORT);
 });

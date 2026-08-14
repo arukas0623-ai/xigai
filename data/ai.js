@@ -780,8 +780,30 @@ window.XIGAI["人工智能"] = [
         "target": "机器智能",
         "note": "",
         "confidence": 0.3
+      },
+      {
+        "type": "related",
+        "target": "machine-learning",
+        "evidence": "图灵测试与机器学习都涉及对智能的评估和模拟，两者在人工智能领域相互关联。",
+        "confidence": 0.85
+      },
+      {
+        "type": "prerequisite",
+        "target": "algorithm-complexity",
+        "evidence": "理解图灵测试的前提之一是对计算能力和算法复杂性的基本认识。",
+        "confidence": 0.8
       }
-    ]
+    ],
+    "pros": [
+      "优点1：提供了评估机器智能的一个具体方法。",
+      "优点2：促进了对智能概念的理解和讨论。"
+    ],
+    "cons": [
+      "缺点1：仅能证明行为模仿，无法证明真正的理解或意识。"
+    ],
+    "confidence": 0.9,
+    "status": "needs_update",
+    "principle": "图灵测试的核心在于通过文本对话来判断机器是否具有智能，具体机制是让人类裁判与一台机器和一个真人进行纯文本交流，如果裁判无法可靠地区分两者，则认为该机器通过了测试。这一思想实验将智能操作化为可观察的行为判据，即能否在行为上达到与人类相当的水平。"
   },
   {
     "id": "knowledge-graph",
