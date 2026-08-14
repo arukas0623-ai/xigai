@@ -1472,14 +1472,14 @@ async function pumpQueue() {
   // 自适应：达到小时/日上限 → 自动暂停（每分钟重试，跨小时自动恢复；不影响用户功能）
   if (!autoCapOK()) { setTimeout(pumpQueue, 60e3); return; }
   queueBusy = true;
-  GROW_QUEUE.sort((a, b) => (b.priority || 0) - (a.priority || 0));
+  GROW_QUEUE.sort((a, b) => (b.priority || 0) - (a.priority || 0) || ((b.kind === "enrich" ? 1 : 0) - (a.kind === "enrich" ? 1 : 0)));   // 同优先级先纵向补全
   const task = GROW_QUEUE.shift();
   autoOpUsed();
   const rec = (k, ok) => { const prev = QUEUE_DONE.get(k); QUEUE_DONE.set(k, { at: Date.now(), ok, fail: ok ? 0 : ((prev && prev.fail) || 0) + 1 }); if (!ok) bumpStat("taskFails", 1); };
   try {
     let r = null;
     if (task.kind === "concept") {
-      const mates = GROW_QUEUE.filter(t => t.kind === "concept").slice(0, 7);
+      const mates = GROW_QUEUE.filter(t => t.kind === "concept").slice(0, Math.max(1, batchSizeFor() - 1));
       if (mates.length) {
         mates.forEach(t => GROW_QUEUE.splice(GROW_QUEUE.indexOf(t), 1));
         const names = [task.key].concat(mates.map(t => t.key));
@@ -1764,8 +1764,16 @@ async function processGeneratedConcept(obj, meta) {
   return { ok: false, error: r.error || "入库失败" };
 }
 /* 批处理：一次 Ollama 调用生成 2 个候选概念（各自仍走独立校验质量门） */
+function batchSizeFor() { try { const s = readStats(); return Math.max(2, Math.min(8, s.batchSize || 4)); } catch (e) { return 4; } }
+function batchSizeAdjust(delta) {
+  try {
+    const s = readStats();
+    s.batchSize = Math.max(2, Math.min(8, (s.batchSize || 4) + delta));
+    fs.writeFileSync(STATS_FILE, JSON.stringify(s, null, 2));
+  } catch (e) {}
+}
 function growBatch(names) {
-  const targets = names.filter(Boolean).slice(0, 8);
+  const targets = names.filter(Boolean).slice(0, batchSizeFor());
   if (!targets.length) return Promise.resolve({ ok: false, error: "空批" });
   const listHtml = targets.map((t, i) => (i + 1) + ". " + t).join("\n");
   const prompt = [
@@ -1781,14 +1789,23 @@ function growBatch(names) {
     const text = await growOllama(key, prompt);
     bumpStat("ollamaCalls", 1);
     bumpStat("batchCalls", 1);
-    if (!text) { targets.forEach(t => demoteCandidate(t)); return { ok: false, error: "本地模型不可用" }; }
+    if (!text) {
+      targets.forEach(t => demoteCandidate(t));
+      batchSizeAdjust(-2);   // 全失败 → 降级小批
+      return { ok: false, error: "本地模型不可用" };
+    }
     const arr = extractJSON(text);
-    if (!Array.isArray(arr) || !arr.length) { targets.forEach(t => demoteCandidate(t)); return { ok: false, error: "批量解析失败" }; }
+    if (!Array.isArray(arr) || !arr.length) {
+      targets.forEach(t => demoteCandidate(t));
+      batchSizeAdjust(-2);   // 解析失败 → 降级小批
+      return { ok: false, error: "批量解析失败" };
+    }
     const results = [];
+    const missing = [];      // 批内缺失项 → 单概念降级重试
     const prepped = [];
     for (let i = 0; i < targets.length; i++) {
       const obj = arr[i] && typeof arr[i] === "object" ? arr[i] : null;
-      if (!obj || !obj.name) { results.push({ name: targets[i], ok: false, error: "批内缺失" }); demoteCandidate(targets[i]); continue; }
+      if (!obj || !obj.name) { missing.push(targets[i]); continue; }
       if (!Array.isArray(obj.pros)) obj.pros = [];
       if (!Array.isArray(obj.cons)) obj.cons = [];
       if (obj.principle == null) obj.principle = "";
@@ -1810,8 +1827,17 @@ function growBatch(names) {
         results[p.idx] = Object.assign({ name: p.obj.name }, r);
       }
     }
-    // 补齐缺失位（批内缺失/解析失败的）
+    // 批内缺失项 → 单概念降级重试（不浪费已生成部分）
+    for (const mname of missing) {
+      const fb = await growTarget({ target: mname, source: "batch-fallback" });
+      const idx = targets.indexOf(mname);
+      results[idx] = Object.assign({ name: mname }, fb);
+    }
+    // 补齐缺失位
     for (let i = 0; i < targets.length; i++) if (!results[i]) results[i] = { name: targets[i], ok: false, error: "批内缺失" };
+    const okN = results.filter(r => r && (r.ok || r.concept)).length;
+    if (okN >= Math.ceil(targets.length * 0.6)) batchSizeAdjust(+1);   // 成功率高 → 增批
+    else batchSizeAdjust(-1);
     return { ok: true, results };
   })();
   GROW_INFLIGHT.set(key, task);
@@ -2145,7 +2171,21 @@ function prioritizeCandidates(limit) {
     sc.push({ name: cand.name, score: scoreCandidate(cand.name, cand), fail: cand.fail || 0, source: cand.source || "" });
   }
   sc.sort((a, b) => b.score - a.score);
-  return sc.slice(0, limit || 10);
+  // 候选间近似去重（编辑距离 <0.2 只留高分者），避免同义候选重复进 Ollama
+  const final = [];
+  for (const c of sc) {
+    const cb = normStr(c.name);
+    let dup = false;
+    for (const f of final) {
+      const fb = normStr(f.name);
+      if (cb.length > 2 && fb.length > 2) {
+        const d = levenshtein(cb, fb);
+        if (d / Math.max(cb.length, fb.length) < 0.2) { dup = true; break; }
+      }
+    }
+    if (!dup) final.push(c);
+  }
+  return final.slice(0, limit || 10);
 }
 
 

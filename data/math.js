@@ -809,5 +809,292 @@ window.XIGAI["数学"] = [
         "confidence": 0.85
       }
     ]
+  },
+  {
+    "name": "L函数",
+    "aliases": [],
+    "field": "数学/数论",
+    "tags": [
+      "黎曼假设",
+      "解析数论"
+    ],
+    "difficulty": 4,
+    "summary": "黎曼 ζ 函数的一类推广。",
+    "definition": "L函数是黎曼 ζ 函数的一种推广，通常形式为 L(s,χ) = ∑_{n=1}^{∞} χ(n)/n^s，其中 s 是复变量，χ 是一个 Dirichlet 特征。它们在数论中扮演着重要角色。",
+    "principle": "",
+    "background": "L函数的概念最早由黎曼引入 ζ 函数，并推广至更广泛的数学领域，如解析数论和代数数论。",
+    "core": [
+      "定义为黎曼 ζ 函数的推广",
+      "涉及复变量 s 和 Dirichlet 特征 χ",
+      "在数论中有重要应用"
+    ],
+    "pros": [
+      "提供了一种研究数论问题的新工具"
+    ],
+    "cons": [
+      "理论较为复杂，理解难度较大"
+    ],
+    "applications": [
+      "解析数论中的证明和猜想验证",
+      "代数数论中的研究"
+    ],
+    "misconceptions": [
+      "L函数仅限于黎曼 ζ 函数的推广，实际上它们有更广泛的定义。",
+      "L函数的研究与应用并不局限于数论领域，还涉及其他数学分支。"
+    ],
+    "related": [
+      "黎曼 ζ 函数",
+      "Dirichlet 特征"
+    ],
+    "relations": [
+      {
+        "type": "evolvedFrom",
+        "target": "黎曼 ζ 函数",
+        "note": "",
+        "confidence": 0.3
+      },
+      {
+        "type": "dependsOn",
+        "target": "复变量 s 和 Dirichlet 特征 χ",
+        "note": "",
+        "confidence": 0.3
+      }
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/L-function",
+      "https://www.math.ias.edu/press/annals/2018-176-3-p02.pdf",
+      "https://www.math.columbia.edu/~harris/Lfunctions.html"
+    ],
+    "id": "l函数",
+    "provenance": {
+      "discoveredBy": "system",
+      "discoveredAt": 1786703492481,
+      "evidence": "candidate:system"
+    },
+    "confidence": 0.86,
+    "sourceConfidence": 1,
+    "relationConfidence": 0.3,
+    "status": "verified",
+    "verification": {
+      "by": "ollama",
+      "score": 0.8,
+      "issues": [
+        "定义中未提及 L函数的具体类型，如 Dirichlet L 函数"
+      ],
+      "note": "该词条基本准确，但缺乏具体类型的说明",
+      "at": 1786703537088
+    },
+    "searchedAt": "2026-08-14"
+  },
+  {
+    "name": "ζ函数",
+    "aliases": [],
+    "field": "数学/数论",
+    "tags": [
+      "黎曼假设",
+      "无穷级数"
+    ],
+    "difficulty": 4,
+    "summary": "黎曼 ζ 函数是一种特殊的无穷级数。",
+    "definition": "黎曼 ζ 函数是定义在复平面上的一类函数，特别地，在实部大于1的区域中，它由公式 ζ(s) = ∑_{n=1}^{∞} n^{-s} 定义。它是研究质数分布的重要工具。",
+    "principle": "",
+    "background": "黎曼 ζ 函数最初由欧拉在18世纪提出，并由黎曼在其论文中进行了深入研究，特别是关于其零点的分布与素数定理的关系。",
+    "core": [
+      "定义为无穷级数",
+      "在复平面上有重要应用",
+      "与素数分布相关"
+    ],
+    "pros": [],
+    "cons": [],
+    "applications": [
+      "研究质数分布",
+      "验证黎曼假设"
+    ],
+    "misconceptions": [
+      "认为 ζ 函数仅在实部大于1的区域有意义"
+    ],
+    "related": [
+      "黎曼假设",
+      "素数定理"
+    ],
+    "relations": [
+      {
+        "type": "dependsOn",
+        "target": "黎曼假设",
+        "note": "",
+        "confidence": 0.8
+      },
+      {
+        "type": "appliesTo",
+        "target": "素数分布",
+        "note": "",
+        "confidence": 0.3
+      }
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Riemann_zeta_function",
+      "https://mathworld.wolfram.com/RiemannZetaFunction.html",
+      "https://www.mathpages.com/home/biographies/l/riemannzetafunction.htm"
+    ],
+    "id": "ζ函数",
+    "provenance": {
+      "discoveredBy": "system",
+      "discoveredAt": 1786703501791,
+      "evidence": "candidate:system"
+    },
+    "confidence": 0.9,
+    "sourceConfidence": 0.7,
+    "relationConfidence": 0.55,
+    "status": "verified",
+    "verification": {
+      "by": "ollama",
+      "score": 1,
+      "issues": [],
+      "note": "词条准确无误，定义和原理均正确。",
+      "at": 1786703564231
+    },
+    "searchedAt": "2026-08-14"
+  },
+  {
+    "name": "素数定理",
+    "aliases": [],
+    "field": "数学/数论",
+    "tags": [
+      "数论",
+      "素数"
+    ],
+    "difficulty": 3,
+    "summary": "描述素数分布规律的定理。",
+    "definition": "素数定理是关于素数分布的一个重要定理，它指出当n足够大时，小于或等于n的素数个数π(n)大约为n/ln(n)，其中ln(n)表示n的自然对数。",
+    "principle": "",
+    "background": "素数定理由J.P.拉梅和C.F.高斯在19世纪初提出，并最终由Hadamard和de la Vallée Poussin于1896年证明。它揭示了素数在自然数中的分布规律。",
+    "core": [
+      "当n足够大时，小于或等于n的素数个数π(n)大约为n/ln(n)",
+      "素数定理描述了素数在自然数中出现的概率",
+      "素数定理是证明素数存在性的基础"
+    ],
+    "pros": [
+      "揭示了素数分布规律，有助于理解素数的性质"
+    ],
+    "cons": [],
+    "applications": [
+      "密码学中的大素数生成",
+      "算法设计中对素数进行快速筛选"
+    ],
+    "misconceptions": [
+      "认为素数定理可以精确计算任意大小的素数个数是错误的，它仅是一个近似公式"
+    ],
+    "related": [
+      "欧拉乘积公式",
+      "黎曼猜想"
+    ],
+    "relations": [
+      {
+        "type": "followup",
+        "target": "黎曼猜想",
+        "note": "",
+        "confidence": 0.85
+      }
+    ],
+    "sources": [
+      "https://zh.wikipedia.org/wiki/%E7%B4%A2%E6%95%B0%E5%AE%9A%E7%9F%A9",
+      "https://www.mathpages.com/home/biographies/p/lagrange.htm"
+    ],
+    "id": "素数定理",
+    "provenance": {
+      "discoveredBy": "system",
+      "discoveredAt": 1786703513211,
+      "evidence": "candidate:system"
+    },
+    "confidence": 0.9,
+    "sourceConfidence": 0.7,
+    "relationConfidence": 0.85,
+    "status": "verified",
+    "verification": {
+      "by": "ollama",
+      "score": 1,
+      "issues": [],
+      "note": "素数定理的定义和原理准确无误。",
+      "at": 1786703627871
+    },
+    "searchedAt": "2026-08-14"
+  },
+  {
+    "name": "抽象代数",
+    "aliases": [],
+    "field": "数学/代数学",
+    "tags": [
+      "代数",
+      "理论"
+    ],
+    "difficulty": 3,
+    "summary": "研究代数结构的分支学科。",
+    "definition": "抽象代数是数学的一个分支，它通过公理化的方法来研究各种代数结构（如群、环、域等），以及它们之间的关系和性质。",
+    "principle": "",
+    "background": "19世纪末至20世纪初，随着集合论的发展，数学家开始尝试将代数系统形式化为公理体系。抽象代数由此成为现代数学的一个重要组成部分。",
+    "core": [
+      "研究各种代数结构及其性质",
+      "通过公理化方法定义和研究代数对象",
+      "探讨不同代数结构之间的关系"
+    ],
+    "pros": [
+      "提供统一的理论框架，便于理解和解决问题",
+      "促进数学各分支间的联系与合作"
+    ],
+    "cons": [
+      "学习难度较大，需要较强的逻辑思维能力"
+    ],
+    "applications": [
+      "在现代密码学中应用广泛",
+      "用于计算机科学中的算法设计"
+    ],
+    "misconceptions": [
+      "抽象代数只研究群、环和域等基本结构，忽略了其他数学分支的应用",
+      "认为抽象代数过于理论化而缺乏实际意义"
+    ],
+    "related": [],
+    "relations": [
+      {
+        "type": "followup",
+        "target": "群论",
+        "note": "",
+        "confidence": 0.85
+      },
+      {
+        "type": "followup",
+        "target": "环论",
+        "note": "",
+        "confidence": 0.3
+      },
+      {
+        "type": "followup",
+        "target": "域论",
+        "note": "",
+        "confidence": 0.3
+      }
+    ],
+    "sources": [
+      "https://zh.wikipedia.org/wiki/%E5%8C%96%E7%BB%B4%E5%AD%A6",
+      "https://www.math.wisc.edu/graduate/abstract-algebra",
+      "https://mathworld.wolfram.com/AbsoluteAlgebra.html"
+    ],
+    "id": "抽象代数",
+    "provenance": {
+      "discoveredBy": "system",
+      "discoveredAt": 1786703535640,
+      "evidence": "candidate:system"
+    },
+    "confidence": 0.9,
+    "sourceConfidence": 0.85,
+    "relationConfidence": 0.48,
+    "status": "verified",
+    "verification": {
+      "by": "ollama",
+      "score": 1,
+      "issues": [],
+      "note": "词条准确无误，定义和原理清晰明了。",
+      "at": 1786703629413
+    },
+    "searchedAt": "2026-08-14"
   }
 ];

@@ -2487,5 +2487,82 @@ window.XIGAI["计算机术语"] = [
     "status": "verified",
     "searchedAt": "2026-08-14",
     "domain": "计算机术语"
+  },
+  {
+    "name": "密码学",
+    "aliases": [],
+    "field": "计算机术语",
+    "tags": [
+      "安全",
+      "加密"
+    ],
+    "difficulty": 3,
+    "summary": "研究信息的保密、完整和认证。",
+    "definition": "密码学是研究如何通过算法将明文转换为密文，以及如何从密文中恢复出原明文的一门学科。它涉及编码、解码技术，确保信息安全传输。",
+    "principle": "基于数学原理实现加密与解密。",
+    "background": "起源于古代的密码系统，现代密码学始于20世纪中叶，随着计算机和网络的发展而迅速发展。",
+    "core": [
+      "对称加密：使用相同的密钥进行加密和解密。",
+      "非对称加密：使用公钥加密，私钥解密。",
+      "哈希函数：用于生成固定长度的摘要。",
+      "数字签名：确保信息完整性和发送者身份"
+    ],
+    "pros": [
+      "提高信息安全",
+      "保障数据完整性"
+    ],
+    "cons": [
+      "复杂的实现和维护",
+      "可能的安全漏洞"
+    ],
+    "applications": [
+      "电子商务",
+      "网络安全"
+    ],
+    "misconceptions": [
+      "认为加密后信息完全不可破解。",
+      "忽视密钥管理的重要性"
+    ],
+    "related": [
+      "信息安全",
+      "区块链"
+    ],
+    "relations": [
+      {
+        "type": "followup",
+        "target": "对称加密算法",
+        "note": "",
+        "confidence": 0.3
+      },
+      {
+        "type": "followup",
+        "target": "非对称加密算法",
+        "note": "",
+        "confidence": 0.85
+      }
+    ],
+    "sources": [
+      "https://zh.wikipedia.org/wiki/%E5%AF%84%E7%A0%81%E5%AD%A6",
+      "https://www.cryptologie.net/article/209/history-of-cryptography/",
+      "https://www.cloudflare.com/learning/cryptography/"
+    ],
+    "id": "密码学",
+    "provenance": {
+      "discoveredBy": "system",
+      "discoveredAt": 1786703524037,
+      "evidence": "candidate:system"
+    },
+    "confidence": 0.9,
+    "sourceConfidence": 0.7,
+    "relationConfidence": 0.57,
+    "status": "verified",
+    "verification": {
+      "by": "ollama",
+      "score": 1,
+      "issues": [],
+      "note": "密码学定义和原理准确，关系明确无误。",
+      "at": 1786703628642
+    },
+    "searchedAt": "2026-08-14"
   }
 ];
