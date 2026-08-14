@@ -225,6 +225,18 @@
     }
   };
 
+
+  /* 本地命中（零成本，供聊天/入库前检查）：精确名称/别名匹配 */
+  X.findLocalConcept = function (q) {
+    if (!q) return null;
+    const nk = String(q).trim().toLowerCase().replace(/[\s，。；、·．.:：()（）""''「」【】]/g, "");
+    if (!nk) return null;
+    const exact = X.data.find(c => c.name.toLowerCase().replace(/[\s，。；、·．.:：()（）""''「」【】]/g, "") === nk);
+    if (exact) return exact;
+    const byAlias = X.data.find(c => (c.aliases || []).some(a => a.toLowerCase().replace(/[\s，。；、·．.:：()（）""''「」【】]/g, "") === nk));
+    return byAlias || null;
+  };
+
   /* ── 搜索索引（拼音增强） ─────────────────────────── */
   X._idx = null;
   X.buildIndex = function () {

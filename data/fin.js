@@ -2088,5 +2088,57 @@ window.XIGAI["金融投资"] = [
         "note": ""
       }
     ]
+  },
+  {
+    "name": "数字人民币",
+    "aliases": [],
+    "field": "金融投资",
+    "tags": [
+      "数字货币",
+      "央行货币"
+    ],
+    "difficulty": 3,
+    "summary": "中国人民银行发行的法定数字货币。",
+    "definition": "由中国人民银行发行，基于国家信用背书的数字化形式的法定货币。它通过区块链技术实现点对点的价值转移，旨在提高支付效率和便利性。",
+    "principle": ",",
+    "background": "数字人民币是央行推出的新型法定货币形态，旨在替代部分现金交易，减少跨境资金流动中的摩擦，并推动数字经济的发展。自2019年起开始试点测试。",
+    "core": [
+      "基于区块链技术",
+      "国家信用背书",
+      "点对点支付"
+    ],
+    "pros": [
+      "提高支付效率",
+      "降低交易成本"
+    ],
+    "cons": [
+      "隐私保护挑战",
+      "技术安全性问题"
+    ],
+    "applications": [
+      "跨境支付",
+      "零售支付"
+    ],
+    "misconceptions": [
+      "数字人民币并非完全去中心化，而是基于国家信用的法定数字货币。",
+      "数字人民币并不意味着现金消失，而是补充而非替代传统货币形式。"
+    ],
+    "related": [
+      "央行数字货币",
+      "电子支付"
+    ],
+    "relations": [
+      {
+        "type": "evolvedFrom",
+        "target": "电子支付",
+        "note": ""
+      }
+    ],
+    "sources": [
+      "https://www.pbc.gov.cn/goutongjiaoxue/152407/153689/153690/index.html",
+      "https://www.cnbeta.com/articles/finance/1075435.htm"
+    ],
+    "searchedAt": "2026-08-14",
+    "status": "generated"
   }
 ];

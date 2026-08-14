@@ -1164,5 +1164,63 @@ window.XIGAI["前沿科技"] = [
         "note": ""
       }
     ]
+  },
+  {
+    "name": "数字孪生",
+    "aliases": [],
+    "field": "前沿科技",
+    "tags": [
+      "物联网",
+      "虚拟现实"
+    ],
+    "difficulty": 3,
+    "summary": "通过数据模型复制物理对象。",
+    "definition": "数字孪生是指利用互联网、物联网等技术手段，将物理世界的实体或系统转化为一个虚拟的数字化模型，并在该模型中实时反映其状态和变化。这一概念广泛应用于工业制造、智慧城市等领域。",
+    "principle": "基于传感器数据采集与分析，通过云计算进行模拟和预测。",
+    "background": "数字孪生起源于航空航天领域，近年来随着物联网技术的发展逐渐普及到各个行业。",
+    "core": [
+      "实时监控物理对象的状态",
+      "优化设计与维护流程",
+      "提高生产效率和安全性"
+    ],
+    "pros": [
+      "减少实际测试的成本和风险",
+      "实现远程管理和控制"
+    ],
+    "cons": [
+      "数据安全和隐私问题",
+      "技术复杂度高，初期投入大"
+    ],
+    "applications": [
+      "工业制造中的设备健康管理",
+      "城市规划与管理"
+    ],
+    "misconceptions": [
+      "数字孪生仅限于制造业",
+      "所有物理对象都能完美转换为数字模型"
+    ],
+    "related": [
+      "物联网",
+      "智能制造"
+    ],
+    "relations": [
+      {
+        "type": "evolvedFrom",
+        "target": "物联网",
+        "note": ""
+      },
+      {
+        "type": "appliesTo",
+        "target": "智能制造",
+        "note": ""
+      }
+    ],
+    "sources": [
+      "https://www.siemens.com.cn/corporate/en/innovation/digital-twin.html",
+      "https://www.nature.com/articles/s41520-020-0398-7,",
+      "https://ieeexplore.ieee.org/document/8658693,"
+    ],
+    "searchedAt": "2026-08-14",
+    "status": "generated"
   }
 ];

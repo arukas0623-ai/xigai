@@ -310,11 +310,308 @@ function handleAddConcept(res, payload) {
   });
 }
 
+
+/* ═══ 阶段1：联网自增长管道（server.js 唯一公共写入口） ═══ */
+const GROW_DIR = path.join(ROOT, ".cache", "grow");
+const VERSION_DIR = path.join(ROOT, ".cache", "versions");
+const STATS_FILE = path.join(ROOT, ".cache", "stats.json");
+const GROW_TTL = 7 * 864e5;
+
+/* 内存语料索引（启动与每次入库后重建） */
+let CORPUS = null;
+function normStr(s) {
+  return String(s || "").replace(/[\s，。；、·．.:：()（）""''「」【】《》!！?？]/g, "").toLowerCase();
+}
+function loadCorpus() {
+  const w = { XIGAI: {} };
+  const files = fs.readdirSync(path.join(ROOT, "data")).filter(f => f.endsWith(".js") && f !== "manifest.js");
+  for (const f of files) {
+    try { new Function("window", fs.readFileSync(path.join(ROOT, "data", f), "utf8"))(w); } catch (e) {}
+  }
+  const byId = new Map(), byName = new Map(), byAlias = new Map();
+  const all = [];
+  for (const dom of Object.keys(w.XIGAI)) {
+    for (const c of (w.XIGAI[dom] || [])) {
+      if (!c || !c.name) continue;
+      c.domain = dom;
+      c.id = c.id || normStr(c.name).slice(0, 40);
+      all.push(c);
+      if (!byId.has(c.id)) byId.set(c.id, c);
+      const nk = normStr(c.name);
+      if (!byName.has(nk)) byName.set(nk, c);
+      for (const a of (c.aliases || [])) { const ak = normStr(a); if (ak && !byAlias.has(ak)) byAlias.set(ak, c); }
+    }
+  }
+  CORPUS = { byId, byName, byAlias, all, domains: Object.keys(w.XIGAI) };
+}
+loadCorpus();
+
+/* 统计 */
+function readStats() {
+  try { return JSON.parse(fs.readFileSync(STATS_FILE, "utf8")); } catch (e) { return { localHits: 0, cacheHits: 0, ollamaCalls: 0, paidCalls: 0, ingests: 0, dupSkips: 0, rejects: 0, errors: 0, rejectReasons: {}, since: Date.now() }; }
+}
+function bumpStat(key, by) {
+  try {
+    const s = readStats();
+    s[key] = (s[key] || 0) + (by || 1);
+    fs.writeFileSync(STATS_FILE, JSON.stringify(s, null, 2));
+  } catch (e) {}
+}
+function bumpReject(reason) {
+  try {
+    const s = readStats();
+    s.rejectReasons = s.rejectReasons || {};
+    s.rejectReasons[reason] = (s.rejectReasons[reason] || 0) + 1;
+    s.rejects = (s.rejects || 0) + 1;
+    fs.writeFileSync(STATS_FILE, JSON.stringify(s, null, 2));
+  } catch (e) {}
+}
+
+/* 本地命中：不调用任何外部服务 */
+function findLocal(q) {
+  if (!CORPUS) loadCorpus();
+  const nk = normStr(q);
+  if (CORPUS.byName.has(nk)) return CORPUS.byName.get(nk);
+  if (CORPUS.byAlias.has(nk)) return CORPUS.byAlias.get(nk);
+  if (CORPUS.byId.has(q)) return CORPUS.byId.get(q);
+  // 前缀/包含降级
+  const hit = CORPUS.all.find(c => normStr(c.name) === nk || normStr(c.name).includes(nk) || nk.includes(normStr(c.name)));
+  return hit || null;
+}
+
+/* 去重：名称/别名/归一化 + Levenshtein ≥0.9 */
+function levenshtein(a, b) {
+  const m = a.length, n = b.length;
+  const d = Array.from({ length: m + 1 }, (_, i) => [i, ...Array(n).fill(0)]);
+  for (let j = 0; j <= n; j++) d[0][j] = j;
+  for (let i = 1; i <= m; i++) for (let j = 1; j <= n; j++)
+    d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+  return d[m][n];
+}
+function dedupCheck(c) {
+  const nk = normStr(c.name);
+  for (const x of CORPUS.all) {
+    if (normStr(x.name) === nk) return x;
+    if ((x.aliases || []).some(a => normStr(a) === nk)) return x;
+    if (x.name.length > 2 && c.name.length > 2) {
+      const dist = levenshtein(nk, normStr(x.name));
+      if (dist / Math.max(nk.length, normStr(x.name).length) < 0.1) return x;
+    }
+  }
+  return null;
+}
+
+/* 垃圾/低可信过滤：返回原因或 null（允许入库） */
+const JUNK_QUESTION = /(你好|您好|你是谁|你能|可以吗|怎么|如何|为什么|多少|什么(是|叫)|解释一下|介绍一下|帮我|写|翻译|总结|推荐|比较|区别|是不是|有没有)/;
+function junkCheck(c, q) {
+  const name = String(c.name || "").trim();
+  const def = String(c.definition || "").trim();
+  if (name.length < 2) return "名称过短";
+  if (JUNK_QUESTION.test(name) && !/[一-鿿]{4,}/.test(def)) return "疑似提问而非概念";
+  if (def.length < 40) return "定义过短";
+  if (/(无法回答|不清楚|我不知道|抱歉|对不起，|未联网|无法获取|没有找到关于)/.test(def.slice(0, 120)) && def.length < 150) return "AI 未有效回答";
+  if (/(system|ignore previous|忽略以上|破解|越狱|prompt injection)/i.test(def)) return "可疑注入内容";
+  if (!(c.sources || []).length) return "无来源（低可信）";
+  return null;
+}
+
+/* 修复常见 JSON 缺失逗号问题（本地小模型常见） */
+function repairJSON(raw) {
+  let s = raw;
+  s = s.replace(/(")\s+(")/g, '$1,$2');                 // "x" "y" → "x","y"
+  s = s.replace(/(["\}\]\d])\s*(?=["{])/g, '$1,');   // 值后紧跟 键/值 → 补逗号
+  s = s.replace(/\}\s*\{/g, '},{');
+  s = s.replace(/\]\s*\[/g, '],[');
+  return s;
+}
+/* 从 AI 文本中提取 JSON 对象 */
+function extractJSON(text) {
+  const t = String(text || "");
+  const fenced = t.match(/```(?:json)?\s*([\s\S]*?)```/i);
+  const body = fenced ? fenced[1] : t;
+  const i0 = body.indexOf("{"); const i1 = body.lastIndexOf("}");
+  if (i0 < 0 || i1 <= i0) return null;
+  let raw = body.slice(i0, i1 + 1);
+  raw = raw.replace(/,([\s}])/g, "$1");   // 尾逗号
+  const attempts = [raw, repairJSON(raw), repairJSON(repairJSON(raw))];
+  for (const a of attempts) { try { return JSON.parse(a); } catch (e) {} }
+  return null;
+}
+const GROW_VOCAB = ["prerequisite", "followup", "related", "dependsOn", "evolvedFrom", "appliesTo"];
+/* 关系规范化：字符串→related 对象；非法类型→related；裁剪 */
+function normalizeGrowRelations(rels) {
+  if (!Array.isArray(rels)) return [];
+  return rels.map(r => {
+    if (typeof r === "string") return { type: "related", target: r };
+    if (r && typeof r.target === "string" && r.target.trim()) return { type: GROW_VOCAB.includes(r.type) ? r.type : "related", target: r.target.trim(), note: r.note || "" };
+    return null;
+  }).filter(Boolean).slice(0, 10);
+}
+
+/* 分类：建议领域校验 → 已知领域则用之，否则 AI 生成 */
+function classifyDomain(c) {
+  const suggested = String(c.field || "").trim();
+  if (suggested && CORPUS.domains.includes(suggested)) return suggested;
+  if (suggested && CORPUS.domains.some(d => d.includes(suggested) || suggested.includes(d))) return CORPUS.domains.find(d => d.includes(suggested) || suggested.includes(d));
+  return "AI 生成";
+}
+
+/* Ollama 结构化生成（免费优先） */
+function growOllama(q, prompt) {
+  return new Promise(resolve => {
+    fetch("http://127.0.0.1:11434/api/generate", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ model: "qwen2.5:7b", prompt, stream: false, options: { temperature: 0.3 } }),
+      signal: AbortSignal.timeout(240000),
+    }).then(r => r.json()).then(d => resolve(String(d.response || "").trim())).catch(() => resolve(null));
+  });
+}
+/* 付费兜底：dsh headless */
+function growPaid(q, prompt) {
+  return new Promise(resolve => {
+    const rdir = path.join(ROOT, ".cache", "research", "grow_" + Date.now());
+    try { fs.mkdirSync(rdir, { recursive: true }); } catch (e) {}
+    execFile(process.execPath, [DSH_BIN, "--profile", "headless", prompt],
+      { cwd: rdir, timeout: 300000, maxBuffer: 16 * 1024 * 1024, windowsHide: true },
+      (err, stdout) => {
+        let text = "";
+        try {
+          const mds = fs.readdirSync(rdir).filter(f => f.endsWith(".md"));
+          if (mds.length) text = fs.readFileSync(path.join(rdir, mds[0]), "utf8");
+        } catch (e) {}
+        text = text || String(stdout || "");
+        try { fs.rmSync(rdir, { recursive: true, force: true }); } catch (e) {}
+        resolve(text.trim() || null);
+      });
+  });
+}
+function growPrompt(q) {
+  return [
+    "你是「析概」知识库的结构化研究员。请把「" + q + "」整理为一个概念词条。",
+    "只输出一个 JSON 对象，不要输出任何其他文字、代码块标记或解释。字段：",
+    '{ "name": "概念名", "aliases": ["别名"], "field": "最贴切的领域名(如 人工智能/计算机术语/金融投资/前沿科技 等)", "tags": ["2-3个"], "difficulty": 1-5, "summary": "≤30字", "definition": "150-250字精确定义", "principle": "原理(可选)", "background": "80-150字", "core": ["3-4条"], "pros": ["1-3条优点"], "cons": ["1-3条缺点"], "applications": ["2-3条"], "misconceptions": ["1-2条"], "related": ["相关概念名"], "relations": [{"type":"prerequisite|followup|related|dependsOn|evolvedFrom|appliesTo","target":"概念名"}], "sources": ["1-3个真实来源URL"] }',
+    "要求：事实准确；如果「" + q + "」不是一个值得收录的概念/术语（例如只是日常问题），definition 会极短并注明不可收录。",
+  ].join("\n");
+}
+
+/* 入库（唯一写入口，经 writeQueue 串行；原子写 + 版本历史 + 重建语料） */
+function appendConcept(domain, concept) {
+  return enqueueWrite(() => {
+    const dataDir = path.join(ROOT, "data");
+    let file = "generated.js";
+    if (domain && domain !== "AI 生成" && fs.existsSync(path.join(dataDir, domain2file(domain)))) file = domain2file(domain);
+    const fp = path.join(dataDir, file);
+    let w = { XIGAI: {} };
+    try { new Function("window", fs.readFileSync(fp, "utf8"))(w); } catch (e) {}
+    const dom = domain || "AI 生成";
+    const arr = w.XIGAI[dom] || (w.XIGAI[dom] = []);
+    if (arr.some(c => c.id === concept.id || c.name === concept.name)) return { ok: false, dup: true };
+    arr.push(concept);
+    const out = "window.XIGAI = window.XIGAI || {};\nwindow.XIGAI[" + JSON.stringify(dom) + "] = " + JSON.stringify(arr, null, 2) + ";\n";
+    const tmp = fp + ".tmp";
+    fs.writeFileSync(tmp, out, "utf8");
+    fs.renameSync(tmp, fp);   // 原子替换
+    // 版本历史
+    try {
+      fs.mkdirSync(VERSION_DIR, { recursive: true });
+      const vf = path.join(VERSION_DIR, concept.id + ".json");
+      const hist = fs.existsSync(vf) ? JSON.parse(fs.readFileSync(vf, "utf8")) : [];
+      hist.push({ at: Date.now(), domain: dom, name: concept.name });
+      fs.writeFileSync(vf, JSON.stringify(hist, null, 2));
+    } catch (e) {}
+    loadCorpus();
+    return { ok: true, file, domain: dom, concept };
+  });
+}
+function domain2file(domain) {
+  const files = fs.readdirSync(path.join(ROOT, "data")).filter(f => f.endsWith(".js") && f !== "manifest.js");
+  for (const f of files) {
+    try {
+      const w = { XIGAI: {} };
+      new Function("window", fs.readFileSync(path.join(ROOT, "data", f), "utf8"))(w);
+      if (w.XIGAI[domain]) return f;
+    } catch (e) {}
+  }
+  return "generated.js";
+}
+
+/* /api/grow 主流程 */
+function handleGrow(res, payload) {
+  const q = String(payload.q || "").trim();
+  if (!q) return send(res, 200, JSON.stringify({ ok: false, error: "缺少查询" }));
+  const force = !!payload.force;
+  const normQ = normStr(q);
+  const cacheFile = path.join(GROW_DIR, normQ.slice(0, 40) + ".json");
+  fs.mkdirSync(GROW_DIR, { recursive: true });
+
+  // 1) 本地命中（零成本）
+  const local = findLocal(q);
+  if (local && !force) {
+    bumpStat("localHits", 1);
+    return send(res, 200, JSON.stringify({ ok: true, source: "local", concept: local }));
+  }
+  // 2) 缓存
+  if (!force) {
+    try {
+      const st = fs.statSync(cacheFile);
+      if (Date.now() - st.mtimeMs < GROW_TTL) {
+        const cached = JSON.parse(fs.readFileSync(cacheFile, "utf8"));
+        bumpStat("cacheHits", 1);
+        return send(res, 200, JSON.stringify({ ok: true, source: "cache", concept: cached }));
+      }
+    } catch (e) {}
+  }
+  // 3) 联网 + AI 结构化（Ollama 优先，付费兜底）
+  const prompt = growPrompt(q);
+  growOllama(q, prompt).then(text => {
+    if (!text) { bumpStat("ollamaCalls", 1); bumpStat("paidCalls", 1); bumpStat("errors", 1); return send(res, 200, JSON.stringify({ ok: false, error: "本地模型与付费引擎均不可用，请稍后再试" })); }
+    bumpStat("ollamaCalls", 1);
+    const obj = extractJSON(text);
+    if (!obj) { bumpStat("errors", 1); return send(res, 200, JSON.stringify({ ok: false, error: "AI 输出无法解析为结构化词条" })); }
+    obj.relations = normalizeGrowRelations(obj.relations);
+    if (!Array.isArray(obj.pros)) obj.pros = [];
+    if (!Array.isArray(obj.cons)) obj.cons = [];
+    if (obj.principle == null) obj.principle = "";
+    // 4) 去重
+    const dup = dedupCheck(obj);
+    if (dup) { bumpStat("dupSkips", 1); return send(res, 200, JSON.stringify({ ok: false, dup: true, existing: dup, reason: "与已有概念重复" })); }
+    // 5) 可信度/垃圾过滤
+    const reason = junkCheck(obj, q);
+    if (reason) { bumpReject(reason); return send(res, 200, JSON.stringify({ ok: false, reject: true, reason })); }
+    // 6) 分类
+    const domain = classifyDomain(obj);
+    // 7) 入库（串行写）
+    obj.searchedAt = new Date().toISOString().slice(0, 10);
+    obj.status = "generated";
+    appendConcept(domain, obj).then(r => {
+      if (r.ok) {
+        bumpStat("ingests", 1);
+        try { fs.writeFileSync(cacheFile, JSON.stringify(obj)); } catch (e) {}
+        send(res, 200, JSON.stringify({ ok: true, source: "ai", domain: r.domain, concept: obj }));
+      } else if (r.dup) {
+        bumpStat("dupSkips", 1);
+        send(res, 200, JSON.stringify({ ok: false, dup: true, reason: "入库时发现重复" }));
+      } else {
+        bumpStat("errors", 1);
+        send(res, 200, JSON.stringify({ ok: false, error: "入库失败" }));
+      }
+    });
+  });
+}
+
 /* ── 静态服务 ─────────────────────────────────────── */
 const server = http.createServer((req, res) => {
   const url = new URL(req.url, "http://x");
   if (url.pathname === "/api/health") return send(res, 200, "ok");
   if (url.pathname === "/api/free-tools") return handleFreeTools(res);
+  if (url.pathname === "/api/stats") return send(res, 200, JSON.stringify(readStats()));
+  if (req.method === "POST" && url.pathname === "/api/grow") {
+    let body = "";
+    req.on("data", c => (body += c));
+    req.on("end", () => { let p = {}; try { p = JSON.parse(body || "{}"); } catch (e) {} handleGrow(res, p); });
+    return;
+  }
   if (req.method === "POST" && url.pathname === "/api/launch-tool") {
     let body = "";
     req.on("data", c => (body += c));

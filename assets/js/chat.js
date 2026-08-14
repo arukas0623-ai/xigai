@@ -110,6 +110,27 @@
     q = String(q || "").trim();
     if (!q) return;
     if (!X.isChatOpen()) X.openChat();
+    // 本地命中：零成本直接展示，不调用任何外部服务
+    if (!opts || !opts.force) {
+      const local = X.findLocalConcept(q);
+      if (local) {
+        X.chatHistory.push({ role: "q", t: Date.now(), text: q });
+        X.chatHistory.push({ role: "a", t: Date.now(), text: "📚 本地书库已收录「" + local.name + "」（" + local.domain + "），无需联网：\n" + (local.summary || ""), isHtml: false, localId: local.id });
+        X.store.set("chatHistory", X.chatHistory.slice(-40));
+        const inp = document.getElementById("chat-input");
+        if (inp) inp.value = "";
+        X.renderChat();
+        const body = document.getElementById("chat-body");
+        if (body && body.lastElementChild) {
+          const btn = document.createElement("button");
+          btn.className = "chat-addbtn";
+          btn.textContent = "📖 打开详情";
+          btn.addEventListener("click", () => X.openConcept(local.id));
+          body.lastElementChild.appendChild(btn);
+        }
+        return;
+      }
+    }
     opts = opts || {};
     // 立即显示用户问题
     X.chatHistory.push({ role: "q", t: Date.now(), text: q });
@@ -203,23 +224,26 @@
     });
   };
 
-  /* 聊天答案 → 书库 */
-  X.addAnswerToLibrary = function (m) {
+  /* 聊天答案 → 结构化入库（自增长管道 /api/grow：去重/可信度/分类） */
+    X.addAnswerToLibrary = function (m) {
     const q = (X.chatHistory.find(h => h.role === "q" && X.chatHistory.indexOf(h) < X.chatHistory.indexOf(m)) || {}).text || "AI 解析";
-    const name = String(q).replace(/^(什么是|解释|介绍一下|解释一下|说说|讲一下)\s*/i, "").replace(/[？?。！!]+$/g, "").slice(0, 24) || "AI 解析";
-    fetch("/api/add-concept", {
+    const name = String(q).replace(/^(什么是|解释|介绍一下|解释一下|说说|讲一下)\s*/i, "").replace(/[？?。！!]+$/g, "").trim().slice(0, 24) || "AI 解析";
+    fetch("/api/grow", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ id: X.slug(name), name, domain: "AI 生成", analysis: m.text }),
+      body: JSON.stringify({ q: name }),
     }).then(r => r.json()).then(d => {
       if (d.ok) {
-        window.XIGAI["AI 生成"] = window.XIGAI["AI 生成"] || [];
-        if (!X.byId.has(d.concept.id)) window.XIGAI["AI 生成"].push(d.concept);
-        X.reloadData();
-        X.renderShelves(X._currentFilter);
-        X.renderDesk();
-        X.toast("已加入书库「AI 生成」架 📚");
-      } else X.toast("加入失败：" + (d.error || ""));
+        if (d.source === "local") { X.toast("「" + d.concept.name + "」已在书库中，无需入库"); X.openConcept(d.concept.id); return; }
+        const c = d.concept;
+        c.id = c.id || X.slug(c.name);
+        window.XIGAI[d.domain] = window.XIGAI[d.domain] || [];
+        if (!X.byId.has(c.id) && !window.XIGAI[d.domain].some(x => x.name === c.name)) window.XIGAI[d.domain].push(c);
+        X.reloadData(); X.renderShelves(X._currentFilter); X.renderDesk();
+        X.toast("已结构化入库「" + c.name + "」（" + d.domain + "）📚 刷新后全站可见");
+      } else if (d.dup) { X.toast(d.reason || "已存在，跳过入库"); }
+      else if (d.reject) { X.toast("已拒绝入库：" + (d.reason || "")); }
+      else { X.toast("入库失败：" + (d.error || "")); }
     }).catch(() => X.toast("无法连接本地服务"));
   };
 
