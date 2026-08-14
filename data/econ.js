@@ -810,5 +810,158 @@ window.XIGAI["经济学"] = [
         "confidence": 0.75
       }
     ]
+  },
+  {
+    "name": "菲利普斯曲线",
+    "aliases": [
+      "菲利普斯关系"
+    ],
+    "field": "经济学",
+    "tags": [
+      "通货膨胀",
+      "失业率"
+    ],
+    "difficulty": 2,
+    "summary": "描述通胀与失业的关系",
+    "definition": "菲利普斯曲线是经济学家弗雷德里克·莫里斯·菲利普斯提出的一种统计关系，表明在一定时期内，通货膨胀率和失业率之间存在一种负相关的关系。",
+    "principle": "通货膨胀率上升时，失业率通常下降；反之亦然。",
+    "core": [
+      "用于宏观经济政策分析",
+      "解释经济周期"
+    ],
+    "applications": [
+      "制定货币政策",
+      "预测经济走势"
+    ],
+    "relations": [],
+    "sources": [
+      "https://www.investopedia.com/terms/p/phillips-curve.asp",
+      "https://en.wikipedia.org/wiki/Phillips_curve"
+    ],
+    "pros": [],
+    "cons": [],
+    "id": "菲利普斯曲线",
+    "provenance": {
+      "discoveredBy": "batch",
+      "discoveredAt": 1786718605678,
+      "evidence": "candidate:batch"
+    },
+    "confidence": 0.9,
+    "sourceConfidence": 0.7,
+    "relationConfidence": 0.3,
+    "status": "verified",
+    "verification": {
+      "by": "ollama",
+      "score": 1,
+      "issues": [],
+      "note": "定义和原理准确，关系明确",
+      "at": 1786718610778
+    },
+    "searchedAt": "2026-08-14"
+  },
+  {
+    "name": "损失厌恶",
+    "aliases": [
+      "loss aversion"
+    ],
+    "field": "行为经济学",
+    "tags": [
+      "心理",
+      "决策"
+    ],
+    "difficulty": 3,
+    "summary": "对损失的敏感性超过收益。",
+    "definition": "个体在面对可能带来的损失时，其负面情绪和反应远大于相同金额的潜在收益所带来的正面情绪。",
+    "principle": "人们更害怕失去已有的东西。",
+    "core": [
+      "损失带来的痛苦感受比同样金额的收益带来的快乐感受强烈得多。",
+      "决策者倾向于避免风险而非追求风险"
+    ],
+    "applications": [
+      "在投资中，投资者可能会因为担心亏损而过早卖出表现不佳的投资。",
+      "保险业利用人们对于潜在损失的恐惧来推广保险产品"
+    ],
+    "relations": [
+      {
+        "type": "related",
+        "target": "VLA模型",
+        "note": "",
+        "confidence": 0.3
+      }
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Loss_aversion",
+      "https://www.psychologytoday.com/us/basics/loss-aversion"
+    ],
+    "pros": [],
+    "cons": [],
+    "id": "损失厌恶",
+    "provenance": {
+      "discoveredBy": "batch",
+      "discoveredAt": 1786718669974,
+      "evidence": "candidate:batch"
+    },
+    "confidence": 0.86,
+    "sourceConfidence": 0.7,
+    "relationConfidence": 0.3,
+    "status": "verified",
+    "verification": {
+      "by": "ollama",
+      "score": 0.8,
+      "issues": [
+        "定义中提到的'损失厌恶'与'VLA模型'之间的关系未明确说明"
+      ],
+      "note": "需要更具体地描述两者的关系",
+      "at": 1786718672022
+    },
+    "searchedAt": "2026-08-14"
+  },
+  {
+    "name": "VLA模型",
+    "aliases": [
+      "VLA model"
+    ],
+    "field": "行为经济学",
+    "tags": [
+      "决策",
+      "心理"
+    ],
+    "difficulty": 4,
+    "summary": "描述损失厌恶的心理模型。",
+    "definition": "一种用于解释和预测个体在面对不确定性时如何做出选择的理论框架，特别强调了人们对潜在损失的敏感性。",
+    "principle": "通过调整对收益和损失的感知来影响决策。",
+    "core": [
+      "引入了损失函数的概念，用以量化损失带来的负面效应。",
+      "模型解释了为什么人们在面对不确定性时会过度规避风险"
+    ],
+    "applications": [
+      "用于改进金融产品的设计，使其更符合客户的风险偏好。",
+      "帮助政策制定者理解公众对某些决策的反应"
+    ],
+    "relations": [],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Loss_aversion",
+      "https://www.econlib.org/library/Columns/y2001/Mar26.html"
+    ],
+    "pros": [],
+    "cons": [],
+    "id": "vla模型",
+    "provenance": {
+      "discoveredBy": "batch",
+      "discoveredAt": 1786718669975,
+      "evidence": "candidate:batch"
+    },
+    "confidence": 0.9,
+    "sourceConfidence": 0.85,
+    "relationConfidence": 0.3,
+    "status": "verified",
+    "verification": {
+      "by": "ollama",
+      "score": 1,
+      "issues": [],
+      "note": "",
+      "at": 1786718672022
+    },
+    "searchedAt": "2026-08-14"
   }
 ];

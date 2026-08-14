@@ -784,5 +784,64 @@ window.XIGAI["地理气候"] = [
         "confidence": 0.85
       }
     ]
+  },
+  {
+    "name": "碳循环",
+    "aliases": [],
+    "field": "环境科学",
+    "tags": [
+      "生态系统",
+      "气候变化"
+    ],
+    "difficulty": 2,
+    "summary": "自然界中碳元素的流动过程。",
+    "definition": "碳循环是指在地球系统中，碳以不同形式（如二氧化碳、有机物等）在大气层、陆地生物圈、海洋和岩石圈之间进行交换的过程。",
+    "principle": "通过光合作用和呼吸作用实现碳的转移。",
+    "core": [
+      "碳固定",
+      "碳释放"
+    ],
+    "applications": [
+      "气候模型构建",
+      "生态系统管理"
+    ],
+    "relations": [
+      {
+        "type": "related",
+        "target": "光合作用",
+        "note": "",
+        "confidence": 0.8
+      },
+      {
+        "type": "related",
+        "target": "呼吸作用",
+        "note": "",
+        "confidence": 0.3
+      }
+    ],
+    "sources": [
+      "https://www.nature.com/scitable/knowledge/library/the-carbon-cycle-10245869/",
+      "http://www.globalcarbonproject.org/"
+    ],
+    "pros": [],
+    "cons": [],
+    "id": "碳循环",
+    "provenance": {
+      "discoveredBy": "batch",
+      "discoveredAt": 1786705322934,
+      "evidence": "candidate:batch"
+    },
+    "confidence": 0.9,
+    "sourceConfidence": 0.85,
+    "relationConfidence": 0.55,
+    "status": "verified",
+    "verification": {
+      "by": "ollama",
+      "score": 1,
+      "issues": [],
+      "note": "定义和原理准确，关系明确。",
+      "at": 1786705325042
+    },
+    "searchedAt": "2026-08-14"
   }
 ];

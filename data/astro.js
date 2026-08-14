@@ -798,5 +798,64 @@ window.XIGAI["天文学"] = [
         "confidence": 0.3
       }
     ]
+  },
+  {
+    "name": "霍金辐射",
+    "aliases": [],
+    "field": "宇宙学",
+    "tags": [
+      "黑洞",
+      "量子效应"
+    ],
+    "difficulty": 4,
+    "summary": "黑洞蒸发的现象",
+    "definition": "霍金辐射是理论物理学家斯蒂芬·霍金提出的假设，认为黑洞会通过量子效应释放粒子和反粒子，导致质量逐渐减少。",
+    "principle": "黑洞的事件视界附近会发生量子效应，导致粒子对产生并分离。",
+    "core": [
+      "霍金辐射会导致黑洞最终完全蒸发",
+      "与广义相对论和量子力学有关"
+    ],
+    "applications": [
+      "用于研究黑洞的信息悖论",
+      "探索量子引力理论"
+    ],
+    "relations": [
+      {
+        "type": "related",
+        "target": "全息原理",
+        "note": "",
+        "confidence": 0.3
+      },
+      {
+        "type": "followup",
+        "target": "量子引力",
+        "note": "",
+        "confidence": 0.3
+      }
+    ],
+    "sources": [
+      "https://www.nature.com/scitable/knowledge/library/hawking-radiation-14586729/",
+      "https://en.wikipedia.org/wiki/Hawking_radiation"
+    ],
+    "pros": [],
+    "cons": [],
+    "id": "霍金辐射",
+    "provenance": {
+      "discoveredBy": "batch",
+      "discoveredAt": 1786718605668,
+      "evidence": "candidate:batch"
+    },
+    "confidence": 0.9,
+    "sourceConfidence": 0.85,
+    "relationConfidence": 0.3,
+    "status": "verified",
+    "verification": {
+      "by": "ollama",
+      "score": 1,
+      "issues": [],
+      "note": "定义和原理准确，关系合理。",
+      "at": 1786718607361
+    },
+    "searchedAt": "2026-08-14"
   }
 ];

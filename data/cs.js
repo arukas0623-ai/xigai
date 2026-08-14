@@ -1022,5 +1022,126 @@ window.XIGAI["计算机科学"] = [
       "at": 1786701958619
     },
     "searchedAt": "2026-08-14"
+  },
+  {
+    "name": "反向传播",
+    "aliases": [],
+    "field": "机器学习",
+    "tags": [
+      "算法",
+      "神经网络"
+    ],
+    "difficulty": 3,
+    "summary": "一种训练多层神经网络的方法。",
+    "definition": "反向传播是一种在人工神经网络中计算损失函数关于权重和偏置梯度的算法，通过逐层传递误差来更新参数，以最小化预测值与真实值之间的差异。",
+    "principle": "通过调整权重使损失函数最小。",
+    "core": [
+      "基于梯度下降法",
+      "逐层反向传播误差"
+    ],
+    "applications": [
+      "图像识别",
+      "自然语言处理"
+    ],
+    "relations": [
+      {
+        "type": "followup",
+        "target": "神经网络",
+        "note": "",
+        "confidence": 0.85
+      },
+      {
+        "type": "related",
+        "target": "梯度下降法",
+        "note": "",
+        "confidence": 0.3
+      }
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Backpropagation",
+      "http://neuralnetworksanddeeplearning.com/"
+    ],
+    "pros": [],
+    "cons": [],
+    "id": "反向传播",
+    "provenance": {
+      "discoveredBy": "batch",
+      "discoveredAt": 1786705322930,
+      "evidence": "candidate:batch"
+    },
+    "confidence": 0.9,
+    "sourceConfidence": 0.7,
+    "relationConfidence": 0.57,
+    "status": "verified",
+    "verification": {
+      "by": "ollama",
+      "score": 1,
+      "issues": [],
+      "note": "定义和原理准确，关系明确。",
+      "at": 1786705325042
+    },
+    "searchedAt": "2026-08-14"
+  },
+  {
+    "name": "机器智能",
+    "aliases": [
+      "AI",
+      "人工智能"
+    ],
+    "field": "计算机科学",
+    "tags": [
+      "算法",
+      "自动化"
+    ],
+    "difficulty": 4,
+    "summary": "通过程序实现的智能行为。",
+    "definition": "机器智能是指利用计算机系统来模拟人类智能的各种能力，包括感知、推理、学习和决策等。",
+    "principle": "通过算法和数据驱动模型实现智能化。",
+    "core": [
+      "模式识别",
+      "自然语言处理"
+    ],
+    "applications": [
+      "语音助手",
+      "自动驾驶汽车"
+    ],
+    "relations": [
+      {
+        "type": "related",
+        "target": "计算机视觉",
+        "note": "",
+        "confidence": 0.3
+      },
+      {
+        "type": "followup",
+        "target": "深度学习",
+        "note": "",
+        "confidence": 0.85
+      }
+    ],
+    "sources": [
+      "https://www.technologyreview.com/s/613248/",
+      "http://ai.stanford.edu/"
+    ],
+    "pros": [],
+    "cons": [],
+    "id": "机器智能",
+    "provenance": {
+      "discoveredBy": "batch",
+      "discoveredAt": 1786705322937,
+      "evidence": "candidate:batch"
+    },
+    "confidence": 0.9,
+    "sourceConfidence": 0.7,
+    "relationConfidence": 0.57,
+    "status": "verified",
+    "verification": {
+      "by": "ollama",
+      "score": 1,
+      "issues": [],
+      "note": "定义和原理准确，关系合理。",
+      "at": 1786705327250
+    },
+    "searchedAt": "2026-08-14"
   }
 ];

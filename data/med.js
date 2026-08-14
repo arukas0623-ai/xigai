@@ -850,5 +850,53 @@ window.XIGAI["医学健康"] = [
         "confidence": 0.3
       }
     ]
+  },
+  {
+    "name": "自身免疫病",
+    "aliases": [
+      "自体免疫疾病"
+    ],
+    "field": "医学",
+    "tags": [
+      "免疫系统",
+      "疾病"
+    ],
+    "difficulty": 3,
+    "summary": "免疫系统攻击正常组织的疾病",
+    "definition": "自身免疫病是一类由于免疫系统错误地识别身体自身的成分为外来物质，从而引发对自身组织和器官的攻击性疾病。",
+    "principle": "免疫系统错误识别并攻击正常的细胞或组织。",
+    "core": [
+      "涉及多种类型如红斑狼疮",
+      "与遗传因素有关"
+    ],
+    "applications": [
+      "开发新的治疗手段",
+      "研究疾病机制"
+    ],
+    "relations": [],
+    "sources": [
+      "https://www.niams.nih.gov/health_info/autoimmune/",
+      "https://en.wikipedia.org/wiki/Autoimmune_disease"
+    ],
+    "pros": [],
+    "cons": [],
+    "id": "自身免疫病",
+    "provenance": {
+      "discoveredBy": "batch",
+      "discoveredAt": 1786718605678,
+      "evidence": "candidate:batch"
+    },
+    "confidence": 0.9,
+    "sourceConfidence": 0.85,
+    "relationConfidence": 0.3,
+    "status": "verified",
+    "verification": {
+      "by": "ollama",
+      "score": 1,
+      "issues": [],
+      "note": "定义和原理准确，关系明确",
+      "at": 1786718610778
+    },
+    "searchedAt": "2026-08-14"
   }
 ];
