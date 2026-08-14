@@ -34,13 +34,6 @@ window.XIGAI["计算机科学"] = [
       "图灵机是真实存在的机器，实为纯数学模型，无法也不必实际制造，其价值在于理论分析",
       "图灵机等于现代计算机，后者只是通用图灵机的有限存储物理近似"
     ],
-    "related": [
-      "停机问题",
-      "计算理论",
-      "丘奇-图灵论题",
-      "有限自动机",
-      "算法复杂度"
-    ],
     "references": [
       "圖靈機 - 维基百科",
       "Turing Machines - Stanford Encyclopedia of Philosophy",
@@ -51,7 +44,40 @@ window.XIGAI["计算机科学"] = [
       "https://plato.stanford.edu/entries/turing-machine/",
       "https://zh.wikipedia.org/wiki/计算理论"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "计算机科学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "halting-problem",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "计算理论",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "丘奇-图灵论题",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "有限自动机",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "algorithm-complexity",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "godel-incompleteness",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "halting-problem",
@@ -87,13 +113,6 @@ window.XIGAI["计算机科学"] = [
       "“停机问题不可判定”并不意味着任何程序都无法判断是否停机，只是不存在对所有程序普遍有效的统一算法",
       "更强的计算机无法解决停机问题，计算能力上限不因硬件增强而改变，量子计算机亦然"
     ],
-    "related": [
-      "图灵机",
-      "不可判定问题",
-      "哥德尔不完备定理",
-      "归约",
-      "计算理论"
-    ],
     "references": [
       "停机问题 - 维基百科",
       "Undecidable problem - Wikipedia",
@@ -104,7 +123,35 @@ window.XIGAI["计算机科学"] = [
       "https://en.wikipedia.org/wiki/Undecidable_problem",
       "https://zh.wikipedia.org/wiki?curid=259102"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "计算机科学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "turing-machine",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "不可判定问题",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "godel-incompleteness",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "归约",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "计算理论",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "algorithm-complexity",
@@ -141,13 +188,6 @@ window.XIGAI["计算机科学"] = [
       "复杂度小的算法一定更快，复杂度分析给出的是趋势而非精确时间，小规模输入下常数因子与缓存局部性可能更关键",
       "O(n)一定比O(n²)好，n极小时常数主导，两者实际耗时差距并不明显"
     ],
-    "related": [
-      "大O表示法",
-      "数据结构",
-      "NP完全问题",
-      "排序算法",
-      "算法"
-    ],
     "references": [
       "算法复杂性分析 - 百度百科",
       "Time complexity - Wikipedia",
@@ -158,7 +198,40 @@ window.XIGAI["计算机科学"] = [
       "https://en.wikipedia.org/wiki/Time_complexity",
       "https://cloud.tencent.com.cn/developer/article/1759929"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "计算机科学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "大O表示法",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "data-structure",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "NP完全问题",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "排序算法",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "算法",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "turing-machine",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "data-structure",
@@ -194,13 +267,6 @@ window.XIGAI["计算机科学"] = [
       "数据结构只是编程技巧，实为算法设计与软件系统的理论基础，直接影响程序性能与正确性",
       "数组和链表总可互相替代，二者在随机访问与插入删除上的性能差异巨大，应据操作模式选择"
     ],
-    "related": [
-      "算法复杂度",
-      "算法",
-      "哈希表",
-      "二叉树",
-      "栈与队列"
-    ],
     "references": [
       "Data structure - Wikipedia",
       "什么是数据结构 - 腾讯云开发者社区",
@@ -211,7 +277,35 @@ window.XIGAI["计算机科学"] = [
       "https://developer.cloud.tencent.cn/techpedia/1914",
       "https://developer.aliyun.com/article/935171"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "计算机科学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "algorithm-complexity",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "算法",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "哈希表",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "二叉树",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "栈与队列",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "operating-system",
@@ -248,13 +342,6 @@ window.XIGAI["计算机科学"] = [
       "操作系统不只是开机界面与窗口系统，核心是资源管理与内核机制",
       "Linux只是命令行，其图形界面与桌面环境已经成熟，服务器端则因命令行效率高而广泛采用"
     ],
-    "related": [
-      "进程与线程",
-      "虚拟内存",
-      "文件系统",
-      "系统调用",
-      "计算机体系结构"
-    ],
     "references": [
       "操作系统（1）概论 - 阿里云开发者社区",
       "操作系统架构原理 - 腾讯云开发者社区",
@@ -265,7 +352,35 @@ window.XIGAI["计算机科学"] = [
       "https://cloud.tencent.com.cn/developer/article/1919721",
       "https://terms.naer.edu.tw/detail/88e6b71653ab7f12bfbc58f420339d95/"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "计算机科学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "进程与线程",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "虚拟内存",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "文件系统",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "系统调用",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "计算机体系结构",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "compiler",
@@ -302,13 +417,6 @@ window.XIGAI["计算机科学"] = [
       "编译器与解释器完全对立，现代语言常二者混合，如JVM先编译为字节码再解释或JIT",
       "编译错误就是程序错误，很多编译错误只是语法或类型问题，IDE可自动提示并修复"
     ],
-    "related": [
-      "词法分析",
-      "语法分析",
-      "程序设计语言",
-      "解释器",
-      "形式语言与自动机"
-    ],
     "references": [
       "编译器 - 维基百科",
       "编译器结构 - 百度百科",
@@ -319,7 +427,35 @@ window.XIGAI["计算机科学"] = [
       "https://baike.baidu.com/item/编译器结构/21506708",
       "https://www.baeldung-cn.com/cs/how-compilers-work"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "计算机科学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "词法分析",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "语法分析",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "程序设计语言",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "解释器",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "形式语言与自动机",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "relational-database",
@@ -356,13 +492,6 @@ window.XIGAI["计算机科学"] = [
       "关系数据库正被NoSQL完全取代，二者适用场景不同，关系库在事务性与一致性上仍是业务系统的主流",
       "关系数据库等同于SQL，SQL只是其标准查询语言，底层模型基于关系代数与集合论"
     ],
-    "related": [
-      "关系模型",
-      "SQL",
-      "事务与ACID",
-      "索引",
-      "NoSQL"
-    ],
     "references": [
       "关系数据库 - 维基百科",
       "关系模型 - 维基百科",
@@ -373,7 +502,35 @@ window.XIGAI["计算机科学"] = [
       "https://zh.wikipedia.org/wiki/关系模型",
       "https://en.wikipedia.org/wiki/Relational_model"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "计算机科学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "关系模型",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "SQL",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "事务与ACID",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "索引",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "NoSQL",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "distributed-system",
@@ -410,13 +567,6 @@ window.XIGAI["计算机科学"] = [
       "分布式系统只是把多台机器连起来，关键是协同逻辑、数据分片与一致性协议的设计",
       "CAP三者可以同时满足，网络分区必然存在，实际只能在一致性与可用性之间权衡取舍"
     ],
-    "related": [
-      "CAP定理",
-      "共识算法",
-      "微服务",
-      "分布式数据库",
-      "一致性哈希"
-    ],
     "references": [
       "分散式運算 - 维基百科",
       "CAP定理 - 维基百科",
@@ -429,7 +579,35 @@ window.XIGAI["计算机科学"] = [
       "https://docs.aws.amazon.com/zh_cn/whitepapers/latest/availability-and-beyond-improving-resilience/cap-theorem.md",
       "https://cloud.tencent.com.cn/developer/article/1992025"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "计算机科学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "CAP定理",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "共识算法",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "microservices",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "分布式数据库",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "一致性哈希",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "asymmetric-encryption",
@@ -467,13 +645,6 @@ window.XIGAI["计算机科学"] = [
       "非对称加密比对称加密绝对安全，二者安全性取决于密钥长度与算法成熟度，区别主要在密钥管理与性能，非对称密钥更长、运算更慢",
       "公钥加密后公钥自己也能解密，公钥与私钥功能不对称，加密必须用对应私钥解密"
     ],
-    "related": [
-      "对称加密",
-      "RSA",
-      "数字签名",
-      "哈希函数",
-      "公钥基础设施PKI"
-    ],
     "references": [
       "RSA加密算法 - 维基百科",
       "公钥体系原理 - 百度百科",
@@ -486,7 +657,35 @@ window.XIGAI["计算机科学"] = [
       "https://cloud.kepuchina.cn/newSearch/imgText?id=7452926784337637376",
       "https://cryptobook.nakov.com/asymmetric-key-ciphers.md"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "计算机科学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "对称加密",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "RSA",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "数字签名",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "哈希函数",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "公钥基础设施PKI",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "neural-network",
@@ -523,13 +722,6 @@ window.XIGAI["计算机科学"] = [
       "神经网络并非生物大脑的精确复制，实为受其启发的高度简化的数学模型",
       "网络越深一定越好，存在过拟合、梯度消失等工程挑战，需要正则化与架构设计，大数据与算力同样不可或缺"
     ],
-    "related": [
-      "机器学习",
-      "深度学习",
-      "反向传播",
-      "卷积神经网络",
-      "Transformer"
-    ],
     "references": [
       "人工神经网络 - 维基百科",
       "人工神经网络课件 - 清华大学",
@@ -540,6 +732,34 @@ window.XIGAI["计算机科学"] = [
       "http://aigraph.cslt.org/courses/14/人工神经网络.pdf",
       "https://en.wikipedia.org/wiki/Artificial_neural_network"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "计算机科学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "machine-learning",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "deep-learning",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "反向传播",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "convolutional-neural-network",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "Transformer",
+        "note": ""
+      }
+    ]
   }
 ];

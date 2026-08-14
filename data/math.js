@@ -34,13 +34,6 @@ window.XIGAI["数学"] = [
       "认为微积分只是'求导和积分'的机械运算，忽略了极限的严格性基础",
       "误以为牛顿独自发明微积分，实际上莱布尼茨独立创立并贡献了现代记号"
     ],
-    "related": [
-      "数学分析",
-      "微分方程",
-      "线性代数",
-      "实变函数",
-      "数值分析"
-    ],
     "references": [
       "Mathematics - Newton, Leibniz, Calculus | Britannica",
       "微积分A（北京理工大学）| 中国大学MOOC",
@@ -51,7 +44,35 @@ window.XIGAI["数学"] = [
       "https://www.icourse163.org/spoc/course/BIT-1002602008?tid=1002784020",
       "https://www.britannica.com/science/mathematics/The-calculus"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "数学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "数学分析",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "微分方程",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "linear-algebra",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "实变函数",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "数值分析",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "linear-algebra",
@@ -88,13 +109,6 @@ window.XIGAI["数学"] = [
       "认为线性代数只是矩阵运算技巧，忽视了其几何与结构意义",
       "误以为特征值概念仅存在于对称矩阵，实际上一般方阵也有特征值（可能为复数）"
     ],
-    "related": [
-      "矩阵论",
-      "抽象代数",
-      "泛函分析",
-      "数值分析",
-      "解析几何"
-    ],
     "references": [
       "线性代数（数学分支学科）| 百度百科",
       "M1: Linear Algebra I | University of Oxford",
@@ -105,7 +119,40 @@ window.XIGAI["数学"] = [
       "https://courses.maths.ox.ac.uk/course/section.php?id=12059",
       "https://academic.hep.com.cn/laf/CN/chapter/978-7-04-037240-3/chapter01"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "数学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "矩阵论",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "抽象代数",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "泛函分析",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "数值分析",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "解析几何",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "calculus",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "probability-theory",
@@ -142,13 +189,6 @@ window.XIGAI["数学"] = [
       "把'概率为0'等同于'不可能发生'：连续分布中单点概率为0但仍可能发生",
       "误以为事件独立等同于互斥，二者是完全不同的概念"
     ],
-    "related": [
-      "统计学",
-      "测度论",
-      "随机过程",
-      "数理统计",
-      "信息论"
-    ],
     "references": [
       "概率公理 - 维基百科",
       "Kolmogorov's axioms | Oxford Reference",
@@ -159,7 +199,35 @@ window.XIGAI["数学"] = [
       "https://www.oxfordreference.com/display/10.1093/oi/authority.20110803100041841?rskey=auGWRR&result=3",
       "https://wapbaike.baidu.com/item/%E6%A6%82%E7%8E%87%E5%85%AC%E7%90%86"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "数学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "统计学",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "测度论",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "随机过程",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "数理统计",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "信息论",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "number-theory",
@@ -196,13 +264,6 @@ window.XIGAI["数学"] = [
       "认为数论是'无用'的纯理论，实际上它是现代密码学与信息安全的地基",
       "误以为素数分布无规律可循，素数定理精确描述了其渐近密度"
     ],
-    "related": [
-      "解析数论",
-      "代数数论",
-      "密码学",
-      "黎曼猜想",
-      "抽象代数"
-    ],
     "references": [
       "數論 - 維基百科",
       "Lecture 2: An Introduction to Number Theory | Cornell University",
@@ -213,7 +274,35 @@ window.XIGAI["数学"] = [
       "https://pi.math.cornell.edu/~mec/Summer2008/lundell/lecture2.html",
       "https://cloud.kepuchina.cn/newSearch/imgText?id=6969207140975366144"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "数学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "解析数论",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "代数数论",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "密码学",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "riemann-hypothesis",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "抽象代数",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "topology",
@@ -250,13 +339,6 @@ window.XIGAI["数学"] = [
       "误以为拓扑学只是'橡皮膜变形'的趣味几何，其实它是现代数学的严格基础理论",
       "混淆拓扑等价与几何全等：拓扑等价不考虑长度、角度等度量"
     ],
-    "related": [
-      "点集拓扑",
-      "代数拓扑",
-      "微分拓扑",
-      "微分几何",
-      "泛函分析"
-    ],
     "references": [
       "拓扑学 | 科普中国",
       "拓扑 - 百度百科",
@@ -267,7 +349,35 @@ window.XIGAI["数学"] = [
       "https://baike.baidu.com/item/%E6%8B%93%E6%92%B2/573536",
       "https://math.utk.edu/research/topology/"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "数学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "点集拓扑",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "代数拓扑",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "微分拓扑",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "微分几何",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "泛函分析",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "group-theory",
@@ -304,13 +414,6 @@ window.XIGAI["数学"] = [
       "误以为群论仅研究数字运算，其实它刻画一切对称结构",
       "把'可交换（阿贝尔）群'当作群的普遍形态，忽略了非交换群的丰富性"
     ],
-    "related": [
-      "抽象代数",
-      "伽罗瓦理论",
-      "环论",
-      "域论",
-      "表示论"
-    ],
     "references": [
       "群论 | 科普中国",
       "群 | 上海交通大学数学科学学院",
@@ -321,7 +424,35 @@ window.XIGAI["数学"] = [
       "https://math.sjtu.edu.cn/course/gdds/group.htm",
       "https://learn.socratica.com/en/topic/mathematics/abstract-algebra/galois-theory"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "数学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "抽象代数",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "伽罗瓦理论",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "环论",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "域论",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "表示论",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "godel-incompleteness",
@@ -358,13 +489,6 @@ window.XIGAI["数学"] = [
       "误以为哥德尔定理证明'人脑优于计算机'，该结论超出定理的适用范围",
       "把'不完备'误解为'数学有错误'，实为公理化方法的固有局限"
     ],
-    "related": [
-      "数理逻辑",
-      "可计算性理论",
-      "集合论",
-      "希尔伯特纲领",
-      "图灵机"
-    ],
     "references": [
       "Gödel's Incompleteness Theorems | Stanford Encyclopedia of Philosophy",
       "哥德尔不完备定理 - 维基百科",
@@ -375,7 +499,40 @@ window.XIGAI["数学"] = [
       "https://zh.wikipedia.org/zh-hant/%E5%93%A5%E5%BE%B7%E5%B0%94%E4%B8%8D%E5%AE%8C%E5%A4%87%E5%AE%9A%E7%90%86",
       "https://baike.baidu.com/item/%E5%93%A5%E5%BE%B7%E5%B0%94%E4%B8%8D%E5%AE%8C%E5%85%A8%E6%80%A7%E5%AE%9A%E7%90%86/4116640"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "数学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "数理逻辑",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "可计算性理论",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "集合论",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "希尔伯特纲领",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "turing-machine",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "halting-problem",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "chaos-theory",
@@ -412,13 +569,6 @@ window.XIGAI["数学"] = [
       "把混沌等同于随机：混沌是确定性的，只是初值敏感导致不可预测",
       "误以为'蝴蝶效应'意味着小干预可随意控制大结果，它强调的是预测极限"
     ],
-    "related": [
-      "动力系统",
-      "分形几何",
-      "非线性科学",
-      "洛伦兹方程",
-      "微分方程"
-    ],
     "references": [
       "“混沌理论”之父罗伦兹逝世 | 科学网",
       "从混沌中把握规律 | 人民网理论",
@@ -429,7 +579,35 @@ window.XIGAI["数学"] = [
       "http://theory.people.com.cn/n/2013/0323/c49157-20891975.html",
       "https://article.xuexi.cn/articles/index.html?art_id=13920672789984132573&item_id=13920672789984132573&ptype=-1&reco_id=101a6401f99ec0a822c80000&ref_read_id=a3033aac-727f-446c-b36c-f89d7919cd1d&related_id=15615456903620830748&related_type=1&share_to=weibo&source=share&study_style_id=feeds_default"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "数学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "动力系统",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "分形几何",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "非线性科学",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "洛伦兹方程",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "微分方程",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "fourier-transform",
@@ -466,13 +644,6 @@ window.XIGAI["数学"] = [
       "误以为傅里叶变换只适用于周期信号，非周期与离散信号同样适用",
       "把时域与频域看作相互独立的描述，其实二者通过变换互为对偶"
     ],
-    "related": [
-      "调和分析",
-      "小波变换",
-      "信号处理",
-      "复变函数",
-      "积分变换"
-    ],
     "references": [
       "傅里叶变换 | 科普中国",
       "F is for Fourier Transform | University of Oxford Mathematics",
@@ -483,7 +654,35 @@ window.XIGAI["数学"] = [
       "https://www.maths.ox.ac.uk/outreach/oxford-mathematics-alphabet/f-fourier-transform?redirected=1",
       "https://hal.science/hal-05100269v1"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "数学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "调和分析",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "小波变换",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "信号处理",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "复变函数",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "积分变换",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "riemann-hypothesis",
@@ -519,13 +718,6 @@ window.XIGAI["数学"] = [
       "误以为黎曼猜想已被证明，实际上至今未解（相关'证明'多为误传或错误）",
       "把ζ函数的平凡零点（负偶数）与非平凡零点混淆，猜想只针对后者"
     ],
-    "related": [
-      "解析数论",
-      "素数定理",
-      "ζ函数",
-      "L函数",
-      "数论"
-    ],
     "references": [
       "卢昌海：老树发新枝——黎曼猜想的新进展 | 北京大学数学科学学院",
       "黎曼猜想_百度百科",
@@ -536,6 +728,34 @@ window.XIGAI["数学"] = [
       "https://baike.baidu.com/item/%E9%BB%8E%E6%9B%BC%E7%8C%9C%E6%83%B3/1490284",
       "https://www.claymath.org/library/annual_report/xSarnak_RH.pdf"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "数学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "解析数论",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "素数定理",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "ζ函数",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "L函数",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "number-theory",
+        "note": ""
+      }
+    ]
   }
 ];

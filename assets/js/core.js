@@ -137,10 +137,19 @@
     const seen = new Set();
     c.relations = c.relations
       .filter(r => r && r.target && typeof r.target === "string")
-      .map(r => ({ type: X.RELATION_TYPES.some(t => t.key === r.type) ? r.type : "related", target: r.target, note: r.note || "" }));
-    c.relations.forEach(r => seen.add(r.type + "|" + r.target));
+      .map(r => ({ type: X.RELATION_TYPES.some(t => t.key === r.type) ? r.type : "related", target: r.target, note: r.note || "" }))
+      .filter(r => {
+        const t = X.resolveConcept(r.target);
+        if (t && t.id === c.id) return false;          // 自循环丢弃
+        const key = r.type + "|" + (t ? t.id : r.target);
+        if (seen.has(key)) return false;               // 按解析后 id 去重
+        seen.add(key);
+        return true;
+      });
     for (const l of legacy) {
-      const k = l.type + "|" + l.target;
+      const t = X.resolveConcept(l.target);
+      if (t && t.id === c.id) continue;               // 自循环丢弃
+      const k = l.type + "|" + (t ? t.id : l.target);
       if (!seen.has(k)) { c.relations.push(l); seen.add(k); }
     }
     return c;

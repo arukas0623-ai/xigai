@@ -33,13 +33,6 @@ window.XIGAI["经济学"] = [
       "斯密并非主张完全放任，他同时承认国防、公共品等须由政府提供。",
       "“看不见的手”是隐喻而非定律，市场失灵时它并不必然成立。"
     ],
-    "related": [
-      "供需定律",
-      "一般均衡理论",
-      "市场失灵",
-      "价格机制",
-      "绝对优势"
-    ],
     "references": [
       "看不见的手（维基百科）",
       "罗斯柴尔德：《“看不见的手”的流变》（人民论坛）",
@@ -52,7 +45,35 @@ window.XIGAI["经济学"] = [
       "https://baike.baidu.com/item/%E7%9C%8B%E4%B8%8D%E8%A7%81%E7%9A%84%E6%89%8B/7294754",
       "http://politics.people.com.cn/n/2015/0529/c70731-27073073.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "经济学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "law-of-supply-demand",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "一般均衡理论",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "市场失灵",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "价格机制",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "绝对优势",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "law-of-supply-demand",
@@ -88,13 +109,6 @@ window.XIGAI["经济学"] = [
       "需求定律并非绝对成立，吉芬商品等少数特例价格上升需求量反增。",
       "易混淆“需求量变动”（沿曲线移动）与“需求变动”（曲线整体移动）。"
     ],
-    "related": [
-      "均衡价格",
-      "需求弹性",
-      "供给曲线",
-      "看不见的手",
-      "市场出清"
-    ],
     "references": [
       "Law of Supply and Demand in Economics: How It Works（Investopedia）",
       "供求法则（中公教育）",
@@ -105,7 +119,35 @@ window.XIGAI["经济学"] = [
       "http://www.offcn.com/gongji/2020/1019/17880.html",
       "https://m.dongao.com/cma/zy/202605184659326.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "经济学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "均衡价格",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "需求弹性",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "供给曲线",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "invisible-hand",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "市场出清",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "inflation",
@@ -140,13 +182,6 @@ window.XIGAI["经济学"] = [
       "单一商品涨价（如猪肉涨价）不是通胀，须是物价总水平普遍持续上涨。",
       "通胀不等于所有物价同幅上涨，相对价格结构始终在变化。"
     ],
-    "related": [
-      "CPI",
-      "菲利普斯曲线",
-      "货币政策",
-      "货币数量论",
-      "通货紧缩"
-    ],
     "references": [
       "通货膨胀（维基百科）",
       "2018中级经济师《经济基础》预习考点：通货膨胀（东奥）",
@@ -157,7 +192,40 @@ window.XIGAI["经济学"] = [
       "https://www.dongao.com/zjjs/zjjjc/20180530893308.shtml",
       "http://dec3.jlu.edu.cn/webcourse/t000005/occident/teaching/file/teach/11_1.htm"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "经济学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "CPI",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "菲利普斯曲线",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "货币政策",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "货币数量论",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "通货紧缩",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "monetarism",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "gross-domestic-product",
@@ -192,13 +260,6 @@ window.XIGAI["经济学"] = [
       "GDP增长不等于社会福利改善，收入分配与环境代价被排除在外。",
       "本国企业在海外创造的产值计入所在国GDP而非本国GDP。"
     ],
-    "related": [
-      "GNP",
-      "国民收入核算",
-      "CPI",
-      "经济周期",
-      "实际GDP"
-    ],
     "references": [
       "2025年三季度国内生产总值初步核算结果（中国政府网）",
       "国家统计局关于2024年国内生产总值最终核实的公告（中国政府网）",
@@ -211,7 +272,35 @@ window.XIGAI["经济学"] = [
       "https://baike.baidu.com/item/%E5%9B%BD%E5%86%85%E7%94%9F%E4%BA%A7%E6%80%BB%E5%80%BC/31864",
       "https://tjj.sz.gov.cn/zmhd/zxft/fthg/content/post_11638008.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "经济学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "GNP",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "国民收入核算",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "CPI",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "经济周期",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "实际GDP",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "keynesianism",
@@ -246,13 +335,6 @@ window.XIGAI["经济学"] = [
       "凯恩斯并不主张政府包办一切生产，而是补充私人需求的不足。",
       "“凯恩斯主义=无限印钞”是误读，其政策以需求缺口测算为前提。"
     ],
-    "related": [
-      "有效需求",
-      "乘数效应",
-      "财政政策",
-      "流动性陷阱",
-      "菲利普斯曲线"
-    ],
     "references": [
       "凯恩斯主义（百度百科）",
       "有效需求（维基百科）",
@@ -265,7 +347,35 @@ window.XIGAI["经济学"] = [
       "https://m.21jingji.com/article/20170812/13410b3588563b0c106781c8b4d77b38.html",
       "http://jer.whu.edu.cn/jjgc/1/2017-01-17/3777.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "经济学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "有效需求",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "乘数效应",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "财政政策",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "流动性陷阱",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "菲利普斯曲线",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "monetarism",
@@ -300,13 +410,6 @@ window.XIGAI["经济学"] = [
       "货币主义承认货币短期非中性，并非主张货币对经济毫无影响。",
       "“单一规则”因金融创新使货币口径不稳，实践中难以严格执行。"
     ],
-    "related": [
-      "货币数量论",
-      "菲利普斯曲线",
-      "通货膨胀",
-      "理性预期",
-      "弗里德曼"
-    ],
     "references": [
       "货币主义（维基百科）",
       "货币学派（百度百科）",
@@ -319,7 +422,35 @@ window.XIGAI["经济学"] = [
       "https://ir.pku.edu.cn/handle/20.500.11897/67808",
       "https://finance.sina.cn/sa/2006-12-02/detail-ikftssap1063279.d.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "经济学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "货币数量论",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "菲利普斯曲线",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "inflation",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "理性预期",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "弗里德曼",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "nash-equilibrium",
@@ -355,13 +486,6 @@ window.XIGAI["经济学"] = [
       "纳什均衡不等于整体最优（帕累托最优），囚徒困境即为反例。",
       "均衡的“稳定”不意味参与者满意或行为合乎道德。"
     ],
-    "related": [
-      "囚徒困境",
-      "博弈论",
-      "帕累托最优",
-      "占优策略",
-      "混合策略"
-    ],
     "references": [
       "纳什均衡（维基百科）",
       "纳什均衡（百度百科）",
@@ -374,7 +498,35 @@ window.XIGAI["经济学"] = [
       "http://politics.people.com.cn/n/2015/0529/c70731-27073073.html",
       "https://www.kepuchina.cn/article/articleinfo?ar_id=505590&business_type=100&classify=0"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "经济学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "囚徒困境",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "博弈论",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "帕累托最优",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "占优策略",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "混合策略",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "comparative-advantage",
@@ -410,13 +562,6 @@ window.XIGAI["经济学"] = [
       "一国在所有产品上都高效时仍应进口相对低效的产品，贸易依然有利。",
       "比较优势并非静态天赋，技术积累与人力资本可塑造动态比较优势。"
     ],
-    "related": [
-      "绝对优势",
-      "机会成本",
-      "自由贸易",
-      "赫克歇尔—俄林模型",
-      "全球价值链"
-    ],
     "references": [
       "比較優勢 國際貿易的理論基礎（香港經濟日報）",
       "比较优势（维基百科）",
@@ -429,7 +574,35 @@ window.XIGAI["经济学"] = [
       "https://vos.tier.org.tw/Viewpoint01More.aspx?DGUID=6c976e73-8b15-4539-b32f-cbc7e6b79d6d",
       "https://finance.sina.cn/sa/2007-02-26/detail-ikknscsi4211760.d.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "经济学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "绝对优势",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "机会成本",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "自由贸易",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "赫克歇尔—俄林模型",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "全球价值链",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "diminishing-marginal-utility",
@@ -465,13 +638,6 @@ window.XIGAI["经济学"] = [
       "递减的是“边际”效用而非总效用，总效用仍可能持续增加。",
       "规律指同一连续消费过程内的递减，不意味着人人对同一商品效用递减。"
     ],
-    "related": [
-      "效用",
-      "消费者均衡",
-      "需求曲线",
-      "戈森定律",
-      "无差异曲线"
-    ],
     "references": [
       "边际效用（维基百科）",
       "2.3 效用理论（国家开放大学课程）",
@@ -484,7 +650,35 @@ window.XIGAI["经济学"] = [
       "http://dec3.jlu.edu.cn/webcourse/t000005/microcosmic/teaching/file/teach/3_1.htm",
       "http://m.offcn.com/sydw/2022/1206/795025.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "经济学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "效用",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "消费者均衡",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "需求曲线",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "戈森定律",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "无差异曲线",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "behavioral-economics",
@@ -518,13 +712,6 @@ window.XIGAI["经济学"] = [
       "行为经济学并非否定理性，而是用受约束的理性替代完全理性假设。",
       "心理实验本身不等于行为经济学，须与经济模型和实证检验结合。"
     ],
-    "related": [
-      "前景理论",
-      "有限理性",
-      "损失厌恶",
-      "行为金融学",
-      "助推"
-    ],
     "references": [
       "展望理论（维基百科）",
       "【逝者】丹尼尔·卡尼曼：行为经济学之父（界面新闻）",
@@ -537,6 +724,39 @@ window.XIGAI["经济学"] = [
       "https://app.xinhuanet.com/news/article.html?articleId=ad27eafdde275a9ec5c82e67d70d675c",
       "https://baike.baidu.com/item/%E6%9C%89%E9%99%90%E7%90%86%E6%80%A7/1125108"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "经济学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "前景理论",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "有限理性",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "损失厌恶",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "行为金融学",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "助推",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "cognitive-bias",
+        "note": ""
+      }
+    ]
   }
 ];

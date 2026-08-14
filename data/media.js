@@ -33,13 +33,6 @@ window.XIGAI["影视游戏"] = [
       "地图大不等于开放世界，缺少自由互动与内容密度的“大而空”只是空壳",
       "开放世界不等于沙盒：前者重空间自由，后者重系统创造"
     ],
-    "related": [
-      "沙盒游戏",
-      "游戏设计",
-      "涌现式玩法",
-      "MMORPG",
-      "塞尔达传说"
-    ],
     "references": [
       "「快爆小百科」— 开放世界游戏",
       "开放世界游戏进化史",
@@ -51,7 +44,40 @@ window.XIGAI["影视游戏"] = [
       "https://www.gameres.com/860091.html",
       "https://www.bilibili.com/opus/705090989957578753"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "影视游戏",
+    "relations": [
+      {
+        "type": "related",
+        "target": "沙盒游戏",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "game-design",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "涌现式玩法",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "MMORPG",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "塞尔达传说",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "indie-games",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "esports",
@@ -86,13 +112,6 @@ window.XIGAI["影视游戏"] = [
       "电竞不等于“打游戏”：它是职业化竞技，需训练体系与赛事规则支撑",
       "电竞并非“玩物丧志”：已被纳入体育范畴并获得亚运会正式项目背书"
     ],
-    "related": [
-      "直播",
-      "游戏设计",
-      "MOBA",
-      "赛事运营",
-      "流媒体"
-    ],
     "references": [
       "城市电子竞技产业创新发展报告",
       "2026年中国电子竞技行业市场深度分析",
@@ -104,7 +123,35 @@ window.XIGAI["影视游戏"] = [
       "https://m.askci.com/news/chanye/20241224/102043273500684347752746.shtml",
       "https://baike.baidu.com/item/%E6%B8%B8%E6%88%8F%E7%94%B5%E7%AB%9E/67355916"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "影视游戏",
+    "relations": [
+      {
+        "type": "related",
+        "target": "live-streaming",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "game-design",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "MOBA",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "赛事运营",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "流媒体",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "game-design",
@@ -138,13 +185,6 @@ window.XIGAI["影视游戏"] = [
       "游戏设计不只是美术或编程，而是独立的系统设计学科",
       "好游戏不靠灵感偶然，而是系统方法加反复迭代的结果"
     ],
-    "related": [
-      "开放世界",
-      "独立游戏",
-      "电子竞技",
-      "游戏化",
-      "关卡设计"
-    ],
     "references": [
       "视频游戏设计简介：主要术语、概念和目标",
       "MDA：一种用于游戏设计和研究的方法",
@@ -156,7 +196,35 @@ window.XIGAI["影视游戏"] = [
       "https://zh.wikipedia.org/zh-cn/MDA%E6%A1%86%E6%9E%B6",
       "https://baike.baidu.com/item/%E6%B8%B8%E6%88%8F%E8%AE%BE%E8%AE%A1/3837589"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "影视游戏",
+    "relations": [
+      {
+        "type": "related",
+        "target": "open-world",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "indie-games",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "esports",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "游戏化",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "关卡设计",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "genre-film",
@@ -191,13 +259,6 @@ window.XIGAI["影视游戏"] = [
       "类型片不等于烂片或流水线产品，佳作同样可出自类型框架",
       "一部电影可同时属于多种类型，类型边界是流动的"
     ],
-    "related": [
-      "剧本结构",
-      "好莱坞",
-      "电影工业",
-      "叙事学",
-      "高概念"
-    ],
     "references": [
       "制作｜电影为什么要类型化",
       "类型电影_百度百科",
@@ -208,7 +269,40 @@ window.XIGAI["影视游戏"] = [
       "https://wapbaike.baidu.com/item/%E7%B1%BB%E5%9E%8B%E7%94%B5%E5%BD%B1/4121214",
       "https://mp.weixin.qq.com/s/q6VtMjj7ajA1xdRz4onbjQ"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "影视游戏",
+    "relations": [
+      {
+        "type": "related",
+        "target": "screenplay-structure",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "好莱坞",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "电影工业",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "叙事学",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "高概念",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "visual-effects",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "virtual-reality",
@@ -243,13 +337,6 @@ window.XIGAI["影视游戏"] = [
       "VR不等于“戴个眼镜看3D”，真正的VR需要空间追踪与交互反馈",
       "VR不等于元宇宙：VR是入口之一，元宇宙是更广义的虚拟社会概念"
     ],
-    "related": [
-      "特效",
-      "算法推荐",
-      "直播",
-      "扩展现实",
-      "元宇宙"
-    ],
     "references": [
       "虚拟现实_百度百科",
       "虚拟世界的大门何时打开？虚拟现实的过去、现在与未来",
@@ -260,7 +347,35 @@ window.XIGAI["影视游戏"] = [
       "https://cloud.kepuchina.cn/newSearch/imgText?id=7388354032344477696",
       "https://baike.baidu.com/item/vr%E7%9C%BC%E9%95%9C/18675220"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "影视游戏",
+    "relations": [
+      {
+        "type": "related",
+        "target": "visual-effects",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "algorithmic-recommendation",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "live-streaming",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "扩展现实",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "元宇宙",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "visual-effects",
@@ -295,13 +410,6 @@ window.XIGAI["影视游戏"] = [
       "特效不是简单的“P图”，而是涉及建模、动画、渲染、合成的复杂工业流程",
       "特效滥用不等于佳作：视觉奇观需与故事平衡，特效服务于叙事"
     ],
-    "related": [
-      "虚拟现实",
-      "类型片",
-      "电影工业",
-      "数字艺术",
-      "虚拟制片"
-    ],
     "references": [
       "影视特效（影视特技效果）_百度百科",
       "视觉特效_百度百科",
@@ -312,7 +420,35 @@ window.XIGAI["影视游戏"] = [
       "https://wapbaike.baidu.com/item/%E8%A7%86%E8%A7%89%E7%89%B9%E6%95%88/4570546",
       "http://sc.people.com.cn/n2/2026/0109/c345167-41467642.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "影视游戏",
+    "relations": [
+      {
+        "type": "related",
+        "target": "virtual-reality",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "genre-film",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "电影工业",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "数字艺术",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "虚拟制片",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "algorithmic-recommendation",
@@ -347,13 +483,6 @@ window.XIGAI["影视游戏"] = [
       "推荐并非“越推越准就越好”，过度同质化会形成信息茧房，需多样性干预",
       "算法并非绝对客观：它反映数据、目标函数与商业利益的取舍"
     ],
-    "related": [
-      "大数据",
-      "信息茧房",
-      "机器学习",
-      "直播",
-      "内容分发"
-    ],
     "references": [
       "算法如何实现个性化内容推荐",
       "推荐算法_百度百科",
@@ -365,7 +494,40 @@ window.XIGAI["影视游戏"] = [
       "https://www.dzwww.com/xinwen/shehuixinwen/202505/t20250523_15969589.htm",
       "https://news.iqilu.com/china/gedi/2025/0416/5801514.shtml"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "影视游戏",
+    "relations": [
+      {
+        "type": "related",
+        "target": "大数据",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "信息茧房",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "machine-learning",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "live-streaming",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "内容分发",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "virtual-reality",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "live-streaming",
@@ -400,13 +562,6 @@ window.XIGAI["影视游戏"] = [
       "直播不等于录播：实时互动是直播区别于点播的核心特征",
       "直播不只是“秀场”：游戏、电商、知识等直播形态多元且主流"
     ],
-    "related": [
-      "电子竞技",
-      "算法推荐",
-      "短视频",
-      "互动媒体",
-      "电商"
-    ],
     "references": [
       "网络直播_百度百科",
       "《网络表演（直播）社会价值报告》相关报道"
@@ -415,7 +570,40 @@ window.XIGAI["影视游戏"] = [
       "https://baike.baidu.com/item/%E7%BD%91%E7%BB%9C%E7%9B%B4%E6%92%AD/10950068",
       "https://www.jyeoo.com/shiti/998b1075-15c0-1572-5902-bc48a25e67bc"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "影视游戏",
+    "relations": [
+      {
+        "type": "related",
+        "target": "esports",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "algorithmic-recommendation",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "短视频",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "互动媒体",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "电商",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "virtual-reality",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "screenplay-structure",
@@ -450,13 +638,6 @@ window.XIGAI["影视游戏"] = [
       "结构不是“套路模板”：它提供骨架，真正打动人的是人物与细节",
       "并非所有好电影都严格遵循三幕，艺术片常反结构而为之"
     ],
-    "related": [
-      "类型片",
-      "叙事学",
-      "编剧",
-      "英雄之旅",
-      "三幕式"
-    ],
     "references": [
       "悉德·菲尔德_百度百科",
       "三幕论_百度百科",
@@ -468,7 +649,30 @@ window.XIGAI["影视游戏"] = [
       "https://yule.sohu.com/a/734081232_160386",
       "https://wapbaike.baidu.com/item/%E4%BD%9C%E5%AE%B6%E4%B9%8B%E6%97%85/3104815"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "影视游戏",
+    "relations": [
+      {
+        "type": "related",
+        "target": "genre-film",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "叙事学",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "编剧",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "英雄之旅",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "indie-games",
@@ -503,13 +707,6 @@ window.XIGAI["影视游戏"] = [
       "独立不等于粗制滥造：独立游戏可以拥有极高完成度与商业成功",
       "独立不等于免费或小游戏：独立性指开发自主权，与价格、体量无关"
     ],
-    "related": [
-      "游戏设计",
-      "开放世界",
-      "Steam",
-      "游戏化",
-      "创意产业"
-    ],
     "references": [
       "独立游戏_百度百科",
       "独立游戏-维基百科",
@@ -521,6 +718,34 @@ window.XIGAI["影视游戏"] = [
       "https://www.gameres.com/851599.html",
       "https://www.ign.com.cn/indieplay-2020-pc/33683/opinion/kai-fa-zhe-guan-dian-du-li-yi-ci-yi-shi-qu-qi-yi-yi"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "影视游戏",
+    "relations": [
+      {
+        "type": "related",
+        "target": "game-design",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "open-world",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "Steam",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "游戏化",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "创意产业",
+        "note": ""
+      }
+    ]
   }
 ];

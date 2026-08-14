@@ -35,13 +35,6 @@ window.XIGAI["历史文明"] = [
       "文艺复兴并非“回到古希腊罗马”的复古运动，而是借古典之名表达近代价值。",
       "文艺复兴不只是艺术运动，它同时是思想、科学、政治、商业全面变革的历史时期。"
     ],
-    "related": [
-      "宗教改革",
-      "启蒙运动",
-      "大航海时代",
-      "科学革命",
-      "人文主义"
-    ],
     "references": [
       "文艺复兴（Britannica词条）",
       "意大利文艺复兴艺术的创造与发现（中国作家网）",
@@ -53,7 +46,40 @@ window.XIGAI["历史文明"] = [
       "http://www.chinawriter.com.cn/n1/2026/0521/c419390-40724200.html",
       "http://sh.xdf.cn/zhongxue/201708/8354729.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "历史文明",
+    "relations": [
+      {
+        "type": "related",
+        "target": "reformation",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "enlightenment",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "age-of-exploration",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "科学革命",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "人文主义",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "roman-empire",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "silk-road",
@@ -90,13 +116,6 @@ window.XIGAI["历史文明"] = [
       "丝绸之路并非一条固定道路，而是随时代变迁不断改道的交通网络体系。",
       "丝绸之路不只有陆路，还有同样重要的海上丝绸之路，两者互为补充。"
     ],
-    "related": [
-      "大航海时代",
-      "唐朝",
-      "张骞",
-      "敦煌",
-      "一带一路"
-    ],
     "references": [
       "丝绸之路（中国国家图书馆专题资源）",
       "张小锋：张骞出使西域，开辟“丝绸之路”（求是网）",
@@ -109,7 +128,35 @@ window.XIGAI["历史文明"] = [
       "https://www.britannica.com/topic/Silk-Road-trade-route",
       "https://www.britannica.com/question/Where-did-the-Silk-Road-start-and-end"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "历史文明",
+    "relations": [
+      {
+        "type": "related",
+        "target": "age-of-exploration",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "tang-dynasty",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "张骞",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "敦煌",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "一带一路",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "age-of-exploration",
@@ -147,13 +194,6 @@ window.XIGAI["历史文明"] = [
       "“发现新大陆”是以欧洲为中心的说法，美洲早已存在发达的原住民文明。",
       "大航海时代并非单一国家的成就，而是多国竞争、技术进步与商业资本共同推动的结果。"
     ],
-    "related": [
-      "丝绸之路",
-      "殖民主义",
-      "世界市场",
-      "文艺复兴",
-      "郑和下西洋"
-    ],
     "references": [
       "航海大发现（百度百科）",
       "郑和航海为什么没有导致中国人去完成“地理大发现”?（北京大学机构知识库）",
@@ -166,7 +206,40 @@ window.XIGAI["历史文明"] = [
       "https://baike.baidu.com/item/%E6%96%B0%E8%88%AA%E8%B7%AF/4285959",
       "http://jl.xdf.cn/zhonggaokao/gaozhong/201608/178289162.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "历史文明",
+    "relations": [
+      {
+        "type": "related",
+        "target": "silk-road",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "殖民主义",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "世界市场",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "renaissance",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "郑和下西洋",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "industrial-revolution",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "industrial-revolution",
@@ -202,13 +275,6 @@ window.XIGAI["历史文明"] = [
       "工业革命不是一夜完成的突变，而是持续数十年的渐进累积过程。",
       "瓦特并非发明蒸汽机，而是改良前人设计并使其高效实用。"
     ],
-    "related": [
-      "大航海时代",
-      "启蒙运动",
-      "马克思主义",
-      "城市化",
-      "第二次工业革命"
-    ],
     "references": [
       "工業革命（大英图书馆中文版）",
       "Industrial Revolution（Britannica）",
@@ -221,7 +287,35 @@ window.XIGAI["历史文明"] = [
       "https://baike.baidu.com/item/%E5%B7%A5%E4%B8%9A1.0/17490814",
       "https://m.koolearn.com/zhongkao/20190417/946611.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "历史文明",
+    "relations": [
+      {
+        "type": "related",
+        "target": "age-of-exploration",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "enlightenment",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "马克思主义",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "城市化",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "第二次工业革命",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "enlightenment",
@@ -258,13 +352,6 @@ window.XIGAI["历史文明"] = [
       "启蒙运动并非全盘否定宗教，多数启蒙思想家主张自然神论或宗教宽容，而非无神论。",
       "启蒙不是纯法国的运动，而是英国、法国、德意志、苏格兰等地的跨国思想潮流。"
     ],
-    "related": [
-      "文艺复兴",
-      "宗教改革",
-      "法国大革命",
-      "科学革命",
-      "理性主义"
-    ],
     "references": [
       "理性与社会进步——18世纪法国启蒙思想家的哲学论争（理论月刊）",
       "“中外文化十讲”第三讲“18世纪法国启蒙运动”（上海理工大学）",
@@ -277,7 +364,45 @@ window.XIGAI["历史文明"] = [
       "https://www.britannica.com/summary/The-Enlightenment-Key-Facts",
       "http://jl.xdf.cn/zhonggaokao/gaozhong/201608/178289160.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "历史文明",
+    "relations": [
+      {
+        "type": "related",
+        "target": "renaissance",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "reformation",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "法国大革命",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "科学革命",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "理性主义",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "classicism",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "industrial-revolution",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "roman-empire",
@@ -313,13 +438,6 @@ window.XIGAI["历史文明"] = [
       "罗马帝国并非“一夜灭亡”，西罗马灭亡与东罗马延续是两个不同进程。",
       "罗马帝国不只有暴君形象，其法律、工程与治理成就对文明的贡献巨大。"
     ],
-    "related": [
-      "罗马法",
-      "拜占庭帝国",
-      "基督教",
-      "中世纪",
-      "文艺复兴"
-    ],
     "references": [
       "罗马帝国（维基百科中文）",
       "罗马帝国（公元前27年—公元1453年）（百度百科）",
@@ -332,7 +450,35 @@ window.XIGAI["历史文明"] = [
       "https://www.britannica.com/place/Timeline-of-the-Roman-Empire",
       "https://m.wendu.com/fakao/2019/0319/2892.shtml"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "历史文明",
+    "relations": [
+      {
+        "type": "related",
+        "target": "罗马法",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "拜占庭帝国",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "基督教",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "中世纪",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "renaissance",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "tang-dynasty",
@@ -369,13 +515,6 @@ window.XIGAI["历史文明"] = [
       "唐朝并非始终强盛，其后期藩镇割据、内乱不断，衰亡过程漫长。",
       "开元盛世与贞观之治有别：前者经济文化极盛但隐伏危机，后者以政治清明著称。"
     ],
-    "related": [
-      "丝绸之路",
-      "科举制",
-      "安史之乱",
-      "敦煌",
-      "中国历史"
-    ],
     "references": [
       "唐朝（百度百科）",
       "唐朝历史（百度百科）",
@@ -388,7 +527,35 @@ window.XIGAI["历史文明"] = [
       "https://www.britannica.com/topic/Tang-dynasty",
       "https://lib.jlufe.edu.cn/content1.jsp?urltype=news.NewsContentUrl&wbnewsid=3456&wbtreeid=1013"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "历史文明",
+    "relations": [
+      {
+        "type": "related",
+        "target": "silk-road",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "科举制",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "安史之乱",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "敦煌",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "中国历史",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "cold-war",
@@ -424,13 +591,6 @@ window.XIGAI["历史文明"] = [
       "冷战并非“没有战争”，朝鲜战争、越南战争等代理人战争伤亡惨重。",
       "冷战不是简单的“正义与邪恶”之争，双方均有扩张性与意识形态输出的双重行为。"
     ],
-    "related": [
-      "两极格局",
-      "苏联解体",
-      "柏林墙",
-      "核威慑",
-      "美苏争霸"
-    ],
     "references": [
       "冷战的故事（北京大学国际战略研究院）",
       "冷战（百度百科）",
@@ -443,7 +603,40 @@ window.XIGAI["历史文明"] = [
       "https://www.britannica.com/event/Cold-War",
       "https://news.ifeng.com/history/special/sulian1977/200908/0813_7734_1301234_1.shtml"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "历史文明",
+    "relations": [
+      {
+        "type": "related",
+        "target": "两极格局",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "苏联解体",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "柏林墙",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "nuclear-deterrence",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "美苏争霸",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "world-war-i",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "reformation",
@@ -479,13 +672,6 @@ window.XIGAI["历史文明"] = [
       "宗教改革并非彻底抛弃基督教，而是主张回归圣经、直接面对上帝。",
       "宗教改革不只是神学争论，它同时是政治、经济、民族与国家建构运动。"
     ],
-    "related": [
-      "文艺复兴",
-      "启蒙运动",
-      "三十年战争",
-      "新教",
-      "基督教"
-    ],
     "references": [
       "九十五条论纲（维基百科中文）",
       "第05章 宗教改革运动和反宗教改革运动（超星慕课）",
@@ -498,7 +684,35 @@ window.XIGAI["历史文明"] = [
       "https://www.britannica.com/summary/Reformation-Causes-and-Effects",
       "https://www.sxjdj.com/xyw/3765.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "历史文明",
+    "relations": [
+      {
+        "type": "related",
+        "target": "renaissance",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "enlightenment",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "三十年战争",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "新教",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "基督教",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "world-war-i",
@@ -535,13 +749,6 @@ window.XIGAI["历史文明"] = [
       "一战并非“因一个人被刺杀”而爆发，萨拉热窝事件只是导火索，深层原因是帝国主义体系性矛盾。",
       "开战初“圣诞节前结束”的乐观预期完全落空，战争演变为持续四年多的消耗战。"
     ],
-    "related": [
-      "第二次世界大战",
-      "凡尔赛体系",
-      "十月革命",
-      "国际联盟",
-      "冷战"
-    ],
     "references": [
       "第一次世界大战（美国大屠杀纪念博物馆中文版）",
       "World War I（Britannica）",
@@ -554,6 +761,34 @@ window.XIGAI["历史文明"] = [
       "https://special.chaoxing.com/special/screen/tocard/81869907?courseId=81872718",
       "https://www.huatu.com/2020/1128/2069040.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "历史文明",
+    "relations": [
+      {
+        "type": "related",
+        "target": "第二次世界大战",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "凡尔赛体系",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "十月革命",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "国际联盟",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "cold-war",
+        "note": ""
+      }
+    ]
   }
 ];

@@ -29,9 +29,6 @@ window.XIGAI["AI 生成"] = [
       "\"推理计算越多越好\"**：简单任务上增加推理可能因\"过思考\"而变差。",
       "混淆 TTT 与 scaling**：前者改权重，后者只增加推理计算，机制完全不同。"
     ],
-    "related": [
-      "推理时扩展（Inference-Time Scaling）、思维链（Chain-of-Thought）、self-consistency、best-of-N、过程奖励模型（PRM）、蒙特卡洛树搜索（MCTS）、测试时自适应（TTA）、训练计算缩放定律（Training Compute Scaling Law）。"
-    ],
     "references": [
       "[Scaling LLM Test-Time Compute Optimally Can be More Effective than Scaling Parameters for Reasoning (ICLR 2025)](https://proceedings.iclr.cc/paper_files/paper/2025/hash/1b623663fd9b874366f3ce019fdfdd44-Abstract-Conference.html)",
       "[Provable Scaling Laws for the Test-Time Compute of Large Language Models (NeurIPS 2025)](https://proceedings.neurips.cc//paper_files/paper/2025/hash/f3f607e4c13bd1cb8885de44b4ec45b7-Abstract-Conference.html)",
@@ -46,7 +43,14 @@ window.XIGAI["AI 生成"] = [
       "https://icml.cc/virtual/2025/poster/44720"
     ],
     "searchedAt": "2026-08-14",
-    "generated": true
+    "generated": true,
+    "domain": "AI 生成",
+    "relations": [
+      {
+        "type": "related",
+        "target": "推理时扩展（Inference-Time Scaling）、思维链（Chain-of-Thought）、self-consistency、best-of-N、过程奖励模型（PRM）、蒙特卡洛树搜索（MCTS）、测试时自适应（TTA）、训练计算缩放定律（Training Compute Scaling Law）。",
+        "note": ""
+      }
+    ]
   }
-
 ];

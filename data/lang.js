@@ -33,13 +33,6 @@ window.XIGAI["语言与思维"] = [
       "语言学转向并非语言学内部的一次变革，而是哲学借用语言视角的范式转换。",
       "它不主张语言决定一切，而是把“语言如何构造思想与现实”设为最优先的追问对象。"
     ],
-    "related": [
-      "语言哲学",
-      "分析哲学",
-      "结构主义",
-      "诠释学",
-      "语言游戏"
-    ],
     "references": [
       "语言学转向 - 百度百科",
       "语言学转向 - 维基百科",
@@ -52,7 +45,55 @@ window.XIGAI["语言与思维"] = [
       "https://ptext.nju.edu.cn/info/1171/5065.htm",
       "http://rcpst.sxu.edu.cn/xzjt/79724.htm"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "语言与思维",
+    "relations": [
+      {
+        "type": "related",
+        "target": "语言哲学",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "分析哲学",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "结构主义",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "诠释学",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "语言游戏",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "semiotics",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "rhetoric",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "pragmatics",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "translation-theory",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "sapir-whorf-hypothesis",
@@ -88,13 +129,6 @@ window.XIGAI["语言与思维"] = [
       "该假说并非“爱斯基摩人有上百个雪词”这类以讹传讹的断言，原始案例的词汇数量被严重夸大。",
       "它不否认人类思维共性，也不主张语言不可译，只强调语言对认知的偏向性影响。"
     ],
-    "related": [
-      "语言相对论",
-      "认知语言学",
-      "洪堡特",
-      "概念隐喻",
-      "语言决定论"
-    ],
     "references": [
       "语言相对论 - 维基百科",
       "萨丕尔—沃尔夫假说 - 百度百科",
@@ -107,7 +141,30 @@ window.XIGAI["语言与思维"] = [
       "https://cloud.kepuchina.cn/newSearch/imgText?id=6974056461290201088",
       "https://d.wanfangdata.com.cn/thesis/Y1271978"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "语言与思维",
+    "relations": [
+      {
+        "type": "related",
+        "target": "cognitive-linguistics",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "洪堡特",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "概念隐喻",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "语言决定论",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "semiotics",
@@ -142,13 +199,6 @@ window.XIGAI["语言与思维"] = [
       "符号学不等于语言学：语言只是符号系统的一种，图像、声音、行为皆可成为分析对象。",
       "索绪尔的“任意性”不意味着意义完全随意——意义受社会规约与系统的差异关系制约。"
     ],
-    "related": [
-      "语言学转向",
-      "结构主义",
-      "能指与所指",
-      "叙事学",
-      "语用学"
-    ],
     "references": [
       "符号学 - 百度百科",
       "语言符号：任意性？象似性？（上海师范大学学术讲座）",
@@ -159,7 +209,50 @@ window.XIGAI["语言与思维"] = [
       "https://tuanwei.shnu.edu.cn/ce/53/c26748a773715/page.htm",
       "http://read.nlc.cn/allSearch/searchDetail?searchType=&showType=1&indexName=data_408&fid=012002667617"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "语言与思维",
+    "relations": [
+      {
+        "type": "related",
+        "target": "linguistic-turn",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "结构主义",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "能指与所指",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "叙事学",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "pragmatics",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "rhetoric",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "semantics",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "translation-theory",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "rhetoric",
@@ -195,13 +288,6 @@ window.XIGAI["语言与思维"] = [
       "修辞不等于“花言巧语”或空洞辞藻，它包含论证、逻辑与情境适配的严肃学问。",
       "“修辞”与“逻辑”并不对立，亚里士多德视修辞为逻辑论证在现实场景中的延伸。"
     ],
-    "related": [
-      "语用学",
-      "语言学转向",
-      "论证理论",
-      "文体学",
-      "符号学"
-    ],
     "references": [
       "修辞学（亚里士多德）- 维基百科",
       "亚里士多德与佩雷尔曼修辞学比较（知网）",
@@ -212,7 +298,35 @@ window.XIGAI["语言与思维"] = [
       "https://mall.cnki.net/magazine/article/CMFD/1013226950.nh.htm",
       "https://www.sklib.cn/booklib/bookPreview?SiteID=122&ID=598156&fromSubID=/1000"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "语言与思维",
+    "relations": [
+      {
+        "type": "related",
+        "target": "pragmatics",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "linguistic-turn",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "论证理论",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "文体学",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "semiotics",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "semantics",
@@ -245,13 +359,6 @@ window.XIGAI["语言与思维"] = [
       "语义学不研究“这段话在此处什么意思”这类依赖语境的问题——那属于语用学。",
       "语义不等于词典释义：语义学研究意义的结构与生成机制，而非仅罗列义项。"
     ],
-    "related": [
-      "语用学",
-      "认知语言学",
-      "语言哲学",
-      "符号学",
-      "词汇学"
-    ],
     "references": [
       "语义学 - 百度百科",
       "语义学 - 学术百科（知网空间）",
@@ -262,7 +369,40 @@ window.XIGAI["语言与思维"] = [
       "https://wiki.cnki.com.cn/HotWord/79215.htm",
       "https://baike.baidu.com/item/semantics"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "语言与思维",
+    "relations": [
+      {
+        "type": "related",
+        "target": "pragmatics",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "cognitive-linguistics",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "语言哲学",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "semiotics",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "词汇学",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "etymology",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "pragmatics",
@@ -296,13 +436,6 @@ window.XIGAI["语言与思维"] = [
       "语用学不是“研究怎么用词”的实用技巧课，而是关于语境中意义生成机制的理论学科。",
       "“言外之意”并非无规则可循——格赖斯与会话含义理论给出了系统的推导模型。"
     ],
-    "related": [
-      "语义学",
-      "语言学转向",
-      "言语行为理论",
-      "认知语言学",
-      "符号学"
-    ],
     "references": [
       "语用学 - 百度百科",
       "语言学概论：语用学（开放教育）",
@@ -313,7 +446,45 @@ window.XIGAI["语言与思维"] = [
       "http://media.open.com.cn/media_file/0909/dongshi/yuyanxgl/second/6-1.html",
       "https://eyxy.xisu.edu.cn/info/1260/5371.htm"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "语言与思维",
+    "relations": [
+      {
+        "type": "related",
+        "target": "semantics",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "linguistic-turn",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "言语行为理论",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "cognitive-linguistics",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "semiotics",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "rhetoric",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "translation-theory",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "etymology",
@@ -347,13 +518,6 @@ window.XIGAI["语言与思维"] = [
       "词源学不是“文字起源学”，也不等于字形分析——它研究的是词（语音语义单位）的历时来源。",
       "民间望文生义的“俗词源”（按字形牵强附会解释词义）并非科学词源学的结论。"
     ],
-    "related": [
-      "历史比较语言学",
-      "语义学",
-      "训诂学",
-      "词汇学",
-      "音韵学"
-    ],
     "references": [
       "词源学 - 百度百科",
       "建设中国特色汉语词源学（求是网）",
@@ -364,7 +528,35 @@ window.XIGAI["语言与思维"] = [
       "https://www.qstheory.cn/llwx/2020-10/05/c_1126575287.htm",
       "https://zh.m.wikipedia.org/zh-tw/%E8%AF%AD%E6%BA%90%E5%AD%A6"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "语言与思维",
+    "relations": [
+      {
+        "type": "related",
+        "target": "历史比较语言学",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "semantics",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "训诂学",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "词汇学",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "音韵学",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "aphasia",
@@ -398,13 +590,6 @@ window.XIGAI["语言与思维"] = [
       "失语症不是“智力下降”或“嗓子坏了”——患者智力与发音器官正常，受损的是脑内语言加工通路。",
       "失语症患者并非完全不能说话：不同分型表现为流利但错乱、或费力但简短的差异。"
     ],
-    "related": [
-      "神经语言学",
-      "布罗卡区",
-      "语言与思维",
-      "认知科学",
-      "言语康复"
-    ],
     "references": [
       "失语症 - 默沙东诊疗手册大众版",
       "一文读懂失语症的分类及治疗策略（丁香园）",
@@ -415,7 +600,35 @@ window.XIGAI["语言与思维"] = [
       "http://neuro.dxy.cn/article/525110",
       "https://ccdas.pmphai.com/jeesitede/appdisease/toPcDetail?sessionId=&knowledgeLibPrefix=disease&id=11606"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "语言与思维",
+    "relations": [
+      {
+        "type": "related",
+        "target": "神经语言学",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "布罗卡区",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "语言与思维",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "认知科学",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "言语康复",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "translation-theory",
@@ -451,13 +664,6 @@ window.XIGAI["语言与思维"] = [
       "翻译理论不是教人逐字逐句对应的规则手册，而是关于翻译决策的批判性反思框架。",
       "“等值”不等于“逐字对等”：奈达的动态对等恰恰反对形式上的机械对应。"
     ],
-    "related": [
-      "语用学",
-      "符号学",
-      "跨文化交际",
-      "语言学转向",
-      "翻译批评"
-    ],
     "references": [
       "对奈达翻译理论研究的重新审视（中国翻译协会）",
       "尤金·奈达：当代翻译理论之父",
@@ -470,7 +676,35 @@ window.XIGAI["语言与思维"] = [
       "https://d.wanfangdata.com.cn/periodical/yxxyxb-shkxb200804016",
       "https://baike.baidu.com/item/%E7%BF%BB%E8%AF%91%E7%90%86%E8%AE%BA/0"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "语言与思维",
+    "relations": [
+      {
+        "type": "related",
+        "target": "pragmatics",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "semiotics",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "跨文化交际",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "linguistic-turn",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "翻译批评",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "cognitive-linguistics",
@@ -505,13 +739,6 @@ window.XIGAI["语言与思维"] = [
       "认知语言学不是“研究人脑的语言神经科学”，而是以认知机制为解释原则的语言理论范式。",
       "概念隐喻理论并不否认字面意义，而是主张隐喻性概念化渗透于日常语言与思维。"
     ],
-    "related": [
-      "萨丕尔-沃尔夫假说",
-      "语义学",
-      "语用学",
-      "概念隐喻",
-      "原型范畴"
-    ],
     "references": [
       "认知语言学 - 维基百科",
       "概念隐喻 - 百度百科",
@@ -522,6 +749,34 @@ window.XIGAI["语言与思维"] = [
       "https://wapbaike.baidu.com/item/%E6%A6%82%E5%BF%B5%E9%9A%90%E5%96%BB/9724248",
       "https://d.wanfangdata.com.cn/thesis/D02506744"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "语言与思维",
+    "relations": [
+      {
+        "type": "related",
+        "target": "sapir-whorf-hypothesis",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "semantics",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "pragmatics",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "概念隐喻",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "原型范畴",
+        "note": ""
+      }
+    ]
   }
 ];

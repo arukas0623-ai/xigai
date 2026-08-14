@@ -35,13 +35,6 @@ window.XIGAI["生物学"] = [
       "“适者生存”不等于“强者生存”：适者指最适应特定环境的个体，而非最强壮或最聪明者。",
       "进化不是从低级到高级的直线进步，也没有预定目标，只是对环境变化的适应结果。"
     ],
-    "related": [
-      "进化论",
-      "遗传漂变",
-      "人工选择",
-      "物种形成",
-      "适应性进化"
-    ],
     "references": [
       "科普中国·达尔文学说",
       "科普中国·自然选择说",
@@ -52,7 +45,35 @@ window.XIGAI["生物学"] = [
       "https://cloud.kepuchina.cn/newSearch/imgText?id=6974100757758369793",
       "https://baike.baidu.com/item/%E8%BE%BE%E5%B0%94%E6%96%87%E5%AD%A6%E8%AF%B4/7944076"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "生物学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "进化论",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "遗传漂变",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "人工选择",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "物种形成",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "适应性进化",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "dna-double-helix",
@@ -89,13 +110,6 @@ window.XIGAI["生物学"] = [
       "双螺旋的两条链是反平行的，并非平行同向缠绕。",
       "碱基配对靠氢键维系而非共价键，共价键连接的是同一条链内的核苷酸。"
     ],
-    "related": [
-      "碱基互补配对",
-      "半保留复制",
-      "基因",
-      "转录",
-      "遗传密码"
-    ],
     "references": [
       "中国数字科技馆·探索DNA双螺旋结构的竞赛",
       "中国科普博览·DNA生命的螺旋",
@@ -106,7 +120,35 @@ window.XIGAI["生物学"] = [
       "http://kepu.net.cn/gb/lives/dna/find/200307090025.html",
       "https://worldscience.cn/qk/2013/6y/slxjglwfb60znzt/583356.shtml"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "生物学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "碱基互补配对",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "半保留复制",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "基因",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "转录",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "遗传密码",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "cell-theory",
@@ -141,13 +183,6 @@ window.XIGAI["生物学"] = [
       "细胞学说强调细胞来自细胞，不承认细胞凭空产生或自然发生。",
       "病毒没有细胞结构并不违背细胞学说，因为细胞学说针对的是细胞生物。"
     ],
-    "related": [
-      "细胞",
-      "细胞分裂",
-      "施莱登",
-      "施旺",
-      "组织学"
-    ],
     "references": [
       "科普中国·显微镜的发现与细胞学说的提出",
       "中国科技馆·细胞学说是如何建立的",
@@ -158,7 +193,35 @@ window.XIGAI["生物学"] = [
       "https://mp.weixin.qq.com/s/0YSx1y9DFEF4PBo4vZdN8A",
       "https://xuewen.cnki.net/R2006110530022482.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "生物学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "细胞",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "细胞分裂",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "施莱登",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "施旺",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "组织学",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "gene-editing",
@@ -195,13 +258,6 @@ window.XIGAI["生物学"] = [
       "基因编辑不等于转基因：前者原位修饰自身基因，后者插入外源基因，但二者均受监管。",
       "CRISPR并非万无一失的“上帝剪刀”，仍存在脱靶、递送效率与嵌合体等难题。"
     ],
-    "related": [
-      "CRISPR/Cas9",
-      "转基因",
-      "基因治疗",
-      "碱基编辑",
-      "分子克隆"
-    ],
     "references": [
       "科普中国·基因剪刀超进化",
       "科技小院·CRISPR-Cas9开启人类基因组编辑的新时代",
@@ -212,7 +268,35 @@ window.XIGAI["生物学"] = [
       "https://stb.mae.edu.cn/site/yard/6052/resource/34894",
       "https://news.ebiotrade.com/2025-9/20250925104759746.htm"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "生物学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "CRISPR/Cas9",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "转基因",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "gene-therapy",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "碱基编辑",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "分子克隆",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "photosynthesis",
@@ -248,13 +332,6 @@ window.XIGAI["生物学"] = [
       "“暗反应”不需要黑暗，只是不直接依赖光，白天同样进行。",
       "植物释放的氧气主要来自水的光解，而非来自二氧化碳。"
     ],
-    "related": [
-      "叶绿体",
-      "呼吸作用",
-      "卡尔文循环",
-      "光反应",
-      "碳循环"
-    ],
     "references": [
       "中国科学院植物研究所·光合作用科普",
       "科普中国·绿色叶子的结构生长与功能",
@@ -265,7 +342,35 @@ window.XIGAI["生物学"] = [
       "https://www.kepuchina.cn/article/articleinfo?business_type=100&classify=0&ar_id=701250",
       "http://h5.scimall.org.cn/news/detail?id=1500237"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "生物学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "叶绿体",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "呼吸作用",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "卡尔文循环",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "光反应",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "碳循环",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "ecological-niche",
@@ -301,13 +406,6 @@ window.XIGAI["生物学"] = [
       "生态位不是栖息地本身，而是物种在生态系统中扮演的“职业”。",
       "生态位重叠不等于生态位完全相同，部分重叠在自然界很常见。"
     ],
-    "related": [
-      "竞争排斥原理",
-      "群落结构",
-      "物种多样性",
-      "栖息地",
-      "食物网"
-    ],
     "references": [
       "百度百科·生态位分化",
       "Bohrium科学百科·生态位概念",
@@ -318,7 +416,35 @@ window.XIGAI["生物学"] = [
       "https://scipedia.bohrium.com/sciencepedia/feynman/ecology_and_environmental_biology_undergraduate-the_ecological_niche_concept",
       "http://course.cau-edu.net.cn/course/Z0512/ch04/se01/slide/slide12_wz.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "生物学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "竞争排斥原理",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "群落结构",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "物种多样性",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "栖息地",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "食物网",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "neuron",
@@ -355,13 +481,6 @@ window.XIGAI["生物学"] = [
       "人脑神经元并非绝对不可再生：海马齿状回等区域存在成年神经发生，只是范围有限。",
       "神经元数量常被误报为“千亿级”，较公认的估计约860亿个。"
     ],
-    "related": [
-      "突触",
-      "动作电位",
-      "神经递质",
-      "胶质细胞",
-      "神经回路"
-    ],
     "references": [
       "百度百科·神经元学说",
       "华南师大课程·神经系统调节功能",
@@ -372,7 +491,35 @@ window.XIGAI["生物学"] = [
       "https://moodle.scnu.edu.cn/pluginfile.php/448733/mod_resource/content/1/%E7%AC%AC3%E7%AB%A0%20%E7%A5%9E%E7%BB%8F%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%B0%83%E8%8A%82%E5%8A%9F%E8%83%BD%20%20%20.pdf#5#1",
       "https://school.sjyz.sjedu.cn/yz/Article/Article_Print.asp?ArticleID=11896"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "生物学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "突触",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "动作电位",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "神经递质",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "胶质细胞",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "神经回路",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "immune-system",
@@ -408,13 +555,6 @@ window.XIGAI["生物学"] = [
       "“免疫力越强越好”是误解：免疫过度反应可导致自身免疫病和过敏。",
       "免疫系统并非只在生病时才工作，平时持续进行免疫监视与稳态维护。"
     ],
-    "related": [
-      "抗体",
-      "T细胞",
-      "疫苗",
-      "自身免疫病",
-      "炎症"
-    ],
     "references": [
       "默沙东诊疗手册大众版·免疫系统概述",
       "郑州大学第一附属医院·人体的免疫系统",
@@ -425,7 +565,35 @@ window.XIGAI["生物学"] = [
       "https://www.zdyfy.com/jkkp/jkjt/content_18079",
       "https://exam.ipmph.com/zyyszl/201209/t20120910_99591.htm"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "生物学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "抗体",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "T细胞",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "vaccine",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "自身免疫病",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "炎症",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "epigenetics",
@@ -462,13 +630,6 @@ window.XIGAI["生物学"] = [
       "表观遗传并不改变DNA序列，但“完全可逆、随意改写”是过度简化，其稳定性机制复杂。",
       "“获得性状直接遗传”过于简单化，人类中跨代表观遗传的证据仍然有限。"
     ],
-    "related": [
-      "DNA甲基化",
-      "组蛋白修饰",
-      "基因表达调控",
-      "染色质",
-      "非编码RNA"
-    ],
     "references": [
       "西格玛奥德里奇(中国)·表观遗传学",
       "Nature综述·表观遗传学机制",
@@ -479,7 +640,35 @@ window.XIGAI["生物学"] = [
       "https://www.nature.com/articles/s41392-022-01055-2/tables/1",
       "https://scipedia.bohrium.com/sciencepedia/feynman/molecular_and_cell_biology_undergraduate-epigenetic_mechanisms_DNA_methylation_and_histone_acetylation"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "生物学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "DNA甲基化",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "组蛋白修饰",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "基因表达调控",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "染色质",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "非编码RNA",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "endosymbiotic-theory",
@@ -516,13 +705,6 @@ window.XIGAI["生物学"] = [
       "内共生学说不是停留在假说层面的猜想，而是拥有分子证据支持的成熟理论，但宿主细胞起源等细节仍在完善。",
       "并非所有细胞器都源于内共生，内质网、高尔基体等的起源与之不同。"
     ],
-    "related": [
-      "线粒体",
-      "叶绿体",
-      "真核生物",
-      "蓝细菌",
-      "马古利斯"
-    ],
     "references": [
       "百度百科·内共生学说",
       "Molecular Biology of the Cell·马古利斯与内共生假说50年",
@@ -533,6 +715,34 @@ window.XIGAI["生物学"] = [
       "https://www.molbiolcell.org/doi/full/10.1091/mbc.e16-07-0509",
       "https://digitalpaper.stdaily.com/http_www.kjrb.com/kjwzb/html/2018-06/08/content_396390.htm?div=0"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "生物学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "线粒体",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "叶绿体",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "真核生物",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "蓝细菌",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "马古利斯",
+        "note": ""
+      }
+    ]
   }
 ];

@@ -3,9 +3,16 @@ window.XIGAI["职场成长"] = [
   {
     "id": "okr",
     "name": "OKR",
-    "aliases": ["目标与关键结果法", "Objectives and Key Results", "OKR管理法"],
+    "aliases": [
+      "目标与关键结果法",
+      "Objectives and Key Results",
+      "OKR管理法"
+    ],
     "field": "职场成长",
-    "tags": ["目标管理", "绩效工具"],
+    "tags": [
+      "目标管理",
+      "绩效工具"
+    ],
     "difficulty": 3,
     "summary": "定性与量化结合的目标管理框架",
     "definition": "OKR是Objectives and Key Results（目标与关键结果）的缩写，由Intel提出、Google发扬光大的目标管理框架。O是定性、有野心的方向性目标；KR是支撑O的2-4个可量化、可验证的关键结果。通常按季度制定并全员透明公开，周期末按0-1打分，理想得分为0.6-0.7——全部分数拉满说明目标定得太保守。OKR强调聚焦与挑战性，一般不与薪酬直接挂钩，与KPI形成互补。",
@@ -21,20 +28,47 @@ window.XIGAI["职场成长"] = [
     "misconceptions": [
       "认为OKR就是绩效考核工具，实则其设计初衷是挑战目标而非考核薪酬"
     ],
-    "related": ["KPI", "绩效管理", "述职"],
-    "references": ["OKR vs KPI: What's the Difference? - Atlassian", "EXPERT GUIDE: KPI vs OKR - OKR Institute"],
+    "references": [
+      "OKR vs KPI: What's the Difference? - Atlassian",
+      "EXPERT GUIDE: KPI vs OKR - OKR Institute"
+    ],
     "sources": [
       "https://www.atlassian.com/blog/productivity/okr-vs-kpi",
       "https://okrinstitute.org/es/kpi-okr/"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "职场成长",
+    "relations": [
+      {
+        "type": "related",
+        "target": "kpi",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "绩效管理",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "work-report",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "kpi",
     "name": "KPI",
-    "aliases": ["关键绩效指标", "Key Performance Indicator", "绩效指标"],
+    "aliases": [
+      "关键绩效指标",
+      "Key Performance Indicator",
+      "绩效指标"
+    ],
     "field": "职场成长",
-    "tags": ["绩效考核", "指标管理"],
+    "tags": [
+      "绩效考核",
+      "指标管理"
+    ],
     "difficulty": 2,
     "summary": "量化考核个人与组织绩效的关键指标",
     "definition": "KPI是Key Performance Indicator（关键绩效指标）的缩写，指把组织战略逐级分解为可量化、可考核的指标，如销售额、转化率、上线缺陷率等。KPI讲究SMART原则（具体、可衡量、可实现、相关、有时限），常按月度或季度考核打分，结果直接决定绩效工资、年终奖与晋升资格，是薪酬激励的主要抓手。与OKR鼓励挑战不同，KPI更强调完成既定基线，需警惕“指标达成但业务目标未达成”的扭曲。",
@@ -50,20 +84,62 @@ window.XIGAI["职场成长"] = [
     "misconceptions": [
       "KPI全部达成不等于组织目标达成，指标可能失真"
     ],
-    "related": ["OKR", "绩效工资", "晋升"],
-    "references": ["The real difference between OKRs and KPIs - GLOBIS", "OKR vs KPI - Atlassian"],
+    "references": [
+      "The real difference between OKRs and KPIs - GLOBIS",
+      "OKR vs KPI - Atlassian"
+    ],
     "sources": [
       "https://corporatesolutions.globis.com/articles/the-real-difference-between-okrs-and-kpis",
       "https://www.atlassian.com/blog/productivity/okr-vs-kpi"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "职场成长",
+    "relations": [
+      {
+        "type": "related",
+        "target": "okr",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "绩效工资",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "promotion",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "moyu",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "year-end-bonus",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "work-report",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "managing-up",
     "name": "向上管理",
-    "aliases": ["Managing Up", "管理老板", "向上沟通"],
+    "aliases": [
+      "Managing Up",
+      "管理老板",
+      "向上沟通"
+    ],
     "field": "职场成长",
-    "tags": ["职场软技能", "沟通管理"],
+    "tags": [
+      "职场软技能",
+      "沟通管理"
+    ],
     "difficulty": 3,
     "summary": "主动经营与上级关系的职场能力",
     "definition": "向上管理（Managing Up）指员工主动经营与上级的关系：理解上级的目标、压力与决策偏好，管理信息流、预期与资源，让上级成为自己工作的杠杆，而非被动等待指令。核心动作包括对齐目标、主动汇报进展、提前暴露风险、管理上级预期、为上级决策提供有效信息。它不等于讨好或拍马屁，而是职场中的“预期管理与印象管理”能力，直接影响资源分配、绩效评价与晋升机会。",
@@ -79,20 +155,48 @@ window.XIGAI["职场成长"] = [
     "misconceptions": [
       "向上管理不等于逢迎拍马，其本质是让工作目标对齐"
     ],
-    "related": ["述职", "晋升", "职场沟通"],
-    "references": ["别装了，这些职场黑话我们心里都有数 - 网易", "2025年，你一定要知道的30个职场暗语 - 百家号"],
+    "references": [
+      "别装了，这些职场黑话我们心里都有数 - 网易",
+      "2025年，你一定要知道的30个职场暗语 - 百家号"
+    ],
     "sources": [
       "http://www.163.com/dy/article/KOQC6BLI05568W0A.html",
       "https://baijiahao.baidu.com/s?id=1833383020754239917"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "职场成长",
+    "relations": [
+      {
+        "type": "related",
+        "target": "work-report",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "promotion",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "职场沟通",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "involution",
     "name": "内卷化",
-    "aliases": ["内卷", "Involution", "卷", "内耗"],
+    "aliases": [
+      "内卷",
+      "Involution",
+      "卷",
+      "内耗"
+    ],
     "field": "职场成长",
-    "tags": ["职场现象", "社会热词"],
+    "tags": [
+      "职场现象",
+      "社会热词"
+    ],
     "difficulty": 2,
     "summary": "投入增加但总产出不变的过度竞争",
     "definition": "内卷（Involution）原为人类学术语，指系统无法向外扩张时，内部过度竞争、投入不断增加而总产出不变的状态。职场中的典型表现：为加班而加班、周报比字数、重复建设低价值工作，“人人都在努力”导致基线被不断抬高，个体收益却未增加。内卷的本质是资源有限下的零和博弈，破解之道是跳出同质化竞争，转向差异化能力与高杠杆事项。",
@@ -108,20 +212,47 @@ window.XIGAI["职场成长"] = [
     "misconceptions": [
       "努力不等于内卷，有产出的有效投入不是内卷"
     ],
-    "related": ["摸鱼", "躺平", "35岁危机"],
-    "references": ["别装了，这些职场黑话我们心里都有数 - 网易", "2025年，你一定要知道的30个职场暗语 - 百家号"],
+    "references": [
+      "别装了，这些职场黑话我们心里都有数 - 网易",
+      "2025年，你一定要知道的30个职场暗语 - 百家号"
+    ],
     "sources": [
       "http://www.163.com/dy/article/KOQC6BLI05568W0A.html",
       "https://baijiahao.baidu.com/s?id=1833383020754239917"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "职场成长",
+    "relations": [
+      {
+        "type": "related",
+        "target": "moyu",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "tangping",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "mid-career-crisis",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "moyu",
     "name": "摸鱼",
-    "aliases": ["划水", "磨洋工", "偷懒"],
+    "aliases": [
+      "划水",
+      "磨洋工",
+      "偷懒"
+    ],
     "field": "职场成长",
-    "tags": ["职场黑话", "工作状态"],
+    "tags": [
+      "职场黑话",
+      "工作状态"
+    ],
     "difficulty": 1,
     "summary": "工作时间偷闲、做与工作无关的事",
     "definition": "摸鱼是网络黑话，指在工作时间内做与工作无关的事情偷闲，如刷手机、逛论坛、假装忙碌，源自“浑水摸鱼”。适度摸鱼可缓解高压工作，但常态化摸鱼背后往往折射激励失效、任务不饱和或对工作失去热情等组织问题。对个人而言，长期摸鱼会积累绩效与口碑风险，被裁时毫无还手之力；对组织而言，靠监督治标不治本，改善任务设计与激励才是根本。",
@@ -137,20 +268,51 @@ window.XIGAI["职场成长"] = [
     "misconceptions": [
       "摸鱼不等于休息，长期摸鱼会积累职业风险"
     ],
-    "related": ["内卷", "躺平", "KPI"],
-    "references": ["别装了，这些职场黑话我们心里都有数 - 网易", "2025年，你一定要知道的30个职场暗语 - 百家号"],
+    "references": [
+      "别装了，这些职场黑话我们心里都有数 - 网易",
+      "2025年，你一定要知道的30个职场暗语 - 百家号"
+    ],
     "sources": [
       "http://www.163.com/dy/article/KOQC6BLI05568W0A.html",
       "https://baijiahao.baidu.com/s?id=1833383020754239917"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "职场成长",
+    "relations": [
+      {
+        "type": "related",
+        "target": "neijuan",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "tangping",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "kpi",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "involution",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "tangping",
     "name": "躺平",
-    "aliases": ["躺平主义", "躺平学"],
+    "aliases": [
+      "躺平主义",
+      "躺平学"
+    ],
     "field": "职场成长",
-    "tags": ["职场现象", "社会热词"],
+    "tags": [
+      "职场现象",
+      "社会热词"
+    ],
     "difficulty": 1,
     "summary": "主动降低欲望与投入、拒绝内卷的生活态度",
     "definition": "躺平是2021年起流行的网络热词，指面对高房价、高竞争与上升通道收窄，年轻人主动调低欲望与投入，拒绝过度内卷：不炒房、不内耗、只完成分内工作。它与“内卷”相对，是一种消极但理性的个体抵抗。职场中表现为拒绝无效加班、不主动争取晋升、守住工作与生活的边界。争议在于：有人视之为对畸形竞争的清醒退出，有人批评其放弃个人发展与社会流动。",
@@ -166,20 +328,52 @@ window.XIGAI["职场成长"] = [
     "misconceptions": [
       "躺平不等于摆烂，躺平仍保留基本职业底线"
     ],
-    "related": ["内卷", "摸鱼", "职业规划"],
-    "references": ["别装了，这些职场黑话我们心里都有数 - 网易", "职场老油条20年血泪总结：8条潜规则 - 360doc"],
+    "references": [
+      "别装了，这些职场黑话我们心里都有数 - 网易",
+      "职场老油条20年血泪总结：8条潜规则 - 360doc"
+    ],
     "sources": [
       "http://www.163.com/dy/article/KOQC6BLI05568W0A.html",
       "http://www.360doc.com/content/25/0430/17/7139648_1152436798.shtml"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "职场成长",
+    "relations": [
+      {
+        "type": "related",
+        "target": "neijuan",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "moyu",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "career-planning",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "involution",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "mid-career-crisis",
     "name": "35岁危机",
-    "aliases": ["中年职场危机", "35岁门槛", "35岁定律"],
+    "aliases": [
+      "中年职场危机",
+      "35岁门槛",
+      "35岁定律"
+    ],
     "field": "职场成长",
-    "tags": ["职业发展", "职场现象"],
+    "tags": [
+      "职业发展",
+      "职场现象"
+    ],
     "difficulty": 2,
     "summary": "35岁前后遭遇的职业瓶颈与年龄焦虑",
     "definition": "35岁危机指职场人（尤以互联网、IT行业为甚）到35岁左右集中遭遇的职业困境：招聘中的年龄歧视、晋升空间收窄、体能与精力下滑、家庭负担加重，以及“中年被优化”的裁员风险。其本质是“技能溢价”未能随着年龄增长：若十年经验只是把第一年重复了十遍，就容易被更便宜的新人替代。应对之道是在35岁前建立专家、管理或资源型壁垒，并保持持续学习与第二曲线布局。",
@@ -195,20 +389,52 @@ window.XIGAI["职场成长"] = [
     "misconceptions": [
       "35岁危机不必然发生，取决于行业与能力壁垒"
     ],
-    "related": ["职业规划", "跳槽", "晋升"],
-    "references": ["职场老油条20年血泪总结：8条潜规则 - 360doc", "2025年，你一定要知道的30个职场暗语 - 百家号"],
+    "references": [
+      "职场老油条20年血泪总结：8条潜规则 - 360doc",
+      "2025年，你一定要知道的30个职场暗语 - 百家号"
+    ],
     "sources": [
       "http://www.360doc.com/content/25/0430/17/7139648_1152436798.shtml",
       "https://baijiahao.baidu.com/s?id=1833383020754239917"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "职场成长",
+    "relations": [
+      {
+        "type": "related",
+        "target": "career-planning",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "job-hopping",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "promotion",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "involution",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "career-planning",
     "name": "职业规划",
-    "aliases": ["职业生涯规划", "职业发展路径", "职业定位"],
+    "aliases": [
+      "职业生涯规划",
+      "职业发展路径",
+      "职业定位"
+    ],
     "field": "职场成长",
-    "tags": ["职业发展", "自我管理"],
+    "tags": [
+      "职业发展",
+      "自我管理"
+    ],
     "difficulty": 2,
     "summary": "系统性设计职业目标与成长路径",
     "definition": "职业规划是对自身职业生涯的系统性设计：以兴趣、能力、价值观（职业锚）与外部机会（行业趋势、岗位市场）为依据，设定短期（1-3年）、中期（3-5年）、长期（5-10年）目标，并拆解为技能提升、跳槽、考证、转行等具体行动。常用工具有SWOT分析、霍兰德职业兴趣测评等。规划不是画一张永不改变的路线图，而需随市场与自我认知迭代，核心是持续构建可迁移能力与差异化优势。",
@@ -224,20 +450,57 @@ window.XIGAI["职场成长"] = [
     "misconceptions": [
       "职业规划不是画一张永不改变的路线图"
     ],
-    "related": ["35岁危机", "跳槽", "晋升"],
-    "references": ["好的职业生涯规划应规划什么 - 中国教育报", "大学生职业生涯规划指南 - 温州大学就业网"],
+    "references": [
+      "好的职业生涯规划应规划什么 - 中国教育报",
+      "大学生职业生涯规划指南 - 温州大学就业网"
+    ],
     "sources": [
       "https://share.app3.jyb.cn/paper_d/bb8054caf3ed98809aee3fea93df286f",
       "https://job.wzu.edu.cn/news/view/aid/158730/tag/news/index/tag/fdhd"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "职场成长",
+    "relations": [
+      {
+        "type": "related",
+        "target": "mid-career-crisis",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "job-hopping",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "promotion",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "tangping",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "staffing-establishment",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "job-hopping",
     "name": "跳槽",
-    "aliases": ["换工作", "换东家", "Run"],
+    "aliases": [
+      "换工作",
+      "换东家",
+      "Run"
+    ],
     "field": "职场成长",
-    "tags": ["职场行为", "求职"],
+    "tags": [
+      "职场行为",
+      "求职"
+    ],
     "difficulty": 2,
     "summary": "主动更换雇主的求职行为",
     "definition": "跳槽指主动从现公司离职、更换雇主的求职行为。理性跳槽的驱动因素通常是薪资涨幅（市场常见预期20%-30%）、晋升天花板、行业切换与平台成长性；其隐性成本包括试用期风险、人脉清零、期权未归属部分清零、社保断缴等。黄金法则是“骑驴找马”：在职时更新简历、获取面试机会，拿到offer再提离职，保留谈判筹码。两年内频繁跳槽（3次以上）会被HR视为稳定性差，需谨慎。",
@@ -253,20 +516,66 @@ window.XIGAI["职场成长"] = [
     "misconceptions": [
       "跳槽不是万能药，内部转岗有时是更优选项"
     ],
-    "related": ["裸辞", "背调", "试用期"],
-    "references": ["别装了，这些职场黑话我们心里都有数 - 网易", "职场老油条20年血泪总结：8条潜规则 - 360doc"],
+    "references": [
+      "别装了，这些职场黑话我们心里都有数 - 网易",
+      "职场老油条20年血泪总结：8条潜规则 - 360doc"
+    ],
     "sources": [
       "http://www.163.com/dy/article/KOQC6BLI05568W0A.html",
       "http://www.360doc.com/content/25/0430/17/7139648_1152436798.shtml"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "职场成长",
+    "relations": [
+      {
+        "type": "related",
+        "target": "resign-without-job",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "background-check",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "probation",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "mid-career-crisis",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "career-planning",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "stock-option-incentive",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "non-compete",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "resign-without-job",
     "name": "裸辞",
-    "aliases": ["无下家离职", "裸辞式离职"],
+    "aliases": [
+      "无下家离职",
+      "裸辞式离职"
+    ],
     "field": "职场成长",
-    "tags": ["职场行为", "求职"],
+    "tags": [
+      "职场行为",
+      "求职"
+    ],
     "difficulty": 2,
     "summary": "没找好下家就辞职的行为",
     "definition": "裸辞指没有找好下家就辞职的行为，“裸”即毫无保障地离开。动因多为身心透支、与上级冲突或对现状绝望；代价是收入断档、社保（医保、养老）中断、求职时间压力被放大，且失去“在职”身份这个谈薪筹码——在职候选人通常有10%-20%的薪资溢价。除非心理与健康风险已不可承受，否则更稳妥的做法是先请年假或病假缓冲，储备3-6个月生活资金，并骑驴找马再辞职。",
@@ -282,20 +591,46 @@ window.XIGAI["职场成长"] = [
     "misconceptions": [
       "裸辞不等于自由，社保断缴会影响医保报销与买房资格"
     ],
-    "related": ["跳槽", "五险一金", "试用期"],
-    "references": ["别装了，这些职场黑话我们心里都有数 - 网易", "职场老油条20年血泪总结：8条潜规则 - 360doc"],
+    "references": [
+      "别装了，这些职场黑话我们心里都有数 - 网易",
+      "职场老油条20年血泪总结：8条潜规则 - 360doc"
+    ],
     "sources": [
       "http://www.163.com/dy/article/KOQC6BLI05568W0A.html",
       "http://www.360doc.com/content/25/0430/17/7139648_1152436798.shtml"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "职场成长",
+    "relations": [
+      {
+        "type": "related",
+        "target": "job-hopping",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "social-insurance-housing-fund",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "probation",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "probation",
     "name": "试用期",
-    "aliases": ["考察期", "试用考核期"],
+    "aliases": [
+      "考察期",
+      "试用考核期"
+    ],
     "field": "职场成长",
-    "tags": ["劳动法", "入职"],
+    "tags": [
+      "劳动法",
+      "入职"
+    ],
     "difficulty": 2,
     "summary": "劳动合同中双方相互考察的法定期间",
     "definition": "试用期是劳动合同中双方相互考察的阶段，属于劳动关系存续期，须签订劳动合同并缴纳社保。依据《劳动合同法》，合同期限3年以上或无固定期限的，试用期最长6个月；1年以上不满3年的，最长2个月；3个月以上不满1年的，最长1个月。同一单位与同一劳动者只能约定一次试用期，且试用期工资不得低于合同约定工资的80%并不得低于当地最低工资标准。",
@@ -311,20 +646,57 @@ window.XIGAI["职场成长"] = [
     "misconceptions": [
       "试用期不等于实习期，实习期是针对在校学生的概念"
     ],
-    "related": ["五险一金", "劳动合同", "年终奖"],
-    "references": ["职场小贴士：试用期应该有多久？- 中国政府网", "劳动合同试用期期限的规定 - 北京法院网"],
+    "references": [
+      "职场小贴士：试用期应该有多久？- 中国政府网",
+      "劳动合同试用期期限的规定 - 北京法院网"
+    ],
     "sources": [
       "https://app.www.gov.cn/govdata/gov/202203/01/482315/article.html",
       "https://bjgy.bjcourt.gov.cn/article/detail/2018/05/id/3307912.shtml"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "职场成长",
+    "relations": [
+      {
+        "type": "related",
+        "target": "social-insurance-housing-fund",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "劳动合同",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "year-end-bonus",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "job-hopping",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "resign-without-job",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "social-insurance-housing-fund",
     "name": "五险一金",
-    "aliases": ["社保", "社会保险", "公积金"],
+    "aliases": [
+      "社保",
+      "社会保险",
+      "公积金"
+    ],
     "field": "职场成长",
-    "tags": ["薪酬福利", "劳动法"],
+    "tags": [
+      "薪酬福利",
+      "劳动法"
+    ],
     "difficulty": 2,
     "summary": "养老医疗等五险与住房公积金的统称",
     "definition": "五险一金是法定员工福利的统称：五险指养老保险、医疗保险、失业保险、工伤保险、生育保险（生育险已并入职工医保），一金指住房公积金。单位和个人按比例共同缴费，缴费基数为本人上年度月平均工资，有上下限规定（如养老单位约16%、个人8%，公积金5%-12%双方对等）。医保断缴次月即无法报销，养老金需累计缴满15年方可领取，公积金可用于购房贷款与提取，是求职时必须核实的核心待遇。",
@@ -340,20 +712,57 @@ window.XIGAI["职场成长"] = [
     "misconceptions": [
       "试用期也必须缴纳五险一金，不得以补贴代替"
     ],
-    "related": ["试用期", "年终奖", "裸辞"],
-    "references": ["不知道“五险一金”是什么？看这篇就够了 - 崇信县人民政府", "五险一金包含哪些内容 - 知了社保"],
+    "references": [
+      "不知道“五险一金”是什么？看这篇就够了 - 崇信县人民政府",
+      "五险一金包含哪些内容 - 知了社保"
+    ],
     "sources": [
       "https://www.chongxin.gov.cn/zfxxgk/bmxzxxgk/xzzfxxgk/cxxxyzrmzf/fdzdgknr/shbx/art/2025/art_21c6054aa5bd450d81624e42a986bd66.html",
       "https://www.zhiliaoshebao.com/details/3277.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "职场成长",
+    "relations": [
+      {
+        "type": "related",
+        "target": "probation",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "year-end-bonus",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "resign-without-job",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "outsourcing",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "staffing-establishment",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "year-end-bonus",
     "name": "年终奖",
-    "aliases": ["十三薪", "年底双薪", "年终绩效奖金"],
+    "aliases": [
+      "十三薪",
+      "年底双薪",
+      "年终绩效奖金"
+    ],
     "field": "职场成长",
-    "tags": ["薪酬福利", "税务"],
+    "tags": [
+      "薪酬福利",
+      "税务"
+    ],
     "difficulty": 2,
     "summary": "年末按绩效发放的浮动奖金",
     "definition": "年终奖是单位在年末（通常在春节前）根据经营状况与个人绩效发放的奖金，属于劳动报酬的浮动部分，并非法定必发项——除非劳动合同或规章制度有明确约定。计税上，“全年一次性奖金”可选择单独计税（不并入综合所得，除以12查税率），该优惠政策已延续至2027年12月31日。注意临界点陷阱：3.6万、14.4万等档位边界上多发1元可能多缴数千元税，需对比单独计税与并入综合所得哪个更划算。",
@@ -369,20 +778,52 @@ window.XIGAI["职场成长"] = [
     "misconceptions": [
       "年终奖不是法定必发项，除非合同或制度有约定"
     ],
-    "related": ["五险一金", "期权激励", "KPI"],
-    "references": ["财政部 税务总局关于延续实施全年一次性奖金个人所得税政策的公告", "全年一次性奖金如何计算个税更划算 - 北京市人民政府"],
+    "references": [
+      "财政部 税务总局关于延续实施全年一次性奖金个人所得税政策的公告",
+      "全年一次性奖金如何计算个税更划算 - 北京市人民政府"
+    ],
     "sources": [
       "https://fgk.chinatax.gov.cn/zcfgk/c102416/c5211524/content.html",
       "https://www.beijing.gov.cn/fuwu/bmfw/sy/jrts/202603/t20260310_4553323.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "职场成长",
+    "relations": [
+      {
+        "type": "related",
+        "target": "social-insurance-housing-fund",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "stock-option-incentive",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "kpi",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "probation",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "stock-option-incentive",
     "name": "期权激励",
-    "aliases": ["员工期权", "股权激励", "ESOP"],
+    "aliases": [
+      "员工期权",
+      "股权激励",
+      "ESOP"
+    ],
     "field": "职场成长",
-    "tags": ["薪酬福利", "创业公司"],
+    "tags": [
+      "薪酬福利",
+      "创业公司"
+    ],
     "difficulty": 4,
     "summary": "以约定价格购买公司股权的长期激励",
     "definition": "期权激励（员工期权/ESOP）是公司授予员工在未来以约定价格（行权价）购买本公司股权的权利，常见于互联网与科技创业公司，用于绑定核心人才。典型结构：行权价、归属期（vesting，常见4年，含1年悬崖期cliff，满一年归25%）、行权窗口与回购条款。期权只有在公司上市或被并购后才真正变现；若公司长期不上市，期权可能一文不值甚至倒挂。离职时未归属部分清零，谈判offer时务必看清条款。",
@@ -398,20 +839,47 @@ window.XIGAI["职场成长"] = [
     "misconceptions": [
       "期权不等于股权，未行权前只是购买权而非所有权"
     ],
-    "related": ["年终奖", "跳槽", "竞业协议"],
-    "references": ["公司股权激励员工个税时点 - 海南省税务局", "财政部 税务总局关于延续实施上市公司股权激励有关个人所得税政策的公告"],
+    "references": [
+      "公司股权激励员工个税时点 - 海南省税务局",
+      "财政部 税务总局关于延续实施上市公司股权激励有关个人所得税政策的公告"
+    ],
     "sources": [
       "https://hainan.chinatax.gov.cn/gzcy_4_1_1/22156060.html",
       "https://fgk.chinatax.gov.cn/zcfgk/c102416/c5211082/content.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "职场成长",
+    "relations": [
+      {
+        "type": "related",
+        "target": "year-end-bonus",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "job-hopping",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "non-compete",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "non-compete",
     "name": "竞业协议",
-    "aliases": ["竞业限制", "Non-compete Agreement", "NCA"],
+    "aliases": [
+      "竞业限制",
+      "Non-compete Agreement",
+      "NCA"
+    ],
     "field": "职场成长",
-    "tags": ["劳动法", "职场法律"],
+    "tags": [
+      "劳动法",
+      "职场法律"
+    ],
     "difficulty": 3,
     "summary": "限制离职员工跳槽竞争对手的协议",
     "definition": "竞业协议全称竞业限制协议，是用人单位与掌握商业秘密、核心技术或关键经营信息的人员约定：离职后一定期限内（最长2年）不得入职有竞争关系的单位或自营同类业务。依据《劳动合同法》第23、24条，竞业限制对象限于高管、高级技术人员及其他负有保密义务的人员；限制期内单位必须按月支付经济补偿，标准按约定或当地规定（常见不低于离职前12个月平均工资的30%）；员工违约需支付违约金。",
@@ -427,20 +895,47 @@ window.XIGAI["职场成长"] = [
     "misconceptions": [
       "补偿不到位或对象不符时，协议约束力可被挑战"
     ],
-    "related": ["背调", "期权激励", "跳槽"],
-    "references": ["竞业限制专题：竞业协议的签署及内容 - 立方律师事务所", "竞业协议是什么？2026校招入职前必须了解的法律常识 - 新东方网"],
+    "references": [
+      "竞业限制专题：竞业协议的签署及内容 - 立方律师事务所",
+      "竞业协议是什么？2026校招入职前必须了解的法律常识 - 新东方网"
+    ],
     "sources": [
       "https://www.lifanglaw.com/cn/cnldfs/1837.html",
       "https://cet4-6.xdf.cn/202602/15107804.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "职场成长",
+    "relations": [
+      {
+        "type": "related",
+        "target": "background-check",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "stock-option-incentive",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "job-hopping",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "background-check",
     "name": "背调",
-    "aliases": ["背景调查", "Background Check", "reference check"],
+    "aliases": [
+      "背景调查",
+      "Background Check",
+      "reference check"
+    ],
     "field": "职场成长",
-    "tags": ["求职", "人力资源"],
+    "tags": [
+      "求职",
+      "人力资源"
+    ],
     "difficulty": 2,
     "summary": "入职前对候选人信息的核查流程",
     "definition": "背调（背景调查，Background Check）是企业在发放offer前后对候选人信息的核查流程，核查内容包括学历真实性、工作经历与任职时间、离职原因、有无竞业限制、有无犯罪记录等，中高管及财务、法务等敏感岗位多委托第三方背调公司执行。依据《个人信息保护法》，背调须事先征得候选人授权同意，且仅收集与岗位相关的必要信息。简历造假（学历、在职时间）是背调最常拦截的问题，如实填写是基本功课。",
@@ -456,20 +951,47 @@ window.XIGAI["职场成长"] = [
     "misconceptions": [
       "背调不只查学历，工作表现与离职原因也会被核实"
     ],
-    "related": ["跳槽", "竞业协议", "外包"],
-    "references": ["背景调查是什么：定义、适用范围与概念边界 - 博客园", "从《个人信息保护法》看企业如何开展员工背景调查 - 中华全国律师协会"],
+    "references": [
+      "背景调查是什么：定义、适用范围与概念边界 - 博客园",
+      "从《个人信息保护法》看企业如何开展员工背景调查 - 中华全国律师协会"
+    ],
     "sources": [
       "https://www.cnblogs.com/bolebuchangy/articles/22003504",
       "https://www.lawyers.org.cn/info/ce0741e233084970ad60f25e33a27be6"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "职场成长",
+    "relations": [
+      {
+        "type": "related",
+        "target": "job-hopping",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "non-compete",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "outsourcing",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "outsourcing",
     "name": "外包",
-    "aliases": ["劳务外包", "外包员工", "OD（外包研发）"],
+    "aliases": [
+      "劳务外包",
+      "外包员工",
+      "OD（外包研发）"
+    ],
     "field": "职场成长",
-    "tags": ["用工形式", "人力资源"],
+    "tags": [
+      "用工形式",
+      "人力资源"
+    ],
     "difficulty": 3,
     "summary": "企业将非核心业务委托外部公司完成的用工模式",
     "definition": "外包指企业将非核心业务（如IT开发、客服、财务、安保）委托给外部公司完成。需区分两种法律形式：劳务外包是“包工包料”、按成果付费，员工与外包公司签劳动合同、劳动关系在外包公司；劳务派遣是按人头用工，派遣员工与派遣单位签合同、在被派单位工作，且派遣用工比例不得超过用工总量的10%。对外包员工而言，福利与晋升通道通常弱于甲方正式员工，“外包身份”成为职场晋升的现实瓶颈。",
@@ -485,20 +1007,47 @@ window.XIGAI["职场成长"] = [
     "misconceptions": [
       "外包不等于劳务派遣，二者法律关系与责任主体不同"
     ],
-    "related": ["编制", "背调", "五险一金"],
-    "references": ["劳务派遣与劳务外包有哪些区别？- 贵阳市人民政府", "劳务外包与劳务派遣的区别 - 包头市人社局"],
+    "references": [
+      "劳务派遣与劳务外包有哪些区别？- 贵阳市人民政府",
+      "劳务外包与劳务派遣的区别 - 包头市人社局"
+    ],
     "sources": [
       "https://www.guiyang.gov.cn/ztzl/wqzt/nmgwqjxs/nmgwqjxsgzdt/202401/t20240102_83432973.html",
       "http://rsj.baotou.gov.cn/zfxxgk/fdzdgknr/zdlyxxgk/ldgx/202603/t20260325_846446.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "职场成长",
+    "relations": [
+      {
+        "type": "related",
+        "target": "staffing-establishment",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "background-check",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "social-insurance-housing-fund",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "staffing-establishment",
     "name": "编制",
-    "aliases": ["事业编制", "编制内", "铁饭碗"],
+    "aliases": [
+      "事业编制",
+      "编制内",
+      "铁饭碗"
+    ],
     "field": "职场成长",
-    "tags": ["体制内", "用工形式"],
+    "tags": [
+      "体制内",
+      "用工形式"
+    ],
     "difficulty": 3,
     "summary": "机关事业单位法定的岗位员额概念",
     "definition": "编制是我国机关事业单位法定的人员名额概念，由机构编制部门核定。有编制即“在编”，工资由财政保障，稳定性强、福利完善，是俗称的“铁饭碗”；编外用工（合同制、劳务派遣、聘用制）待遇与保障明显逊色。常见类型包括行政编制（公务员）、事业编制（含参公、全额拨款、差额拨款、自收自支）以及国企、银行等参照管理的“企业编制”。近年编制改革与缩编并行，考编竞争日益激烈。",
@@ -514,20 +1063,47 @@ window.XIGAI["职场成长"] = [
     "misconceptions": [
       "国企没有严格意义的行政编制，多为企业合同制"
     ],
-    "related": ["外包", "五险一金", "职业规划"],
-    "references": ["编制 - 维基百科", "三种编制的具体区别及其各自优势 - 中公事业单位"],
+    "references": [
+      "编制 - 维基百科",
+      "三种编制的具体区别及其各自优势 - 中公事业单位"
+    ],
     "sources": [
       "https://zh.wikipedia.org/wiki/编制",
       "http://m.offcn.com/sydw/2016/0325/206266.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "职场成长",
+    "relations": [
+      {
+        "type": "related",
+        "target": "outsourcing",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "social-insurance-housing-fund",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "career-planning",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "promotion",
     "name": "晋升",
-    "aliases": ["升职", "晋级", "P序列晋升"],
+    "aliases": [
+      "升职",
+      "晋级",
+      "P序列晋升"
+    ],
     "field": "职场成长",
-    "tags": ["职业发展", "绩效"],
+    "tags": [
+      "职业发展",
+      "绩效"
+    ],
     "difficulty": 2,
     "summary": "获得更高职级职位的职业进阶过程",
     "definition": "晋升是员工因业绩、能力与组织需要而获得更高职级或职位的过程，是职场成长的核心路径。晋升通常由三要素决定：持续优秀的绩效结果、组织内岗位空缺、领导提名与答辩评审（晋升述职）。互联网大厂普遍采用双通道制——管理序列（M）与专业序列（P），避免“学而优则仕”的独木桥。需注意晋升不等于待遇必然大幅上涨，且“彼得原理”提示人可能被晋升到无法胜任的位置。",
@@ -543,20 +1119,57 @@ window.XIGAI["职场成长"] = [
     "misconceptions": [
       "晋升只靠熬年限是误解，业绩与影响力才是硬通货"
     ],
-    "related": ["述职", "KPI", "向上管理"],
-    "references": ["职场老油条20年血泪总结：8条潜规则 - 360doc", "2025年，你一定要知道的30个职场暗语 - 百家号"],
+    "references": [
+      "职场老油条20年血泪总结：8条潜规则 - 360doc",
+      "2025年，你一定要知道的30个职场暗语 - 百家号"
+    ],
     "sources": [
       "http://www.360doc.com/content/25/0430/17/7139648_1152436798.shtml",
       "https://baijiahao.baidu.com/s?id=1833383020754239917"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "职场成长",
+    "relations": [
+      {
+        "type": "related",
+        "target": "work-report",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "kpi",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "managing-up",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "mid-career-crisis",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "career-planning",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "work-report",
     "name": "述职",
-    "aliases": ["述职报告", "年度述职", "述职答辩"],
+    "aliases": [
+      "述职报告",
+      "年度述职",
+      "述职答辩"
+    ],
     "field": "职场成长",
-    "tags": ["职场技能", "绩效"],
+    "tags": [
+      "职场技能",
+      "绩效"
+    ],
     "difficulty": 2,
     "summary": "对阶段工作成果与规划的正式汇报",
     "definition": "述职是员工面向直接上级或评审委员会，对一段时期（年度、半年度或项目周期）的工作成果、方法沉淀与下一步规划所做的正式汇报，常见于年度绩效考核与晋升评审。优质述职不是流水账，而是“目标—结果—复盘—规划”的结构化呈现：用数据量化产出、突出关键贡献与业务影响、复盘失败教训、提出可执行的下一步。述职本质是把工作成果翻译为组织价值的能力，直接影响绩效评级与晋升结果。",
@@ -572,12 +1185,37 @@ window.XIGAI["职场成长"] = [
     "misconceptions": [
       "述职不是念PPT，重点是呈现思考与影响"
     ],
-    "related": ["晋升", "KPI", "向上管理"],
-    "references": ["述职报告的写作框架与亮点提炼 - 知记文档", "个人述职报告 - 百度百科"],
+    "references": [
+      "述职报告的写作框架与亮点提炼 - 知记文档",
+      "个人述职报告 - 百度百科"
+    ],
     "sources": [
       "https://www.zhijidoc.com/i-76496.html",
       "https://baike.baidu.com/item/%e4%b8%aa%e4%ba%ba%e8%bf%b0%e8%81%8c%e6%8a%a5%e5%91%8a/0"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "职场成长",
+    "relations": [
+      {
+        "type": "related",
+        "target": "promotion",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "kpi",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "managing-up",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "okr",
+        "note": ""
+      }
+    ]
   }
 ];

@@ -32,13 +32,6 @@ window.XIGAI["地理气候"] = [
       "板块并非在地面上漂移，而是整个岩石圈随软流圈对流整体运动",
       "大陆漂移说与板块构造不同，后者补充了海底扩张与驱动力机制"
     ],
-    "related": [
-      "大陆漂移说",
-      "海底扩张",
-      "地震",
-      "火山喷发",
-      "造山运动"
-    ],
     "references": [
       "板块构造论（维基百科）",
       "板块构造论（百度百科）",
@@ -49,7 +42,35 @@ window.XIGAI["地理气候"] = [
       "https://baike.baidu.com/item/%E6%9D%BF%E5%9D%97%E6%9E%84%E9%80%A0%E8%AE%BA",
       "https://zhuanlan.zhihu.com/p/94731313"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "地理气候",
+    "relations": [
+      {
+        "type": "related",
+        "target": "大陆漂移说",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "海底扩张",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "earthquake",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "volcanic-eruption",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "造山运动",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "el-nino",
@@ -84,13 +105,6 @@ window.XIGAI["地理气候"] = [
       "厄尔尼诺不等于全球变暖，它是太平洋海温的周期性振荡",
       "并非厄尔尼诺年必然出现特定灾害，影响因事件强度与区域而异"
     ],
-    "related": [
-      "拉尼娜现象",
-      "南方涛动",
-      "沃克环流",
-      "气候变化",
-      "季风"
-    ],
     "references": [
       "厄尔尼诺/拉尼娜现象（世界气象组织）",
       "厄尔尼诺与拉尼娜背景资料（香港天文台）",
@@ -101,7 +115,45 @@ window.XIGAI["地理气候"] = [
       "https://my.weather.gov.hk/sc/lrf/enso/enso-backgnd.htm",
       "https://www.cma.gov.cn/2011xwzx/2011xmtjj/202605/t20260529_7823266.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "地理气候",
+    "relations": [
+      {
+        "type": "related",
+        "target": "拉尼娜现象",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "南方涛动",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "沃克环流",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "climate-change",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "monsoon",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "greenhouse-effect",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "ocean-currents",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "greenhouse-effect",
@@ -135,13 +187,6 @@ window.XIGAI["地理气候"] = [
       "温室效应本身并非坏事，它是地球宜居的必要条件，问题在于人为增强",
       "温室效应与臭氧层破坏是两回事：前者涉及地表辐射保温，后者涉及紫外线防护"
     ],
-    "related": [
-      "气候变化",
-      "全球变暖",
-      "温室气体",
-      "碳循环",
-      "厄尔尼诺现象"
-    ],
     "references": [
       "常问的问题1.3：什么是温室效应？（IPCC）",
       "温室效应（香港天文台）",
@@ -152,7 +197,35 @@ window.XIGAI["地理气候"] = [
       "https://www.hko.gov.hk/sc/cis/climchange/grnhse.htm",
       "http://ieexa.cas.cn/kp/kpwz/201603/t20160303_5839979.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "地理气候",
+    "relations": [
+      {
+        "type": "related",
+        "target": "climate-change",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "全球变暖",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "温室气体",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "碳循环",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "el-nino",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "ocean-currents",
@@ -186,13 +259,6 @@ window.XIGAI["地理气候"] = [
       "洋流并非海水无规则运动，而是有相对稳定路径的大规模流动",
       "洋流主要由风与密度差驱动，潮汐产生的只是周期性潮流"
     ],
-    "related": [
-      "暖流",
-      "寒流",
-      "热盐环流",
-      "厄尔尼诺现象",
-      "季风"
-    ],
     "references": [
       "洋流（科普中国）",
       "洋流：海洋的自由旅行（科普中国）",
@@ -203,7 +269,35 @@ window.XIGAI["地理气候"] = [
       "https://www.kepuchina.cn/article/articleinfo?business_type=100&ar_id=176774",
       "https://zh.wikipedia.org/wiki/%E6%B4%8B%E6%B5%81"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "地理气候",
+    "relations": [
+      {
+        "type": "related",
+        "target": "暖流",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "寒流",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "热盐环流",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "el-nino",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "monsoon",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "monsoon",
@@ -237,13 +331,6 @@ window.XIGAI["地理气候"] = [
       "季风不等于雨季，季风是风向的季节性转换，雨季只是其降水表现",
       "季风并非中国独有，南亚、西非、澳大利亚北部等地均有季风"
     ],
-    "related": [
-      "东亚季风",
-      "南亚季风",
-      "大气环流",
-      "厄尔尼诺现象",
-      "洋流"
-    ],
     "references": [
       "中国季风区（中科院大气物理研究所）",
       "何为季风（山东省气象局）",
@@ -254,7 +341,35 @@ window.XIGAI["地理气候"] = [
       "http://sd.cma.gov.cn/gslb/jnsqxj/qxfw/qxkp/201205/t20120518_16385.html",
       "https://www.sohu.com/a/216549492_100013296"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "地理气候",
+    "relations": [
+      {
+        "type": "related",
+        "target": "东亚季风",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "南亚季风",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "大气环流",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "el-nino",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "ocean-currents",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "desertification",
@@ -289,13 +404,6 @@ window.XIGAI["地理气候"] = [
       "荒漠化不等于沙漠自然扩张，更强调人类活动导致的土地退化",
       "荒漠化不止发生在沙漠边缘，草地、农田等退化土地同样面临"
     ],
-    "related": [
-      "土地退化",
-      "水土流失",
-      "生态修复",
-      "生态系统",
-      "气候变化"
-    ],
     "references": [
       "什么是荒漠化（山东省生态环境厅）",
       "中国防治荒漠化之路（中国网）",
@@ -306,7 +414,30 @@ window.XIGAI["地理气候"] = [
       "http://about.china.com.cn/2020-07/21/content_76172052.htm",
       "http://cnern.cern.ac.cn/frontpage/getContent.action?id=20629&class_id=22&article_class_id=3"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "地理气候",
+    "relations": [
+      {
+        "type": "related",
+        "target": "水土流失",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "生态修复",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "ecosystem",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "climate-change",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "volcanic-eruption",
@@ -340,13 +471,6 @@ window.XIGAI["地理气候"] = [
       "并非所有火山都剧烈爆炸，夏威夷式喷发多为宁静溢流",
       "火山喷发不只有破坏，也塑造了众多岛屿与肥沃平原"
     ],
-    "related": [
-      "板块构造",
-      "岩浆",
-      "地震",
-      "地热资源",
-      "地质灾害"
-    ],
     "references": [
       "火山爆发（百度百科）",
       "火山喷发灾害（百度百科）",
@@ -357,7 +481,35 @@ window.XIGAI["地理气候"] = [
       "https://baike.baidu.com/item/%E7%81%AB%E5%B1%B1%E5%96%B7%E5%8F%91%E7%81%BE%E5%AE%B3/7116145",
       "https://www.kepuchina.cn/yc/202201/t20220114_3116047.shtml"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "地理气候",
+    "relations": [
+      {
+        "type": "related",
+        "target": "plate-tectonics",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "岩浆",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "earthquake",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "地热资源",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "地质灾害",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "earthquake",
@@ -392,13 +544,6 @@ window.XIGAI["地理气候"] = [
       "震级与烈度不同：一次地震只有一个震级，但各地烈度不同",
       "地震目前无法准确临震预报，重点是监测预警与抗震设防"
     ],
-    "related": [
-      "板块构造",
-      "断层",
-      "海啸",
-      "火山喷发",
-      "地质灾害"
-    ],
     "references": [
       "地震知识70问（中国地震局）",
       "许昌市防震减灾科普知识",
@@ -409,7 +554,35 @@ window.XIGAI["地理气候"] = [
       "https://dzj.xuchang.gov.cn/zhfy/20171205/05e1aa0e-8a31-48d5-b23d-a5695826a61d.html",
       "http://big5.www.gov.cn/gate/big5/www.gov.cn/lianbo/bumen/202505/content_7023490.htm"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "地理气候",
+    "relations": [
+      {
+        "type": "related",
+        "target": "plate-tectonics",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "断层",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "海啸",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "volcanic-eruption",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "地质灾害",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "ecosystem",
@@ -443,13 +616,6 @@ window.XIGAI["地理气候"] = [
       "生态系统不是生物种类的简单总和，而是生物与环境相互作用的整体",
       "生态平衡是动态平衡，而非静止不变的状态"
     ],
-    "related": [
-      "生物多样性",
-      "食物链",
-      "生态平衡",
-      "土地荒漠化",
-      "气候变化"
-    ],
     "references": [
       "生态系统（科普中国）",
       "生态平衡概述（生态学杂志）",
@@ -460,7 +626,35 @@ window.XIGAI["地理气候"] = [
       "https://wap.cnki.net/touch/web/Journal/Article/STXZ198204009.html",
       "https://academic.hep.com.cn/fbr/CN/chapter/978-7-04-020008-9-00/chapter12"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "地理气候",
+    "relations": [
+      {
+        "type": "related",
+        "target": "生物多样性",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "食物链",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "生态平衡",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "desertification",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "climate-change",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "climate-change",
@@ -494,13 +688,6 @@ window.XIGAI["地理气候"] = [
       "气候变暖描述的是全球长期统计趋势，不意味每个地区每年都更热",
       "单一极端天气事件不能直接归因于气候变化，但气候变化会增加其发生概率"
     ],
-    "related": [
-      "温室效应",
-      "全球变暖",
-      "厄尔尼诺现象",
-      "生态系统",
-      "碳循环"
-    ],
     "references": [
       "IPCC AR6第一工作组决策者摘要（中文版）",
       "观测到的气候变化及其影响（IPCC AR4综合报告）",
@@ -511,6 +698,39 @@ window.XIGAI["地理气候"] = [
       "https://archive.ipcc.ch/publications_and_data/ar4/syr/zh/mains1.html",
       "https://cnir.xmu.edu.cn/info/1471/3041.htm"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "地理气候",
+    "relations": [
+      {
+        "type": "related",
+        "target": "greenhouse-effect",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "全球变暖",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "el-nino",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "ecosystem",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "碳循环",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "desertification",
+        "note": ""
+      }
+    ]
   }
 ];

@@ -36,13 +36,6 @@ window.XIGAI["AI 新进展"] = [
       "智能体并非全自动无人监督：高价值任务仍需人在环路（human-in-the-loop）把关",
       "多Agent不等于更可靠：协调成本与错误放大可能抵消收益"
     ],
-    "related": [
-      "MCP",
-      "A2A",
-      "大语言模型",
-      "上下文工程",
-      "AI编程助手"
-    ],
     "references": [
       "Gartner：15%的IT应用负责人考虑或部署自主AI智能体（2025-09）",
       "McKinsey：约10%企业职能使用AI智能体（Forbes报道，2026-03）",
@@ -53,7 +46,60 @@ window.XIGAI["AI 新进展"] = [
       "https://www.forbes.com/sites/josipamajic/2026/03/22/10-of-enterprise-functions-use-ai-agents-mckinsey-finds/",
       "https://www.nasdaq.com/press-release/agentic-ai-emerging-enterprise-game-changer-2025-10-27"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "AI 新进展",
+    "relations": [
+      {
+        "type": "related",
+        "target": "MCP",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "A2A",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "large-language-model",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "context-engineering",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "ai-coding-assistant",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "multimodal-llm",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "world-model",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "mcp",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "a2a",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "ai-safety-alignment",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "multimodal-llm",
@@ -90,12 +136,6 @@ window.XIGAI["AI 新进展"] = [
       "多模态不等于简单拼接：原生统一建模的跨模态推理显著更强",
       "能“看图”不等于能“理解世界”：复杂空间与因果推理仍是短板"
     ],
-    "related": [
-      "大语言模型",
-      "世界模型",
-      "AI智能体",
-      "推理成本下降"
-    ],
     "references": [
       "Gemini 2.5 Pro takes the top spot on key benchmarks（DeepLearning.AI，2025）",
       "GPT-5 vs Gemini 3: 10 Benchmarks Head-to-Head（TokenMix，2026）",
@@ -106,7 +146,40 @@ window.XIGAI["AI 新进展"] = [
       "https://tokenmix.ai/blog/gpt-5-vs-gemini-3-10-benchmarks-2026",
       "https://benchlm.ai/benchmarks/mmmu-pro"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "AI 新进展",
+    "relations": [
+      {
+        "type": "related",
+        "target": "large-language-model",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "world-model",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "ai-agent",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "inference-cost-decline",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "ai-safety-alignment",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "embodied-ai",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "world-model",
@@ -142,12 +215,6 @@ window.XIGAI["AI 新进展"] = [
       "世界模型不是简单的视频生成器，核心是学习因果与物理规律",
       "生成的世界不等于真实世界：长期一致性、幻觉与物理失真仍是难题"
     ],
-    "related": [
-      "多模态大模型",
-      "AI智能体",
-      "视频生成",
-      "具身智能"
-    ],
     "references": [
       "Genie 3: A new frontier for world models（DeepMind官方博客，2025-08）",
       "Keynote: Genie 3（NeurIPS 2025）",
@@ -158,7 +225,30 @@ window.XIGAI["AI 新进展"] = [
       "https://nips.cc/virtual/2025/loc/san-diego/132816",
       "https://m.36kr.com/p/3410828075339393"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "AI 新进展",
+    "relations": [
+      {
+        "type": "related",
+        "target": "multimodal-llm",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "ai-agent",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "视频生成",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "embodied-ai",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "mcp",
@@ -195,12 +285,6 @@ window.XIGAI["AI 新进展"] = [
       "MCP不是模型或框架，而是一套连接协议",
       "有了MCP不代表安全：工具权限失控与数据泄露风险仍需治理"
     ],
-    "related": [
-      "A2A",
-      "AI智能体",
-      "上下文工程",
-      "开源模型生态"
-    ],
     "references": [
       "MCP joins the Linux Foundation（GitHub官方博客）",
       "OpenAI and Anthropic Donate AGENTS.md and MCP to New Agentic AI Foundation（InfoQ，2025-12）",
@@ -211,7 +295,30 @@ window.XIGAI["AI 新进展"] = [
       "https://www.infoq.com/news/2025/12/agentic-ai-foundation/",
       "https://futureagi.com/blog/model-context-protocol-mcp-2025/"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "AI 新进展",
+    "relations": [
+      {
+        "type": "related",
+        "target": "A2A",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "ai-agent",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "context-engineering",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "open-source-model-ecosystem",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "a2a",
@@ -248,11 +355,6 @@ window.XIGAI["AI 新进展"] = [
       "A2A与MCP不是竞争关系，而是互补的两层协议",
       "A2A仍在快速演进，尚未完全标准化，生态兼容性需持续跟踪"
     ],
-    "related": [
-      "MCP",
-      "AI智能体",
-      "多智能体系统"
-    ],
     "references": [
       "Announcing the Agent2Agent Protocol (A2A)（Google Developers Blog，2025-04）",
       "Linux Foundation Launches the Agent2Agent Protocol Project（2025-06）",
@@ -263,7 +365,25 @@ window.XIGAI["AI 新进展"] = [
       "https://www.linuxfoundation.org/press/linux-foundation-launches-the-agent2agent-protocol-project-to-enable-secure-intelligent-communication-between-ai-agents",
       "https://sdtimes.com/ai/this-week-in-ai-dev-tools-a2a-donated-to-linux-foundation-openai-adds-deep-research-to-api-and-more-june-27-2025/"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "AI 新进展",
+    "relations": [
+      {
+        "type": "related",
+        "target": "MCP",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "ai-agent",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "多智能体系统",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "mixture-of-experts",
@@ -300,12 +420,6 @@ window.XIGAI["AI 新进展"] = [
       "MoE不是“多个模型拼在一起”，而是共享底座加稀疏激活",
       "MoE部署时所有专家仍需载入显存，显存成本不随激活参数下降"
     ],
-    "related": [
-      "稀疏注意力",
-      "推理成本下降",
-      "开源模型生态",
-      "大语言模型"
-    ],
     "references": [
       "Unpacking DeepSeek-V3: From Architectural Renovations to Technical Innovations（TechRxiv）",
       "Mixture of Experts Infrastructure: Scaling Sparse Models for Production AI（Introl）",
@@ -316,7 +430,40 @@ window.XIGAI["AI 新进展"] = [
       "https://introl.com/blog/mixture-of-experts-moe-infrastructure-scaling-sparse-models-guide",
       "https://introl.com/zh/blog/open-source-ai-models-december-2025"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "AI 新进展",
+    "relations": [
+      {
+        "type": "related",
+        "target": "sparse-attention",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "inference-cost-decline",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "open-source-model-ecosystem",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "large-language-model",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "scaling-law-debate",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "model-distillation-merging",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "sparse-attention",
@@ -352,12 +499,6 @@ window.XIGAI["AI 新进展"] = [
       "稀疏注意力不是简单“截断窗口”，而是动态选择重要内容",
       "稀疏化可能丢失关键信息，需与检索、压缩等手段配合"
     ],
-    "related": [
-      "混合专家架构（MoE）",
-      "推理成本下降",
-      "上下文工程",
-      "大语言模型"
-    ],
     "references": [
       "DuSA: Dual-Stage Sparse Attention（NeurIPS 2025）",
       "Delta Attention: Fast and Accurate Sparse Attention Inference（NeurIPS 2025）",
@@ -368,7 +509,30 @@ window.XIGAI["AI 新进展"] = [
       "https://neurips.cc/virtual/2025/loc/san-diego/poster/118545",
       "https://ieeexplore.ieee.org/document/11235365"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "AI 新进展",
+    "relations": [
+      {
+        "type": "related",
+        "target": "mixture-of-experts",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "inference-cost-decline",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "context-engineering",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "large-language-model",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "scaling-law-debate",
@@ -405,12 +569,6 @@ window.XIGAI["AI 新进展"] = [
       "“Scaling失效”不等于AI发展停滞，而是扩展维度切换",
       "测试时计算同样消耗算力，并非“免费午餐”"
     ],
-    "related": [
-      "推理成本下降",
-      "混合专家架构（MoE）",
-      "AI编程助手",
-      "开源模型生态"
-    ],
     "references": [
       "Ilya Sutskever Says AI's 'Scaling Era' is Ending（钛媒体/TMTPost，2025）",
       "DeepSeek-R1 与 OpenAI o3 的启示：Test-Time Compute（阿里云开发者社区）",
@@ -421,7 +579,35 @@ window.XIGAI["AI 新进展"] = [
       "https://developer.aliyun.com/article/1693067",
       "https://cloud.tencent.cn/developer/article/2501338"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "AI 新进展",
+    "relations": [
+      {
+        "type": "related",
+        "target": "inference-cost-decline",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "mixture-of-experts",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "ai-coding-assistant",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "open-source-model-ecosystem",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "ai-safety-alignment",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "ai-coding-assistant",
@@ -458,12 +644,6 @@ window.XIGAI["AI 新进展"] = [
       "AI编程不会消灭程序员，而是把工作重心转移到审查、架构与产品",
       "AI生成的代码存在幻觉与安全隐患，必须建立人工审查与测试防线"
     ],
-    "related": [
-      "AI智能体",
-      "上下文工程",
-      "开源模型生态",
-      "Scaling Law 之争"
-    ],
     "references": [
       "GitHub Copilot Hits 20 Million Users（Windows Report，2025）",
       "GitHub leads AI coding in enterprises（VentureBeat，2025）",
@@ -474,7 +654,35 @@ window.XIGAI["AI 新进展"] = [
       "https://venturebeat.com/technology/github-leads-the-enterprise-claude-leads-the-pack-cursors-speed-cant-close",
       "https://blog.jetbrains.com/research/2026/04/which-ai-coding-tools-do-developers-actually-use-at-work/"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "AI 新进展",
+    "relations": [
+      {
+        "type": "related",
+        "target": "ai-agent",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "context-engineering",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "open-source-model-ecosystem",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "scaling-law-debate",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "model-distillation-merging",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "context-engineering",
@@ -510,12 +718,6 @@ window.XIGAI["AI 新进展"] = [
       "上下文工程不等于写提示词，而是管理模型“看到什么”的完整系统",
       "长上下文不是越多越好：噪声注入会显著降低模型表现"
     ],
-    "related": [
-      "AI智能体",
-      "MCP",
-      "推理成本下降",
-      "AI编程助手"
-    ],
     "references": [
       "Effective context engineering for AI agents（Anthropic Engineering，2025）",
       "A Survey of Context Engineering for Large Language Models（arXiv:2507.13334）"
@@ -524,7 +726,40 @@ window.XIGAI["AI 新进展"] = [
       "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents",
       "https://ar5iv.labs.arxiv.org/html/2507.13334v2"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "AI 新进展",
+    "relations": [
+      {
+        "type": "related",
+        "target": "ai-agent",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "MCP",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "inference-cost-decline",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "ai-coding-assistant",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "mcp",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "sparse-attention",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "model-distillation-merging",
@@ -561,12 +796,6 @@ window.XIGAI["AI 新进展"] = [
       "蒸馏不是简单“抄答案”：推理链蒸馏存在质量上限与分布失配",
       "合并模型并非总能“取其长”，可能引入冲突或性能回退"
     ],
-    "related": [
-      "开源模型生态",
-      "推理成本下降",
-      "混合专家架构（MoE）",
-      "AI编程助手"
-    ],
     "references": [
       "DistilQwen2.5: Industrial Practices of Training Distilled Models（ACL 2025 Industry）",
       "Small Models Struggle to Learn from Strong Reasoners（ICML 2025）",
@@ -577,7 +806,30 @@ window.XIGAI["AI 新进展"] = [
       "https://icml.cc/virtual/2025/52467",
       "https://www.semanticscholar.org/paper/ac754c319b7af5e96382ad583b3d0cb6d8abda55"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "AI 新进展",
+    "relations": [
+      {
+        "type": "related",
+        "target": "open-source-model-ecosystem",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "inference-cost-decline",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "mixture-of-experts",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "ai-coding-assistant",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "ai-safety-alignment",
@@ -614,12 +866,6 @@ window.XIGAI["AI 新进展"] = [
       "对齐不是一次性“打补丁”，而是贯穿训练到部署的持续过程",
       "对齐不能消除所有风险：它降低而非根除误用与失控的可能"
     ],
-    "related": [
-      "AI智能体",
-      "开源模型生态",
-      "Scaling Law 之争",
-      "多模态大模型"
-    ],
     "references": [
       "Findings from a Pilot Anthropic–OpenAI Alignment Evaluation Exercise（2025）",
       "Claude 4.5 Expands to a 200-Principle Constitution（2025）",
@@ -630,7 +876,30 @@ window.XIGAI["AI 新进展"] = [
       "https://etude.lu/article/claude-4-5-constitution-200-principles-meta-feedback",
       "https://metr.org/blog/2025-12-09-common-elements-of-frontier-ai-safety-policies/"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "AI 新进展",
+    "relations": [
+      {
+        "type": "related",
+        "target": "ai-agent",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "open-source-model-ecosystem",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "scaling-law-debate",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "multimodal-llm",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "open-source-model-ecosystem",
@@ -667,12 +936,6 @@ window.XIGAI["AI 新进展"] = [
       "开源模型不等于“免费无限制”：许可条款（如Meta的商用限制、数据权利）需仔细甄别",
       "开源与闭源差距虽缩小，但在复杂推理与多模态前沿仍有代差"
     ],
-    "related": [
-      "混合专家架构（MoE）",
-      "模型蒸馏与合并",
-      "推理成本下降",
-      "AI安全对齐"
-    ],
     "references": [
       "Open Source AI Models Close the Gap（Introl，2025-12）",
       "The state of open source AI models in 2025（Red Hat Developer）",
@@ -683,7 +946,45 @@ window.XIGAI["AI 新进展"] = [
       "https://developers.redhat.com/articles/2026/01/07/state-open-source-ai-models-2025",
       "https://www.index.dev/blog/open-source-ai-updates"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "AI 新进展",
+    "relations": [
+      {
+        "type": "related",
+        "target": "mixture-of-experts",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "model-distillation-merging",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "inference-cost-decline",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "ai-safety-alignment",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "mcp",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "scaling-law-debate",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "ai-coding-assistant",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "inference-cost-decline",
@@ -720,12 +1021,6 @@ window.XIGAI["AI 新进展"] = [
       "token变便宜不等于AI应用变便宜：上下文膨胀与Agent多轮调用可能抬高总成本",
       "降价主要惠及推理密集场景，训练与高端模型成本仍高企"
     ],
-    "related": [
-      "混合专家架构（MoE）",
-      "稀疏注意力",
-      "开源模型生态",
-      "模型蒸馏与合并"
-    ],
     "references": [
       "The AI Token Cost Deflation Curve: 300x Cheaper Since GPT-4（AgentMarketCap，2026-04）",
       "AI inference economics in 2026: the pricing war（Deluair）",
@@ -736,6 +1031,44 @@ window.XIGAI["AI 新进展"] = [
       "https://deluair.com/consultancy/insights/ai-inference-economics-2026",
       "https://www.theregister.com/ai-and-ml/2026/07/08/ai-is-becoming-a-bargain-hunters-market-with-a-few-luxury-models-on-top/5268050"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "AI 新进展",
+    "relations": [
+      {
+        "type": "related",
+        "target": "mixture-of-experts",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "sparse-attention",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "open-source-model-ecosystem",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "model-distillation-merging",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "multimodal-llm",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "scaling-law-debate",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "context-engineering",
+        "note": ""
+      }
+    ]
   }
 ];

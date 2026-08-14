@@ -32,13 +32,6 @@ window.XIGAI["天文学"] = [
       "并非所有恒星都会爆炸成黑洞，绝大多数恒星最终安静地变成白矮星",
       "恒星并非在燃烧化学燃料，而是进行氢核聚变，能量来自质量亏损"
     ],
-    "related": [
-      "赫罗图",
-      "核聚变",
-      "超新星",
-      "白矮星",
-      "中子星"
-    ],
     "references": [
       "恒星核合成（维基百科）",
       "恒星的一生和宇宙的演化（IAU天文教育办公室）",
@@ -49,7 +42,35 @@ window.XIGAI["天文学"] = [
       "https://astro4edu.org/zh-hans/resources/diagram/iq40Hc92ni31/",
       "http://www.71.cn/2024/1230/1251741_2.shtml"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "天文学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "赫罗图",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "核聚变",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "超新星",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "白矮星",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "中子星",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "galaxy",
@@ -83,13 +104,6 @@ window.XIGAI["天文学"] = [
       "银河系远非宇宙中唯一的星系，可观测宇宙中星系数以千亿计",
       "星云并不都是银河系内的气体云，许多明亮星云实为河外星系"
     ],
-    "related": [
-      "银河系",
-      "暗物质",
-      "超大质量黑洞",
-      "宇宙大尺度结构",
-      "仙女座星系"
-    ],
     "references": [
       "星系的分类（百度百科）",
       "星系大家族里有些什么成员（科普中国）",
@@ -100,7 +114,35 @@ window.XIGAI["天文学"] = [
       "https://www.kepuchina.cn/2016zt/100000whys/02/201810/t20181008_749843.shtml",
       "http://bolide.lamost.org/translat/trans28.htm"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "天文学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "银河系",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "dark-matter",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "超大质量黑洞",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "宇宙大尺度结构",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "仙女座星系",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "dark-energy",
@@ -134,13 +176,6 @@ window.XIGAI["天文学"] = [
       "暗能量不是飘浮在空间中的神秘物质，而是空间本身具备的能量性质",
       "加速膨胀不是星系在宇宙中飞散，而是空间本身在持续膨胀"
     ],
-    "related": [
-      "宇宙学常数",
-      "暗物质",
-      "Ia型超新星",
-      "ΛCDM模型",
-      "宇宙膨胀"
-    ],
     "references": [
       "宇宙学与暗能量（DESI）",
       "暗能量：宇宙主宰者（光明日报）",
@@ -151,7 +186,45 @@ window.XIGAI["天文学"] = [
       "https://epaper.gmw.cn/gmrb/html/2015-06/26/nw.D110000gmrb_20150626_5-10.htm",
       "https://songshuhui.blog.caixin.com/archives/25268"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "天文学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "宇宙学常数",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "dark-matter",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "Ia型超新星",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "ΛCDM模型",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "宇宙膨胀",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "hubbles-law",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "big-bang-theory",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "quasar",
@@ -186,13 +259,6 @@ window.XIGAI["天文学"] = [
       "类星体看似恒星却不是恒星，而是遥远河外的活动星系核",
       "其巨大能量并非核聚变产生，而是黑洞吸积的引力能转化"
     ],
-    "related": [
-      "超大质量黑洞",
-      "活动星系核",
-      "吸积盘",
-      "红移",
-      "3C 273"
-    ],
     "references": [
       "类星射电源（百度百科）",
       "类星体，宇宙中最亮的天体（光明网）",
@@ -203,7 +269,35 @@ window.XIGAI["天文学"] = [
       "https://m.gmw.cn/toutiao/2021-05/10/content_34831659.htm",
       "https://baike.baidu.com/item/3C%20273"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "天文学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "超大质量黑洞",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "活动星系核",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "吸积盘",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "红移",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "3C 273",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "exoplanet",
@@ -238,13 +332,6 @@ window.XIGAI["天文学"] = [
       "多数系外行星并非直接看到，而是靠凌日或引力扰动间接探测",
       "位于宜居带不等于宜居，大气、磁场与地质活动同样关键"
     ],
-    "related": [
-      "凌日法",
-      "视向速度法",
-      "热木星",
-      "宜居带",
-      "开普勒太空望远镜"
-    ],
     "references": [
       "Analyze This：5000颗系外行星（Science News）",
       "系外行星探测方法简介（超理论坛）",
@@ -255,7 +342,35 @@ window.XIGAI["天文学"] = [
       "https://chaoli.club/index.php/4449/2019/1",
       "https://wap.cnki.net/touch/web/Journal/Article/TWJZ202401001.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "天文学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "凌日法",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "视向速度法",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "热木星",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "宜居带",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "开普勒太空望远镜",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "gravitational-waves",
@@ -289,13 +404,6 @@ window.XIGAI["天文学"] = [
       "引力波不是引力粒子流，而是时空本身弯曲的涟漪",
       "引力波对普通物体的形变极其微小，需数千米级干涉仪才能测到，不会震动到人"
     ],
-    "related": [
-      "广义相对论",
-      "LIGO",
-      "黑洞",
-      "中子星",
-      "多信使天文学"
-    ],
     "references": [
       "2017年诺贝尔物理学奖揭晓（央视网）",
       "关于引力波，LIGO科学合作组织怎么说",
@@ -306,7 +414,35 @@ window.XIGAI["天文学"] = [
       "http://www.ligo.org/wp-content/uploads/2023/09/science-summary-chinese.pdf",
       "https://www.tsinghua.edu.cn/info/1181/46474.htm"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "天文学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "广义相对论",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "LIGO",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "black-hole",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "中子星",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "多信使天文学",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "cmb",
@@ -341,13 +477,6 @@ window.XIGAI["天文学"] = [
       "CMB并非来自某个遥远天体，而是充满整个可观测宇宙的遗迹辐射",
       "老式电视的雪花噪声中确实混有少量CMB信号"
     ],
-    "related": [
-      "大爆炸理论",
-      "各向异性",
-      "普朗克卫星",
-      "暴胀",
-      "宇宙学"
-    ],
     "references": [
       "宇宙微波背景辐射（中国科学院高能物理研究所）",
       "1965年5月13日宇宙微波背景辐射研究成果公布（科普中国）",
@@ -358,7 +487,40 @@ window.XIGAI["天文学"] = [
       "https://www.kepuchina.cn/kpcs/lcb/lcb5/201606/t20160606_11927.shtml",
       "https://www.esa.int/Science_Exploration/Space_Science/Cosmic_Microwave_Background_CMB_radiation"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "天文学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "big-bang-theory",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "各向异性",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "普朗克卫星",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "暴胀",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "宇宙学",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "dark-matter",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "keplers-laws",
@@ -392,13 +554,6 @@ window.XIGAI["天文学"] = [
       "行星轨道并非正圆而是椭圆，太阳也不在轨道中心",
       "开普勒定律是经验归纳而非理论推导的产物，其物理根源后来才由牛顿揭示"
     ],
-    "related": [
-      "万有引力定律",
-      "第谷·布拉赫",
-      "日心说",
-      "椭圆轨道",
-      "天体力学"
-    ],
     "references": [
       "开普勒定律（百度百科）",
       "开普勒定律——行星运动的定律（中山市科协）",
@@ -409,7 +564,35 @@ window.XIGAI["天文学"] = [
       "http://www.zssta.org.cn:10001/Article/view/cateid/190/id/2674.html",
       "https://www.kedo.net.cn/c/984/984300.shtml"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "天文学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "万有引力定律",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "第谷·布拉赫",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "日心说",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "椭圆轨道",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "天体力学",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "hubbles-law",
@@ -444,13 +627,6 @@ window.XIGAI["天文学"] = [
       "星系红移不是星系在空间中飞离的普通多普勒效应，而是空间膨胀的累积效应",
       "哈勃定律不适用于银河系内等近邻天体，只在宇宙学尺度成立"
     ],
-    "related": [
-      "红移",
-      "哈勃常数",
-      "宇宙膨胀",
-      "造父变星",
-      "暗能量"
-    ],
     "references": [
       "哈勃–勒梅特定律（维基百科）",
       "哈勃定律（百度百科）",
@@ -461,7 +637,40 @@ window.XIGAI["天文学"] = [
       "https://baike.baidu.com/item/%E5%93%88%E5%8B%83%E5%AE%9A%E5%BE%8B/2390703",
       "http://134.4.36.101/level5/Sept11/Freedman/Freedman1.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "天文学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "红移",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "哈勃常数",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "宇宙膨胀",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "造父变星",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "dark-energy",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "big-bang-theory",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "black-hole-information-paradox",
@@ -496,13 +705,6 @@ window.XIGAI["天文学"] = [
       "霍金辐射本身就能携带信息，黑洞并非任何信息都逃不出来",
       "悖论并非简单的是非之争，而是量子力学与广义相对论在黑洞尺度上的深层冲突"
     ],
-    "related": [
-      "霍金辐射",
-      "全息原理",
-      "AdS/CFT对偶",
-      "黑洞熵",
-      "量子引力"
-    ],
     "references": [
       "黑洞信息佯谬（科普中国）",
       "黑洞信息悖论（百度百科）",
@@ -513,6 +715,34 @@ window.XIGAI["天文学"] = [
       "https://baike.baidu.com/item/%E9%BB%91%E6%B4%9E%E4%BF%A1%E6%81%AF%E6%82%96%E8%AE%BA/22688923",
       "http://bolide.lamost.org/articles/article416.htm"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "天文学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "霍金辐射",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "全息原理",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "AdS/CFT对偶",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "黑洞熵",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "量子引力",
+        "note": ""
+      }
+    ]
   }
 ];

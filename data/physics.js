@@ -34,13 +34,6 @@ window.XIGAI["物理学"] = [
       "相对论并非“一切皆相对”，物理定律在惯性系间仍是相同的",
       "钟慢尺缩是真实物理效应而非视觉错觉，已被实验证实"
     ],
-    "related": [
-      "广义相对论",
-      "洛伦兹变换",
-      "质能方程",
-      "闵可夫斯基时空",
-      "光速不变原理"
-    ],
     "references": [
       "狭义相对论 - 维基百科",
       "洛伦兹变换 - 维基百科",
@@ -51,7 +44,35 @@ window.XIGAI["物理学"] = [
       "https://zh.wikipedia.org/wiki/%E6%B4%9B%E4%BC%A6%E5%85%B9%E5%8F%98%E6%8D%A2",
       "https://scipedia.bohrium.com/sciencepedia/hardcore/special_and_general_relativity_undergraduate-Einstein_postulates_of_special_relativity"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "物理学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "广义相对论",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "洛伦兹变换",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "质能方程",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "闵可夫斯基时空",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "光速不变原理",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "quantum-mechanics",
@@ -87,13 +108,6 @@ window.XIGAI["物理学"] = [
       "不确定性源于原理本身而非测量仪器精度不足",
       "量子力学并非“不可知论”，其数值预言精度极高"
     ],
-    "related": [
-      "波函数",
-      "薛定谔方程",
-      "不确定性原理",
-      "量子纠缠",
-      "量子场论"
-    ],
     "references": [
       "态叠加原理 - 维基百科",
       "波函数的坍缩 - Bohrium物理百科",
@@ -104,7 +118,35 @@ window.XIGAI["物理学"] = [
       "https://scipedia.bohrium.com/sciencepedia/feynman/quantum_mechanics_undergraduate-collapse_of_the_wave_function",
       "https://query.libretexts.org/%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87/%E5%A4%A7%E5%AD%A6%E7%89%A9%E7%90%86%E5%AD%A6_III-%E5%85%89%E5%AD%A6%E4%B8%8E%E7%8E%B0%E4%BB%A3%E7%89%A9%E7%90%86%E5%AD%A6_(OpenSTAX)/07%3A_%E9%87%8F%E5%AD%90%E5%8A%9B%E5%AD%A6"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "物理学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "波函数",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "薛定谔方程",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "不确定性原理",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "quantum-entanglement",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "量子场论",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "second-law-of-thermodynamics",
@@ -140,13 +182,6 @@ window.XIGAI["物理学"] = [
       "熵不等于“混乱度”本身，只是微观状态数的对数度量",
       "第二定律不禁止局部熵减（如生命演化），只要系统总熵增加即可"
     ],
-    "related": [
-      "熵",
-      "热力学第一定律",
-      "卡诺循环",
-      "统计力学",
-      "时间之矢"
-    ],
     "references": [
       "热力学第二定律 - 维基百科",
       "熵增原理 - Bohrium物理百科",
@@ -157,7 +192,35 @@ window.XIGAI["物理学"] = [
       "https://scipedia.bohrium.com/sciencepedia/feynman/heat_and_thermodynamics_undergraduate-the_principle_of_increasing_entropy",
       "http://www.phycai.sjtu.edu.cn/xx/P02/CH02/bk/p28.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "物理学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "entropy",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "热力学第一定律",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "卡诺循环",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "统计力学",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "时间之矢",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "black-hole",
@@ -192,13 +255,6 @@ window.XIGAI["物理学"] = [
       "黑洞不是“宇宙吸尘器”，远处引力与同质量恒星相同",
       "视界处并无特殊“撕裂”之力，潮汐效应与视界是两回事"
     ],
-    "related": [
-      "广义相对论",
-      "事件视界",
-      "引力波",
-      "霍金辐射",
-      "奇点"
-    ],
     "references": [
       "黑洞 - 维基百科",
       "首张黑洞照片公布 - 中国新闻网",
@@ -209,7 +265,35 @@ window.XIGAI["物理学"] = [
       "https://www.chinanews.com.cn/gn/2019/04-10/8805627.shtml",
       "https://www.bohrium.com/sciencepedia/feynman/keyword/schwarzschild_spacetime"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "物理学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "广义相对论",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "事件视界",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "gravitational-waves",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "霍金辐射",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "奇点",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "string-theory",
@@ -246,13 +330,6 @@ window.XIGAI["物理学"] = [
       "“未被证实”不等于“已被证伪”，弦理论仍是活跃研究方向",
       "弦理论并非唯一量子引力候选，圈量子引力等理论与之竞争"
     ],
-    "related": [
-      "量子引力",
-      "M理论",
-      "超对称",
-      "额外维度",
-      "全息原理"
-    ],
     "references": [
       "超弦理论 - 维基百科",
       "M理论 - 维基百科",
@@ -263,7 +340,30 @@ window.XIGAI["物理学"] = [
       "https://zh.wikipedia.org/zh-cn/M%E7%90%86%E8%AE%BA?oldformat=true",
       "http://ihep.cas.cn/kxcb/kpcg/gnwl/200912/t20091201_2679332.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "物理学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "量子引力",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "超对称",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "额外维度",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "全息原理",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "quantum-entanglement",
@@ -299,13 +399,6 @@ window.XIGAI["物理学"] = [
       "即时关联不等于超光速通信，信息无法借纠缠传递",
       "纠缠不是粒子间的“心灵感应”，而是整体量子态的结构性质"
     ],
-    "related": [
-      "贝尔不等式",
-      "EPR佯谬",
-      "量子隐形传态",
-      "量子计算",
-      "波函数坍缩"
-    ],
     "references": [
       "量子纠缠 - 维基百科",
       "贝尔定理 - 维基百科",
@@ -316,7 +409,45 @@ window.XIGAI["物理学"] = [
       "https://zh.m.wikipedia.org/wiki/%E8%B4%9D%E5%B0%94%E5%AE%9A%E7%90%86",
       "https://wlxy.yzu.edu.cn/info/1056/7981.htm"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "物理学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "贝尔不等式",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "EPR佯谬",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "量子隐形传态",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "quantum-computing",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "波函数坍缩",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "quantum-communication",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "quantum-mechanics",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "dark-matter",
@@ -351,13 +482,6 @@ window.XIGAI["物理学"] = [
       "暗物质不是流浪行星、黑洞等“看不见的普通物质”，后者占比极小",
       "暗物质与暗能量是不同概念：前者吸引成团，后者加速宇宙膨胀"
     ],
-    "related": [
-      "暗能量",
-      "引力透镜",
-      "宇宙微波背景辐射",
-      "WIMP",
-      "星系旋转曲线"
-    ],
     "references": [
       "暗物质 - 维基百科",
       "冷暗物质 - 维基百科",
@@ -368,7 +492,40 @@ window.XIGAI["物理学"] = [
       "https://zh.wikipedia.org/wiki/%E5%86%B7%E6%9A%97%E7%89%A9%E8%B4%A8",
       "http://bolide.lamost.org/articles/article285.htm"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "物理学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "dark-energy",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "引力透镜",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "cmb",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "WIMP",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "星系旋转曲线",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "galaxy",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "standard-model",
@@ -404,13 +561,6 @@ window.XIGAI["物理学"] = [
       "标准模型不是“万物理论”，它不包含引力且无法解释暗物质",
       "标准模型仍在持续接受精确检验与修正"
     ],
-    "related": [
-      "希格斯玻色子",
-      "夸克",
-      "量子色动力学",
-      "电弱统一理论",
-      "量子场论"
-    ],
     "references": [
       "标准模型 - 维基百科",
       "中科院高能所：标准模型",
@@ -421,7 +571,35 @@ window.XIGAI["物理学"] = [
       "https://www.ihep.cas.cn/kxcb/kpcg/gnwl/gnwl_lzwl/gnwl_lzwl_fz/201009/t20100909_2957386.html",
       "https://ppnp.pku.edu.cn/info/1007/1808.htm"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "物理学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "希格斯玻色子",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "夸克",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "量子色动力学",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "电弱统一理论",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "量子场论",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "entropy",
@@ -456,13 +634,6 @@ window.XIGAI["物理学"] = [
       "熵不等于“混乱”，而是微观状态数的对数，无序只是直观类比",
       "熵增定律针对孤立系统，开放系统可局部有序"
     ],
-    "related": [
-      "热力学第二定律",
-      "玻尔兹曼常数",
-      "信息熵",
-      "统计力学",
-      "黑洞熵"
-    ],
     "references": [
       "熵 (经典热力学) - 维基百科",
       "玻尔兹曼熵公式 - 维基百科",
@@ -473,7 +644,35 @@ window.XIGAI["物理学"] = [
       "https://zh.wikipedia.org/wiki/%E6%B3%A2%E8%8C%B2%E6%9B%BC%E7%86%B5%E5%85%AC%E5%BC%8F",
       "https://jdn.ucas.ac.cn/index.php/home/journal/view/id/1172"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "物理学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "second-law-of-thermodynamics",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "玻尔兹曼常数",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "信息熵",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "统计力学",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "黑洞熵",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "big-bang-theory",
@@ -510,13 +709,6 @@ window.XIGAI["物理学"] = [
       "大爆炸不是一场“爆炸”，没有爆炸中心",
       "大爆炸不描述“奇点之前”，只描述极早期以来的时间演化"
     ],
-    "related": [
-      "宇宙微波背景辐射",
-      "哈勃定律",
-      "暴胀理论",
-      "暗能量",
-      "广义相对论"
-    ],
     "references": [
       "大爆炸 - 维基百科",
       "创世大爆炸 - 百度百科",
@@ -527,6 +719,34 @@ window.XIGAI["物理学"] = [
       "https://baike.baidu.com/item/%E5%88%9B%E4%B8%96%E5%A4%A7%E7%88%86%E7%82%B8/5659954",
       "https://scipedia.bohrium.com/sciencepedia/feynman/gravitation-the_Big_Bang_model"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "物理学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "cmb",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "hubbles-law",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "暴胀理论",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "dark-energy",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "广义相对论",
+        "note": ""
+      }
+    ]
   }
 ];

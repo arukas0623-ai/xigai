@@ -33,13 +33,6 @@ window.XIGAI["哲学"] = [
       "形而上学不等于玄学或迷信，它是基于严格概念分析的哲学研究。",
       "“反形而上学”立场本身也预设了关于实在的论断。"
     ],
-    "related": [
-      "本体论",
-      "认识论",
-      "实在论",
-      "唯心论",
-      "存在主义"
-    ],
     "references": [
       "亚里士多德《形而上学》（斯坦福哲学百科全书）",
       "“形而上学”概念演变的历史考察（江西广播电视大学学报）",
@@ -50,7 +43,40 @@ window.XIGAI["哲学"] = [
       "https://wap.cnki.net/touch/web/Journal/Article/JGDS200602003.html",
       "https://archive.is/wDqLc"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "哲学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "本体论",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "epistemology",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "实在论",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "唯心论",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "existentialism",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "free-will",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "epistemology",
@@ -86,13 +112,6 @@ window.XIGAI["哲学"] = [
       "认识论不是“如何高效学习”的方法论，而是哲学地追问知识的本性。",
       "“知识即确证的真信念”只是经典定义，并非哲学界共识。"
     ],
-    "related": [
-      "形而上学",
-      "科学哲学",
-      "怀疑论",
-      "真理",
-      "逻辑学"
-    ],
     "references": [
       "张东荪《认识论》（搜狐读书）",
       "認識論（台湾教育百科）",
@@ -103,7 +122,35 @@ window.XIGAI["哲学"] = [
       "https://pedia.cloud.edu.tw/Entry/Detail/?title=認識論",
       "https://archive.md/OUXLe"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "哲学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "metaphysics",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "科学哲学",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "怀疑论",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "真理",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "逻辑学",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "ethics",
@@ -140,13 +187,6 @@ window.XIGAI["哲学"] = [
       "伦理学的目标不是“道德说教”清单，而是给出可辩护的规范性理由。",
       "伦理相对主义并非主流共识，多数理论仍主张道德判断有客观对错。"
     ],
-    "related": [
-      "功利主义",
-      "义务论",
-      "德性伦理学",
-      "元伦理学",
-      "自由意志"
-    ],
     "references": [
       "《伦理学原理（第3版）》（微信读书）",
       "聂文军：试论西方伦理学中规范伦理与德性伦理的关系演变及其意义（中国哲学网）",
@@ -157,7 +197,35 @@ window.XIGAI["哲学"] = [
       "http://www.philosophy.org.cn/fzxk/llx/201507/t20150713_2743541.shtml",
       "https://plato.stanford.edu/entries/normativity-metaethics/"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "哲学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "功利主义",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "义务论",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "德性伦理学",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "元伦理学",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "free-will",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "existentialism",
@@ -192,13 +260,6 @@ window.XIGAI["哲学"] = [
       "存在主义不是“想做什么就做什么”的放任主义，它强调选择责任的沉重。",
       "它并非无神论专属，克尔凯郭尔、马塞尔等基督教存在主义者同样重要。"
     ],
-    "related": [
-      "现象学",
-      "虚无主义",
-      "自由意志",
-      "荒诞",
-      "人本主义"
-    ],
     "references": [
       "存在主义（维基百科中文）",
       "加缪与萨特两人对存在主义的理解有何不同（百度百科TA说）",
@@ -209,7 +270,45 @@ window.XIGAI["哲学"] = [
       "https://wapbaike.baidu.com/tashuo/browse/content?id=f1121e7fcb3d2afa90961b98",
       "https://philosophy.lander.edu/intro/introbook2.1/x6895.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "哲学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "phenomenology",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "nihilism",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "free-will",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "荒诞",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "人本主义",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "theatre-of-the-absurd",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "metaphysics",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "pragmatism",
@@ -246,13 +345,6 @@ window.XIGAI["哲学"] = [
       "实用主义不等于“有用即真理”的市侩功利主义，它强调长期经验兑现。",
       "它不是反理论的经验主义，而是对理论采取后果主义的检验态度。"
     ],
-    "related": [
-      "经验主义",
-      "科学哲学",
-      "可错论",
-      "杜威",
-      "分析哲学"
-    ],
     "references": [
       "实用主义（维基百科中文）",
       "“实用主义”辨析（全国哲学社会科学工作办公室）",
@@ -263,7 +355,35 @@ window.XIGAI["哲学"] = [
       "https://www.nopss.gov.cn/GB/219567/219574/14587199.html",
       "https://xbzs.ecnu.edu.cn/CN/html/201303008.htm"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "哲学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "经验主义",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "科学哲学",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "可错论",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "杜威",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "分析哲学",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "nihilism",
@@ -299,13 +419,6 @@ window.XIGAI["哲学"] = [
       "虚无主义不等于悲观厌世，它首先是关于价值本性的哲学论断。",
       "“无意义”不等于“不该活”——加缪从荒诞推出反抗与热爱生活。"
     ],
-    "related": [
-      "存在主义",
-      "尼采",
-      "价值论",
-      "荒诞",
-      "后现代主义"
-    ],
     "references": [
       "尼采哲学中的虚无主义概念（中南大学学报·社会科学版）",
       "现代性的虚无主义——简论尼采的现代性批判（南京大学）",
@@ -316,7 +429,35 @@ window.XIGAI["哲学"] = [
       "https://ptext.nju.edu.cn/info/1353/8889.htm",
       "https://wap.cnki.net/touch/web/Journal/Article/GZSK200203010.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "哲学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "existentialism",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "尼采",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "价值论",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "荒诞",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "postmodernism",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "free-will",
@@ -353,13 +494,6 @@ window.XIGAI["哲学"] = [
       "自由意志争论不是“有或无”的简单二分——相容论提供了第三条路径。",
       "Libet实验并未“证明”自由意志不存在，解释仍有争议。"
     ],
-    "related": [
-      "决定论",
-      "道德责任",
-      "心灵哲学",
-      "康德",
-      "形而上学"
-    ],
     "references": [
       "俞吾金：决定论与自由意志关系新探（复旦大学）",
       "Virvidakis：作为哲学问题的自由意志（武汉大学哲学学院）",
@@ -371,7 +505,45 @@ window.XIGAI["哲学"] = [
       "https://plato.stanford.edu/entries/compatibilism/",
       "https://baike.baidu.com/item/%E8%87%AA%E7%94%B1%E6%84%8F%E5%BF%97/13329"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "哲学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "决定论",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "道德责任",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "心灵哲学",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "康德",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "metaphysics",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "ethics",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "existentialism",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "paradox",
@@ -408,13 +580,6 @@ window.XIGAI["哲学"] = [
       "悖论不等于逻辑错误或文字游戏，许多经典悖论至今没有公认解决方案。",
       "“矛盾”与“悖论”不同：矛盾是明显冲突，悖论是深层疑难。"
     ],
-    "related": [
-      "逻辑学",
-      "集合论",
-      "自指",
-      "芝诺悖论",
-      "罗素悖论"
-    ],
     "references": [
       "悖论（科普中国网）",
       "刘叶涛：论“道德悖论”作为一种悖论（中国社科网）",
@@ -425,7 +590,35 @@ window.XIGAI["哲学"] = [
       "http://philosophychina.cssn.cn/fzxk/ljx/201507/t20150713_2732322.shtml",
       "https://zh.wikipedia.org/zh-tw/%E7%BD%97%E7%B4%A0%E6%82%96%E8%AE%BA"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "哲学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "逻辑学",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "集合论",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "自指",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "芝诺悖论",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "罗素悖论",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "dialectics",
@@ -462,13 +655,6 @@ window.XIGAI["哲学"] = [
       "辩证法不是“正反合三步走”的机械公式或诡辩工具。",
       "唯物辩证法不是黑格尔概念的简单倒置，二者本体论基础根本不同。"
     ],
-    "related": [
-      "黑格尔",
-      "马克思主义哲学",
-      "对立统一",
-      "矛盾",
-      "逻辑学"
-    ],
     "references": [
       "吴晓明：辩证法的本体论基础：黑格尔与马克思（马克思主义研究网）",
       "从黑格尔到马克思：社会历史的辩证法（南京大学）",
@@ -479,7 +665,35 @@ window.XIGAI["哲学"] = [
       "https://ptext.nju.edu.cn/info/1332/8696.htm",
       "https://www.marxists.org/chinese/reference-books/ian-hunt-1993/03.htm"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "哲学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "黑格尔",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "马克思主义哲学",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "对立统一",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "矛盾",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "逻辑学",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "phenomenology",
@@ -515,13 +729,6 @@ window.XIGAI["哲学"] = [
       "现象学不是“反对本质”的学说——它恰恰通过还原寻求本质。",
       "“悬置”不是否定世界存在，而是方法性地暂停对存在的断定。"
     ],
-    "related": [
-      "存在主义",
-      "胡塞尔",
-      "海德格尔",
-      "意向性",
-      "解释学"
-    ],
     "references": [
       "现象学概论（超星慕课）",
       "意向对象：从实质性的理解到现象学的理解（国家教育行政学院）",
@@ -532,6 +739,34 @@ window.XIGAI["哲学"] = [
       "https://www.enaea.edu.cn/sztsg/wenhuakejisuyang/zx/118203.html",
       "http://www.philosophy.org.cn/fzxk/kxjszx/201507/t20150713_2729028.shtml"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "哲学",
+    "relations": [
+      {
+        "type": "related",
+        "target": "existentialism",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "胡塞尔",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "海德格尔",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "意向性",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "解释学",
+        "note": ""
+      }
+    ]
   }
 ];

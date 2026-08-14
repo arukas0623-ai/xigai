@@ -32,13 +32,6 @@ window.XIGAI["新能源与低碳"] = [
       "光伏夜间不发电，但可依托储能实现连续供电",
       "光伏制造并非高耗能高污染，其生产能耗1-3年内即可回收"
     ],
-    "related": [
-      "钙钛矿电池",
-      "储能系统",
-      "虚拟电厂",
-      "碳中和",
-      "超充技术"
-    ],
     "references": [
       "国家能源局：2025年光伏发电新增并网容量31657.4万千瓦（央视新闻）",
       "2025年全国光伏发电新增并网装机同比增长14%（中国能源新闻网）",
@@ -49,7 +42,60 @@ window.XIGAI["新能源与低碳"] = [
       "https://news.solarbe.com/202602/24/50018549.html",
       "http://www.china5e.com/m/news/news-1206758-1.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "新能源与低碳",
+    "relations": [
+      {
+        "type": "related",
+        "target": "perovskite",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "energy-storage",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "vpp",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "carbon-neutral",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "ultra-fast-charging",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "wind-power",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "hydrogen",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "fusion",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "carbon-trading",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "energy-transition",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "perovskite",
@@ -83,12 +129,6 @@ window.XIGAI["新能源与低碳"] = [
       "'钙钛矿含铅有毒'被夸大：含铅量小且可封装回收",
       "效率纪录多为实验室小面积，量产组件效率仍有差距"
     ],
-    "related": [
-      "光伏发电",
-      "锂离子电池",
-      "储能系统",
-      "氢能"
-    ],
     "references": [
       "34.76%！晶科能源再创钙钛矿/TOPCon叠层电池效率新世界纪录（索比光伏网）",
       "《Nature》发表仁烁光能全钙钛矿叠层电池世界纪录成果",
@@ -99,7 +139,30 @@ window.XIGAI["新能源与低碳"] = [
       "https://news.solarbe.com/202510/28/50011182.html",
       "http://www.spic.com.cn/zhxx/202510/t20251028_326586.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "新能源与低碳",
+    "relations": [
+      {
+        "type": "related",
+        "target": "pv-solar",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "lithium-battery",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "energy-storage",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "hydrogen",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "wind-power",
@@ -133,13 +196,6 @@ window.XIGAI["新能源与低碳"] = [
       "风电'占地大、噪音大'是误解：塔基占地小且噪音可控",
       "风电出力波动不等于不可靠，可依靠电网调度与储能调节"
     ],
-    "related": [
-      "光伏发电",
-      "储能系统",
-      "氢能",
-      "虚拟电厂",
-      "碳中和"
-    ],
     "references": [
       "2025年中国风电吊装容量统计简报（中国风能协会）",
       "去年我国海上风电新增并网容量占全球78%（中国能源新闻网）",
@@ -150,7 +206,35 @@ window.XIGAI["新能源与低碳"] = [
       "https://www.cnenergynews.cn/article/4S1dEnaCSJ5",
       "https://www.21jingji.com/article/20260612/herald/61a10f0d331a924ea19e57c024c5b80b.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "新能源与低碳",
+    "relations": [
+      {
+        "type": "related",
+        "target": "pv-solar",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "energy-storage",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "hydrogen",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "vpp",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "carbon-neutral",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "energy-storage",
@@ -184,13 +268,6 @@ window.XIGAI["新能源与低碳"] = [
       "储能不等于'电池堆'：还含PCS、BMS、EMS与安全消防系统",
       "储能收益不止峰谷价差，还有容量电价、辅助服务等多种来源"
     ],
-    "related": [
-      "锂离子电池",
-      "钠离子电池",
-      "虚拟电厂",
-      "光伏发电",
-      "风力发电"
-    ],
     "references": [
       "中国新型储能累计装机规模约占全球一半（人民网）",
       "《中国新型储能发展报告2026》解读：从规模扩张到价值重塑（中国电力报）"
@@ -200,7 +277,50 @@ window.XIGAI["新能源与低碳"] = [
       "https://www.cpnn.com.cn/news/hy/202608/t20260806_1906771_wap.html",
       "https://www.escn.com.cn/news/show-2264462.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "新能源与低碳",
+    "relations": [
+      {
+        "type": "related",
+        "target": "lithium-battery",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "sodium-ion",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "vpp",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "pv-solar",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "wind-power",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "perovskite",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "solid-state",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "ultra-fast-charging",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "lithium-battery",
@@ -234,12 +354,6 @@ window.XIGAI["新能源与低碳"] = [
       "锂电池'易燃易爆'是极端热失控场景，正规电池有BMS多重保护",
       "锂电池可梯次利用与再生回收，并非'用完即扔'"
     ],
-    "related": [
-      "固态电池",
-      "钠离子电池",
-      "储能系统",
-      "超充技术"
-    ],
     "references": [
       "我国电池行业规模与效率双突破 全固态电池研发取得积极进展（中国工业报）",
       "锂电2025：从深度回调到迅速复苏（中国网财经）",
@@ -250,7 +364,35 @@ window.XIGAI["新能源与低碳"] = [
       "http://finance.china.com.cn/industry/20251224/6285539.shtml",
       "http://m.nbd.com.cn/articles/2026-05-03/4378145.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "新能源与低碳",
+    "relations": [
+      {
+        "type": "related",
+        "target": "solid-state",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "sodium-ion",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "energy-storage",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "ultra-fast-charging",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "perovskite",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "solid-state",
@@ -284,12 +426,6 @@ window.XIGAI["新能源与低碳"] = [
       "'固态电池永不自燃'过于绝对：热安全改善但非绝对",
       "实验室'装车发布'不等于量产交付，产业化仍处爬坡期"
     ],
-    "related": [
-      "锂离子电池",
-      "钠离子电池",
-      "超充技术",
-      "储能系统"
-    ],
     "references": [
       "国内首条大容量全固态电池产线建成（经济日报）",
       "2025年固态电池市场回顾：从概念狂飙走向产业落地（电池中国）",
@@ -300,7 +436,30 @@ window.XIGAI["新能源与低碳"] = [
       "http://www.icbattery.com/news/show-htm-itemid-63548.html",
       "https://news.smm.cn/news/103702151"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "新能源与低碳",
+    "relations": [
+      {
+        "type": "related",
+        "target": "lithium-battery",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "sodium-ion",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "ultra-fast-charging",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "energy-storage",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "sodium-ion",
@@ -334,12 +493,6 @@ window.XIGAI["新能源与低碳"] = [
       "钠电'取代锂电'是误读：两者互补共存，钠电定位中低能量密度场景",
       "钠资源不缺，但硬碳负极等供应链仍在扩产中"
     ],
-    "related": [
-      "锂离子电池",
-      "固态电池",
-      "储能系统",
-      "超充技术"
-    ],
     "references": [
       "宁德时代：2025年推出新一代钠离子电池'钠新电池'（新浪财经）",
       "比亚迪钠电池'不宣发先出货'：全球最大钠电储能投运（中国有色网）",
@@ -350,7 +503,30 @@ window.XIGAI["新能源与低碳"] = [
       "https://china-mcc.com/news_show-31848.html",
       "https://news.ifeng.com/c/8qV0NPJ3Tvw?ch=ttsearch"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "新能源与低碳",
+    "relations": [
+      {
+        "type": "related",
+        "target": "lithium-battery",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "solid-state",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "energy-storage",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "ultra-fast-charging",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "hydrogen",
@@ -384,13 +560,6 @@ window.XIGAI["新能源与低碳"] = [
       "'氢能'不止氢气直烧：更多经氢基燃料（氨、甲醇）与燃料电池转化利用",
       "绿氢≠灰氢，灰氢减排需依赖CCUS或转型绿氢"
     ],
-    "related": [
-      "燃料电池",
-      "CCUS碳捕集",
-      "碳中和",
-      "风力发电",
-      "光伏发电"
-    ],
     "references": [
       "国家发改委：推动氢能向绿氢、绿氨、绿色甲醇范围延伸（上海证券报）",
       "国家能源局发布《中国氢能发展报告（2026）》",
@@ -401,7 +570,45 @@ window.XIGAI["新能源与低碳"] = [
       "https://www.sohu.com/a/1061611998_122014422",
       "https://www.desn.com.cn/news/show-2173815.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "新能源与低碳",
+    "relations": [
+      {
+        "type": "related",
+        "target": "fuel-cell",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "ccus",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "carbon-neutral",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "wind-power",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "pv-solar",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "perovskite",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "fusion",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "fuel-cell",
@@ -435,12 +642,6 @@ window.XIGAI["新能源与低碳"] = [
       "燃料电池≠电池：需持续供给氢燃料，属发电装置",
       "'零排放'指尾气，全生命周期排放取决于制氢方式（灰氢vs绿氢）"
     ],
-    "related": [
-      "氢能",
-      "CCUS碳捕集",
-      "超充技术",
-      "碳中和"
-    ],
     "references": [
       "2025年燃料电池商用车上险超1万辆 同比增52.5%（新浪财经研报）",
       "氢燃料电池车核心零部件本土化率超70%（中化新网）",
@@ -451,7 +652,30 @@ window.XIGAI["新能源与低碳"] = [
       "https://mp.ccin.com.cn/detail/7ce508d77d0204a6184c21484f68a7e3",
       "https://mh2.in-en.com/html/h2-2444847.shtml"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "新能源与低碳",
+    "relations": [
+      {
+        "type": "related",
+        "target": "hydrogen",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "ccus",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "ultra-fast-charging",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "carbon-neutral",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "fusion",
@@ -486,12 +710,6 @@ window.XIGAI["新能源与低碳"] = [
       "'聚变发电临近'过于乐观：即使顺利仍需数十年",
       "聚变≠裂变：无堆芯熔毁式事故风险，放射性废物寿命极短"
     ],
-    "related": [
-      "氢能",
-      "碳中和",
-      "超充技术",
-      "光伏发电"
-    ],
     "references": [
       "'人造太阳'亿度运行 我国可控核聚变实现新突破（工人日报）",
       "科学岛成果入选2025年度中国科学十大进展（中科院合肥物质院）",
@@ -502,7 +720,30 @@ window.XIGAI["新能源与低碳"] = [
       "http://www.hfcas.ac.cn/zhxw/jrtt/202603/t20260327_8178191.html",
       "http://www.ipp.ac.cn/xwdt/tpxw/202603/t20260325_828087.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "新能源与低碳",
+    "relations": [
+      {
+        "type": "related",
+        "target": "hydrogen",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "carbon-neutral",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "ultra-fast-charging",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "pv-solar",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "carbon-trading",
@@ -536,12 +777,6 @@ window.XIGAI["新能源与低碳"] = [
       "碳交易不是'排放税'：总量配额制下富余可卖、不足须买",
       "碳价不直接等于企业减排成本，只反映边际减排成本"
     ],
-    "related": [
-      "碳中和",
-      "CCUS碳捕集",
-      "虚拟电厂",
-      "光伏发电"
-    ],
     "references": [
       "《全国碳市场发展报告（2025）》正式发布",
       "新开户1277家！扩容后全国碳市场活力提升（中国碳交易网）",
@@ -552,7 +787,30 @@ window.XIGAI["新能源与低碳"] = [
       "https://www.zgsrcn.com/e/action/ShowInfo.php?classid=170&id=15259",
       "https://wap.eastmoney.com/a/202509243522758683.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "新能源与低碳",
+    "relations": [
+      {
+        "type": "related",
+        "target": "carbon-neutral",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "ccus",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "vpp",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "pv-solar",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "carbon-neutral",
@@ -586,13 +844,6 @@ window.XIGAI["新能源与低碳"] = [
       "碳中和≠零排放：允许排放与碳移除相抵",
       "碳达峰不是'攀高峰'，而是倒逼产业结构升级的转型目标"
     ],
-    "related": [
-      "碳交易",
-      "CCUS碳捕集",
-      "氢能",
-      "光伏发电",
-      "风力发电"
-    ],
     "references": [
       "国务院关于应对气候变化和碳达峰碳中和工作情况的报告（全国人大网）",
       "解读中办、国办《关于推进绿色低碳转型加强全国碳市场建设的意见》（中国政府网）",
@@ -603,7 +854,50 @@ window.XIGAI["新能源与低碳"] = [
       "https://www.gov.cn/zhengce/202508/content_7037763.htm",
       "http://politics.people.com.cn/n1/2025/1109/c1001-40599608.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "新能源与低碳",
+    "relations": [
+      {
+        "type": "related",
+        "target": "carbon-trading",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "ccus",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "hydrogen",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "pv-solar",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "wind-power",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "fuel-cell",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "fusion",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "energy-transition",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "ccus",
@@ -637,12 +931,6 @@ window.XIGAI["新能源与低碳"] = [
       "CCUS不是'把碳埋了就行'：需长期监测封存安全与泄漏风险",
       "CCUS不能替代减排，是化石能源存续期的过渡性兜底手段"
     ],
-    "related": [
-      "碳中和",
-      "碳交易",
-      "氢能",
-      "燃料电池"
-    ],
     "references": [
       "全球最大煤电碳捕集示范工程投运（科技日报）",
       "我国首个年注碳百万吨油田诞生（新华网）",
@@ -653,7 +941,30 @@ window.XIGAI["新能源与低碳"] = [
       "http://www.xinhuanet.com.cn/energy/20251229/e13f22a389fe4d1383942e758cb38afb/c.html",
       "http://kjj.yangzhou.gov.cn/kjzx/bskjdt/art/2025/art_430943225670425aac28e5fca18238b8.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "新能源与低碳",
+    "relations": [
+      {
+        "type": "related",
+        "target": "carbon-neutral",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "carbon-trading",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "hydrogen",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "fuel-cell",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "vpp",
@@ -687,13 +998,6 @@ window.XIGAI["新能源与低碳"] = [
       "虚拟电厂不是实体电厂：无发电机，靠聚合与调度创造价值",
       "虚拟电厂≠单纯削峰：还可提供调频、备用等多元服务"
     ],
-    "related": [
-      "储能系统",
-      "光伏发电",
-      "超充技术",
-      "碳交易",
-      "风力发电"
-    ],
     "references": [
       "关于加快推进虚拟电厂发展的指导意见（发改能源规〔2025〕357号，中国政府网）",
       "国家能源局：推动车网互动、虚拟电厂等新业态应用试点（北极星电力网）"
@@ -703,7 +1007,35 @@ window.XIGAI["新能源与低碳"] = [
       "https://m.bjx.com.cn/mnews/20250825/1457515.shtml",
       "https://news.bjx.com.cn/html/20250819/1456511.shtml"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "新能源与低碳",
+    "relations": [
+      {
+        "type": "related",
+        "target": "energy-storage",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "pv-solar",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "ultra-fast-charging",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "carbon-trading",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "wind-power",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "ultra-fast-charging",
@@ -737,12 +1069,6 @@ window.XIGAI["新能源与低碳"] = [
       "充电快慢不只取决于桩，还取决于整车电压平台与电池倍率",
       "大功率≠伤电池：液冷散热与BMS限功率管理下影响可控"
     ],
-    "related": [
-      "锂离子电池",
-      "固态电池",
-      "虚拟电厂",
-      "储能系统"
-    ],
     "references": [
       "吉利浩瀚能源牵头编制并发布首个800V超充站标准（新华网）",
       "国内首套！全国产碳化硅器件双向超充桩面世",
@@ -755,6 +1081,49 @@ window.XIGAI["新能源与低碳"] = [
       "https://www.xcc.com/news/detail/5573831",
       "http://app.cb.com.cn/share/article/295922"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "新能源与低碳",
+    "relations": [
+      {
+        "type": "related",
+        "target": "lithium-battery",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "solid-state",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "vpp",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "energy-storage",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "pv-solar",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "sodium-ion",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "fuel-cell",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "fusion",
+        "note": ""
+      }
+    ]
   }
 ];

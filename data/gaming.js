@@ -1,6 +1,3 @@
-// 析概 · 游戏黑话领域术语库
-// 生成日期: 2026-08-14
-
 window.XIGAI = window.XIGAI || {};
 window.XIGAI["游戏黑话"] = [
   {
@@ -32,11 +29,6 @@ window.XIGAI["游戏黑话"] = [
     "misconceptions": [
       "GG 不一定是嘲讽，早期语境多为礼貌收场"
     ],
-    "related": [
-      "开黑",
-      "吃鸡",
-      "团战"
-    ],
     "references": [
       "GG（竞技游戏礼貌用语）_百度百科",
       "LOLGG是什么意思 LOL游戏的礼貌术语"
@@ -45,7 +37,30 @@ window.XIGAI["游戏黑话"] = [
       "https://baike.baidu.com/item/gg/2256001",
       "https://lol.52pk.com/jingyan/1829356.shtml"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "游戏黑话",
+    "relations": [
+      {
+        "type": "related",
+        "target": "kaihei",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "chiji",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "tuanzhan",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "budao",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "kaihei",
@@ -74,11 +89,6 @@ window.XIGAI["游戏黑话"] = [
       "直播间主播组织粉丝开黑娱乐局"
     ],
     "misconceptions": [],
-    "related": [
-      "团战",
-      "代练",
-      "GG"
-    ],
     "references": [
       "游戏黑话、暗语，听懂你的队友到底在说什么",
       "游戏黑话（通用篇）"
@@ -87,7 +97,30 @@ window.XIGAI["游戏黑话"] = [
       "https://www.taptap.cn/moment/628334230107062823",
       "https://www.xiaohongshu.com/discovery/item/694e69790000000022021775"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "游戏黑话",
+    "relations": [
+      {
+        "type": "related",
+        "target": "tuanzhan",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "dailian",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "gg",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "budao",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "baigei",
@@ -116,11 +149,6 @@ window.XIGAI["游戏黑话"] = [
       "形容对局实力悬殊、胜率渺茫为「白给局」"
     ],
     "misconceptions": [],
-    "related": [
-      "落地成盒",
-      "毒圈",
-      "吃鸡"
-    ],
     "references": [
       "这些吃鸡专用词你都知道几个？",
       "吃鸡黑话大全，就算落地成盒我也要努力装x"
@@ -129,7 +157,25 @@ window.XIGAI["游戏黑话"] = [
       "http://sy.yzz.cn/jdqsqjcj/pc/201803-1336182.shtml",
       "https://baijiahao.baidu.com/s?id=1595093058588055733"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "游戏黑话",
+    "relations": [
+      {
+        "type": "related",
+        "target": "luodichenhe",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "duquan",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "chiji",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "luodichenhe",
@@ -157,11 +203,6 @@ window.XIGAI["游戏黑话"] = [
       "用「落地成盒」自嘲新任务开局不顺"
     ],
     "misconceptions": [],
-    "related": [
-      "白给",
-      "毒圈",
-      "吃鸡"
-    ],
     "references": [
       "《绝地求生全军出击》落地成盒含义科普",
       "这些吃鸡专用词你都知道几个？"
@@ -170,7 +211,25 @@ window.XIGAI["游戏黑话"] = [
       "http://sy.yzz.cn/jdqsqjcj/news/201801-1262501.html",
       "http://sy.yzz.cn/jdqsqjcj/pc/201803-1336182.shtml"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "游戏黑话",
+    "relations": [
+      {
+        "type": "related",
+        "target": "baigei",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "duquan",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "chiji",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "duquan",
@@ -199,11 +258,6 @@ window.XIGAI["游戏黑话"] = [
       "分析「天命圈」刷新位置规划进圈路线"
     ],
     "misconceptions": [],
-    "related": [
-      "吃鸡",
-      "落地成盒",
-      "白给"
-    ],
     "references": [
       "「吃鸡」玩了这么久 这些术语你知道吗",
       "绝地求生刺激战场吃鸡常用术语盘点"
@@ -212,7 +266,25 @@ window.XIGAI["游戏黑话"] = [
       "https://tech.ifeng.com/a/20171130/44784002_0.shtml",
       "https://shouyou.gamersky.com/gl/201802/1016474.shtml"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "游戏黑话",
+    "relations": [
+      {
+        "type": "related",
+        "target": "chiji",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "luodichenhe",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "baigei",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "gan",
@@ -244,11 +316,6 @@ window.XIGAI["游戏黑话"] = [
     "misconceptions": [
       "肝不等于氪金，两者是时间与金钱两种投入方式"
     ],
-    "related": [
-      "氪金",
-      "挂机",
-      "欧皇"
-    ],
     "references": [
       "恰饭、肝不动了、氪金大佬等游戏界的术语你懂多少？",
       "什么是肝帝，氪帝，欧皇，非酋？"
@@ -257,7 +324,25 @@ window.XIGAI["游戏黑话"] = [
       "https://post.smzdm.com/p/aekep9p4/",
       "https://www.bilibili.com/opus/291159792961567832"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "游戏黑话",
+    "relations": [
+      {
+        "type": "related",
+        "target": "kejin",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "guaji",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "ouhuang",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "kejin",
@@ -289,11 +374,6 @@ window.XIGAI["游戏黑话"] = [
     "misconceptions": [
       "氪金不保证出好货，抽卡本质仍是概率游戏"
     ],
-    "related": [
-      "肝",
-      "欧皇",
-      "非酋"
-    ],
     "references": [
       "恰饭、肝不动了、氪金大佬等游戏界的术语你懂多少？",
       "阴阳师里氪金、欧皇、非酋、爆肝、狗粮是什么意思"
@@ -302,7 +382,25 @@ window.XIGAI["游戏黑话"] = [
       "https://post.smzdm.com/p/aekep9p4/",
       "http://m.mnw.cn/keji/shouyou/1619028-2.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "游戏黑话",
+    "relations": [
+      {
+        "type": "related",
+        "target": "gan",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "ouhuang",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "feiqiu",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "ouhuang",
@@ -331,11 +429,6 @@ window.XIGAI["游戏黑话"] = [
       "抽卡前「吸欧气」图个心理安慰"
     ],
     "misconceptions": [],
-    "related": [
-      "非酋",
-      "氪金",
-      "肝"
-    ],
     "references": [
       "什么是肝帝，氪帝，欧皇，非酋？",
       "阴阳师里氪金、欧皇、非酋、爆肝、狗粮是什么意思"
@@ -344,7 +437,25 @@ window.XIGAI["游戏黑话"] = [
       "https://www.bilibili.com/opus/291159792961567832",
       "http://m.mnw.cn/keji/shouyou/1619028-2.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "游戏黑话",
+    "relations": [
+      {
+        "type": "related",
+        "target": "feiqiu",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "kejin",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "gan",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "feiqiu",
@@ -375,11 +486,6 @@ window.XIGAI["游戏黑话"] = [
     "misconceptions": [
       "非酋是概率下的普遍常态，欧皇才是小概率事件"
     ],
-    "related": [
-      "欧皇",
-      "氪金",
-      "肝"
-    ],
     "references": [
       "什么是肝帝，氪帝，欧皇，非酋？",
       "阴阳师里氪金、欧皇、非酋、爆肝、狗粮是什么意思"
@@ -388,7 +494,25 @@ window.XIGAI["游戏黑话"] = [
       "https://www.bilibili.com/opus/291159792961567832",
       "http://m.mnw.cn/keji/shouyou/1619028-2.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "游戏黑话",
+    "relations": [
+      {
+        "type": "related",
+        "target": "ouhuang",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "kejin",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "gan",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "guaji",
@@ -418,11 +542,6 @@ window.XIGAI["游戏黑话"] = [
       "MOBA 对局中挂机被队友举报"
     ],
     "misconceptions": [],
-    "related": [
-      "肝",
-      "外挂",
-      "代练"
-    ],
     "references": [
       "叠甲、破防、毒奶、挂机｜闲聊生活中的「游戏黑话」",
       "游戏黑话（通用篇）"
@@ -431,7 +550,25 @@ window.XIGAI["游戏黑话"] = [
       "https://www.xiaoyuzhoufm.com/episode/64a61e4c0c9873af3072b666",
       "https://www.xiaohongshu.com/discovery/item/694e69790000000022021775"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "游戏黑话",
+    "relations": [
+      {
+        "type": "related",
+        "target": "gan",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "waigua",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "dailian",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "dailian",
@@ -463,11 +600,6 @@ window.XIGAI["游戏黑话"] = [
     "misconceptions": [
       "代练是真人操作，与外挂作弊软件性质不同"
     ],
-    "related": [
-      "外挂",
-      "挂机",
-      "开黑"
-    ],
     "references": [
       "游戏代练行业盈利模式深度分析",
       "代练和外挂的区别是什么？"
@@ -476,7 +608,25 @@ window.XIGAI["游戏黑话"] = [
       "https://m.jiemian.com/article/1938475_qq.html",
       "https://www.zhihu.com/question/50634002"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "游戏黑话",
+    "relations": [
+      {
+        "type": "related",
+        "target": "waigua",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "guaji",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "kaihei",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "waigua",
@@ -508,11 +658,6 @@ window.XIGAI["游戏黑话"] = [
     "misconceptions": [
       "外挂不等于辅助工具，凡破坏公平性的第三方作弊均属外挂范畴"
     ],
-    "related": [
-      "神仙打架",
-      "代练",
-      "吃鸡"
-    ],
     "references": [
       "游戏辅助工具_百度百科",
       "代练和外挂的区别是什么？"
@@ -521,7 +666,30 @@ window.XIGAI["游戏黑话"] = [
       "https://baike.baidu.com/item/%E6%B8%B8%E6%88%8F%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7/6599764",
       "https://www.zhihu.com/question/50634002"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "游戏黑话",
+    "relations": [
+      {
+        "type": "related",
+        "target": "shenxiandajia",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "dailian",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "chiji",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "guaji",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "shenxiandajia",
@@ -550,11 +718,6 @@ window.XIGAI["游戏黑话"] = [
       "普通玩家吐槽对局外挂太多为「神仙局」"
     ],
     "misconceptions": [],
-    "related": [
-      "外挂",
-      "吃鸡",
-      "团战"
-    ],
     "references": [
       "「吃鸡」玩了这么久 这些术语你知道吗",
       "吃鸡黑话大全，就算落地成盒我也要努力装x"
@@ -563,7 +726,25 @@ window.XIGAI["游戏黑话"] = [
       "https://tech.ifeng.com/a/20171130/44784002_0.shtml",
       "https://baijiahao.baidu.com/s?id=1595093058588055733"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "游戏黑话",
+    "relations": [
+      {
+        "type": "related",
+        "target": "waigua",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "chiji",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "tuanzhan",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "chiji",
@@ -592,11 +773,6 @@ window.XIGAI["游戏黑话"] = [
       "用「吃鸡游戏」泛指绝地求生类大逃杀产品"
     ],
     "misconceptions": [],
-    "related": [
-      "毒圈",
-      "落地成盒",
-      "白给"
-    ],
     "references": [
       "「吃鸡」玩了这么久 这些术语你知道吗",
       "这些吃鸡专用词你都知道几个？"
@@ -605,7 +781,40 @@ window.XIGAI["游戏黑话"] = [
       "https://tech.ifeng.com/a/20171130/44784002_0.shtml",
       "http://sy.yzz.cn/jdqsqjcj/pc/201803-1336182.shtml"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "游戏黑话",
+    "relations": [
+      {
+        "type": "related",
+        "target": "duquan",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "luodichenhe",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "baigei",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "gg",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "waigua",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "shenxiandajia",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "budao",
@@ -637,11 +846,6 @@ window.XIGAI["游戏黑话"] = [
     "misconceptions": [
       "补刀不只用于人头，主要场景是小兵经济的获取"
     ],
-    "related": [
-      "团战",
-      "开黑",
-      "GG"
-    ],
     "references": [
       "dota补刀_百度百科",
       "补刀——一个不得不说的技巧"
@@ -650,7 +854,25 @@ window.XIGAI["游戏黑话"] = [
       "https://baike.baidu.com/item/dota%E8%A1%A5%E5%88%80/2460187",
       "https://bbs.3dmgame.com/forum.php?mod=viewthread&tid=735692"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "游戏黑话",
+    "relations": [
+      {
+        "type": "related",
+        "target": "tuanzhan",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "kaihei",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "gg",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "tuanzhan",
@@ -679,11 +901,6 @@ window.XIGAI["游戏黑话"] = [
       "解说用「团战美如画」称赞默契配合"
     ],
     "misconceptions": [],
-    "related": [
-      "补刀",
-      "开黑",
-      "GG"
-    ],
     "references": [
       "王者荣耀游戏里不能接受什么？附战斗类术语",
       "起凡群雄逐鹿游戏术语"
@@ -692,6 +909,29 @@ window.XIGAI["游戏黑话"] = [
       "https://www.xiaohongshu.com/discovery/item/6763c7d9000000000b00d576",
       "https://qxzl.52pk.com/ziliao/1873286.shtml"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "游戏黑话",
+    "relations": [
+      {
+        "type": "related",
+        "target": "budao",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "kaihei",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "gg",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "shenxiandajia",
+        "note": ""
+      }
+    ]
   }
 ];

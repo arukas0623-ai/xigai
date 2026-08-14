@@ -29,12 +29,6 @@ window.XIGAI["前端与开发工程"] = [
     "misconceptions": [
       "HTML 是编程语言，实为无逻辑的标记语言"
     ],
-    "related": [
-      "CSS",
-      "JavaScript",
-      "DOM",
-      "浏览器兼容"
-    ],
     "references": [
       "MDN：HTML 教程",
       "WHATWG HTML Living Standard"
@@ -43,7 +37,30 @@ window.XIGAI["前端与开发工程"] = [
       "https://developer.mozilla.org/zh-CN/docs/Web/HTML",
       "https://html.spec.whatwg.org/"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "前端与开发工程",
+    "relations": [
+      {
+        "type": "related",
+        "target": "css",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "javascript",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "DOM",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "browser-compatibility",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "css",
@@ -73,12 +90,6 @@ window.XIGAI["前端与开发工程"] = [
     "misconceptions": [
       "CSS 是编程语言，实为声明式样式描述语言"
     ],
-    "related": [
-      "HTML",
-      "响应式设计",
-      "浏览器兼容",
-      "前端框架"
-    ],
     "references": [
       "MDN：CSS 教程",
       "CSS-Tricks"
@@ -87,7 +98,35 @@ window.XIGAI["前端与开发工程"] = [
       "https://developer.mozilla.org/zh-CN/docs/Web/CSS",
       "https://css-tricks.com/"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "前端与开发工程",
+    "relations": [
+      {
+        "type": "related",
+        "target": "html",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "responsive-design",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "browser-compatibility",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "frontend-framework",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "javascript",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "javascript",
@@ -118,13 +157,6 @@ window.XIGAI["前端与开发工程"] = [
     "misconceptions": [
       "JavaScript 与 Java 有关，实为名字借势，两者无血缘"
     ],
-    "related": [
-      "HTML",
-      "CSS",
-      "npm",
-      "前端框架",
-      "WebAssembly"
-    ],
     "references": [
       "MDN：JavaScript 教程",
       "ECMAScript 语言规范"
@@ -133,7 +165,40 @@ window.XIGAI["前端与开发工程"] = [
       "https://developer.mozilla.org/zh-CN/docs/Web/JavaScript",
       "https://tc39.es/ecma262/"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "前端与开发工程",
+    "relations": [
+      {
+        "type": "related",
+        "target": "html",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "css",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "npm",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "frontend-framework",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "webassembly",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "browser-compatibility",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "frontend-framework",
@@ -164,12 +229,6 @@ window.XIGAI["前端与开发工程"] = [
     "misconceptions": [
       "前端项目必须用框架，小型项目原生 JS 往往更轻"
     ],
-    "related": [
-      "组件化",
-      "虚拟DOM",
-      "SSR",
-      "CSR"
-    ],
     "references": [
       "React 官方文档",
       "Vue 官方文档"
@@ -178,7 +237,55 @@ window.XIGAI["前端与开发工程"] = [
       "https://react.dev/",
       "https://vuejs.org/"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "前端与开发工程",
+    "relations": [
+      {
+        "type": "related",
+        "target": "component-based",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "virtual-dom",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "ssr",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "csr",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "css",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "javascript",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "responsive-design",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "webassembly",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "graphql",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "component-based",
@@ -209,11 +316,6 @@ window.XIGAI["前端与开发工程"] = [
     "misconceptions": [
       "组件拆得越多越好，过度拆分反而增加维护成本"
     ],
-    "related": [
-      "前端框架",
-      "前端工程化",
-      "虚拟DOM"
-    ],
     "references": [
       "Vue 官方文档：组件基础",
       "React：组件与 Props"
@@ -222,7 +324,25 @@ window.XIGAI["前端与开发工程"] = [
       "https://vuejs.org/guide/essentials/component-basics.html",
       "https://react.dev/learn/your-first-component"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "前端与开发工程",
+    "relations": [
+      {
+        "type": "related",
+        "target": "frontend-framework",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "frontend-engineering",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "virtual-dom",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "virtual-dom",
@@ -253,12 +373,6 @@ window.XIGAI["前端与开发工程"] = [
     "misconceptions": [
       "虚拟 DOM 必然比直接操作 DOM 快，其核心价值在可维护性与批量更新"
     ],
-    "related": [
-      "前端框架",
-      "组件化",
-      "SSR",
-      "CSR"
-    ],
     "references": [
       "React 官方文档：渲染",
       "Vue 渲染机制"
@@ -267,7 +381,30 @@ window.XIGAI["前端与开发工程"] = [
       "https://react.dev/learn/rendering",
       "https://vuejs.org/guide/extras/rendering-mechanism.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "前端与开发工程",
+    "relations": [
+      {
+        "type": "related",
+        "target": "frontend-framework",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "component-based",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "ssr",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "csr",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "ssr",
@@ -298,11 +435,6 @@ window.XIGAI["前端与开发工程"] = [
     "misconceptions": [
       "SSR 就是传统模板渲染，现代 SSR 是组件在前后端两端运行的同构渲染"
     ],
-    "related": [
-      "CSR",
-      "前端框架",
-      "响应式设计"
-    ],
     "references": [
       "web.dev：Rendering on the Web",
       "Next.js 渲染文档"
@@ -311,7 +443,35 @@ window.XIGAI["前端与开发工程"] = [
       "https://web.developers.google.cn/articles/rendering-on-the-web?hl=en",
       "https://nextjs.org/docs/app/building-your-application/rendering"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "前端与开发工程",
+    "relations": [
+      {
+        "type": "related",
+        "target": "csr",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "frontend-framework",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "responsive-design",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "virtual-dom",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "session",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "csr",
@@ -342,12 +502,6 @@ window.XIGAI["前端与开发工程"] = [
     "misconceptions": [
       "CSR 一定比 SSR 慢，二次进入与重交互场景下 CSR 往往更流畅"
     ],
-    "related": [
-      "SSR",
-      "前端框架",
-      "代码分割",
-      "懒加载"
-    ],
     "references": [
       "web.dev：Rendering on the Web",
       "MDN：SPA"
@@ -356,7 +510,45 @@ window.XIGAI["前端与开发工程"] = [
       "https://web.developers.google.cn/articles/rendering-on-the-web?hl=en",
       "https://developer.mozilla.org/zh-CN/docs/Glossary/SPA"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "前端与开发工程",
+    "relations": [
+      {
+        "type": "related",
+        "target": "ssr",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "frontend-framework",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "code-splitting",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "lazy-loading",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "virtual-dom",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "pwa",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "cookie",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "responsive-design",
@@ -387,11 +579,6 @@ window.XIGAI["前端与开发工程"] = [
     "misconceptions": [
       "响应式等于单独开发移动端页面，实为同一套代码自适应"
     ],
-    "related": [
-      "CSS",
-      "浏览器兼容",
-      "前端框架"
-    ],
     "references": [
       "MDN：响应式设计",
       "web.dev：响应式网页设计基础"
@@ -400,7 +587,30 @@ window.XIGAI["前端与开发工程"] = [
       "https://developer.mozilla.org/zh-CN/docs/Learn_web_development/Core/CSS_layout/Responsive_Design",
       "https://web.dev/articles/responsive-web-design-basics"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "前端与开发工程",
+    "relations": [
+      {
+        "type": "related",
+        "target": "css",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "browser-compatibility",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "frontend-framework",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "ssr",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "browser-compatibility",
@@ -431,11 +641,6 @@ window.XIGAI["前端与开发工程"] = [
     "misconceptions": [
       "兼容等于支持所有旧浏览器，应基于用户数据设定支持范围"
     ],
-    "related": [
-      "CSS",
-      "JavaScript",
-      "前端工程化"
-    ],
     "references": [
       "caniuse.com",
       "MDN：浏览器兼容性"
@@ -444,7 +649,35 @@ window.XIGAI["前端与开发工程"] = [
       "https://caniuse.com/",
       "https://developer.mozilla.org/zh-CN/docs/MDN/Writing_guidelines/Page_structures/Compatibility_tables"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "前端与开发工程",
+    "relations": [
+      {
+        "type": "related",
+        "target": "css",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "javascript",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "frontend-engineering",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "html",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "responsive-design",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "bundler",
@@ -475,12 +708,6 @@ window.XIGAI["前端与开发工程"] = [
     "misconceptions": [
       "打包工具只是压缩代码，实为模块解析、转译与优化的枢纽"
     ],
-    "related": [
-      "前端工程化",
-      "代码分割",
-      "npm",
-      "懒加载"
-    ],
     "references": [
       "webpack 官方文档",
       "Vite 官方文档"
@@ -489,7 +716,30 @@ window.XIGAI["前端与开发工程"] = [
       "https://webpack.js.org/",
       "https://vitejs.dev/"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "前端与开发工程",
+    "relations": [
+      {
+        "type": "related",
+        "target": "frontend-engineering",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "code-splitting",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "npm",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "lazy-loading",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "npm",
@@ -520,11 +770,6 @@ window.XIGAI["前端与开发工程"] = [
     "misconceptions": [
       "npm 只装 JavaScript 库，一切可分发产物都能托管"
     ],
-    "related": [
-      "JavaScript",
-      "前端工程化",
-      "打包工具"
-    ],
     "references": [
       "npm 官方文档",
       "Node.js 官方文档"
@@ -533,7 +778,25 @@ window.XIGAI["前端与开发工程"] = [
       "https://docs.npmjs.com/",
       "https://nodejs.org/zh-cn"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "前端与开发工程",
+    "relations": [
+      {
+        "type": "related",
+        "target": "javascript",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "frontend-engineering",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "bundler",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "frontend-engineering",
@@ -564,12 +827,6 @@ window.XIGAI["前端与开发工程"] = [
     "misconceptions": [
       "工程化等于用构建工具，规范与自动化同样关键"
     ],
-    "related": [
-      "打包工具",
-      "npm",
-      "组件化",
-      "浏览器兼容"
-    ],
     "references": [
       "阿里云开发者社区：前端工程化的理解",
       "webpack 官方文档"
@@ -578,7 +835,50 @@ window.XIGAI["前端与开发工程"] = [
       "https://developer.aliyun.com/article/897996",
       "https://webpack.js.org/concepts/"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "前端与开发工程",
+    "relations": [
+      {
+        "type": "related",
+        "target": "bundler",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "npm",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "component-based",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "browser-compatibility",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "code-splitting",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "lazy-loading",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "pwa",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "cross-origin",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "code-splitting",
@@ -609,12 +909,6 @@ window.XIGAI["前端与开发工程"] = [
     "misconceptions": [
       "代码分割等于懒加载，懒加载是加载时机策略，代码分割是产物拆分手段，二者常配合"
     ],
-    "related": [
-      "懒加载",
-      "打包工具",
-      "CSR",
-      "前端工程化"
-    ],
     "references": [
       "webpack：Code Splitting 指南",
       "web.dev：用代码分割减小 JS 体积"
@@ -623,7 +917,30 @@ window.XIGAI["前端与开发工程"] = [
       "https://webpack.js.org/guides/code-splitting/",
       "https://web.dev/articles/reduce-javascript-payloads-with-code-splitting"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "前端与开发工程",
+    "relations": [
+      {
+        "type": "related",
+        "target": "lazy-loading",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "bundler",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "csr",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "frontend-engineering",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "lazy-loading",
@@ -654,11 +971,6 @@ window.XIGAI["前端与开发工程"] = [
     "misconceptions": [
       "懒加载只用于图片，组件、路由、脚本、字体均可懒加载"
     ],
-    "related": [
-      "代码分割",
-      "CSR",
-      "前端工程化"
-    ],
     "references": [
       "MDN：Lazy loading",
       "web.dev：图片与视频懒加载"
@@ -667,7 +979,30 @@ window.XIGAI["前端与开发工程"] = [
       "https://developer.mozilla.org/zh-CN/docs/Web/Performance/Lazy_loading",
       "https://web.dev/articles/lazy-loading-images"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "前端与开发工程",
+    "relations": [
+      {
+        "type": "related",
+        "target": "code-splitting",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "csr",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "frontend-engineering",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "bundler",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "pwa",
@@ -697,11 +1032,6 @@ window.XIGAI["前端与开发工程"] = [
     "misconceptions": [
       "PWA 能完全替代原生 App，系统能力（如部分硬件 API）仍受限"
     ],
-    "related": [
-      "WebAssembly",
-      "前端工程化",
-      "CSR"
-    ],
     "references": [
       "MDN：渐进式 Web 应用",
       "web.dev：PWA"
@@ -710,7 +1040,30 @@ window.XIGAI["前端与开发工程"] = [
       "https://developer.mozilla.org/zh-CN/docs/Web/Progressive_web_apps",
       "https://web.dev/explore/progressive-web-apps"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "前端与开发工程",
+    "relations": [
+      {
+        "type": "related",
+        "target": "webassembly",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "frontend-engineering",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "csr",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "websocket",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "webassembly",
@@ -740,11 +1093,6 @@ window.XIGAI["前端与开发工程"] = [
     "misconceptions": [
       "Wasm 会取代 JavaScript，二者互补，DOM 操作与业务逻辑仍由 JS 主导"
     ],
-    "related": [
-      "JavaScript",
-      "PWA",
-      "前端框架"
-    ],
     "references": [
       "MDN：WebAssembly",
       "WebAssembly 官网"
@@ -753,7 +1101,25 @@ window.XIGAI["前端与开发工程"] = [
       "https://developer.mozilla.org/zh-CN/docs/WebAssembly",
       "https://webassembly.org/"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "前端与开发工程",
+    "relations": [
+      {
+        "type": "related",
+        "target": "javascript",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "pwa",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "frontend-framework",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "cross-origin",
@@ -785,12 +1151,6 @@ window.XIGAI["前端与开发工程"] = [
     "misconceptions": [
       "跨域是服务器限制，实为浏览器安全策略，服务端请求不受影响"
     ],
-    "related": [
-      "Cookie",
-      "Token",
-      "WebSocket",
-      "前端工程化"
-    ],
     "references": [
       "MDN：HTTP 跨源资源共享 CORS",
       "MDN：同源策略"
@@ -799,7 +1159,35 @@ window.XIGAI["前端与开发工程"] = [
       "https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CORS",
       "https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "前端与开发工程",
+    "relations": [
+      {
+        "type": "related",
+        "target": "cookie",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "token",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "websocket",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "frontend-engineering",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "restful",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "cookie",
@@ -830,12 +1218,6 @@ window.XIGAI["前端与开发工程"] = [
     "misconceptions": [
       "Cookie 可以跨域随意读取，受同源策略与 SameSite 限制"
     ],
-    "related": [
-      "Session",
-      "Token",
-      "跨域",
-      "CSR"
-    ],
     "references": [
       "MDN：HTTP Cookie",
       "MDN：Document.cookie"
@@ -844,7 +1226,30 @@ window.XIGAI["前端与开发工程"] = [
       "https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Cookies",
       "https://developer.mozilla.org/zh-CN/docs/Web/API/Document/cookie"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "前端与开发工程",
+    "relations": [
+      {
+        "type": "related",
+        "target": "session",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "token",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "cross-origin",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "csr",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "session",
@@ -875,11 +1280,6 @@ window.XIGAI["前端与开发工程"] = [
     "misconceptions": [
       "Session 就是 Cookie，Cookie 只是传递 Session ID 的载体，数据在服务端"
     ],
-    "related": [
-      "Cookie",
-      "Token",
-      "SSR"
-    ],
     "references": [
       "MDN：Session",
       "MDN：HTTP Cookie"
@@ -888,7 +1288,25 @@ window.XIGAI["前端与开发工程"] = [
       "https://developer.mozilla.org/zh-CN/docs/Glossary/Session",
       "https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Cookies"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "前端与开发工程",
+    "relations": [
+      {
+        "type": "related",
+        "target": "cookie",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "token",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "ssr",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "token",
@@ -919,12 +1337,6 @@ window.XIGAI["前端与开发工程"] = [
     "misconceptions": [
       "Token 比 Session 更安全，安全性取决于有效期、存储方式与 HTTPS 等实现细节"
     ],
-    "related": [
-      "Session",
-      "Cookie",
-      "跨域",
-      "RESTful"
-    ],
     "references": [
       "jwt.io：JWT 介绍",
       "MDN：Authorization 请求头"
@@ -933,7 +1345,30 @@ window.XIGAI["前端与开发工程"] = [
       "https://jwt.io/introduction",
       "https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/Authorization"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "前端与开发工程",
+    "relations": [
+      {
+        "type": "related",
+        "target": "session",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "cookie",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "cross-origin",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "restful",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "restful",
@@ -965,12 +1400,6 @@ window.XIGAI["前端与开发工程"] = [
     "misconceptions": [
       "RESTful 必须全用名词复数 URL，风格而非强制标准，合理即可"
     ],
-    "related": [
-      "GraphQL",
-      "Token",
-      "WebSocket",
-      "跨域"
-    ],
     "references": [
       "MDN：REST",
       "RESTful API 设计指南"
@@ -979,7 +1408,30 @@ window.XIGAI["前端与开发工程"] = [
       "https://developer.mozilla.org/zh-CN/docs/Glossary/REST",
       "https://restfulapi.net/"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "前端与开发工程",
+    "relations": [
+      {
+        "type": "related",
+        "target": "graphql",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "token",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "websocket",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "cross-origin",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "graphql",
@@ -1010,11 +1462,6 @@ window.XIGAI["前端与开发工程"] = [
     "misconceptions": [
       "GraphQL 一定比 REST 好，简单场景 REST 更直接，GraphQL 复杂度更高"
     ],
-    "related": [
-      "RESTful",
-      "WebSocket",
-      "前端框架"
-    ],
     "references": [
       "GraphQL 官网",
       "Apollo 文档"
@@ -1023,7 +1470,25 @@ window.XIGAI["前端与开发工程"] = [
       "https://graphql.org/",
       "https://www.apollographql.com/docs/"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "前端与开发工程",
+    "relations": [
+      {
+        "type": "related",
+        "target": "restful",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "websocket",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "frontend-framework",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "websocket",
@@ -1054,12 +1519,6 @@ window.XIGAI["前端与开发工程"] = [
     "misconceptions": [
       "WebSocket 能替代 HTTP，二者互补，HTTP 仍是主要数据协议"
     ],
-    "related": [
-      "跨域",
-      "RESTful",
-      "GraphQL",
-      "PWA"
-    ],
     "references": [
       "MDN：WebSocket API",
       "RFC 6455：The WebSocket Protocol"
@@ -1068,6 +1527,29 @@ window.XIGAI["前端与开发工程"] = [
       "https://developer.mozilla.org/zh-CN/docs/Web/API/WebSocket",
       "https://datatracker.ietf.org/doc/html/rfc6455"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "前端与开发工程",
+    "relations": [
+      {
+        "type": "related",
+        "target": "cross-origin",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "restful",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "graphql",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "pwa",
+        "note": ""
+      }
+    ]
   }
 ];

@@ -34,13 +34,6 @@ window.XIGAI["前沿科技"] = [
       "量子计算机并非在所有任务上都更快，只在特定问题上具备优势",
       "量子比特数多不等于性能强，纠错能力与错误率同样关键"
     ],
-    "related": [
-      "量子通信",
-      "量子纠错",
-      "量子优越性",
-      "量子芯片",
-      "后量子密码"
-    ],
     "references": [
       "谷歌首次实现可验证的量子优势：比最快超算还快13000倍（芯智讯）",
       "谷歌Willow新量子芯片+Quantum Echoes算法（unwire.hk）",
@@ -51,7 +44,40 @@ window.XIGAI["前沿科技"] = [
       "https://unwire.hk/2025/10/23/quantum-willow-echo/fun-tech/",
       "http://www.news.cn/tech/20251229/c58ea0b6350f4e6c9ffa372a757b0d53/c.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "前沿科技",
+    "relations": [
+      {
+        "type": "related",
+        "target": "quantum-communication",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "量子纠错",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "量子优越性",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "量子芯片",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "后量子密码",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "quantum-entanglement",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "quantum-communication",
@@ -86,13 +112,6 @@ window.XIGAI["前沿科技"] = [
       "量子通信并不传输超光速信息，而是分发密钥，速率仍受光速限制",
       "量子通信不替代经典通信，而是为其提供更安全的密钥"
     ],
-    "related": [
-      "量子计算",
-      "量子密钥分发",
-      "量子纠缠",
-      "后量子密码",
-      "卫星通信"
-    ],
     "references": [
       "我国学者在星地量子通信领域取得进展（国家自然科学基金委）",
       "从实验室到百姓家：中国量子科技产业化提速（中国新闻网）",
@@ -103,7 +122,35 @@ window.XIGAI["前沿科技"] = [
       "http://www.bfse.cas.cn/wlyhx/kyjz_138199/202503/t20250320_5059357.html",
       "https://www.chinanews.com.cn/cj/2025/05-19/10418407.shtml"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "前沿科技",
+    "relations": [
+      {
+        "type": "related",
+        "target": "quantum-computing",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "量子密钥分发",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "quantum-entanglement",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "后量子密码",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "卫星通信",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "controlled-nuclear-fusion",
@@ -138,13 +185,6 @@ window.XIGAI["前沿科技"] = [
       "实现点火不等于商用发电，从点火到并网发电仍有很长的工程距离",
       "聚变堆没有堆芯熔毁风险，但氚管理与材料活化仍需严格防护"
     ],
-    "related": [
-      "等离子体物理",
-      "托卡马克",
-      "ITER",
-      "惯性约束聚变",
-      "清洁能源"
-    ],
     "references": [
       "“人造太阳”实现“亿度千秒”运行入选2025年“中国科学十大进展”（央广网）",
       "美国激光核聚变创下新的净正能量记录（CCNTA）",
@@ -155,7 +195,35 @@ window.XIGAI["前沿科技"] = [
       "https://www.cnr.cn/ah/ahtt/20260326/t20260326_527562910.shtml",
       "https://developer.cloud.tencent.cn/news/2591697"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "前沿科技",
+    "relations": [
+      {
+        "type": "related",
+        "target": "等离子体物理",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "托卡马克",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "ITER",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "惯性约束聚变",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "清洁能源",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "humanoid-robot",
@@ -191,13 +259,6 @@ window.XIGAI["前沿科技"] = [
       "人形不是目的而是手段，许多任务中轮式或专用机器人更经济",
       "能走会跳不等于智能，“大脑”能力决定实用价值"
     ],
-    "related": [
-      "具身智能",
-      "仿生机器人",
-      "灵巧手",
-      "运动控制",
-      "机器人操作系统"
-    ],
     "references": [
       "人形机器人的2025，站在量产与国产的时代路口（36氪）",
       "万亿人形机器人赛道，哪个环节最可能爆发？（投资界）",
@@ -208,7 +269,35 @@ window.XIGAI["前沿科技"] = [
       "https://m.pedaily.cn/news/559808",
       "https://www.sfccn.com/2026/7-6/wNMDE1MjBfMjE3NTMwNQ.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "前沿科技",
+    "relations": [
+      {
+        "type": "related",
+        "target": "embodied-ai",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "仿生机器人",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "灵巧手",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "运动控制",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "机器人操作系统",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "embodied-ai",
@@ -243,13 +332,6 @@ window.XIGAI["前沿科技"] = [
       "具身智能不等于机器人硬件，模型“大脑”与身体硬件同样关键",
       "仿真测试通过不等于落地，真实环境泛化才是门槛"
     ],
-    "related": [
-      "人形机器人",
-      "世界模型",
-      "VLA模型",
-      "强化学习",
-      "多模态大模型"
-    ],
     "references": [
       "世界人工智能大会散场，具身智能淘汰赛才刚刚开始？（东方财富）",
       "中科第五纪完成数亿元A轮融资（投资界）",
@@ -260,7 +342,45 @@ window.XIGAI["前沿科技"] = [
       "https://m.pedaily.cn/news/564454",
       "https://finance.eastmoney.com/a/202607073795793569.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "前沿科技",
+    "relations": [
+      {
+        "type": "related",
+        "target": "humanoid-robot",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "world-model",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "VLA模型",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "reinforcement-learning",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "multimodal-llm",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "robotaxi",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "world-simulator",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "brain-computer-interface",
@@ -296,13 +416,6 @@ window.XIGAI["前沿科技"] = [
       "脑机接口目前不能“读心”，只能解码有限的运动意图等神经信号",
       "非侵入式脑电帽不等于“安全版Neuralink”，两者精度差距巨大"
     ],
-    "related": [
-      "神经工程",
-      "神经假体",
-      "侵入式电极",
-      "神经调控",
-      "人机融合"
-    ],
     "references": [
       "脑机接口商业化进程提速（国际在线）",
       "100%响应！中国脑机接口临床试验32例截瘫患者全部实现脑控抓握（IT之家）",
@@ -313,7 +426,35 @@ window.XIGAI["前沿科技"] = [
       "https://m.ithome.com/html/903119.htm",
       "https://stock.finance.sina.com.cn/stock/view/paper.php?reportid=820982712436&symbol=sh000001&autocallup=no&isfromsina=no"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "前沿科技",
+    "relations": [
+      {
+        "type": "related",
+        "target": "神经工程",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "神经假体",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "侵入式电极",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "神经调控",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "人机融合",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "6g-communication",
@@ -349,13 +490,6 @@ window.XIGAI["前沿科技"] = [
       "6G不是“更快的5G”，而是通信、感知、计算、AI融合的新网络范式",
       "6G商用尚远（约2030年），当前处于标准研究与试验验证阶段"
     ],
-    "related": [
-      "5G-Advanced",
-      "太赫兹通信",
-      "通感一体化",
-      "低轨卫星互联网",
-      "智能超表面"
-    ],
     "references": [
       "全球6G无线通信标准化工作启动（中国电子网）",
       "6G标准化进入窗口期，中国专利数领跑全球（川观智库）",
@@ -366,7 +500,40 @@ window.XIGAI["前沿科技"] = [
       "https://cbgc.scol.com.cn/news/7708078",
       "http://m.mydrivers.com/newsview/1089512.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "前沿科技",
+    "relations": [
+      {
+        "type": "related",
+        "target": "5G-Advanced",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "太赫兹通信",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "通感一体化",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "leo-satellite-internet",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "智能超表面",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "5g-communication",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "leo-satellite-internet",
@@ -403,13 +570,6 @@ window.XIGAI["前沿科技"] = [
       "卫星互联网不是要替代地面5G/光纤，而是互补覆盖",
       "星座规模不等于服务能力，终端、频率与落地运营同样关键"
     ],
-    "related": [
-      "6G通信",
-      "星间激光通信",
-      "可回收火箭",
-      "手机直连卫星",
-      "空天地一体化"
-    ],
     "references": [
       "SpaceX's Starlink Surpasses 12M Customers Across 160 Countries（Yahoo Finance）",
       "星链与星网千帆对比：星链8000颗用户600万（国盛证券）",
@@ -420,7 +580,35 @@ window.XIGAI["前沿科技"] = [
       "https://www.sgpjbg.com/labelsyh/xinglianyuxingwangqianfanduibi.html",
       "http://vip.stock.finance.sina.com.cn/q/go.php/vReport_Show/kind/lastest/rptid/805839173867/index.phtml"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "前沿科技",
+    "relations": [
+      {
+        "type": "related",
+        "target": "6g-communication",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "星间激光通信",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "可回收火箭",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "手机直连卫星",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "空天地一体化",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "synthetic-biology",
@@ -456,13 +644,6 @@ window.XIGAI["前沿科技"] = [
       "合成生物学不只是基因编辑，而是“编写”与“重构”生命系统",
       "合成基因组不等于“人造生命”，仍需宿主细胞承载运行"
     ],
-    "related": [
-      "基因治疗",
-      "CRISPR基因编辑",
-      "生物制造",
-      "代谢工程",
-      "蛋白质设计"
-    ],
     "references": [
       "合成酵母基因组“拼图”完成（国家科技报告服务系统）",
       "最后一条染色体成功创建，合成酵母基因组拼图完成（科技日报）",
@@ -473,7 +654,35 @@ window.XIGAI["前沿科技"] = [
       "https://www.stdaily.com/web/gdxw/2025-01/26/content_290689.html",
       "https://www.ebiotrade.com/newsf/2025-1/20250123062715567.htm"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "前沿科技",
+    "relations": [
+      {
+        "type": "related",
+        "target": "gene-therapy",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "CRISPR基因编辑",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "生物制造",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "代谢工程",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "蛋白质设计",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "gene-therapy",
@@ -509,13 +718,6 @@ window.XIGAI["前沿科技"] = [
       "基因治疗不是“万能疗法”，只适用于病因明确的特定疾病",
       "基因编辑不等于“定制婴儿”，生殖系编辑在绝大多数国家被禁止"
     ],
-    "related": [
-      "CRISPR基因编辑",
-      "合成生物学",
-      "mRNA疫苗技术",
-      "细胞治疗",
-      "AAV载体"
-    ],
     "references": [
       "Exa-cel（Casgevy）：全球首款CRISPR基因编辑药（科普中国）",
       "新一代基因编辑技术到底突破了什么（科普中国）",
@@ -526,7 +728,40 @@ window.XIGAI["前沿科技"] = [
       "https://cloud.kepuchina.cn/h5/detail?id=7439058465483534336",
       "https://www.pharnexcloud.com/zixun/shiye/zjgd_310814"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "前沿科技",
+    "relations": [
+      {
+        "type": "related",
+        "target": "CRISPR基因编辑",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "synthetic-biology",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "mrna-vaccine-technology",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "细胞治疗",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "AAV载体",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "gene-editing",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "mrna-vaccine-technology",
@@ -562,13 +797,6 @@ window.XIGAI["前沿科技"] = [
       "mRNA疫苗不会改变人体基因：mRNA不进入细胞核，会被自然降解",
       "mRNA疫苗不只是新冠疫苗，而是可快速扩展的通用技术平台"
     ],
-    "related": [
-      "基因治疗",
-      "脂质纳米颗粒",
-      "肿瘤免疫治疗",
-      "免疫学",
-      "生物制药"
-    ],
     "references": [
       "A personalized vaccine for melanoma cut the risk of cancer returning（NBC News）",
       "ASCO：Moderna mRNA黑色素瘤疫苗5年生存数据令人鼓舞（BioSpace）",
@@ -579,7 +807,35 @@ window.XIGAI["前沿科技"] = [
       "https://www.biospace.com/drug-development/asco-modernas-mrna-based-melanoma-vaccine-shows-encouraging-5-year-survival",
       "https://www.tkww.hk/a/202512/18/AP6943afb5e4b032040a1566a2.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "前沿科技",
+    "relations": [
+      {
+        "type": "related",
+        "target": "gene-therapy",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "脂质纳米颗粒",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "肿瘤免疫治疗",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "免疫学",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "生物制药",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "ai-chip",
@@ -616,13 +872,6 @@ window.XIGAI["前沿科技"] = [
       "AI芯片不只有GPU，TPU、NPU、存算一体等多种路线并存",
       "单卡算力不再是唯一指标，集群互联与软件生态同样决定胜负"
     ],
-    "related": [
-      "边缘AI",
-      "大模型",
-      "HBM",
-      "GPU",
-      "算力网络"
-    ],
     "references": [
       "2025年英伟达Blackwell GPU将主导高端市场（CNTronics）",
       "Nvidia's Blackwell Dynasty：B200/GB200订单排至2026年中（Wedbush）",
@@ -633,7 +882,65 @@ window.XIGAI["前沿科技"] = [
       "https://investor.wedbush.com/wedbush/article/tokenring-2025-12-29-nvidias-blackwell-dynasty-b200-and-gb200-sold-out-through-mid-2026-as-backlog-hits-36-million-units",
       "https://m.zhitongcaijing.com/article/share.html?content_id=1103252"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "前沿科技",
+    "relations": [
+      {
+        "type": "related",
+        "target": "edge-ai",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "large-language-model",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "hbm",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "GPU",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "算力网络",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "advanced-node",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "chiplet",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "advanced-packaging",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "risc-v",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "npu",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "memory-chip",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "robotaxi",
@@ -668,13 +975,6 @@ window.XIGAI["前沿科技"] = [
       "L2辅助驾驶不等于Robotaxi，L4对安全冗余与责任界定要求完全不同",
       "Robotaxi并非“无人值守”，远程接管与云端运维仍不可或缺"
     ],
-    "related": [
-      "自动驾驶",
-      "具身智能",
-      "车路协同",
-      "激光雷达",
-      "出行即服务"
-    ],
     "references": [
       "萝卜快跑每周订单量超25万单 全球覆盖城市22个（东方财富）",
       "2025全球无人驾驶行业盘点：Robotaxi规模化运营驶入快车道（经济网）",
@@ -685,7 +985,35 @@ window.XIGAI["前沿科技"] = [
       "https://www.ceweekly.cn/company/2025/1230/486852.html",
       "https://nev.ofweek.com/2025-12/ART-77015-8400-30677159.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "前沿科技",
+    "relations": [
+      {
+        "type": "related",
+        "target": "自动驾驶",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "embodied-ai",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "车路协同",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "lidar",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "出行即服务",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "world-simulator",
@@ -722,13 +1050,6 @@ window.XIGAI["前沿科技"] = [
       "世界模型不是“更会生成视频”，而是要以世界规律进行因果推演",
       "视频生成不等于世界模型：能生成画面不等于理解物理规律"
     ],
-    "related": [
-      "具身智能",
-      "视频生成",
-      "空间智能",
-      "强化学习",
-      "自动驾驶"
-    ],
     "references": [
       "首款商用世界模型MARBLE发布 空间智能再进一步（新浪财经）",
       "在世界模型分岔口 李飞飞与谷歌新模型给出了不同答案（东方财富）",
@@ -739,7 +1060,35 @@ window.XIGAI["前沿科技"] = [
       "https://wap.eastmoney.com/a/202509193518837156.html",
       "http://m.yunnan.cn/system/2025/12/26/033801260.shtml"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "前沿科技",
+    "relations": [
+      {
+        "type": "related",
+        "target": "embodied-ai",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "视频生成",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "空间智能",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "reinforcement-learning",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "自动驾驶",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "edge-ai",
@@ -776,13 +1125,6 @@ window.XIGAI["前沿科技"] = [
       "端侧AI不等于离线AI，多数场景采用端云协同",
       "端侧模型不是“小而不强”，蒸馏与量化已大幅拉近与云端差距"
     ],
-    "related": [
-      "AI芯片",
-      "大模型",
-      "NPU",
-      "物联网",
-      "端云协同"
-    ],
     "references": [
       "端侧AI下半场，从跑起来到会思考（投资界）",
       "电子行业研究：端侧AI产业链投资机遇可期（新浪财经）",
@@ -793,6 +1135,34 @@ window.XIGAI["前沿科技"] = [
       "http://stockfinance.sina.cn/stock/go.php/paper/reportid/811335251214/index.phtml?vt=4",
       "https://www.chinastarmarket.cn/detail/2150880"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "前沿科技",
+    "relations": [
+      {
+        "type": "related",
+        "target": "ai-chip",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "large-language-model",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "npu",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "物联网",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "端云协同",
+        "note": ""
+      }
+    ]
   }
 ];

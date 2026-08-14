@@ -31,13 +31,6 @@ window.XIGAI["文学艺术"] = [
       "意识流不等于内心独白，独白只是其中一种手法。",
       "它并非“想到哪写到哪”，而是精心设计以模仿思维混乱。"
     ],
-    "related": [
-      "现代主义",
-      "内心独白",
-      "心理小说",
-      "象征主义",
-      "后现代主义"
-    ],
     "references": [
       "大英图书馆中文版：意识流专题",
       "百度百科：意识流主义",
@@ -48,7 +41,35 @@ window.XIGAI["文学艺术"] = [
       "https://baike.baidu.com/item/%E6%84%8F%E8%AF%86%E6%B5%81%E4%B8%BB%E4%B9%89/3816996",
       "https://www.ebsco.com/research-starters/literature-and-writing/stream-consciousness-narrative-mode"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "文学艺术",
+    "relations": [
+      {
+        "type": "related",
+        "target": "现代主义",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "内心独白",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "心理小说",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "symbolism",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "postmodernism",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "realism",
@@ -81,13 +102,6 @@ window.XIGAI["文学艺术"] = [
       "现实主义不等于照片式记录，同样需要选择、提炼与典型化。",
       "它并非排斥想象，而是以现实逻辑约束想象。"
     ],
-    "related": [
-      "批判现实主义",
-      "浪漫主义",
-      "自然主义",
-      "社会主义现实主义",
-      "魔幻现实主义"
-    ],
     "references": [
       "中国作家网：现实主义的永恒魅力是怎样炼成的",
       "全国哲学社会科学工作办公室：现实主义，文学思潮抑或创作倾向",
@@ -98,7 +112,35 @@ window.XIGAI["文学艺术"] = [
       "http://www.nopss.gov.cn/n1/2016/1207/c373410-28930452.html",
       "https://baike.baidu.com/item/%E7%8E%B0%E5%AE%9E%E4%B8%BB%E4%B9%89%E6%96%87%E5%AD%A6/10903058"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "文学艺术",
+    "relations": [
+      {
+        "type": "related",
+        "target": "批判现实主义",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "浪漫主义",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "自然主义",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "社会主义现实主义",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "magic-realism",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "symbolism",
@@ -131,13 +173,6 @@ window.XIGAI["文学艺术"] = [
       "象征主义不等于一般象征手法，而是一整套诗歌观念与运动。",
       "其朦胧并非故弄玄虚，而是认为理念本不可直说。"
     ],
-    "related": [
-      "波德莱尔",
-      "意象派",
-      "超现实主义",
-      "现代主义",
-      "唯美主义"
-    ],
     "references": [
       "百度百科：法国象征主义",
       "凤凰网：从兰波到瓦雷里，波德莱尔的继承者们",
@@ -148,7 +183,40 @@ window.XIGAI["文学艺术"] = [
       "https://h5.ifeng.com/c/vivoArticle/v002mFNJoCRuZM569VhpVW3sBlWod8ubJnyk2VbGEXdBFk0__",
       "https://www.ebsco.com/research-starters/literature-and-writing/french-symbolists"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "文学艺术",
+    "relations": [
+      {
+        "type": "related",
+        "target": "波德莱尔",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "意象派",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "超现实主义",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "现代主义",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "唯美主义",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "stream-of-consciousness",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "montage",
@@ -181,13 +249,6 @@ window.XIGAI["文学艺术"] = [
       "蒙太奇不等于简单切换画面，其本质是意义的生产机制。",
       "并非苏联独创，格里菲斯等早期电影人已在运用。"
     ],
-    "related": [
-      "长镜头",
-      "库里肖夫效应",
-      "电影语言",
-      "苏联蒙太奇学派",
-      "剪辑"
-    ],
     "references": [
       "1905电影网：蒙太奇学派",
       "维基百科：蒙太奇",
@@ -200,7 +261,30 @@ window.XIGAI["文学艺术"] = [
       "https://edumovie-tfai.org.tw/article/content/415",
       "https://www.gmw.cn/01ds/2006-07/05/content_445775.htm"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "文学艺术",
+    "relations": [
+      {
+        "type": "related",
+        "target": "长镜头",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "库里肖夫效应",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "电影语言",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "苏联蒙太奇学派",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "impressionism",
@@ -233,13 +317,6 @@ window.XIGAI["文学艺术"] = [
       "并非“画得不像”，而是以光色真实取代轮廓真实。",
       "不等于风景写生，德加、雷诺阿同样画人物与城市。"
     ],
-    "related": [
-      "后印象派",
-      "新印象派",
-      "莫奈",
-      "现代艺术",
-      "点彩派"
-    ],
     "references": [
       "澎湃新闻：印象主义绘画开山之作莫奈《日出·印象》首次来到中国",
       "百度百科：印象派绘画",
@@ -250,7 +327,35 @@ window.XIGAI["文学艺术"] = [
       "https://wapbaike.baidu.com/item/%E5%8D%B0%E8%B1%A1%E6%B4%BE%E7%BB%98%E7%94%BB/1488868",
       "https://www.metmuseum.org/toah/hd/cmon/hd_cmon.htm"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "文学艺术",
+    "relations": [
+      {
+        "type": "related",
+        "target": "后印象派",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "新印象派",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "莫奈",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "现代艺术",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "点彩派",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "theatre-of-the-absurd",
@@ -283,13 +388,6 @@ window.XIGAI["文学艺术"] = [
       "其“没有情节”并非缺陷，而是表达方式本身。",
       "荒诞派不等于悲观绝望，等待中仍有坚持与温情。"
     ],
-    "related": [
-      "存在主义",
-      "加缪",
-      "现代主义",
-      "黑色幽默",
-      "后现代主义"
-    ],
     "references": [
       "大英百科全书：Theatre of the Absurd",
       "知网：荒诞派戏剧的美学特色——以贝克特的《等待戈多》为例",
@@ -300,7 +398,35 @@ window.XIGAI["文学艺术"] = [
       "https://wap.cnki.net/touch/web/Journal/Article/YSDG202328035.html",
       "https://ccj.pku.edu.cn/Article/info?aid=297982732"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "文学艺术",
+    "relations": [
+      {
+        "type": "related",
+        "target": "existentialism",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "加缪",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "现代主义",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "黑色幽默",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "postmodernism",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "magic-realism",
@@ -333,13 +459,6 @@ window.XIGAI["文学艺术"] = [
       "不是奇幻小说，其根基仍是现实。",
       "魔幻并非逃避现实，而是更深入地揭示现实。"
     ],
-    "related": [
-      "现实主义",
-      "超现实主义",
-      "拉美文学爆炸",
-      "马尔克斯",
-      "百年孤独"
-    ],
     "references": [
       "中国作家网：重读《百年孤独》——魔幻之境与史诗",
       "中国社科院拉丁美洲研究所：哈哈镜里看拉美——论《百年孤独》的魔幻现实性",
@@ -350,7 +469,35 @@ window.XIGAI["文学艺术"] = [
       "http://ilas.cssn.cn/sjk/gnwlmyjcgsjk/201007/t20100705_2286879.shtml",
       "https://simple.m.wikipedia.org/wiki/Magical_realism"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "文学艺术",
+    "relations": [
+      {
+        "type": "related",
+        "target": "realism",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "超现实主义",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "拉美文学爆炸",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "马尔克斯",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "百年孤独",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "minimalism",
@@ -383,13 +530,6 @@ window.XIGAI["文学艺术"] = [
       "不是简陋或偷工减料，而是精确的本质主义。",
       "文学极简主义不等于篇幅短小，而指手法上的节制。"
     ],
-    "related": [
-      "抽象表现主义",
-      "构成主义",
-      "包豪斯",
-      "海明威",
-      "现代主义"
-    ],
     "references": [
       "维基百科：極簡主義",
       "WikiArt：极简主义艺术家",
@@ -400,7 +540,35 @@ window.XIGAI["文学艺术"] = [
       "https://www.wikiart.org/zh/Artists-by-Art-Movement/ji-jian-zhu-yi/1",
       "https://EN.m.wikipedia.org/wiki/Minimalism_(art)"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "文学艺术",
+    "relations": [
+      {
+        "type": "related",
+        "target": "抽象表现主义",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "构成主义",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "bauhaus",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "海明威",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "现代主义",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "classicism",
@@ -433,13 +601,6 @@ window.XIGAI["文学艺术"] = [
       "古典主义不等于古希腊罗马原作，而是后世的规范化追慕。",
       "“三一律”是后世归纳的规则，并非古人原典所载。"
     ],
-    "related": [
-      "新古典主义",
-      "巴洛克",
-      "浪漫主义",
-      "三一律",
-      "启蒙运动"
-    ],
     "references": [
       "百度百科：古典主义",
       "汉典：古典主義",
@@ -450,7 +611,30 @@ window.XIGAI["文学艺术"] = [
       "https://www.zdic.net/hant/%e5%8f%a4%e5%85%b8%e4%b8%bb%e7%be%a9",
       "https://www.perlego.com/knowledge/study-guides/what-is-classicism"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "文学艺术",
+    "relations": [
+      {
+        "type": "related",
+        "target": "巴洛克",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "浪漫主义",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "三一律",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "enlightenment",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "postmodernism",
@@ -483,13 +667,6 @@ window.XIGAI["文学艺术"] = [
       "不是“否定一切”，而是对确定性的持续质疑。",
       "不等于“什么都行”的虚无主义，其内部有严肃的批判立场。"
     ],
-    "related": [
-      "现代主义",
-      "后结构主义",
-      "解构主义",
-      "元小说",
-      "文化研究"
-    ],
     "references": [
       "台湾交通大学国际文化研究学会：什么是后现代主义",
       "辅仁大学英文文学与文化教学资料库：后现代主义",
@@ -502,6 +679,49 @@ window.XIGAI["文学艺术"] = [
       "https://171.67.193.20/archives/sum2009/entries/postmodernism/",
       "https://eresources.nlb.gov.sg/webarchives/wayback/20110228180014/http://en.wikipedia.org/wiki/Postmodern_literature"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "文学艺术",
+    "relations": [
+      {
+        "type": "related",
+        "target": "现代主义",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "后结构主义",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "解构主义",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "元小说",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "文化研究",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "stream-of-consciousness",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "theatre-of-the-absurd",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "nihilism",
+        "note": ""
+      }
+    ]
   }
 ];

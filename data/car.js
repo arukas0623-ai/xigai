@@ -30,12 +30,6 @@ window.XIGAI["汽车出行"] = [
     "misconceptions": [
       "纯电只是新能源的一种，混动与增程也属于新能源，不能混为一谈"
     ],
-    "related": [
-      "混动",
-      "增程式",
-      "三电系统",
-      "快充"
-    ],
     "references": [
       "EV、BEV、HEV、PHEV分别代表什么意思",
       "新能源汽车的各种常用术语解读"
@@ -44,7 +38,45 @@ window.XIGAI["汽车出行"] = [
       "https://m.youcheyihou.com/news/42742",
       "https://news.yiche.com/hao/wenzhang/51610826"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "汽车出行",
+    "relations": [
+      {
+        "type": "related",
+        "target": "hybrid",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "erev",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "three-electric",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "fast-charging",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "energy-density",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "0-100kmh",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "drag-coefficient",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "hybrid",
@@ -78,12 +110,6 @@ window.XIGAI["汽车出行"] = [
     "misconceptions": [
       "混动不等于都能上绿牌免购置税，HEV通常不算新能源车"
     ],
-    "related": [
-      "增程式",
-      "纯电",
-      "三电系统",
-      "变速箱"
-    ],
     "references": [
       "插电混和增程分不清？一文给你来科普！",
       "插电混动和增程混动究竟区别在哪？"
@@ -92,7 +118,35 @@ window.XIGAI["汽车出行"] = [
       "https://www.360che.com/tech/230314/179227_2.html",
       "https://aikahao.xcar.com.cn/item/1902420.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "汽车出行",
+    "relations": [
+      {
+        "type": "related",
+        "target": "erev",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "bev",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "three-electric",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "transmission",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "turbocharger",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "erev",
@@ -125,11 +179,6 @@ window.XIGAI["汽车出行"] = [
     "misconceptions": [
       "增程并非落后技术，而是串联混动构型，市区工况效率反而优于传统混动"
     ],
-    "related": [
-      "混动",
-      "纯电",
-      "三电系统"
-    ],
     "references": [
       "增程式与混动车型技术差异及适用场景全面解析",
       "插电混和增程分不清？一文给你来科普！"
@@ -138,7 +187,25 @@ window.XIGAI["汽车出行"] = [
       "https://auto.zol.com.cn/1071/10715322.html",
       "https://www.360che.com/tech/230314/179227_2.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "汽车出行",
+    "relations": [
+      {
+        "type": "related",
+        "target": "hybrid",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "bev",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "three-electric",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "autonomy-levels",
@@ -171,11 +238,6 @@ window.XIGAI["汽车出行"] = [
     "misconceptions": [
       "目前没有真正量产落地的L4级乘用车，“L4级能力”多指特定限定场景"
     ],
-    "related": [
-      "激光雷达",
-      "毫米波雷达",
-      "四驱"
-    ],
     "references": [
       "标准解读 | 三分钟看懂汽车驾驶自动化分级",
       "一篇文章看懂“L0-L5”"
@@ -184,7 +246,25 @@ window.XIGAI["汽车出行"] = [
       "https://www.catarc.ac.cn/detail/4ec661f63d82415da36a65411049246b",
       "https://qichejingwei.com/article-12701.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "汽车出行",
+    "relations": [
+      {
+        "type": "related",
+        "target": "lidar",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "mmwave-radar",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "awd-4wd",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "lidar",
@@ -215,11 +295,6 @@ window.XIGAI["汽车出行"] = [
     "misconceptions": [
       "激光雷达并非高阶智驾必需，纯视觉方案（如特斯拉）同样能实现智驾"
     ],
-    "related": [
-      "毫米波雷达",
-      "自动驾驶分级",
-      "摄像头"
-    ],
     "references": [
       "自动驾驶中超声波雷达、激光雷达、毫米波雷达有何区别？",
       "毫米波雷达VS激光雷达：谁是未来智能感知的主角"
@@ -228,7 +303,30 @@ window.XIGAI["汽车出行"] = [
       "https://m.ofweek.com/auto/2025-09/ART-70109-8500-30669959.html",
       "https://rf.eefocus.com/article/id-338938"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "汽车出行",
+    "relations": [
+      {
+        "type": "related",
+        "target": "mmwave-radar",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "autonomy-levels",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "摄像头",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "robotaxi",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "mmwave-radar",
@@ -260,11 +358,6 @@ window.XIGAI["汽车出行"] = [
     "misconceptions": [
       "毫米波雷达不是激光雷达的廉价替代品，两者原理互补、分工不同"
     ],
-    "related": [
-      "激光雷达",
-      "自动驾驶分级",
-      "超声波雷达"
-    ],
     "references": [
       "自动驾驶中超声波雷达、激光雷达、毫米波雷达有何区别？",
       "感知技术的“下一代革命”——4D成像雷达"
@@ -273,7 +366,25 @@ window.XIGAI["汽车出行"] = [
       "https://m.ofweek.com/auto/2025-09/ART-70109-8500-30669959.html",
       "https://www.afdata.org.cn/CuttingEdge/37a0da13-386b-4116-a3a8-3d7bdafb8b18"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "汽车出行",
+    "relations": [
+      {
+        "type": "related",
+        "target": "lidar",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "autonomy-levels",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "超声波雷达",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "three-electric",
@@ -304,11 +415,6 @@ window.XIGAI["汽车出行"] = [
     "misconceptions": [
       "三电系统不包括车载充电机、空调等低压附件，仅指电池、电机、电控"
     ],
-    "related": [
-      "电池能量密度",
-      "纯电",
-      "快充"
-    ],
     "references": [
       "从堆电池到轻量化：新能源车三电系统能耗与车重参数全拆解",
       "新能源渗透率62.9%创新高，三电技术重构市场格局解读"
@@ -317,7 +423,40 @@ window.XIGAI["汽车出行"] = [
       "https://siteapp.news18a.com/m/news/storys_262785.html",
       "http://m.news18a.com/news/storys_269070.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "汽车出行",
+    "relations": [
+      {
+        "type": "related",
+        "target": "energy-density",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "bev",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "fast-charging",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "hybrid",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "erev",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "battery-swap",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "energy-density",
@@ -349,11 +488,6 @@ window.XIGAI["汽车出行"] = [
     "misconceptions": [
       "电芯能量密度≠整车可用密度，成组封装通常损失15%-30%"
     ],
-    "related": [
-      "三电系统",
-      "纯电",
-      "快充"
-    ],
     "references": [
       "宁德时代发布第三代麒麟三元电池，280Wh/kg高密快充",
       "三元锂和磷酸铁锂电池哪个能量密度高"
@@ -362,7 +496,30 @@ window.XIGAI["汽车出行"] = [
       "https://auto.zol.com.cn/1169/11696626.html",
       "https://www.pconline.com.cn/ask/48396.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "汽车出行",
+    "relations": [
+      {
+        "type": "related",
+        "target": "three-electric",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "bev",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "fast-charging",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "battery-swap",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "fast-charging",
@@ -394,11 +551,6 @@ window.XIGAI["汽车出行"] = [
     "misconceptions": [
       "快充并非匀速，“充到100%”很慢，涓流保护使末段功率大幅下降"
     ],
-    "related": [
-      "换电",
-      "电池能量密度",
-      "纯电"
-    ],
     "references": [
       "宁德时代发布26号巧克力换电块 搭载800V高压架构",
       "宁德时代巧克力26#换电电池发布，99秒极速换电时代来临"
@@ -407,7 +559,30 @@ window.XIGAI["汽车出行"] = [
       "https://finance.ifeng.com/c/8sVng8M36jk",
       "https://www.d1ev.com/newsflash/296191"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "汽车出行",
+    "relations": [
+      {
+        "type": "related",
+        "target": "battery-swap",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "energy-density",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "bev",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "three-electric",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "battery-swap",
@@ -438,11 +613,6 @@ window.XIGAI["汽车出行"] = [
     "misconceptions": [
       "换电并非过时路线，它与超快充是互补关系，各有适用场景"
     ],
-    "related": [
-      "快充",
-      "电池能量密度",
-      "三电系统"
-    ],
     "references": [
       "宁德时代巧克力26#换电电池发布，99秒极速换电时代来临",
       "宁德时代发布26号巧克力换电块 搭载800V高压架构"
@@ -451,7 +621,25 @@ window.XIGAI["汽车出行"] = [
       "https://www.d1ev.com/newsflash/296191",
       "https://www.sohu.com/a/1012643463_115433"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "汽车出行",
+    "relations": [
+      {
+        "type": "related",
+        "target": "fast-charging",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "energy-density",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "three-electric",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "0-100kmh",
@@ -482,11 +670,6 @@ window.XIGAI["汽车出行"] = [
     "misconceptions": [
       "零百快不代表操控好，且电池电量低时电驱加速性能会明显衰减"
     ],
-    "related": [
-      "风阻系数",
-      "底盘调校",
-      "纯电"
-    ],
     "references": [
       "汽车的零百加速时间是怎么测的？影响因素有哪些？",
       "0-100加速时间"
@@ -495,7 +678,25 @@ window.XIGAI["汽车出行"] = [
       "https://chejiahao.autohome.com.cn/info/10641710",
       "https://yp.xcar.com.cn/wiki/detail_579.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "汽车出行",
+    "relations": [
+      {
+        "type": "related",
+        "target": "drag-coefficient",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "chassis-tuning",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "bev",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "drag-coefficient",
@@ -527,11 +728,6 @@ window.XIGAI["汽车出行"] = [
     "misconceptions": [
       "Cd低不等于外观好看，且低速行驶时风阻影响很小，主要影响高速工况"
     ],
-    "related": [
-      "百公里加速",
-      "纯电",
-      "底盘调校"
-    ],
     "references": [
       "钱是大风刮来的，好车是“吹”出来的",
       "运动型轿车开发全流程解析：从设计到性能调优"
@@ -540,7 +736,25 @@ window.XIGAI["汽车出行"] = [
       "https://www.maiche.com/news/detail/2553244.html",
       "https://developer.baidu.com/article/detail.html?id=7551533"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "汽车出行",
+    "relations": [
+      {
+        "type": "related",
+        "target": "0-100kmh",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "bev",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "chassis-tuning",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "chassis-tuning",
@@ -572,18 +786,31 @@ window.XIGAI["汽车出行"] = [
     "misconceptions": [
       "硬件好≠好开，调校软硬没有绝对优劣，只取决于车型定位与目标用户"
     ],
-    "related": [
-      "百公里加速",
-      "四驱",
-      "风阻系数"
-    ],
     "references": [
       "运动型轿车开发全流程解析：从设计到性能调优"
     ],
     "sources": [
       "https://developer.baidu.com/article/detail.html?id=7551533"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "汽车出行",
+    "relations": [
+      {
+        "type": "related",
+        "target": "0-100kmh",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "awd-4wd",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "drag-coefficient",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "turbocharger",
@@ -615,18 +842,31 @@ window.XIGAI["汽车出行"] = [
     "misconceptions": [
       "“带T省油”是常见误区，实际油耗取决于工况与驾驶习惯，涡轮主要换的是动力"
     ],
-    "related": [
-      "变速箱",
-      "混动",
-      "四驱"
-    ],
     "references": [
       "涡轮增压和机械增压讲解"
     ],
     "sources": [
       "https://chejiahao.autohome.com.cn/info/4556452"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "汽车出行",
+    "relations": [
+      {
+        "type": "related",
+        "target": "transmission",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "hybrid",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "awd-4wd",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "transmission",
@@ -659,11 +899,6 @@ window.XIGAI["汽车出行"] = [
     "misconceptions": [
       "挡位越多并不等于越好，变速箱的调校匹配水平比挡位数量更关键"
     ],
-    "related": [
-      "涡轮增压",
-      "四驱",
-      "混动"
-    ],
     "references": [
       "汽车传动系统 (Powertrain / Drivetrain)",
       "机械式传动系"
@@ -672,7 +907,25 @@ window.XIGAI["汽车出行"] = [
       "https://www.bitauto.my/zh/wiki/汽车传动系统%20(Powertrain%20%2F%20Drivetrain)/",
       "https://baike.baidu.com/item/机械式传动系/16766537"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "汽车出行",
+    "relations": [
+      {
+        "type": "related",
+        "target": "turbocharger",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "awd-4wd",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "hybrid",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "awd-4wd",
@@ -706,11 +959,6 @@ window.XIGAI["汽车出行"] = [
     "misconceptions": [
       "四驱不等于越野能力强，脱困还需差速锁、离地间隙、轮胎等配合"
     ],
-    "related": [
-      "涡轮增压",
-      "变速箱",
-      "底盘调校"
-    ],
     "references": [
       "别以为四驱就能越野，适时、分时、全时四驱该怎么选？",
       "什么是分时、全时、适时四驱？别再弄混了"
@@ -719,6 +967,29 @@ window.XIGAI["汽车出行"] = [
       "https://news.yiche.com/hao/wenzhang/57420339/",
       "https://chejiahao.autohome.com.cn/info/7020208"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "汽车出行",
+    "relations": [
+      {
+        "type": "related",
+        "target": "turbocharger",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "transmission",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "chassis-tuning",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "autonomy-levels",
+        "note": ""
+      }
+    ]
   }
 ];

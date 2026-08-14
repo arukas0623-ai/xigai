@@ -29,12 +29,6 @@ window.XIGAI["体育运动"] = [
     "misconceptions": [
       "平行站位不越位，手臂位置不算越位"
     ],
-    "related": [
-      "红黄牌",
-      "加时赛",
-      "点球大战",
-      "停赛"
-    ],
     "references": [
       "越位 - 维基百科",
       "足球世界杯术语指南（Women's Health）"
@@ -43,7 +37,35 @@ window.XIGAI["体育运动"] = [
       "https://zh.wikipedia.org/zh-cn/%E8%B6%8A%E4%BD%8D",
       "https://www.womenshealthmag.com/tw/fitness/a71812882/world-cup-soccer-terms-guide/"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "体育运动",
+    "relations": [
+      {
+        "type": "related",
+        "target": "card-system",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "overtime",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "penalty-shootout",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "suspension",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "biased-refereeing",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "hat-trick",
@@ -74,12 +96,6 @@ window.XIGAI["体育运动"] = [
     "misconceptions": [
       "跨场累计不算帽子戏法，须同一球员单场完成"
     ],
-    "related": [
-      "世界波",
-      "关键球",
-      "双杀",
-      "加时赛"
-    ],
     "references": [
       "帽子戏法_百度百科",
       "China Daily：帽子戏法 hat-trick"
@@ -88,7 +104,35 @@ window.XIGAI["体育运动"] = [
       "https://baike.baidu.com/item/%E5%B8%BD%E5%AD%90%E6%88%8F%E6%B3%95/332",
       "https://www.chinadaily.com.cn/fifa2014/2014-06/06/content_17559890.htm"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "体育运动",
+    "relations": [
+      {
+        "type": "related",
+        "target": "wonder-goal",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "clutch-shot",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "double",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "overtime",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "penalty-shootout",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "card-system",
@@ -120,12 +164,6 @@ window.XIGAI["体育运动"] = [
     "misconceptions": [
       "红牌罚下后球队必须少一人，不能换人顶替"
     ],
-    "related": [
-      "停赛",
-      "越位",
-      "点球大战",
-      "黑哨"
-    ],
     "references": [
       "红黄牌_百度百科",
       "黄牌 - 维基百科"
@@ -134,7 +172,30 @@ window.XIGAI["体育运动"] = [
       "https://baike.baidu.com/item/%E7%BA%A2%E9%BB%84%E7%89%8C/5448674",
       "https://zh.wikipedia.org/wiki/%E9%BB%83%E7%89%8C"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "体育运动",
+    "relations": [
+      {
+        "type": "related",
+        "target": "suspension",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "offside",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "penalty-shootout",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "biased-refereeing",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "penalty-shootout",
@@ -166,12 +227,6 @@ window.XIGAI["体育运动"] = [
     "misconceptions": [
       "点球大战进球不计入射手榜，也不改变平局战绩"
     ],
-    "related": [
-      "加时赛",
-      "帽子戏法",
-      "关键球",
-      "死亡之组"
-    ],
     "references": [
       "互射十二碼 - 维基百科",
       "点球决胜_百度百科"
@@ -180,7 +235,40 @@ window.XIGAI["体育运动"] = [
       "https://zh.wikipedia.org/wiki/%E4%BA%92%E5%B0%84%E5%8D%81%E4%BA%8C%E7%A2%BC",
       "https://wapbaike.baidu.com/item/%E7%82%B9%E7%90%83%E5%86%B3%E8%83%9C/12728545"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "体育运动",
+    "relations": [
+      {
+        "type": "related",
+        "target": "overtime",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "hat-trick",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "clutch-shot",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "group-of-death",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "offside",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "card-system",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "all-star-game",
@@ -211,12 +299,6 @@ window.XIGAI["体育运动"] = [
     "misconceptions": [
       "全明星是表演赛，胜负含金量低，不代表季后赛实力"
     ],
-    "related": [
-      "三分雨",
-      "背靠背",
-      "第四节崩盘",
-      "关键球"
-    ],
     "references": [
       "NBA全明星赛 - 维基百科",
       "NBA全明星三分球大赛_百度百科"
@@ -225,7 +307,45 @@ window.XIGAI["体育运动"] = [
       "https://zh.wikipedia.org/wiki/NBA%E5%85%A8%E6%98%8E%E6%98%9F%E8%B3%BD",
       "https://bkso.baidu.com/item/NBA%E5%85%A8%E6%98%8E%E6%98%9F%E4%B8%89%E5%88%86%E7%90%83%E5%A4%A7%E8%B5%9B/5408989"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "体育运动",
+    "relations": [
+      {
+        "type": "related",
+        "target": "three-point-barrage",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "back-to-back",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "fourth-quarter-collapse",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "clutch-shot",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "transfer-window",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "free-agent",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "tanking",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "clutch-shot",
@@ -257,12 +377,6 @@ window.XIGAI["体育运动"] = [
     "misconceptions": [
       "关键球不只看进球，还包括关键篮板、防守与罚球"
     ],
-    "related": [
-      "第四节崩盘",
-      "帽子戏法",
-      "世界波",
-      "点球大战"
-    ],
     "references": [
       "Clutch (sports) - Wikipedia",
       "关键时刻_百度百科"
@@ -271,7 +385,55 @@ window.XIGAI["体育运动"] = [
       "https://en.wikipedia.org/wiki/Clutch_(sports)",
       "https://baike.baidu.com/item/%E5%85%B3%E9%94%AE%E6%97%B6%E5%88%BB"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "体育运动",
+    "relations": [
+      {
+        "type": "related",
+        "target": "fourth-quarter-collapse",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "hat-trick",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "wonder-goal",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "penalty-shootout",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "all-star-game",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "three-point-barrage",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "double",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "back-to-back",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "overtime",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "fourth-quarter-collapse",
@@ -303,12 +465,6 @@ window.XIGAI["体育运动"] = [
     "misconceptions": [
       "崩盘不等于实力差，更多是临场状态与心理问题"
     ],
-    "related": [
-      "关键球",
-      "背靠背",
-      "三分雨",
-      "摆烂"
-    ],
     "references": [
       "Choke (sports) - Wikipedia",
       "被逆转_百度百科"
@@ -317,7 +473,40 @@ window.XIGAI["体育运动"] = [
       "https://en.wikipedia.org/wiki/Choke_(sports)",
       "https://baike.baidu.com/item/%E8%A2%AB%E9%80%86%E8%BD%AC"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "体育运动",
+    "relations": [
+      {
+        "type": "related",
+        "target": "clutch-shot",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "back-to-back",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "three-point-barrage",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "tanking",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "all-star-game",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "overtime",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "three-point-barrage",
@@ -348,12 +537,6 @@ window.XIGAI["体育运动"] = [
     "misconceptions": [
       "三分雨强调连续性与爆发力，不等于命中率最高"
     ],
-    "related": [
-      "全明星赛",
-      "第四节崩盘",
-      "关键球",
-      "背靠背"
-    ],
     "references": [
       "篮球小辞典：三分雨 Rain Maker（篮球笔记）",
       "三分球_百度百科"
@@ -362,7 +545,30 @@ window.XIGAI["体育运动"] = [
       "https://basketball.biji.co/index.php?q=news&act=info&id=967",
       "https://baike.baidu.com/item/%E4%B8%89%E5%88%86%E7%90%83"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "体育运动",
+    "relations": [
+      {
+        "type": "related",
+        "target": "all-star-game",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "fourth-quarter-collapse",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "clutch-shot",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "back-to-back",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "double",
@@ -393,12 +599,6 @@ window.XIGAI["体育运动"] = [
     "misconceptions": [
       "双杀不指一场比赛进两球（那是梅开二度）"
     ],
-    "related": [
-      "鱼腩球队",
-      "死亡之组",
-      "关键球",
-      "帽子戏法"
-    ],
     "references": [
       "双杀（棒球） - 维基百科",
       "双杀_百度百科"
@@ -407,7 +607,35 @@ window.XIGAI["体育运动"] = [
       "https://zh.wikipedia.org/wiki/%E9%9B%99%E6%AE%BA",
       "https://baike.baidu.com/item/%E5%8F%8C%E6%9D%80"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "体育运动",
+    "relations": [
+      {
+        "type": "related",
+        "target": "weak-team",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "group-of-death",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "clutch-shot",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "hat-trick",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "wonder-goal",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "biased-refereeing",
@@ -438,12 +666,6 @@ window.XIGAI["体育运动"] = [
     "misconceptions": [
       "误判不等于黑哨，黑哨强调主观故意与利益往来"
     ],
-    "related": [
-      "假球",
-      "红黄牌",
-      "停赛",
-      "越位"
-    ],
     "references": [
       "黑哨_百度百科",
       "北京晚报：世界杯上有黑哨吗（中国网）"
@@ -452,7 +674,30 @@ window.XIGAI["体育运动"] = [
       "https://baike.baidu.com/item/%E9%BB%91%E5%93%A8",
       "http://big5.china.com.cn/gate/big5/lianghui.china.com.cn/chinese/features/SPORT-c/162562.htm"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "体育运动",
+    "relations": [
+      {
+        "type": "related",
+        "target": "match-fixing",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "card-system",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "suspension",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "offside",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "match-fixing",
@@ -484,12 +729,6 @@ window.XIGAI["体育运动"] = [
     "misconceptions": [
       "失误不等于假球，须有证据链证明主观故意与利益往来"
     ],
-    "related": [
-      "黑哨",
-      "摆烂",
-      "转会窗",
-      "鱼腩球队"
-    ],
     "references": [
       "Match fixing - Wikipedia",
       "假球_百度百科"
@@ -498,7 +737,40 @@ window.XIGAI["体育运动"] = [
       "https://en.wikipedia.org/wiki/Match_fixing",
       "https://baike.baidu.com/item/%E5%81%87%E7%90%83"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "体育运动",
+    "relations": [
+      {
+        "type": "related",
+        "target": "biased-refereeing",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "tanking",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "transfer-window",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "weak-team",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "free-agent",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "suspension",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "transfer-window",
@@ -530,12 +802,6 @@ window.XIGAI["体育运动"] = [
     "misconceptions": [
       "自由球员可随时签约，不受转会窗限制"
     ],
-    "related": [
-      "自由身",
-      "停赛",
-      "全明星赛",
-      "鱼腩球队"
-    ],
     "references": [
       "The origins of player transfers（Premier League官网）",
       "转会窗 - 维基百科"
@@ -544,7 +810,35 @@ window.XIGAI["体育运动"] = [
       "https://www.premierleague.com/en/news/4212638/the-history-of-transfer-windows",
       "https://zh.wikipedia.org/wiki/%E8%BD%89%E6%9C%83%E7%AA%97"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "体育运动",
+    "relations": [
+      {
+        "type": "related",
+        "target": "free-agent",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "suspension",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "all-star-game",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "weak-team",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "match-fixing",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "free-agent",
@@ -576,12 +870,6 @@ window.XIGAI["体育运动"] = [
     "misconceptions": [
       "自由身不等于免费：签字费与工资往往更高"
     ],
-    "related": [
-      "转会窗",
-      "假球",
-      "全明星赛",
-      "背靠背"
-    ],
     "references": [
       "博斯曼法案 - 维基百科",
       "马德兴徐阳谈自由身（新浪体育）"
@@ -590,7 +878,30 @@ window.XIGAI["体育运动"] = [
       "https://zh.wikipedia.org/wiki/%E5%8D%9A%E6%96%AF%E6%9B%BC%E6%B3%95%E6%A1%88",
       "http://sports.sina.com.cn/j/2009-02-09/14304205707.shtml"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "体育运动",
+    "relations": [
+      {
+        "type": "related",
+        "target": "transfer-window",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "match-fixing",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "all-star-game",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "back-to-back",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "back-to-back",
@@ -622,12 +933,6 @@ window.XIGAI["体育运动"] = [
     "misconceptions": [
       "背靠背冠军指连续两年夺冠，与连续两天比赛是两种用法"
     ],
-    "related": [
-      "第四节崩盘",
-      "全明星赛",
-      "关键球",
-      "摆烂"
-    ],
     "references": [
       "背靠背_百度百科",
       "NBA的背靠背战力解析（中时新闻网）"
@@ -636,7 +941,40 @@ window.XIGAI["体育运动"] = [
       "https://baike.baidu.com/item/%E8%83%8C%E9%9D%A0%E8%83%8C/3125",
       "https://www.chinatimes.com/cn/realtimenews/20230112002382-260403"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "体育运动",
+    "relations": [
+      {
+        "type": "related",
+        "target": "fourth-quarter-collapse",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "all-star-game",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "clutch-shot",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "tanking",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "three-point-barrage",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "free-agent",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "tanking",
@@ -668,12 +1006,6 @@ window.XIGAI["体育运动"] = [
     "misconceptions": [
       "摆烂是俱乐部层面战略，与球员个人态度无关"
     ],
-    "related": [
-      "鱼腩球队",
-      "假球",
-      "背靠背",
-      "全明星赛"
-    ],
     "references": [
       "Tanking (sports) - Wikipedia",
       "NBA球队如何正确摆烂（百度百科TA说）"
@@ -682,7 +1014,35 @@ window.XIGAI["体育运动"] = [
       "https://en.wikipedia.org/wiki/Tanking_(sports)",
       "https://baike.baidu.com/tashuo/browse/content?id=07a8754d09fee39367449635"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "体育运动",
+    "relations": [
+      {
+        "type": "related",
+        "target": "weak-team",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "match-fixing",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "back-to-back",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "all-star-game",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "fourth-quarter-collapse",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "weak-team",
@@ -714,12 +1074,6 @@ window.XIGAI["体育运动"] = [
     "misconceptions": [
       "鱼腩是相对实力评价，不涉及球队态度或假球"
     ],
-    "related": [
-      "摆烂",
-      "死亡之组",
-      "双杀",
-      "假球"
-    ],
     "references": [
       "鱼腩球队_百度百科",
       "鱼腩 - 维基词典"
@@ -728,7 +1082,35 @@ window.XIGAI["体育运动"] = [
       "https://baike.baidu.com/item/%E9%B1%BC%E8%85%A9%E7%90%83%E9%98%9F",
       "https://zh.wiktionary.org/wiki/%E9%B1%BC%E8%85%A9"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "体育运动",
+    "relations": [
+      {
+        "type": "related",
+        "target": "tanking",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "group-of-death",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "double",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "match-fixing",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "transfer-window",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "group-of-death",
@@ -759,12 +1141,6 @@ window.XIGAI["体育运动"] = [
     "misconceptions": [
       "死亡之组的关键是实力接近导致竞争惨烈，而非全强队"
     ],
-    "related": [
-      "鱼腩球队",
-      "双杀",
-      "点球大战",
-      "加时赛"
-    ],
     "references": [
       "死亡之組 - 维基百科",
       "死亡之组_百度百科"
@@ -773,7 +1149,30 @@ window.XIGAI["体育运动"] = [
       "https://zh.wikipedia.org/zh-hk/%E6%AD%BB%E4%BA%A1%E4%B9%8B%E7%B5%84",
       "https://baike.baidu.com/item/%E6%AD%BB%E4%BA%A1%E4%B9%8B%E7%BB%84"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "体育运动",
+    "relations": [
+      {
+        "type": "related",
+        "target": "weak-team",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "double",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "penalty-shootout",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "overtime",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "overtime",
@@ -805,12 +1204,6 @@ window.XIGAI["体育运动"] = [
     "misconceptions": [
       "足球加时赛进球算正式进球，计入射手数据"
     ],
-    "related": [
-      "点球大战",
-      "关键球",
-      "第四节崩盘",
-      "帽子戏法"
-    ],
     "references": [
       "加时赛 - 维基百科",
       "加时赛_百度百科"
@@ -819,7 +1212,45 @@ window.XIGAI["体育运动"] = [
       "https://zh.wikipedia.org/wiki/%E5%8A%A0%E6%97%B6%E8%B5%9B",
       "https://baike.baidu.com/item/%E5%8A%A0%E6%97%B6%E8%B5%9B"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "体育运动",
+    "relations": [
+      {
+        "type": "related",
+        "target": "penalty-shootout",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "clutch-shot",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "fourth-quarter-collapse",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "hat-trick",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "offside",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "group-of-death",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "wonder-goal",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "suspension",
@@ -851,12 +1282,6 @@ window.XIGAI["体育运动"] = [
     "misconceptions": [
       "停赛场次可由纪律委员会追加，不限于自动停赛"
     ],
-    "related": [
-      "红黄牌",
-      "越位",
-      "黑哨",
-      "假球"
-    ],
     "references": [
       "世界杯红黄牌停赛规则（球探体育）",
       "停赛_百度百科"
@@ -865,7 +1290,35 @@ window.XIGAI["体育运动"] = [
       "https://m.qtx.com/worldcup/163348.html",
       "https://baike.baidu.com/item/%E5%81%9C%E8%B5%9B"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "体育运动",
+    "relations": [
+      {
+        "type": "related",
+        "target": "card-system",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "offside",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "biased-refereeing",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "match-fixing",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "transfer-window",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "wonder-goal",
@@ -897,12 +1350,6 @@ window.XIGAI["体育运动"] = [
     "misconceptions": [
       "世界波专指远射或高难度进球，不等于普通进球"
     ],
-    "related": [
-      "帽子戏法",
-      "关键球",
-      "加时赛",
-      "双杀"
-    ],
     "references": [
       "世界波_百度百科",
       "世界波 - 维基词典"
@@ -911,6 +1358,29 @@ window.XIGAI["体育运动"] = [
       "https://baike.baidu.com/item/%E4%B8%96%E7%95%8C%E6%B3%A2",
       "https://zh.wiktionary.org/wiki/%E4%B8%96%E7%95%8C%E6%B3%A2"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "体育运动",
+    "relations": [
+      {
+        "type": "related",
+        "target": "hat-trick",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "clutch-shot",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "overtime",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "double",
+        "note": ""
+      }
+    ]
   }
 ];

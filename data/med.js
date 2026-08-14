@@ -34,13 +34,6 @@ window.XIGAI["医学健康"] = [
       "“抗生素等于消炎药”：抗生素只针对细菌感染，对病毒性感冒和无菌性炎症无效。",
       "“症状好转即可停药”：提前停药易致感染复发并促进耐药菌产生。"
     ],
-    "related": [
-      "耐药性",
-      "疫苗",
-      "病毒",
-      "细菌感染",
-      "青霉素"
-    ],
     "references": [
       "科普中国·为什么说青霉素是20世纪最重要的药物",
       "MSD诊疗手册·抗菌药物概述",
@@ -52,7 +45,40 @@ window.XIGAI["医学健康"] = [
       "https://simm.cas.cn/web/kxpj/kpwz_168050/201104/t20110429_5647713.html",
       "https://cloud.kepuchina.cn/newSearch/imgText?from=1&id=7019398601100656640&is_self=2"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "医学健康",
+    "relations": [
+      {
+        "type": "related",
+        "target": "耐药性",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "vaccine",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "virus",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "细菌感染",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "青霉素",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "clinical-trial",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "vaccine",
@@ -87,13 +113,6 @@ window.XIGAI["医学健康"] = [
       "“疫苗会让人得上它所预防的疾病”：灭活与亚单位疫苗不会致病，减毒活疫苗对免疫功能正常者风险极低。",
       "“打了疫苗就一定不会感染”：疫苗显著降低感染与重症风险，但保护率并非100%。"
     ],
-    "related": [
-      "病毒",
-      "人体免疫系统",
-      "抗生素",
-      "传染病",
-      "群体免疫"
-    ],
     "references": [
       "四川省疾控中心·疫苗进入你身体时，免疫系统开启了一场“提前演习”",
       "科普中国·健康神盾——疫苗",
@@ -105,7 +124,45 @@ window.XIGAI["医学健康"] = [
       "https://www.kepuchina.cn/kpcs/lcb/lcb2/201604/t20160419_9095.shtml",
       "https://ynsjkj.yn.gov.cn/html/2023/jikongkepu_0418/163.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "医学健康",
+    "relations": [
+      {
+        "type": "related",
+        "target": "virus",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "human-immune-system",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "antibiotics",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "传染病",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "群体免疫",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "immune-system",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "clinical-trial",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "virus",
@@ -140,13 +197,6 @@ window.XIGAI["医学健康"] = [
       "“病毒是细菌的一种”：病毒比细菌小得多且不能独立生存，抗生素对病毒无效。",
       "“所有病毒都会致病”：多数病毒与宿主长期共存或感染后无症状，噬菌体等还被人类利用。"
     ],
-    "related": [
-      "抗生素",
-      "疫苗",
-      "人体免疫系统",
-      "细菌",
-      "传染病"
-    ],
     "references": [
       "科普中国·生物病毒",
       "中国科普博览·病毒馆",
@@ -158,7 +208,35 @@ window.XIGAI["医学健康"] = [
       "https://cloud.kepuchina.cn/newSearch/imgText?from=1&id=6677409459920781312&is_self=2",
       "https://www.psmchina.cn/safe_medicines_information/safe_medicines_knowledge/jbcs/4295"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "医学健康",
+    "relations": [
+      {
+        "type": "related",
+        "target": "antibiotics",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "vaccine",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "human-immune-system",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "细菌",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "传染病",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "cancer-cell",
@@ -193,13 +271,6 @@ window.XIGAI["医学健康"] = [
       "“癌细胞会传染”：癌细胞本身不具备人与人之间的传染性，致癌病毒（如HPV、乙肝病毒）才可传播。",
       "“活检会促使癌细胞扩散”：规范操作下穿刺活检不会显著增加转移风险。"
     ],
-    "related": [
-      "干细胞",
-      "基因测序",
-      "临床试验",
-      "慢性病",
-      "肿瘤"
-    ],
     "references": [
       "科普中国·细胞失控的秘密：一文读懂肿瘤病因与发病机制",
       "科普中国·癌变：失控的细胞",
@@ -211,7 +282,40 @@ window.XIGAI["医学健康"] = [
       "https://cmapc.fzu.edu.cn/info/1033/1382.htm",
       "http://s.dayi.org.cn/mip/s/term/1143564.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "医学健康",
+    "relations": [
+      {
+        "type": "related",
+        "target": "stem-cell",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "gene-sequencing",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "clinical-trial",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "chronic-disease",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "肿瘤",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "human-immune-system",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "gene-sequencing",
@@ -246,13 +350,6 @@ window.XIGAI["医学健康"] = [
       "“基因测序能预测一切疾病”：基因只是健康风险因素之一，多数疾病由基因与环境共同决定。",
       "“测序报告可以自行解读”：需结合临床与遗传咨询，避免过度解读造成焦虑。"
     ],
-    "related": [
-      "癌细胞",
-      "慢性病",
-      "精准医疗",
-      "DNA",
-      "人类基因组计划"
-    ],
     "references": [
       "科普中国·基因测序：探寻生命密码",
       "科普中国·解码生命的终极仪器：基因测序仪",
@@ -264,7 +361,40 @@ window.XIGAI["医学健康"] = [
       "https://big.cas.cn/xwdt/kyjz/201311/t20131127_5747608.html",
       "https://cloud.kepuchina.cn/search/imgText?id=295954"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "医学健康",
+    "relations": [
+      {
+        "type": "related",
+        "target": "cancer-cell",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "chronic-disease",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "精准医疗",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "DNA",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "人类基因组计划",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "stem-cell",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "human-immune-system",
@@ -299,13 +429,6 @@ window.XIGAI["医学健康"] = [
       "“免疫力越强越好”：免疫过强或失衡反而会导致过敏、自身免疫病。",
       "“保健品能大幅提升免疫力”：均衡营养、规律作息、接种疫苗才是科学途径。"
     ],
-    "related": [
-      "疫苗",
-      "病毒",
-      "癌细胞",
-      "干细胞",
-      "自身免疫病"
-    ],
     "references": [
       "大众健康报·探索免疫：人体防御的核心机制",
       "北京大学第一医院·人体的免疫力是怎么回事",
@@ -317,7 +440,40 @@ window.XIGAI["医学健康"] = [
       "https://hnzhy.com/jkkp/swbnsxgxjb/1311330769567744.html",
       "https://ehealthship.com/articleDetail.zhtml?Type=Article&id=1367"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "医学健康",
+    "relations": [
+      {
+        "type": "related",
+        "target": "vaccine",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "virus",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "cancer-cell",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "stem-cell",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "自身免疫病",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "chronic-disease",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "anesthesia",
@@ -352,13 +508,6 @@ window.XIGAI["医学健康"] = [
       "“麻醉会让人变傻”：现代麻醉药物代谢快，规范麻醉对认知功能无明确长期影响。",
       "“全麻就是睡一觉那么简单”：麻醉期间的呼吸循环管理复杂，需麻醉医生全程守护。"
     ],
-    "related": [
-      "临床试验",
-      "疼痛管理",
-      "外科手术",
-      "慢性病",
-      "药物"
-    ],
     "references": [
       "科普中国·乙醚",
       "维基百科·威廉·莫顿",
@@ -370,7 +519,35 @@ window.XIGAI["医学健康"] = [
       "http://paper.dzjkb.org.cn/article/1548/1884.html",
       "https://www.sohu.com/a/571604838_464402/"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "医学健康",
+    "relations": [
+      {
+        "type": "related",
+        "target": "clinical-trial",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "疼痛管理",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "外科手术",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "chronic-disease",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "药物",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "clinical-trial",
@@ -405,13 +582,6 @@ window.XIGAI["医学健康"] = [
       "“临床试验就是把患者当小白鼠”：试验须经伦理审查和知情同意，受试者权益受法律保护且可随时退出。",
       "“安慰剂组患者得不到治疗”：规范试验会给对照组提供标准治疗或后续补救方案。"
     ],
-    "related": [
-      "抗生素",
-      "疫苗",
-      "麻醉",
-      "循证医学",
-      "药物研发"
-    ],
     "references": [
       "医药卫生网·带你正确认识临床试验",
       "BMJ·1948年链霉素随机对照试验的历史",
@@ -423,7 +593,45 @@ window.XIGAI["医学健康"] = [
       "https://wap.cacakp.com/appnews/detail/id/15686",
       "https://www.hzch.gd.cn/Article/ashow/aid/5465/cid/39"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "医学健康",
+    "relations": [
+      {
+        "type": "related",
+        "target": "antibiotics",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "vaccine",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "anesthesia",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "循证医学",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "药物研发",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "cancer-cell",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "chronic-disease",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "chronic-disease",
@@ -458,13 +666,6 @@ window.XIGAI["医学健康"] = [
       "“慢性病是老年病，年轻人不用担心”：慢性病呈年轻化趋势，不良生活方式是重要诱因。",
       "“慢病不痛不痒不用管”：长期失控会引发心梗、脑卒中、肾衰竭等严重并发症。"
     ],
-    "related": [
-      "癌细胞",
-      "临床试验",
-      "人体免疫系统",
-      "健康管理",
-      "心脑血管疾病"
-    ],
     "references": [
       "世界卫生组织·Noncommunicable diseases",
       "山东健康集团淄博医院·慢病不是“一种”病",
@@ -476,7 +677,45 @@ window.XIGAI["医学健康"] = [
       "https://www.sdjkzbyy.com/html/jkkp/20260106/4606.html",
       "https://fy.nankai.edu.cn/2024/0524/c8607a544063/page.htm"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "医学健康",
+    "relations": [
+      {
+        "type": "related",
+        "target": "cancer-cell",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "clinical-trial",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "human-immune-system",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "健康管理",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "心脑血管疾病",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "gene-sequencing",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "anesthesia",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "stem-cell",
@@ -511,13 +750,6 @@ window.XIGAI["医学健康"] = [
       "“干细胞能包治百病、返老还童”：多数应用仍处研究阶段，疗效与安全性证据有限。",
       "“打干细胞等于保健美容”：未经批准的干细胞治疗存在感染、致瘤等风险，需警惕非法机构。"
     ],
-    "related": [
-      "癌细胞",
-      "基因测序",
-      "人体免疫系统",
-      "再生医学",
-      "器官移植"
-    ],
     "references": [
       "梅奥诊所·干细胞：什么是干细胞，它们有何作用",
       "默沙东诊疗手册·干细胞移植",
@@ -529,6 +761,34 @@ window.XIGAI["医学健康"] = [
       "http://www.gyig.cas.cn/mtjj_/202111/t20211112_6254613.html",
       "https://cloud.kepuchina.cn/search/imgText?id=296796"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "医学健康",
+    "relations": [
+      {
+        "type": "related",
+        "target": "cancer-cell",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "gene-sequencing",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "human-immune-system",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "再生医学",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "器官移植",
+        "note": ""
+      }
+    ]
   }
 ];

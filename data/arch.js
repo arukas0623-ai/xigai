@@ -29,11 +29,6 @@ window.XIGAI["建筑与设计"] = [
     "misconceptions": [
       "敲击声音沉闷的墙不一定是承重墙，须结合图纸确认"
     ],
-    "related": [
-      "剪力墙",
-      "框架结构",
-      "构造柱"
-    ],
     "references": [
       "人民网上海：结构大不同 教你识别多层、高层住宅中的承重墙",
       "贝壳楼盘百科：住宅的建筑结构有哪些"
@@ -42,7 +37,25 @@ window.XIGAI["建筑与设计"] = [
       "http://sh.people.com.cn/BIG5/n2/2023/0608/c176737-40449883.html",
       "https://m.ke.com/hz/loupan/zhuanti/8838.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "建筑与设计",
+    "relations": [
+      {
+        "type": "related",
+        "target": "shear-wall",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "frame-structure",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "构造柱",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "shear-wall",
@@ -74,11 +87,6 @@ window.XIGAI["建筑与设计"] = [
     "misconceptions": [
       "剪力墙不是全楼每堵墙都承重，洞口周边连梁也属受力构件"
     ],
-    "related": [
-      "承重墙",
-      "框架结构",
-      "框架-核心筒"
-    ],
     "references": [
       "贝壳楼盘百科：住宅的建筑结构有哪些",
       "百度百家号：不同结构的住宅，如何识别承重墙"
@@ -87,7 +95,30 @@ window.XIGAI["建筑与设计"] = [
       "https://m.ke.com/hz/loupan/zhuanti/8838.html",
       "https://baijiahao.baidu.com/s?id=1768144931288546601&wfr=spider&for=pc"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "建筑与设计",
+    "relations": [
+      {
+        "type": "related",
+        "target": "load-bearing-wall",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "frame-structure",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "框架-核心筒",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "cantilever",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "frame-structure",
@@ -115,11 +146,6 @@ window.XIGAI["建筑与设计"] = [
       "商场、办公楼、教学楼等大开间公共建筑",
       "住宅底商加剪力墙的转换层设计"
     ],
-    "related": [
-      "剪力墙",
-      "承重墙",
-      "框架-核心筒"
-    ],
     "references": [
       "贝壳楼盘百科：住宅的建筑结构有哪些",
       "人民网上海：教你识别多层、高层住宅中的承重墙"
@@ -128,7 +154,25 @@ window.XIGAI["建筑与设计"] = [
       "https://m.ke.com/hz/loupan/zhuanti/8838.html",
       "http://sh.people.com.cn/BIG5/n2/2023/0608/c176737-40449883.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "建筑与设计",
+    "relations": [
+      {
+        "type": "related",
+        "target": "shear-wall",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "load-bearing-wall",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "框架-核心筒",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "bim",
@@ -159,11 +203,6 @@ window.XIGAI["建筑与设计"] = [
     "misconceptions": [
       "BIM不是三维建模软件，而是信息协同管理方法"
     ],
-    "related": [
-      "装配式建筑",
-      "参数化设计",
-      "智慧工地"
-    ],
     "references": [
       "深圳市政府在线：什么是BIM?",
       "安徽省住建厅：什么是BIM技术?"
@@ -172,7 +211,30 @@ window.XIGAI["建筑与设计"] = [
       "http://www.sz.gov.cn/hdjl/ywzsk/zwfwsjglj/sjgl/content/post_10500543.html",
       "https://dohurd.ah.gov.cn/zmhd/cjwt/jnkj/54606891.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "建筑与设计",
+    "relations": [
+      {
+        "type": "related",
+        "target": "prefabricated-building",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "parametric-design",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "智慧工地",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "civil-engineering",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "passive-house",
@@ -200,11 +262,6 @@ window.XIGAI["建筑与设计"] = [
       "严寒、寒冷地区超低能耗住宅建设",
       "既有建筑节能改造参照被动房标准实施"
     ],
-    "related": [
-      "节能建筑",
-      "绿色建筑",
-      "新风系统"
-    ],
     "references": [
       "被动式超低能耗建筑标准图集23J908-8",
       "被动房PHI中国认证信息"
@@ -213,7 +270,30 @@ window.XIGAI["建筑与设计"] = [
       "https://ebook.chinabuilding.com.cn/zbooklib/book/detail/show?bookID=155754&SiteID=1",
       "https://www.phichina.com/zh-hans/%e8%ae%a4%e8%af%81%e4%bf%a1%e6%81%af.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "建筑与设计",
+    "relations": [
+      {
+        "type": "related",
+        "target": "energy-efficient-building",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "green-building",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "新风系统",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "daylighting",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "circulation",
@@ -242,11 +322,6 @@ window.XIGAI["建筑与设计"] = [
       "住宅户型设计评估动静分区是否合理",
       "商业综合体平面布局引导客流与租金价值"
     ],
-    "related": [
-      "人体工学",
-      "无障碍设计",
-      "户型设计"
-    ],
     "references": [
       "知乎：建筑与空间设计行业黑话通用规范2026",
       "商业建筑设计名词扫盲"
@@ -255,7 +330,30 @@ window.XIGAI["建筑与设计"] = [
       "https://zhuanlan.zhihu.com/p/2054988561733231341",
       "http://www.chinalbgf.com/h-nd-361.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "建筑与设计",
+    "relations": [
+      {
+        "type": "related",
+        "target": "ergonomics",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "accessible-design",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "户型设计",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "ventilation-shaft",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "ergonomics",
@@ -283,11 +381,6 @@ window.XIGAI["建筑与设计"] = [
       "定制家具与厨房台面高度按使用者身高定制",
       "办公空间工位尺寸与屏幕高度调节设计"
     ],
-    "related": [
-      "动线",
-      "无障碍设计",
-      "家具设计"
-    ],
     "references": [
       "商业建筑设计名词扫盲",
       "建筑与空间设计行业黑话通用规范2026"
@@ -296,7 +389,25 @@ window.XIGAI["建筑与设计"] = [
       "http://www.chinalbgf.com/h-nd-361.html",
       "https://zhuanlan.zhihu.com/p/2054988561733231341"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "建筑与设计",
+    "relations": [
+      {
+        "type": "related",
+        "target": "circulation",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "accessible-design",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "家具设计",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "bauhaus",
@@ -324,11 +435,6 @@ window.XIGAI["建筑与设计"] = [
       "现代主义建筑设计教学的基础理论",
       "极简与功能主义家具（如包豪斯钢管椅）设计"
     ],
-    "related": [
-      "参数化设计",
-      "现代主义",
-      "密斯·凡·德·罗"
-    ],
     "references": [
       "同济大学新闻网：从包豪斯到零豪斯——德国建筑创新的三次浪潮",
       "海外网：包豪斯到底是什么？"
@@ -337,7 +443,30 @@ window.XIGAI["建筑与设计"] = [
       "https://news.tongji.edu.cn/info/1007/11388.htm",
       "https://m.haiwainet.cn/middle/456991/2016/0905/content_30292215_1.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "建筑与设计",
+    "relations": [
+      {
+        "type": "related",
+        "target": "parametric-design",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "现代主义",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "密斯·凡·德·罗",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "minimalism",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "parametric-design",
@@ -366,11 +495,6 @@ window.XIGAI["建筑与设计"] = [
       "异形曲面建筑与幕墙单元化设计",
       "日照、能耗、结构性能联动优化比选方案"
     ],
-    "related": [
-      "BIM",
-      "幕墙",
-      "数字建造"
-    ],
     "references": [
       "百度百科：建筑参数化设计",
       "台湾建筑师杂志：参数化设计——建筑设计中的演算思维"
@@ -379,7 +503,35 @@ window.XIGAI["建筑与设计"] = [
       "https://baike.baidu.com/item/%E5%BB%BA%E7%AD%91%E5%8F%82%E6%95%B0%E5%8C%96%E8%AE%BE%E8%AE%A1/3268400",
       "https://www.twarchitect.org.tw/special/%e5%8f%83%e6%95%b8%e5%8c%96%e8%a8%ad%e8%a8%88%ef%bc%9a%e5%bb%ba%e7%af%89%e8%a8%ad%e8%a8%88%e4%b8%ad%e7%9a%84%e6%bc%94%e7%ae%97%e6%80%9d%e7%b6%ad/"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "建筑与设计",
+    "relations": [
+      {
+        "type": "related",
+        "target": "bim",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "curtain-wall",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "数字建造",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "bauhaus",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "long-span-structure",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "energy-efficient-building",
@@ -407,11 +559,6 @@ window.XIGAI["建筑与设计"] = [
       "新建居住建筑按75%节能标准设计",
       "既有建筑外墙与门窗节能改造"
     ],
-    "related": [
-      "被动式住宅",
-      "绿色建筑",
-      "幕墙"
-    ],
     "references": [
       "中国工程建设标准知识服务网：被动式超低能耗建筑图集",
       "被动房PHI中国：被动房技术应用"
@@ -420,7 +567,35 @@ window.XIGAI["建筑与设计"] = [
       "https://ebook.chinabuilding.com.cn/zbooklib/book/detail/show?bookID=155754&SiteID=1",
       "http://passivehouse.kcpc.com.cn/zixun/ljbdf/1647.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "建筑与设计",
+    "relations": [
+      {
+        "type": "related",
+        "target": "passive-house",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "green-building",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "curtain-wall",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "daylighting",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "prefabricated-building",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "curtain-wall",
@@ -449,11 +624,6 @@ window.XIGAI["建筑与设计"] = [
       "超高层写字楼的玻璃幕墙立面",
       "机场、高铁站大空间金属板幕墙"
     ],
-    "related": [
-      "悬挑",
-      "参数化设计",
-      "节能建筑"
-    ],
     "references": [
       "建筑幕墙术语（国家建筑工程质量检验检测中心）",
       "玻璃幕墙工程技术规范JGJ102-2003术语"
@@ -462,7 +632,25 @@ window.XIGAI["建筑与设计"] = [
       "https://www.glass.com.cn/glassnews/newsinfo_210977.html",
       "https://gf.cabr-fire.com/m/article-30464.htm"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "建筑与设计",
+    "relations": [
+      {
+        "type": "related",
+        "target": "cantilever",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "parametric-design",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "energy-efficient-building",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "cantilever",
@@ -491,11 +679,6 @@ window.XIGAI["建筑与设计"] = [
       "阳台、雨棚、看台罩棚等悬挑构件",
       "高层顶部悬挑观光平台与立面造型"
     ],
-    "related": [
-      "大跨度结构",
-      "剪力墙",
-      "幕墙"
-    ],
     "references": [
       "建筑与空间设计行业黑话通用规范2026",
       "150个建筑高阶词汇（ArchDaily中文版）"
@@ -504,7 +687,25 @@ window.XIGAI["建筑与设计"] = [
       "https://zhuanlan.zhihu.com/p/2054988561733231341",
       "https://www.archdaily.cn/cn/871283/ding-yi-150ge-guai-ci-jian-zhu-yu-yan-xiang-dao"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "建筑与设计",
+    "relations": [
+      {
+        "type": "related",
+        "target": "long-span-structure",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "shear-wall",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "curtain-wall",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "long-span-structure",
@@ -532,11 +733,6 @@ window.XIGAI["建筑与设计"] = [
       "体育场、会展中心无柱大空间屋盖",
       "机场航站楼、高铁站房曲面网架"
     ],
-    "related": [
-      "悬挑",
-      "参数化设计",
-      "钢结构"
-    ],
     "references": [
       "ArchDaily中文：150个建筑高阶词汇",
       "中国工程建设标准知识服务网"
@@ -545,7 +741,25 @@ window.XIGAI["建筑与设计"] = [
       "https://www.archdaily.cn/cn/871283/ding-yi-150ge-guai-ci-jian-zhu-yu-yan-xiang-dao",
       "http://kscecs.com/expert/searchTrainingTopicDetail.action?topicId=1"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "建筑与设计",
+    "relations": [
+      {
+        "type": "related",
+        "target": "cantilever",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "parametric-design",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "钢结构",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "daylighting",
@@ -573,11 +787,6 @@ window.XIGAI["建筑与设计"] = [
       "住宅起居室、书房按窗地比设计开窗",
       "大进深办公空间用中庭与导光管补光"
     ],
-    "related": [
-      "节能建筑",
-      "被动式住宅",
-      "通风井"
-    ],
     "references": [
       "建筑与空间设计行业黑话通用规范2026",
       "商业建筑设计名词扫盲"
@@ -586,7 +795,25 @@ window.XIGAI["建筑与设计"] = [
       "https://zhuanlan.zhihu.com/p/2054988561733231341",
       "http://www.chinalbgf.com/h-nd-361.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "建筑与设计",
+    "relations": [
+      {
+        "type": "related",
+        "target": "energy-efficient-building",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "passive-house",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "ventilation-shaft",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "ventilation-shaft",
@@ -614,11 +841,6 @@ window.XIGAI["建筑与设计"] = [
       "地下室与地下车库机械排风",
       "高层住宅厨卫集中排烟排气道"
     ],
-    "related": [
-      "采光",
-      "动线",
-      "核心筒"
-    ],
     "references": [
       "商业建筑设计名词扫盲",
       "建筑工程设计施工常用术语"
@@ -627,7 +849,25 @@ window.XIGAI["建筑与设计"] = [
       "http://www.chinalbgf.com/h-nd-361.html",
       "https://www.ahjzu.edu.cn/jsxh/2026/0513/c12894a269852/page.htm"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "建筑与设计",
+    "relations": [
+      {
+        "type": "related",
+        "target": "daylighting",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "circulation",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "核心筒",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "accessible-design",
@@ -656,11 +896,6 @@ window.XIGAI["建筑与设计"] = [
       "公共建筑出入口、卫生间无障碍配置",
       "老旧小区加装电梯与适老化改造"
     ],
-    "related": [
-      "人体工学",
-      "动线",
-      "绿色建筑"
-    ],
     "references": [
       "Fitwel中文：为所有人设计——无障碍设计如何提升所有空间",
       "平机会：创造通达环境"
@@ -669,7 +904,25 @@ window.XIGAI["建筑与设计"] = [
       "https://zh-cn.fitwel.org/blog/designing-for-everyone-how-accessibility-elevates-all-spaces",
       "https://www.eoc.org.hk/zh-hk/udas/about-the-scheme/creating-accessible-environment"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "建筑与设计",
+    "relations": [
+      {
+        "type": "related",
+        "target": "ergonomics",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "circulation",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "green-building",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "green-building",
@@ -697,11 +950,6 @@ window.XIGAI["建筑与设计"] = [
       "新建项目申报绿色建筑星级认证",
       "商业项目采用LEED认证提升资产价值"
     ],
-    "related": [
-      "节能建筑",
-      "被动式住宅",
-      "装配式建筑"
-    ],
     "references": [
       "知乎：从0到1了解LEED",
       "Archiposition：绿色建筑评估标准LEED"
@@ -710,7 +958,40 @@ window.XIGAI["建筑与设计"] = [
       "https://zhuanlan.zhihu.com/p/139200581",
       "https://www.archiposition.com/video?20180620111222"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "建筑与设计",
+    "relations": [
+      {
+        "type": "related",
+        "target": "energy-efficient-building",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "passive-house",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "prefabricated-building",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "accessible-design",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "skyline",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "floor-area-ratio",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "prefabricated-building",
@@ -738,11 +1019,6 @@ window.XIGAI["建筑与设计"] = [
       "保障房与商品房采用预制叠合楼板、楼梯",
       "结合BIM实现构件生产与安装进度管理"
     ],
-    "related": [
-      "BIM",
-      "绿色建筑",
-      "节能建筑"
-    ],
     "references": [
       "中国工程建设标准化协会：到底什么叫装配式建筑？",
       "漳州市住建局：预制装配式建筑的概述"
@@ -751,7 +1027,25 @@ window.XIGAI["建筑与设计"] = [
       "http://www.cecs.org.cn/zixun/sxdt/8327.html",
       "http://jsj.zhangzhou.gov.cn/cms/html/zzszfhcxjsj/2021-12-24/380974862.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "建筑与设计",
+    "relations": [
+      {
+        "type": "related",
+        "target": "bim",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "green-building",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "energy-efficient-building",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "skyline",
@@ -779,11 +1073,6 @@ window.XIGAI["建筑与设计"] = [
       "城市设计高度分区与天际线专项规划",
       "滨水观景点视线通廊控制"
     ],
-    "related": [
-      "容积率",
-      "绿色建筑",
-      "城市设计"
-    ],
     "references": [
       "燕赵都市报：城市规划应充分考虑城市天际线容积率等方面的辩证关系",
       "台湾博硕士论文：都市天际线建构之研究"
@@ -792,7 +1081,25 @@ window.XIGAI["建筑与设计"] = [
       "http://yzwb.sjzdaily.com.cn/yzwbpaper/pc/content/202107/15/content_50320.html",
       "https://ndltd.ncl.edu.tw/cgi-bin/gs32/gsweb.cgi?o=dnclcdr&s=id=%22088NCKU0222047%22.&searchmode=basic"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "建筑与设计",
+    "relations": [
+      {
+        "type": "related",
+        "target": "floor-area-ratio",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "green-building",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "城市设计",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "floor-area-ratio",
@@ -820,11 +1127,6 @@ window.XIGAI["建筑与设计"] = [
       "控规编制确定地块开发强度上限",
       "房地产开发测算可售面积与货值"
     ],
-    "related": [
-      "城市天际线",
-      "绿色建筑",
-      "城市规划"
-    ],
     "references": [
       "燕赵都市报：城市规划应充分考虑城市天际线容积率等方面的辩证关系",
       "城市规划管理术语（国家建筑工程质量检验检测中心）"
@@ -833,6 +1135,24 @@ window.XIGAI["建筑与设计"] = [
       "http://yzwb.sjzdaily.com.cn/yzwbpaper/pc/content/202107/15/content_50320.html",
       "https://gf.cabr-fire.com/m/article-9768.htm"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "建筑与设计",
+    "relations": [
+      {
+        "type": "related",
+        "target": "skyline",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "green-building",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "城市规划",
+        "note": ""
+      }
+    ]
   }
 ];

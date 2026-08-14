@@ -29,11 +29,6 @@ window.XIGAI["饮食烹饪"] = [
     "misconceptions": [
       "美拉德反应≠焦糖化：焦糖化是纯糖热解，无氨基参与"
     ],
-    "related": [
-      "焦糖化",
-      "低温慢煮",
-      "锅气"
-    ],
     "references": [
       "Maillard reaction — Wikipedia",
       "美拉德反应vs焦糖化反应（食品伙伴网）"
@@ -42,7 +37,30 @@ window.XIGAI["饮食烹饪"] = [
       "https://en.wikipedia.org/wiki/Maillard_reaction",
       "https://news.foodmate.net/2026/06/745834.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "饮食烹饪",
+    "relations": [
+      {
+        "type": "related",
+        "target": "caramelization",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "sous-vide",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "wok-hei",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "molecular-gastronomy",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "caramelization",
@@ -72,11 +90,6 @@ window.XIGAI["饮食烹饪"] = [
     "misconceptions": [
       "焦糖化≠美拉德反应，前者只有糖参与、无氨基反应"
     ],
-    "related": [
-      "美拉德反应",
-      "分子料理",
-      "锅气"
-    ],
     "references": [
       "Caramelization — Wikipedia",
       "梅納反應跟焦糖化到底差在哪（NOM Magazine）"
@@ -85,7 +98,25 @@ window.XIGAI["饮食烹饪"] = [
       "https://en.wikipedia.org/wiki/Caramelization",
       "https://nommagazine.com/%E6%A2%85%E7%B4%8D%E5%8F%8D%E6%87%89%E8%B7%9F%E7%84%A6%E7%B3%96%E5%8C%96%E5%88%B0%E5%BA%95%E5%B7%AE%E5%9C%A8%E5%93%AA%EF%BC%9F%E4%B8%80%E6%AC%A1%E6%90%9E%E6%87%82%E5%8E%9F%E7%90%86%E8%88%87%E4%BA%94/"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "饮食烹饪",
+    "relations": [
+      {
+        "type": "related",
+        "target": "maillard-reaction",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "molecular-gastronomy",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "wok-hei",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "sous-vide",
@@ -116,18 +147,36 @@ window.XIGAI["饮食烹饪"] = [
     "misconceptions": [
       "低温慢煮≠炖煮：全程远低于沸点，靠精准恒温而非沸腾"
     ],
-    "related": [
-      "美拉德反应",
-      "分子料理",
-      "法餐"
-    ],
     "references": [
       "Sous-vide — Wikipedia"
     ],
     "sources": [
       "https://en.wikipedia.org/wiki/Sous-vide"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "饮食烹饪",
+    "relations": [
+      {
+        "type": "related",
+        "target": "maillard-reaction",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "molecular-gastronomy",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "french-cuisine",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "marinating",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "molecular-gastronomy",
@@ -158,11 +207,6 @@ window.XIGAI["饮食烹饪"] = [
     "misconceptions": [
       "分子料理≠滥用化学添加剂，所用多为天然提取物与可食用胶体"
     ],
-    "related": [
-      "低温慢煮",
-      "发酵",
-      "美拉德反应"
-    ],
     "references": [
       "Molecular gastronomy — Wikipedia",
       "分子料理 — 百度百科"
@@ -171,7 +215,45 @@ window.XIGAI["饮食烹饪"] = [
       "https://en.wikipedia.org/wiki/Molecular_gastronomy",
       "https://bkso.baidu.com/item/%E5%88%86%E5%AD%90%E6%96%99%E7%90%86/2978704"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "饮食烹饪",
+    "relations": [
+      {
+        "type": "related",
+        "target": "sous-vide",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "fermentation",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "maillard-reaction",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "caramelization",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "michelin-guide",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "omakase",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "french-cuisine",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "fermentation",
@@ -201,18 +283,31 @@ window.XIGAI["饮食烹饪"] = [
     "misconceptions": [
       "发酵≠腐败：由有益菌主导、在可控条件下进行"
     ],
-    "related": [
-      "前置腌制",
-      "分子料理",
-      "吊高汤"
-    ],
     "references": [
       "Fermentation — Wikipedia"
     ],
     "sources": [
       "https://en.wikipedia.org/wiki/Fermentation"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "饮食烹饪",
+    "relations": [
+      {
+        "type": "related",
+        "target": "marinating",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "molecular-gastronomy",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "stock-making",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "michelin-guide",
@@ -244,11 +339,6 @@ window.XIGAI["饮食烹饪"] = [
     "misconceptions": [
       "米其林不评“世界第一”，三星指“值得专程旅行的体验”而非排名"
     ],
-    "related": [
-      "法餐",
-      "omakase",
-      "分子料理"
-    ],
     "references": [
       "米其林指南 101（米其林指南官方）",
       "《米其林指南》完整解析（远传电信）"
@@ -257,7 +347,30 @@ window.XIGAI["饮食烹饪"] = [
       "https://guide.michelin.com/tw/zh_TW/article/features/the-michelin-guide-101",
       "https://www.fetnet.net/content/cbu/tw/lifecircle/life/2024/07/Michelin.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "饮食烹饪",
+    "relations": [
+      {
+        "type": "related",
+        "target": "french-cuisine",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "omakase",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "molecular-gastronomy",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "private-kitchen",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "wok-hei",
@@ -289,11 +402,6 @@ window.XIGAI["饮食烹饪"] = [
     "misconceptions": [
       "锅气是高温焦香反应，非味精或“镬气粉”可替代"
     ],
-    "related": [
-      "美拉德反应",
-      "大排档",
-      "炝锅"
-    ],
     "references": [
       "镬气 — 维基百科",
       "Wok hei 锅气（新西兰全搜索）"
@@ -302,7 +410,40 @@ window.XIGAI["饮食烹饪"] = [
       "https://zh.wikipedia.org/zh-hans/%E9%91%8A%E6%B0%A3",
       "http://newzealandreview.com/wok-hei-why-do-stir-fry-dishes-taste-better-with-the-breath-of-the-wok/"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "饮食烹饪",
+    "relations": [
+      {
+        "type": "related",
+        "target": "maillard-reaction",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "dai-pai-dong",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "qiangguo",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "caramelization",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "duansheng",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "thickening",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "duansheng",
@@ -332,11 +473,6 @@ window.XIGAI["饮食烹饪"] = [
     "misconceptions": [
       "豆角、四季豆等含皂素食材不可只断生，必须彻底熟透"
     ],
-    "related": [
-      "焯水",
-      "锅气",
-      "勾芡"
-    ],
     "references": [
       "最全的厨师专业术语和烹饪方法（360doc）",
       "上百种烹饪术语你看明白了后厨艺会大增（网易）"
@@ -345,7 +481,45 @@ window.XIGAI["饮食烹饪"] = [
       "https://www.360doc.cn/article/575430_501099939.html",
       "https://www.163.com/dy/article/DILOMGBQ0522TA0F.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "饮食烹饪",
+    "relations": [
+      {
+        "type": "related",
+        "target": "blanching",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "wok-hei",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "thickening",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "marinating",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "dai-pai-dong",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "sichuan-24-flavors",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "suzhou-noodles",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "blanching",
@@ -377,11 +551,6 @@ window.XIGAI["饮食烹饪"] = [
     "misconceptions": [
       "蔬菜焯水宜短不宜久，久煮营养流失、口感软烂"
     ],
-    "related": [
-      "断生",
-      "吊高汤",
-      "炝锅"
-    ],
     "references": [
       "Blanching — Wikipedia",
       "最全的厨师专业术语和烹饪方法（360doc）"
@@ -390,7 +559,25 @@ window.XIGAI["饮食烹饪"] = [
       "https://en.wikipedia.org/wiki/Blanching_(cooking)",
       "https://www.360doc.cn/article/575430_501099939.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "饮食烹饪",
+    "relations": [
+      {
+        "type": "related",
+        "target": "duansheng",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "stock-making",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "qiangguo",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "qiangguo",
@@ -421,11 +608,6 @@ window.XIGAI["饮食烹饪"] = [
     "misconceptions": [
       "炝锅只需爆香定型，不能把料头炸焦发苦"
     ],
-    "related": [
-      "锅气",
-      "川菜二十四味型",
-      "焯水"
-    ],
     "references": [
       "盘点常听到的做菜专业术语（知乎专栏）",
       "上百种烹饪术语你看明白了后厨艺会大增（网易）"
@@ -434,7 +616,35 @@ window.XIGAI["饮食烹饪"] = [
       "https://zhuanlan.zhihu.com/p/114262401",
       "https://www.163.com/dy/article/DILOMGBQ0522TA0F.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "饮食烹饪",
+    "relations": [
+      {
+        "type": "related",
+        "target": "wok-hei",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "sichuan-24-flavors",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "blanching",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "nine-grid-hotpot",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "thickening",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "stock-making",
@@ -465,11 +675,6 @@ window.XIGAI["饮食烹饪"] = [
     "misconceptions": [
       "高汤≠浓汤宝勾兑，靠真材实料长时间熬制吊滤"
     ],
-    "related": [
-      "焯水",
-      "苏式面",
-      "发酵"
-    ],
     "references": [
       "高汤 — 维基百科",
       "厨师的汤 战士的枪——吊汤妙招（360doc）"
@@ -478,7 +683,25 @@ window.XIGAI["饮食烹饪"] = [
       "https://zh.wikipedia.org/wiki/%E9%AB%98%E6%B1%A4",
       "http://www.360doc.com/content/18/0426/10/5415450_748841685.shtml"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "饮食烹饪",
+    "relations": [
+      {
+        "type": "related",
+        "target": "blanching",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "suzhou-noodles",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "fermentation",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "marinating",
@@ -510,18 +733,31 @@ window.XIGAI["饮食烹饪"] = [
     "misconceptions": [
       "并非腌越久越好：时间过长肉质失水变柴、鲜味被盐“腌死”"
     ],
-    "related": [
-      "发酵",
-      "断生",
-      "低温慢煮"
-    ],
     "references": [
       "Marinade — Wikipedia"
     ],
     "sources": [
       "https://en.wikipedia.org/wiki/Marinade"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "饮食烹饪",
+    "relations": [
+      {
+        "type": "related",
+        "target": "fermentation",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "duansheng",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "sous-vide",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "private-kitchen",
@@ -552,11 +788,6 @@ window.XIGAI["饮食烹饪"] = [
     "misconceptions": [
       "私房菜≠“贵的家常菜”，核心是秘方技艺与预约制"
     ],
-    "related": [
-      "大排档",
-      "米其林指南",
-      "苏式面"
-    ],
     "references": [
       "谭家菜 — 维基百科",
       "上百种烹饪术语你看明白了后厨艺会大增（网易）"
@@ -565,7 +796,25 @@ window.XIGAI["饮食烹饪"] = [
       "https://zh.wikipedia.org/wiki/%E8%B0%AD%E5%AE%B6%E8%8F%9C",
       "https://www.163.com/dy/article/DILOMGBQ0522TA0F.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "饮食烹饪",
+    "relations": [
+      {
+        "type": "related",
+        "target": "dai-pai-dong",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "michelin-guide",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "suzhou-noodles",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "dai-pai-dong",
@@ -596,18 +845,36 @@ window.XIGAI["饮食烹饪"] = [
     "misconceptions": [
       "当代大排档多已规范化经营，≠脏乱差路边摊"
     ],
-    "related": [
-      "锅气",
-      "断生",
-      "私房菜"
-    ],
     "references": [
       "Dai pai dong — Wikipedia"
     ],
     "sources": [
       "https://en.wikipedia.org/wiki/Dai_pai_dong"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "饮食烹饪",
+    "relations": [
+      {
+        "type": "related",
+        "target": "wok-hei",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "duansheng",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "private-kitchen",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "nine-grid-hotpot",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "omakase",
@@ -639,11 +906,6 @@ window.XIGAI["饮食烹饪"] = [
     "misconceptions": [
       "omakase≠固定高价套餐，本质是“信任主厨”的点餐方式"
     ],
-    "related": [
-      "米其林指南",
-      "法餐",
-      "分子料理"
-    ],
     "references": [
       "厨师发办（OMAKASE）完整指南（好侍日本）",
       "传闻中的Omakase到底是什么？（新东方网）"
@@ -652,7 +914,25 @@ window.XIGAI["饮食烹饪"] = [
       "https://www.gltjp.com/zh-hans/article/item/20748/",
       "https://mtoutiao.xdf.cn/xyz/dalian/riyu/abroad/202404/13705394.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "饮食烹饪",
+    "relations": [
+      {
+        "type": "related",
+        "target": "michelin-guide",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "french-cuisine",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "molecular-gastronomy",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "nine-grid-hotpot",
@@ -683,11 +963,6 @@ window.XIGAI["饮食烹饪"] = [
     "misconceptions": [
       "九宫格不是九种锅底，而是同一锅底的分区控温"
     ],
-    "related": [
-      "川菜二十四味型",
-      "大排档",
-      "炝锅"
-    ],
     "references": [
       "除了九宫格，重庆火锅还有撒子格？（搜狐）",
       "九宫格火锅是什么？历史由来（百家号）"
@@ -696,7 +971,25 @@ window.XIGAI["饮食烹饪"] = [
       "https://www.sohu.com/a/638169472_121106884",
       "https://baijiahao.baidu.com/s?id=1628036364311088281"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "饮食烹饪",
+    "relations": [
+      {
+        "type": "related",
+        "target": "sichuan-24-flavors",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "dai-pai-dong",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "qiangguo",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "sichuan-24-flavors",
@@ -727,11 +1020,6 @@ window.XIGAI["饮食烹饪"] = [
     "misconceptions": [
       "川菜≠只有麻辣，24味型中麻辣味型仅占少数"
     ],
-    "related": [
-      "炝锅",
-      "九宫格火锅",
-      "断生"
-    ],
     "references": [
       "川菜二十四味型（今日头条）",
       "川菜的24味型大全（360doc）"
@@ -740,7 +1028,25 @@ window.XIGAI["饮食烹饪"] = [
       "https://m.toutiao.com/article/7649255119880225332/",
       "http://www.360doc.com/content/23/0420/22/50586550_1077449657.shtml"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "饮食烹饪",
+    "relations": [
+      {
+        "type": "related",
+        "target": "qiangguo",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "nine-grid-hotpot",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "duansheng",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "suzhou-noodles",
@@ -771,11 +1077,6 @@ window.XIGAI["饮食烹饪"] = [
     "misconceptions": [
       "苏式面核心在吊汤与浇头工艺，而非“苏州的面”本身"
     ],
-    "related": [
-      "吊高汤",
-      "断生",
-      "私房菜"
-    ],
     "references": [
       "苏式汤面 — 维基百科",
       "苏式汤面制作技艺（苏州非物质文化遗产网）"
@@ -784,7 +1085,25 @@ window.XIGAI["饮食烹饪"] = [
       "https://zh.wikipedia.org/wiki/%E8%8B%8F%E5%BC%8F%E6%B1%A4%E9%9D%A2",
       "https://szfy.wglj.suzhou.com.cn/index.php/fy-project/460"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "饮食烹饪",
+    "relations": [
+      {
+        "type": "related",
+        "target": "stock-making",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "duansheng",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "private-kitchen",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "french-cuisine",
@@ -815,18 +1134,36 @@ window.XIGAI["饮食烹饪"] = [
     "misconceptions": [
       "法餐≠只有鹅肝蜗牛，地方菜（布列塔尼可丽饼、普罗旺斯炖菜）同样正宗"
     ],
-    "related": [
-      "米其林指南",
-      "低温慢煮",
-      "分子料理"
-    ],
     "references": [
       "French cuisine — Wikipedia"
     ],
     "sources": [
       "https://en.wikipedia.org/wiki/French_cuisine"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "饮食烹饪",
+    "relations": [
+      {
+        "type": "related",
+        "target": "michelin-guide",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "sous-vide",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "molecular-gastronomy",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "omakase",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "thickening",
@@ -858,11 +1195,6 @@ window.XIGAI["饮食烹饪"] = [
     "misconceptions": [
       "勾芡目的是挂味与增亮，芡厚薄须按菜式选择，非越稠越好"
     ],
-    "related": [
-      "炝锅",
-      "断生",
-      "锅气"
-    ],
     "references": [
       "盘点常听到的做菜专业术语（知乎专栏）",
       "最全的厨师专业术语和烹饪方法（360doc）"
@@ -871,6 +1203,24 @@ window.XIGAI["饮食烹饪"] = [
       "https://zhuanlan.zhihu.com/p/114262401",
       "https://www.360doc.cn/article/575430_501099939.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "饮食烹饪",
+    "relations": [
+      {
+        "type": "related",
+        "target": "qiangguo",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "duansheng",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "wok-hei",
+        "note": ""
+      }
+    ]
   }
 ];

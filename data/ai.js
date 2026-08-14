@@ -34,13 +34,6 @@ window.XIGAI["人工智能"] = [
       "机器学习并非“万能预测机”，数据质量与分布变化会显著影响效果",
       "机器学习不等于深度学习，深度学习只是其中一类基于多层神经网络的方法"
     ],
-    "related": [
-      "深度学习",
-      "监督学习",
-      "无监督学习",
-      "数据挖掘",
-      "人工智能"
-    ],
     "references": [
       "机器学习（机器之心技术图谱）",
       "机器学习基础概括（腾讯云开发者社区）",
@@ -51,7 +44,50 @@ window.XIGAI["人工智能"] = [
       "https://cloud.tencent.com.cn/developer/article/2509491",
       "https://cloud.tencent.com.cn/developer/article/1488219"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "人工智能",
+    "relations": [
+      {
+        "type": "related",
+        "target": "deep-learning",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "监督学习",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "无监督学习",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "数据挖掘",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "人工智能",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "reinforcement-learning",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "neural-network",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "algorithmic-recommendation",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "deep-learning",
@@ -87,13 +123,6 @@ window.XIGAI["人工智能"] = [
       "深度学习并非模拟真实大脑，只是受其结构启发的数学函数近似",
       "深度学习并非“端到端万能”，仍可能因数据偏差产生错误或幻觉"
     ],
-    "related": [
-      "机器学习",
-      "卷积神经网络",
-      "反向传播",
-      "神经网络",
-      "大语言模型"
-    ],
     "references": [
       "深度学习理论系列——基本理论方法与训练过程（腾讯云）",
       "灵感来自人类大脑结构的人工神经网络（中国高新网）",
@@ -104,7 +133,45 @@ window.XIGAI["人工智能"] = [
       "http://www.chinahightech.com/yaowen/2024-10/10/content_240641.html",
       "https://www.cs.ubc.ca/~poole/aibook/3e/html/ArtInt3e.Ch8.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "人工智能",
+    "relations": [
+      {
+        "type": "related",
+        "target": "machine-learning",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "convolutional-neural-network",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "反向传播",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "neural-network",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "large-language-model",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "reinforcement-learning",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "attention-mechanism",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "large-language-model",
@@ -141,13 +208,6 @@ window.XIGAI["人工智能"] = [
       "大模型并非真正“理解”世界，其知识来自训练数据的统计关联，会一本正经地编造（幻觉）",
       "大模型能力不单由参数量决定，数据质量与训练方法同样重要"
     ],
-    "related": [
-      "生成式人工智能",
-      "Transformer",
-      "注意力机制",
-      "自然语言处理",
-      "强化学习"
-    ],
     "references": [
       "LLM：什么是大语言模型？（Google Developers）",
       "大型语言模型综述（北京智源人工智能研究院）",
@@ -158,7 +218,75 @@ window.XIGAI["人工智能"] = [
       "https://hub.baai.ac.cn/view/25240",
       "https://cloud.kepuchina.cn/h5/detail?id=7463608412279476224"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "人工智能",
+    "relations": [
+      {
+        "type": "related",
+        "target": "generative-ai",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "Transformer",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "attention-mechanism",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "natural-language-processing",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "reinforcement-learning",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "deep-learning",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "turing-test",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "ai-agent",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "multimodal-llm",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "mixture-of-experts",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "sparse-attention",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "ai-chip",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "edge-ai",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "reinforcement-learning",
@@ -195,13 +323,6 @@ window.XIGAI["人工智能"] = [
       "强化学习不等于“机器学习加奖励”，其样本效率低、训练不稳定，对奖励设计极为敏感",
       "强化学习并非只在游戏中有效，但真实环境落地需面对安全与成本约束"
     ],
-    "related": [
-      "机器学习",
-      "深度学习",
-      "马尔可夫决策过程",
-      "AlphaGo",
-      "大语言模型"
-    ],
     "references": [
       "什么是强化学习？核心概念（Ultralytics）",
       "强化学习的主流方法概述（腾讯云）",
@@ -214,7 +335,45 @@ window.XIGAI["人工智能"] = [
       "https://opendilab.github.io/DI-engine/10_concepts/basic_rl_zh.html",
       "https://developer.aliyun.com/article/225670"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "人工智能",
+    "relations": [
+      {
+        "type": "related",
+        "target": "machine-learning",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "deep-learning",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "马尔可夫决策过程",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "AlphaGo",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "large-language-model",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "embodied-ai",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "world-simulator",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "convolutional-neural-network",
@@ -251,13 +410,6 @@ window.XIGAI["人工智能"] = [
       "CNN并非唯一的图像模型，ViT等基于注意力的架构在部分任务上已超越CNN",
       "卷积核并非人工设计，而是在训练中自动学习得到"
     ],
-    "related": [
-      "深度学习",
-      "计算机视觉",
-      "图像识别",
-      "注意力机制",
-      "神经网络"
-    ],
     "references": [
       "什么是卷积神经网络（CNN）？（Google Cloud）",
       "什么是卷积神经网络？（Milvus）",
@@ -268,7 +420,35 @@ window.XIGAI["人工智能"] = [
       "https://milvus.org.cn/ai-quick-reference/what-is-a-convolutional-neural-network",
       "https://cloud.tencent.com.cn/developer/article/1160429"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "人工智能",
+    "relations": [
+      {
+        "type": "related",
+        "target": "deep-learning",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "计算机视觉",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "图像识别",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "attention-mechanism",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "neural-network",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "attention-mechanism",
@@ -305,13 +485,6 @@ window.XIGAI["人工智能"] = [
       "注意力机制并不提供真正的“可解释性”，注意力权重高不代表因果重要性",
       "注意力不是大模型的唯一组件，位置编码与前馈网络同样关键"
     ],
-    "related": [
-      "Transformer",
-      "大语言模型",
-      "机器翻译",
-      "自然语言处理",
-      "深度学习"
-    ],
     "references": [
       "深入解析Transformer模型中的注意力与自注意力机制（百度）",
       "深度解析Transformer架构的三大注意力机制（百度）",
@@ -322,7 +495,45 @@ window.XIGAI["人工智能"] = [
       "https://cloud.baidu.com/article/3323917",
       "https://bnaskrecki.faculty.wmi.amu.edu.pl/nnets/_build/html/part11_transformers/ch37_bahdanau_attention.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "人工智能",
+    "relations": [
+      {
+        "type": "related",
+        "target": "Transformer",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "large-language-model",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "机器翻译",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "natural-language-processing",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "deep-learning",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "convolutional-neural-network",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "generative-ai",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "natural-language-processing",
@@ -358,13 +569,6 @@ window.XIGAI["人工智能"] = [
       "NLP不等于聊天机器人，它覆盖从分词到信息抽取的庞大任务谱系",
       "让模型“读懂”语言不等于真正理解语义，仍存在常识缺失与幻觉"
     ],
-    "related": [
-      "大语言模型",
-      "注意力机制",
-      "机器翻译",
-      "词向量",
-      "人工智能"
-    ],
     "references": [
       "自然语言处理（阿里云开发者社区）",
       "自然语言处理技术全景（百度）",
@@ -375,7 +579,40 @@ window.XIGAI["人工智能"] = [
       "https://cloud.baidu.com/article/5309641",
       "https://developer.aliyun.com/article/1530343"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "人工智能",
+    "relations": [
+      {
+        "type": "related",
+        "target": "large-language-model",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "attention-mechanism",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "机器翻译",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "词向量",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "人工智能",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "knowledge-graph",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "turing-test",
@@ -411,13 +648,6 @@ window.XIGAI["人工智能"] = [
       "通过图灵测试不等于机器真正拥有意识或理解能力（中文房间反驳）",
       "图灵测试并非一次性的统一考试，其形式与标准有多种变体"
     ],
-    "related": [
-      "人工智能",
-      "中文房间",
-      "聊天机器人",
-      "大语言模型",
-      "机器智能"
-    ],
     "references": [
       "图灵测试（维基百科）",
       "什么是图灵测试（CSLT·AI100）",
@@ -428,7 +658,35 @@ window.XIGAI["人工智能"] = [
       "http://aigraph.cslt.org/ai100/pdf/AI-100-07-%E4%BB%80%E4%B9%88%E6%98%AF%E5%9B%BE%E7%81%B5%E6%B5%8B%E8%AF%95.pdf",
       "https://baijiahao.baidu.com/s?id=1717600424479584027"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "人工智能",
+    "relations": [
+      {
+        "type": "related",
+        "target": "人工智能",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "中文房间",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "聊天机器人",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "large-language-model",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "机器智能",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "knowledge-graph",
@@ -465,13 +723,6 @@ window.XIGAI["人工智能"] = [
       "知识图谱不是标签云或文档库，而是结构化的语义网络",
       "知识图谱与向量数据库互补：前者提供可解释的确定知识，后者擅长语义相似检索"
     ],
-    "related": [
-      "语义网络",
-      "自然语言处理",
-      "本体",
-      "信息抽取",
-      "图数据库"
-    ],
     "references": [
       "知识图谱简介（阿里云天池）",
       "知识图谱简介（阿里云开发者社区）",
@@ -482,7 +733,35 @@ window.XIGAI["人工智能"] = [
       "https://developer.aliyun.com/article/623592",
       "https://zh.wikipedia.org/wiki/Google%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "人工智能",
+    "relations": [
+      {
+        "type": "related",
+        "target": "语义网络",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "natural-language-processing",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "本体",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "信息抽取",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "图数据库",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "generative-ai",
@@ -519,13 +798,6 @@ window.XIGAI["人工智能"] = [
       "生成式AI输出并非“无中生有”，而是基于训练数据统计规律的再组合，可能出错（幻觉）",
       "生成式AI不等于大语言模型，图像、音频、视频生成属于同一范畴的不同技术路线"
     ],
-    "related": [
-      "大语言模型",
-      "扩散模型",
-      "AIGC",
-      "多模态学习",
-      "注意力机制"
-    ],
     "references": [
       "专家详解：AIGC的现在与未来（中国电子信息产业发展研究院）",
       "什么是生成式AI？概念与应用（Ultralytics）",
@@ -536,6 +808,29 @@ window.XIGAI["人工智能"] = [
       "https://www.ultralytics.com/zh/glossary/generative-ai",
       "https://cloud.kepuchina.cn/newSearch/imgText?id=7466891939770441728"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "人工智能",
+    "relations": [
+      {
+        "type": "related",
+        "target": "large-language-model",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "扩散模型",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "多模态学习",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "attention-mechanism",
+        "note": ""
+      }
+    ]
   }
 ];

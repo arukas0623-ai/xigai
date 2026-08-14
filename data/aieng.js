@@ -1,6 +1,3 @@
-// 析概知识库 · AI工程与模型领域概念数据
-// 生成日期: 2026-08-14（searchedAt 为搜索日期）
-// 共 14 个概念
 window.XIGAI = window.XIGAI || {};
 window.XIGAI["AI工程与模型"] = [
   {
@@ -36,12 +33,6 @@ window.XIGAI["AI工程与模型"] = [
     "misconceptions": [
       "误以为它是又一个聊天应用——实际是面向开发者的智能体开发框架/工具链"
     ],
-    "related": [
-      "智能体",
-      "工具调用",
-      "RAG检索增强",
-      "缓存命中"
-    ],
     "references": [
       "DeepSeek Harness: Everything is a Plugin（GitHub 官方仓库）",
       "对标 Claude Cowork：DeepSeek Harness 公测，同步开放插件生态（IT之家）",
@@ -53,7 +44,30 @@ window.XIGAI["AI工程与模型"] = [
       "https://www.appinn.com/deepseek-harness/",
       "https://www.zhidx.com/p/584897.html"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "AI工程与模型",
+    "relations": [
+      {
+        "type": "related",
+        "target": "agent",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "tool-calling",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "rag",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "cache-hit",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "agent",
@@ -89,12 +103,6 @@ window.XIGAI["AI工程与模型"] = [
     "misconceptions": [
       "智能体不是简单的“聊天+联网”，其核心是自主决策与多步任务执行"
     ],
-    "related": [
-      "工具调用",
-      "提示工程",
-      "思维链",
-      "DeepSeek Harness"
-    ],
     "references": [
       "什么是 AI 代理（Microsoft Learn）",
       "利用人工智能代理自动执行任务（IBM Docs）"
@@ -103,7 +111,30 @@ window.XIGAI["AI工程与模型"] = [
       "https://learn.microsoft.com/zh-cn/training/modules/develop-ai-enabled-apps-using-github-copilot-sdk/2-what-ai-agent",
       "https://eu-de.dataplatform.cloud.ibm.com/docs/content/wsj/analyze-data/fm-agents-overview.html?context=wx&audience=wdp&locale=zh"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "AI工程与模型",
+    "relations": [
+      {
+        "type": "related",
+        "target": "tool-calling",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "prompt-engineering",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "chain-of-thought",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "deepseek-harness",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "prompt-engineering",
@@ -137,12 +168,6 @@ window.XIGAI["AI工程与模型"] = [
     "misconceptions": [
       "提示工程不只是“会写几句好话”，而是需要迭代、评测的系统工程"
     ],
-    "related": [
-      "思维链",
-      "智能体",
-      "输入输出处理",
-      "AI幻觉"
-    ],
     "references": [
       "提示词工程 - Prompt engineering（systems-analysis.ru）",
       "利用提示工程优化模型输出（Microsoft Learn）"
@@ -151,7 +176,35 @@ window.XIGAI["AI工程与模型"] = [
       "https://systems-analysis.ru/int/index.php?title=Prompt_engineering_%E2%80%94_%E6%8F%90%E7%A4%BA%E8%AF%8D%E5%B7%A5%E7%A8%8B&variant=zh-hans",
       "https://learn.microsoft.com/zh-hk/training/modules/optimize-generative-ai-model-performance/2-prompt-engineering"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "AI工程与模型",
+    "relations": [
+      {
+        "type": "related",
+        "target": "chain-of-thought",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "agent",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "io-processing",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "hallucination",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "fine-tuning-alignment",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "chain-of-thought",
@@ -186,11 +239,6 @@ window.XIGAI["AI工程与模型"] = [
     "misconceptions": [
       "思维链不是模型“真的有意识思考”，而是通过显式推理步骤提升准确率的提示机制"
     ],
-    "related": [
-      "提示工程",
-      "智能体",
-      "上下文窗口"
-    ],
     "references": [
       "什么是思维链 (CoT) 提示？（Ultralytics）",
       "大模型与思维链 (Chain of Thoughts) 技术解析（百度智能云）"
@@ -199,7 +247,25 @@ window.XIGAI["AI工程与模型"] = [
       "https://www.ultralytics.com/zh/glossary/chain-of-thought-prompting",
       "https://cloud.baidu.com/article/5312247"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "AI工程与模型",
+    "relations": [
+      {
+        "type": "related",
+        "target": "prompt-engineering",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "agent",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "context-window",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "context-window",
@@ -234,12 +300,6 @@ window.XIGAI["AI工程与模型"] = [
     "misconceptions": [
       "上下文窗口不等于模型记忆——超窗内容默认被遗忘，需靠工程手段管理"
     ],
-    "related": [
-      "Token计费",
-      "缓存命中",
-      "RAG检索增强",
-      "输入输出处理"
-    ],
     "references": [
       "上下文理解极限：Context Window 与注意力跨度的数学边界（阿里云开发者）",
       "大型语言模型的五大基本上下文窗口概念（美光 Micron）"
@@ -248,7 +308,40 @@ window.XIGAI["AI工程与模型"] = [
       "https://developer.aliyun.com/article/1717753",
       "https://tw.micron.com/about/blog/applications/ai/top-five-essential-context-window-concepts-in-large-language-models"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "AI工程与模型",
+    "relations": [
+      {
+        "type": "related",
+        "target": "token-billing",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "cache-hit",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "rag",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "io-processing",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "chain-of-thought",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "model-quantization",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "token-billing",
@@ -283,12 +376,6 @@ window.XIGAI["AI工程与模型"] = [
     "misconceptions": [
       "Token 不是“字数”——与字符数无固定换算关系，需按具体模型的 Tokenizer 实测"
     ],
-    "related": [
-      "上下文窗口",
-      "缓存命中",
-      "模型网关",
-      "输入输出处理"
-    ],
     "references": [
       "模型调用价格（阿里云百炼 Model Studio）",
       "模型API服务计费说明（金山云）"
@@ -297,7 +384,30 @@ window.XIGAI["AI工程与模型"] = [
       "https://www.alibabacloud.com/help/zh/model-studio/model-pricing",
       "https://docs.ksyun.com/documents/44741"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "AI工程与模型",
+    "relations": [
+      {
+        "type": "related",
+        "target": "context-window",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "cache-hit",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "model-gateway",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "io-processing",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "cache-hit",
@@ -333,12 +443,6 @@ window.XIGAI["AI工程与模型"] = [
     "misconceptions": [
       "缓存命中不等于答案一定正确——语义缓存可能误命中相似但不同的查询"
     ],
-    "related": [
-      "Token计费",
-      "上下文窗口",
-      "模型网关",
-      "DeepSeek Harness"
-    ],
     "references": [
       "推理服务的缓存层级设计：前缀缓存、语义缓存与 KV Cache（天翼云）",
       "Prompt Caching（OpenAI 开发者文档）"
@@ -347,7 +451,30 @@ window.XIGAI["AI工程与模型"] = [
       "https://www.ctyun.cn/developer/article/832816808140869",
       "https://developers.openai.com/api/docs/guides/prompt-caching.md"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "AI工程与模型",
+    "relations": [
+      {
+        "type": "related",
+        "target": "token-billing",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "context-window",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "model-gateway",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "deepseek-harness",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "io-processing",
@@ -382,12 +509,6 @@ window.XIGAI["AI工程与模型"] = [
     "misconceptions": [
       "结构化输出不是“让模型保证输出 JSON”——仍需校验与重试机制保障可靠性"
     ],
-    "related": [
-      "工具调用",
-      "提示工程",
-      "模型网关",
-      "RAG检索增强"
-    ],
     "references": [
       "结构化输出（--json-schema）（Qwen Code 官方文档）",
       "输出解析器（LangChain 中文文档）"
@@ -396,7 +517,45 @@ window.XIGAI["AI工程与模型"] = [
       "https://qwenlm.github.io/qwen-code-docs/zh/users/features/structured-output/",
       "https://reference.langchain.org.cn/python/langchain_core/output_parsers/"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "AI工程与模型",
+    "relations": [
+      {
+        "type": "related",
+        "target": "tool-calling",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "prompt-engineering",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "model-gateway",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "rag",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "context-window",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "token-billing",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "hallucination",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "rag",
@@ -430,12 +589,6 @@ window.XIGAI["AI工程与模型"] = [
     "misconceptions": [
       "RAG 不是“把文档全塞进提示词”——需要切块、索引与检索才能控制成本与质量"
     ],
-    "related": [
-      "AI幻觉",
-      "上下文窗口",
-      "微调与对齐",
-      "输入输出处理"
-    ],
     "references": [
       "检索增强生成（RAG）和索引（Microsoft Foundry）",
       "使用检索增强生成将数据集成到 AI 应用中（.NET）"
@@ -444,7 +597,35 @@ window.XIGAI["AI工程与模型"] = [
       "https://learn.microsoft.com/zh-cn/azure/foundry/concepts/retrieval-augmented-generation",
       "https://learn.microsoft.com/zh-cn/dotnet/ai/conceptual/rag"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "AI工程与模型",
+    "relations": [
+      {
+        "type": "related",
+        "target": "hallucination",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "context-window",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "fine-tuning-alignment",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "io-processing",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "deepseek-harness",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "fine-tuning-alignment",
@@ -480,12 +661,6 @@ window.XIGAI["AI工程与模型"] = [
     "misconceptions": [
       "微调不能“注入新知识”——新知识主要靠 RAG 或预训练，微调侧重行为与格式"
     ],
-    "related": [
-      "RAG检索增强",
-      "模型量化",
-      "AI幻觉",
-      "提示工程"
-    ],
     "references": [
       "LLM 技术深度解析：SFT、RLHF 等关键概念（百度智能云）",
       "Aligning large language models across the lifecycle（ScienceDirect）"
@@ -494,7 +669,30 @@ window.XIGAI["AI工程与模型"] = [
       "https://cloud.baidu.com/article/3361189",
       "https://www.sciencedirect.com/science/article/abs/pii/S0893608026004570"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "AI工程与模型",
+    "relations": [
+      {
+        "type": "related",
+        "target": "rag",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "model-quantization",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "hallucination",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "prompt-engineering",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "tool-calling",
@@ -529,12 +727,6 @@ window.XIGAI["AI工程与模型"] = [
     "misconceptions": [
       "工具调用不是模型“自己执行”工具——执行发生在外部系统，模型只负责决策与生成参数"
     ],
-    "related": [
-      "智能体",
-      "输入输出处理",
-      "DeepSeek Harness",
-      "模型网关"
-    ],
     "references": [
       "Tool Calling（华为云 ModelArts 最佳实践）",
       "Function Calling：让大模型调用真实程序能力（阿里云开发者）"
@@ -543,7 +735,30 @@ window.XIGAI["AI工程与模型"] = [
       "https://support.huaweicloud.com/bestpractice-modelarts/modelarts_llm_infer_5906028.html",
       "https://developer.aliyun.com/article/1753887"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "AI工程与模型",
+    "relations": [
+      {
+        "type": "related",
+        "target": "agent",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "io-processing",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "deepseek-harness",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "model-gateway",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "model-quantization",
@@ -580,11 +795,6 @@ window.XIGAI["AI工程与模型"] = [
     "misconceptions": [
       "量化不等于“无损压缩”——存在精度损失，需按任务实测决定量化级别"
     ],
-    "related": [
-      "微调与对齐",
-      "模型网关",
-      "上下文窗口"
-    ],
     "references": [
       "大语言模型量化技术探析：GPTQ GGUF AWQ（百度智能云）",
       "大语言模型量化方法深度对比（百度智能云）"
@@ -593,7 +803,25 @@ window.XIGAI["AI工程与模型"] = [
       "https://cloud.baidu.com/article/3368896",
       "https://cloud.baidu.com/article/3386670"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "AI工程与模型",
+    "relations": [
+      {
+        "type": "related",
+        "target": "fine-tuning-alignment",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "model-gateway",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "context-window",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "hallucination",
@@ -628,12 +856,6 @@ window.XIGAI["AI工程与模型"] = [
     "misconceptions": [
       "模型“自信”不等于“正确”——幻觉输出往往语气笃定，必须靠外部证据校验"
     ],
-    "related": [
-      "RAG检索增强",
-      "微调与对齐",
-      "提示工程",
-      "输入输出处理"
-    ],
     "references": [
       "AI 不懂，但 AI 真敢乱编？（科普中国）",
       "OpenAI 罕见发论文：我们找到了 AI 幻觉的罪魁祸首（36氪）"
@@ -642,7 +864,30 @@ window.XIGAI["AI工程与模型"] = [
       "https://www.kepuchina.cn/article/articleinfo?business_type=100&classify=0&ar_id=713465",
       "https://36kr.com/p/3454673562769025"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "AI工程与模型",
+    "relations": [
+      {
+        "type": "related",
+        "target": "rag",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "fine-tuning-alignment",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "prompt-engineering",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "io-processing",
+        "note": ""
+      }
+    ]
   },
   {
     "id": "model-gateway",
@@ -677,12 +922,6 @@ window.XIGAI["AI工程与模型"] = [
     "misconceptions": [
       "模型网关不只是“API 代理”——路由策略、缓存、成本与安全治理才是核心价值"
     ],
-    "related": [
-      "Token计费",
-      "缓存命中",
-      "工具调用",
-      "输入输出处理"
-    ],
     "references": [
       "一个 LLM 网关需要做哪些事？（腾讯云开发者）",
       "大模型网关实践：路由、限流、预算、安全（腾讯云开发者）",
@@ -693,6 +932,34 @@ window.XIGAI["AI工程与模型"] = [
       "https://cloud.tencent.com.cn/developer/article/2685506",
       "https://apisix.incubator.apache.org/zh/blog/2025/02/24/apisix-ai-gateway-features/"
     ],
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "AI工程与模型",
+    "relations": [
+      {
+        "type": "related",
+        "target": "token-billing",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "cache-hit",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "tool-calling",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "io-processing",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "model-quantization",
+        "note": ""
+      }
+    ]
   }
 ];
