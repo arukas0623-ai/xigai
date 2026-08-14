@@ -1467,7 +1467,7 @@ async function pumpQueue() {
       const st = readStats();
       let act = false;
       if (!st.lastAutoCheck || Date.now() - st.lastAutoCheck > 6 * 3600e3) { st.lastAutoCheck = Date.now(); writeStats(st); autoHealthCheck(); act = true; }
-      if (!st.lastDiscover || Date.now() - st.lastDiscover > 5 * 60e3) { st.lastDiscover = Date.now(); writeStats(st); try { discoverCandidates(2); } catch (e2) {} act = true; }
+      if (!st.lastDiscover || Date.now() - st.lastDiscover > 5 * 60e3) { st.lastDiscover = Date.now(); writeStats(st); try { discoverCandidates(batchSizeFor()); } catch (e2) {} act = true; }
       if (act) setTimeout(pumpQueue, 15000);
     } catch (e) {}
     return;
@@ -1570,6 +1570,7 @@ function reviewConceptTask(id) {
 /* 主动发现入口（升级版 /api/discover）：生成候选→按优先级入队 */
 function discoverCandidates(limit) {
   if (!CORPUS) loadCorpus();
+  const want = Math.max(2, Math.min(8, limit || batchSizeFor()));   // 默认补足一批
   const fresh = generateCandidates();
   const pool = readCandidates();
   let merged = 0;
@@ -1583,7 +1584,7 @@ function discoverCandidates(limit) {
   const scored = prioritizeCandidates(50);
   let added = 0;
   const addedList = [];
-  for (const s of scored.slice(0, limit || 3)) {
+  for (const s of scored.slice(0, want)) {
     if (enqueueTask("concept", s.name, "discover", { priority: Math.min(20, 5 + Math.round(s.score)) })) {
       added++;
       addedList.push({ name: s.name, score: s.score, fail: s.fail, source: s.source });
@@ -1767,7 +1768,7 @@ async function processGeneratedConcept(obj, meta) {
   return { ok: false, error: r.error || "入库失败" };
 }
 /* 批处理：一次 Ollama 调用生成 2 个候选概念（各自仍走独立校验质量门） */
-function batchSizeFor() { try { const s = readStats(); return Math.max(2, Math.min(8, s.batchSize || 4)); } catch (e) { return 4; } }
+function batchSizeFor() { try { const s = readStats(); return Math.max(2, Math.min(8, s.batchSize || 6)); } catch (e) { return 6; } }
 function batchSizeAdjust(delta) {
   try {
     const s = readStats();
@@ -2280,6 +2281,7 @@ function handleEfficiency(res) {
   const e = {
     ok: true,
     at: Date.now(),
+    elapsedHours: prev && prev.at ? Math.max(0.01, (Date.now() - prev.at) / 3600000) : 0,
     windowConversionRate: candSince > 0 ? Math.round(ingestSince / candSince * 1000) / 10 : 0,   // 窗口候选→入库 %
     windowTaskSuccessRate: queuedSince > 0 ? Math.round(ingestSince / queuedSince * 100) : 0,
     windowOllamaPerConcept: ingestSince > 0 ? Math.round(ollamaSince / ingestSince * 10) / 10 : 0,
@@ -2300,6 +2302,16 @@ function handleEfficiency(res) {
     ollamaPerVerified: verSince > 0 ? Math.round(ollamaSince / verSince * 10) / 10 : 0,
     yieldVerified: verSince, yieldRelations: relSince,
     effectiveGrowthRate: ollamaSince > 0 ? Math.round((verSince + relSince) / ollamaSince * 100) / 100 : 0,   // 每次 Ollama 调用产出的 verified+有效关系
+    perHour: (() => {
+      const elH = prev && prev.at ? Math.max(0.01, (Date.now() - prev.at) / 3600000) : 0;
+      return {
+        concepts: elH ? Math.round(ingestSince / elH * 10) / 10 : 0,
+        verified: elH ? Math.round(verSince / elH * 10) / 10 : 0,
+        relations: elH ? Math.round(relSince / elH * 10) / 10 : 0,
+        ollama: elH ? Math.round(ollamaSince / elH * 10) / 10 : 0,
+      };
+    })(),
+    ollamaPerVerified: verSince > 0 ? Math.round(ollamaSince / verSince * 10) / 10 : 0,
     ollamaSince,
     batchCalls: s.batchCalls || 0,
     cum: { candidates: candDisc, ingests: s.ingests || 0, updates: s.updates || 0, dupSkips: s.dupSkips || 0, errors: s.errors || 0, taskFails: s.taskFails || 0, queueConcepts: s.queueConcepts || 0, ollamaCalls: s.ollamaCalls || 0, yieldVerified: s.yieldVerified || 0, yieldRelations: s.yieldRelations || 0 },
