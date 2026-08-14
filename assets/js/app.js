@@ -31,6 +31,7 @@
     X.initDnD();
     X.initParallax();
     X.renderDesk();
+    X.initChat();
     X.on("data-updated", X.updateStats);
 
     // 搜索

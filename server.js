@@ -88,6 +88,64 @@ function handleAi(res, payload) {
 }
 
 
+
+/* ── AI 问答解析（网页内提问） ──────────────────────── */
+function simpleHash(s) {
+  let h = 5381;
+  for (let i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) >>> 0;
+  return h.toString(36);
+}
+function handleAsk(res, payload) {
+  const q = String(payload.q || "").trim();
+  if (!q) return send(res, 200, JSON.stringify({ ok: false, error: "问题不能为空" }));
+  if (q.length > 2000) return send(res, 200, JSON.stringify({ ok: false, error: "问题过长（2000 字以内）" }));
+  const key = "ask_" + simpleHash(q);
+  const cacheFile = path.join(CACHE_DIR, key + ".md");
+  try {
+    const st = fs.statSync(cacheFile);
+    if (Date.now() - st.mtimeMs < 24 * 3600e3) {
+      const text = fs.readFileSync(cacheFile, "utf8");
+      return send(res, 200, JSON.stringify({ ok: true, cached: true, text }));
+    }
+  } catch (e) {}
+  const rdir = path.join(ROOT, ".cache", "research", key);
+  try { fs.mkdirSync(rdir, { recursive: true }); } catch (e) { return send(res, 200, JSON.stringify({ ok: false, error: "研究目录创建失败" })); }
+  const prompt = [
+    "你是「析概」知识图书馆的 AI 解析员。用户会提出一个概念/术语/问题。",
+    "请优先使用 web_search 联网核实，然后用简体中文清晰、具体、有深度地解释：先给一句话核心定义，再展开关键细节、实际用法或例子，如有需要列出相关术语，最后附上你搜索到的参考来源。",
+    "如果问题涉及行话/黑话/缩写，请解释其全称、出处与使用场景。控制篇幅 300-800 字，事实准确。",
+    "用户问题：",
+    q,
+  ].join("\n");
+  console.log("[ask] 提问:", q.slice(0, 60));
+  execFile(process.execPath, [DSH_BIN, "--profile", "headless", prompt],
+    { cwd: rdir, timeout: 300000, maxBuffer: 16 * 1024 * 1024, windowsHide: true },
+    (err, stdout, stderr) => {
+      let text = "";
+      if (err && !stdout) {
+        console.error("[ask] 失败:", err.message);
+        return send(res, 200, JSON.stringify({ ok: false, error: "AI 引擎调用失败: " + String(err.message).slice(0, 160) }));
+      }
+      let bestFile = null, bestLen = 0;
+      try {
+        for (const f of fs.readdirSync(rdir)) {
+          if (f.endsWith(".md")) {
+            const p = path.join(rdir, f);
+            const l = fs.statSync(p).size;
+            if (l > bestLen) { bestLen = l; bestFile = p; }
+          }
+        }
+      } catch (e) {}
+      text = bestFile ? fs.readFileSync(bestFile, "utf8") : String(stdout || "");
+      text = stripPreamble(text).trim();
+      if (!text) return send(res, 200, JSON.stringify({ ok: false, error: "AI 引擎返回为空" }));
+      try { fs.writeFileSync(cacheFile, text); } catch (e) {}
+      try { fs.rmSync(rdir, { recursive: true, force: true }); } catch (e) {}
+      console.log("[ask] 完成:", q.slice(0, 40), "→", text.length, "字符");
+      send(res, 200, JSON.stringify({ ok: true, cached: false, text }));
+    });
+}
+
 /* ── AI 解析回填书库（自生长） ─────────────────────── */
 let writeQueue = Promise.resolve();
 function enqueueWrite(fn) {
@@ -163,13 +221,14 @@ function handleAddConcept(res, payload) {
 const server = http.createServer((req, res) => {
   const url = new URL(req.url, "http://x");
   if (url.pathname === "/api/health") return send(res, 200, "ok");
-  if (req.method === "POST" && (url.pathname === "/api/ai" || url.pathname === "/api/add-concept")) {
+  if (req.method === "POST" && ["/api/ai", "/api/ask", "/api/add-concept"].includes(url.pathname)) {
     let body = "";
     req.on("data", c => (body += c));
     req.on("end", () => {
       let payload = {};
       try { payload = JSON.parse(body || "{}"); } catch (e) {}
       if (url.pathname === "/api/add-concept") handleAddConcept(res, payload);
+      else if (url.pathname === "/api/ask") handleAsk(res, payload);
       else handleAi(res, payload);
     });
     return;

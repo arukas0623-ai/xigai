@@ -55,6 +55,24 @@
   <button class="quick-btn" id="btn-random" title="随机开书 (R)">🎲<span class="tip">随机翻开一本书</span></button>
   <button class="quick-btn" id="btn-daily" title="今日藏书">📖<span class="tip">今日推荐藏书</span></button>
   <button class="quick-btn" id="btn-trash" title="把书拖到这里藏起">🗑<span class="tip">把书拖到这里藏起（点击查看数量）</span></button>
+  <button class="quick-btn chat-float" id="btn-chat" title="问 AI 解析">💬<span class="tip">问 AI 解析：任意概念/术语/黑话</span></button>
+</div>
+
+<!-- AI 解析员聊天抽屉 -->
+<div id="chat-drawer" class="hidden">
+  <div class="chat-head">
+    <span class="chat-title">🤖 AI 解析员 <small>联网 · 深度解析</small></span>
+    <span class="chat-tools">
+      <button id="chat-clear" title="清空对话">🗑</button>
+      <button id="chat-close" title="关闭">✕</button>
+    </span>
+  </div>
+  <div class="chat-body" id="chat-body"></div>
+  <div class="chat-sugg" id="chat-sugg"></div>
+  <div class="chat-input-row">
+    <textarea id="chat-input" rows="1" placeholder="输入任意概念 / 术语 / 黑话，如：什么是 CLI？回车发送"></textarea>
+    <button id="chat-send" title="发送 (Enter)">➤</button>
+  </div>
 </div>
 
 <footer id="footer">
@@ -72,6 +90,7 @@
 <script src="data/manifest.js"></script>
 <script src="assets/js/core.js"></script>
 <script src="assets/js/ui.js"></script>
+<script src="assets/js/chat.js"></script>
 <script src="assets/js/app.js"></script>
 </body>
 </html>

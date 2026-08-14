@@ -242,3 +242,9 @@
 .desk-book:hover .db-x { display:flex; }
 .desk-book .db-x:hover { color:var(--err); border-color:var(--err); }
 body.dragging .icon-btn, body.dragging .quick-btn { outline: 2px dashed var(--accent); outline-offset: 2px; }
+
+/* 术语密集书架：横向滚动 */
+.shelf-books { overflow-x: auto; scrollbar-width: thin; scrollbar-color: var(--scroll-thumb) transparent; }
+.shelf-books::-webkit-scrollbar { height: 6px; }
+.shelf-books::-webkit-scrollbar-thumb { background: var(--scroll-thumb); border-radius: 3px; }
+.shelf-books .book { flex: none; }

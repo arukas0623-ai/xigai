@@ -128,8 +128,10 @@
     X.searchResults = res;
     X._selIdx = -1;
     if (!res.length) {
-      box.innerHTML = '<div class="sr-empty">没有找到「' + X.esc(q) + '」<br>试试拼音、别名或更换关键词<br><span style="font-size:12px;color:var(--ink-3)">也可以点击下方「AI 深度解析」让 AI 联网研究</span></div>' +
-        '<div class="sr-hint">按 ⏎ 让 AI 联网研究 · Esc 关闭</div>';
+      box.innerHTML = '<div class="sr-empty">没有找到「' + X.esc(q) + '」<br>试试拼音、别名或更换关键词<br><span style="font-size:12px;color:var(--ink-3)">也可以直接问 AI 解析员</span></div>' +
+        '<div class="sr-hint"><button class="mini-btn" id="sr-ask">💬 问 AI 解析「' + X.esc(q) + '」</button> · Esc 关闭</div>';
+      const srAsk = box.querySelector("#sr-ask");
+      if (srAsk) srAsk.addEventListener("click", () => { X.closeSearch(); const inp = document.getElementById("search"); if (inp) inp.value = ""; X.askAI(q); });
     } else {
       let html = '<div class="sr-head">共 ' + res.length + " 个结果</div>";
       res.forEach((c, i) => {
@@ -228,6 +230,7 @@
       "</div>" +
       '<div class="detail-actions">' +
         '<button class="btn primary" id="ai-btn">✨ AI 深度解析</button>' +
+        '<button class="btn" id="ask-btn">🤖 问 AI</button>' +
         '<button class="btn" id="bk-btn">📖 百科速览</button>' +
         '<button class="btn" id="fav-btn">' + (X.isFav(c.id) ? "♥ 已收藏" : "☆ 收藏") + "</button>" +
         '<button class="btn" id="copyfull-btn">📋 复制全文</button>' +
@@ -282,6 +285,10 @@
       navigator.clipboard.writeText(txt).then(() => X.toast("全文已复制")).catch(() => X.toast("复制失败"));
     });
     ov.querySelector("#bk-btn").addEventListener("click", () => X.baikeLookup(c.name));
+    ov.querySelector("#ask-btn").addEventListener("click", () => {
+      X.closeDetail();
+      X.askAI("解释概念「" + c.name + "」：" + (c.summary || ""));
+    });
     ov.querySelector("#ai-btn").addEventListener("click", () => X.aiDeepDive(c));
     // 滚动进度
     const card = ov.querySelector(".panel-card");
