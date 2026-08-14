@@ -1210,7 +1210,7 @@ window.XIGAI["前沿科技"] = [
       },
       {
         "type": "appliesTo",
-        "target": "工业4.0,",
+        "target": "工业40,",
         "note": ""
       }
     ],
@@ -1399,6 +1399,190 @@ window.XIGAI["前沿科技"] = [
     "id": "磁悬浮列车",
     "confidence": 1,
     "status": "generated",
+    "searchedAt": "2026-08-14"
+  },
+  {
+    "name": "智能制造",
+    "aliases": [],
+    "field": "前沿科技",
+    "tags": [
+      "自动化",
+      "工业4.0,"
+    ],
+    "difficulty": 3,
+    "summary": "利用信息技术和先进制造技术提升生产效率。",
+    "definition": "通过集成先进的信息技术、自动化技术和人工智能技术，实现制造业的智能化生产和管理。包括但不限于智能工厂、机器人应用、物联网技术等。",
+    "principle": ",",
+    "background": "智能制造是工业4.0的核心组成部分之一，旨在通过数字化转型提高制造行业的灵活性和效率。",
+    "core": [
+      "集成信息技术与先进制造技术",
+      "实现生产过程的自动化和智能化",
+      "提升产品质量和生产效率"
+    ],
+    "pros": [
+      "提高生产效率和产品质量",
+      "降低人力成本和资源浪费"
+    ],
+    "cons": [
+      "初期投资大，技术更新快导致维护成本高"
+    ],
+    "applications": [
+      "汽车制造",
+      "电子设备制造"
+    ],
+    "misconceptions": [
+      "智能制造仅限于高端制造业"
+    ],
+    "related": [
+      "工业4.0,",
+      "物联网"
+    ],
+    "relations": [
+      {
+        "type": "evolvedFrom",
+        "target": "工业40,",
+        "note": ""
+      }
+    ],
+    "sources": [
+      "https://www.industry4.org/",
+      "https://www.mckinsey.com/industries/manufacturing/insights/industry_4_0,"
+    ],
+    "id": "智能制造",
+    "confidence": 1,
+    "status": "verified",
+    "confidenceDetail": {
+      "concept": 1,
+      "source": 0.8,
+      "relation": 0.7
+    },
+    "searchedAt": "2026-08-14"
+  },
+  {
+    "name": "物联网",
+    "aliases": [],
+    "field": "前沿科技",
+    "tags": [
+      "智能",
+      "网络"
+    ],
+    "difficulty": 3,
+    "summary": "通过互联网连接各种设备和物品。",
+    "definition": "物联网是指将各种物理对象（如汽车、家电、医疗设备等）嵌入传感器、软件和其他技术，使其能够与其他设备或云平台进行通信和交换数据的网络系统。",
+    "principle": ",",
+    "background": "物联网的概念最早可追溯到1999年。随着5G、人工智能和大数据的发展，物联网的应用范围不断扩大，从智能家居到智慧城市都有涉及。",
+    "core": [
+      "嵌入式传感器",
+      "无线通信技术",
+      "云计算平台"
+    ],
+    "pros": [
+      "提高效率和便利性",
+      "促进数据驱动的决策"
+    ],
+    "cons": [
+      "安全性和隐私问题",
+      "高昂的成本和技术障碍"
+    ],
+    "applications": [
+      "智能交通系统",
+      "远程医疗监控"
+    ],
+    "misconceptions": [
+      "所有设备都能无缝连接",
+      "物联网等同于大数据"
+    ],
+    "related": [],
+    "relations": [
+      {
+        "type": "followup",
+        "target": "5G技术",
+        "note": ""
+      },
+      {
+        "type": "followup",
+        "target": "人工智能",
+        "note": ""
+      }
+    ],
+    "sources": [
+      "https://www.iotworldtoday.com/",
+      "https://en.wikipedia.org/wiki/Internet_of_things",
+      "https://www.forbes.com/sites/forbestechcouncil/2019/10/30/the-iot-is-transforming-the-way-we-live-and-work/"
+    ],
+    "id": "物联网",
+    "confidence": 0.9,
+    "status": "verified",
+    "confidenceDetail": {
+      "concept": 0.9,
+      "source": 1,
+      "relation": 0.7
+    },
+    "searchedAt": "2026-08-14"
+  },
+  {
+    "name": "工业4.0,",
+    "aliases": [],
+    "field": "前沿科技",
+    "tags": [
+      "智能制造",
+      "物联网"
+    ],
+    "difficulty": 3,
+    "summary": "第四次工业革命的简称，代表制造业智能化。",
+    "definition": "工业4.0是指利用互联网、大数据、云计算等信息技术实现制造业的智能化和自动化，提高生产效率与灵活性。",
+    "principle": ",",
+    "background": "2011年德国政府提出‘工业4.0’战略，旨在通过物联网技术将工厂设备连接起来，形成智能网络化制造系统。",
+    "core": [
+      "物联网技术的应用",
+      "大数据分析",
+      "云计算平台支持"
+    ],
+    "pros": [
+      "提高生产效率",
+      "降低运营成本"
+    ],
+    "cons": [
+      "初期投资大",
+      "网络安全风险增加"
+    ],
+    "applications": [
+      "智能工厂管理",
+      "供应链优化"
+    ],
+    "misconceptions": [
+      "工业4.0仅限于制造业",
+      "实施工业4.0无需传统制造技术"
+    ],
+    "related": [
+      "智能制造",
+      "物联网"
+    ],
+    "relations": [
+      {
+        "type": "evolvedFrom",
+        "target": "智能制造",
+        "note": ""
+      },
+      {
+        "type": "followup",
+        "target": "数字化转型",
+        "note": ""
+      }
+    ],
+    "sources": [
+      "https://www.industrie-4-0.de/",
+      "https://www.wipo.int/edocs/lexdocs/treatises/wtrt198.htm",
+      "https://www.forbes.com/sites/forbestechcouncil/2020/06/30/industrial-4-0-explained/"
+    ],
+    "id": "工业40,",
+    "confidence": 0.9,
+    "status": "verified",
+    "confidenceDetail": {
+      "concept": 0.9,
+      "source": 1,
+      "relation": 0.7
+    },
     "searchedAt": "2026-08-14"
   }
 ];

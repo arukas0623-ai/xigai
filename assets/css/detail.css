@@ -422,3 +422,7 @@
 .kg-edge-actions { display: flex; gap: 6px; padding: 0 12px 10px; flex-wrap: wrap; }
 .kg-line { cursor: pointer; }
 .kg-line:hover { stroke-width: 3 !important; opacity: 1 !important; }
+
+.rel-chip.growing { opacity: .7; border-style: dashed; cursor: wait; color: var(--accent); }
+.rel-chip.todo { border-style: dashed; }
+.rel-chip.waiting { border-style: dotted; opacity: .7; }

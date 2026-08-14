@@ -263,7 +263,7 @@
         (apps ? '<div class="sec"><h3>现实应用</h3><ul>' + apps + "</ul></div>" : "") +
         (proscons ? proscons : "") +
         (miscon ? '<div class="sec"><h3>常见误解</h3><ul>' + miscon + "</ul></div>" : "") +
-        (relHtml ? '<div class="sec"><h3>概念关系</h3>' + relHtml + "</div>" : "") +
+        (relHtml ? '<div class="sec" id="rel-sec"><h3>概念关系</h3>' + relHtml + "</div>" : "") +
         '<div class="sec"><h3>参考来源' + (c.generated ? ' <span class="gen-badge">🤖 AI 联网生成</span>' : "") + '</h3><ul class="src-list">' + srcs + "</ul></div>" +
         '<div class="sec" id="footprint-sec" style="display:none"><h3>学习足迹</h3><div id="footprint-box"></div></div>' +
         '<div id="ai-area"></div><div id="baike-box"></div>' +
@@ -285,7 +285,72 @@
     document.body.style.overflow = "hidden";
     X.renderFootprint(c);
     X.wireDetail(c);
+    X.refreshRelationStatus(c);
     X.updateReadProgress();
+  };
+
+  /* 关系目标状态芯片 + 后台自动补全（无刷新更新） */
+  X._relGrowing = {};
+  X.refreshRelationStatus = function (c) {
+    const sec = document.getElementById("rel-sec");
+    if (!sec) return;
+    const miss = Array.from(sec.querySelectorAll(".rel-chip.miss"));
+    if (!miss.length) return;
+    const targets = miss.map(m => m.dataset.miss);
+    fetch("/api/completion-status", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ targets }),
+    }).then(r => r.json()).then(d => {
+      if (!d.ok || !d.statuses) return;
+      const todos = [];
+      miss.forEach(m => {
+        const st = d.statuses[m.dataset.miss];
+        if (!st) return;
+        if (st.status === "ready" || st.status === "cached") {
+          const t = X.resolveConcept(m.dataset.miss);
+          if (t) { m.classList.remove("miss"); m.dataset.rel = t.id; m.textContent = t.name; }
+        } else if (st.status === "growing") {
+          m.classList.add("growing"); m.textContent = "⌛ 正在收录…";
+        } else if (st.status === "pending") {
+          m.classList.add("waiting"); m.textContent = "⏸ 待验证（点击重试）";
+          m.addEventListener("click", () => X._growRelation(m.dataset.miss));
+        } else {
+          m.classList.add("todo"); m.textContent = "⏳ 待收录（点击生成）";
+          m.addEventListener("click", () => X._growRelation(m.dataset.miss));
+          todos.push(m.dataset.miss);
+        }
+      });
+      // 后台自动补全前 2 个待收录目标（不阻塞）
+      todos.slice(0, 2).forEach(t => X._growRelation(t, true));
+    }).catch(() => {});
+  };
+  X._growRelation = function (target, silent) {
+    if (X._relGrowing[target]) return;         // 单飞：同一目标只允许一个任务
+    X._relGrowing[target] = true;
+    const sec = document.getElementById("rel-sec");
+    if (sec) sec.querySelectorAll('.rel-chip[data-miss="' + X.esc(target) + '"]').forEach(m => { m.classList.add("growing"); m.textContent = "⌛ 正在收录…"; });
+    if (!silent) X.toast("正在收录「" + target + "」…（免费本地模型）");
+    fetch("/api/grow-target", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ target }),
+    }).then(r => r.json()).then(d => {
+      X._relGrowing[target] = false;
+      if (d.ok && (d.concept || d.source === "dup" || d.source === "local" || d.source === "cache")) {
+        // 数据已更新：重载语料并刷新当前详情的关系区（无刷新）
+        X.reloadData();
+        X.renderShelves(X._currentFilter);
+        const cur = X.currentId && X.byId.get(X.currentId);
+        if (cur && document.getElementById("detail") && !document.getElementById("detail").classList.contains("hidden")) {
+          X.refreshRelationStatus(cur);
+        }
+        X.toast("已收录「" + (d.concept ? d.concept.name : target) + "」✓");
+      } else {
+        if (sec) sec.querySelectorAll('.rel-chip[data-miss="' + X.esc(target) + '"]').forEach(m => { m.classList.add("waiting"); m.textContent = "⏸ 待验证（点击重试）"; });
+        if (!silent) X.toast(d.reject ? "已拒绝：" + d.reason : (d.error || "收录失败"));
+      }
+    }).catch(() => { X._relGrowing[target] = false; });
   };
   X.renderFootprint = function (c) {
     const sec = document.getElementById("footprint-sec");

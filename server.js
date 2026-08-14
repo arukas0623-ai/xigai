@@ -686,8 +686,14 @@ function handleGrow(res, payload) {
     if (!Array.isArray(obj.cons)) obj.cons = [];
     if (obj.principle == null) obj.principle = "";
     obj.id = normStr(obj.name).slice(0, 48) || "concept-" + Date.now();
-    obj.confidence = computeConfidence(obj);
+    obj.confidence = Math.min(0.9, computeConfidence(obj));   // 自动生成永不默认满置信（1.0 仅限人工验证）
     obj.status = statusOf(obj.confidence);
+    // 拆分置信度：整体 + 来源/关系分项
+    obj.confidenceDetail = {
+      concept: obj.confidence,
+      source: Math.min(1, 0.3 + 0.25 * (obj.sources || []).filter(Boolean).length),
+      relation: obj.relations && obj.relations.length ? 0.7 : 0.3,
+    };
     // 4) 去重
     const dup = dedupCheck(obj);
     if (dup) {
@@ -874,6 +880,144 @@ function handleExtract(res, payload) {
   });
 }
 
+
+/* ═══ 关系目标自动补全（核心闭环） ═══ */
+const GROW_INFLIGHT = new Map();      // target → promise（单飞：同一目标并发只允许一个任务）
+const PENDING_FILE = path.join(ROOT, ".cache", "pending.json");
+const PENDING_COOLDOWN = 30 * 60e3;   // 失败冷却 30 分钟
+function readPending() { try { return JSON.parse(fs.readFileSync(PENDING_FILE, "utf8")); } catch (e) { return {}; } }
+function writePending(p) { try { fs.writeFileSync(PENDING_FILE, JSON.stringify(p)); } catch (e) {} }
+
+/* 批量查询关系目标状态：exists / cacheHit / pending / growing */
+function handleCompletionStatus(res, payload) {
+  const targets = (Array.isArray(payload.targets) ? payload.targets : []).map(String).filter(Boolean).slice(0, 20);
+  const out = {};
+  const pending = readPending();
+  for (const t of targets) {
+    const local = findLocal(t);
+    if (local) { out[t] = { status: "ready", id: local.id }; continue; }
+    if (GROW_INFLIGHT.has(normStr(t))) { out[t] = { status: "growing" }; continue; }
+    const p = pending[normStr(t)];
+    if (p && Date.now() - p.at < PENDING_COOLDOWN) { out[t] = { status: "pending", at: p.at }; continue; }
+    const cache = fs.existsSync(path.join(GROW_DIR, normStr(t).slice(0, 40) + ".json"));
+    out[t] = { status: cache ? "cached" : "todo" };
+  }
+  send(res, 200, JSON.stringify({ ok: true, statuses: out }));
+}
+
+/* 后台补全单个目标（本地→缓存→Ollama 结构化→去重→质量→入库；禁付费；单飞） */
+function growTarget(payload) {
+  const raw = String(payload.target || "").trim();
+  const target = raw.length > 40 ? raw.slice(0, 40) : raw;
+  if (!target) return Promise.resolve({ ok: false, error: "目标为空" });
+  const key = normStr(target);
+  if (GROW_INFLIGHT.has(key)) return GROW_INFLIGHT.get(key);   // 单飞复用
+  const task = (async () => {
+    // 1) 本地命中（0 调用）
+    const local = findLocal(target);
+    if (local) return { ok: true, source: "local", concept: local };
+    // 2) 缓存
+    const cacheFile = path.join(GROW_DIR, key.slice(0, 40) + ".json");
+    try {
+      const st = fs.statSync(cacheFile);
+      if (Date.now() - st.mtimeMs < 7 * 864e5) {
+        bumpStat("cacheHits", 1);
+        return { ok: true, source: "cache", concept: JSON.parse(fs.readFileSync(cacheFile, "utf8")) };
+      }
+    } catch (e) {}
+    // 3) Ollama 结构化（系统自动：禁付费）
+    const prompt = growPrompt(target);
+    const text = await growOllama(target, prompt);
+    bumpStat("ollamaCalls", 1);
+    if (!text) {
+      const p = readPending(); p[key] = { at: Date.now(), reason: "ollama-empty" }; writePending(p);
+      return { ok: false, error: "本地模型不可用", pending: true };
+    }
+    const obj = extractJSON(text);
+    if (!obj) {
+      const p = readPending(); p[key] = { at: Date.now(), reason: "parse-fail" }; writePending(p);
+      return { ok: false, error: "结构化解析失败", pending: true };
+    }
+    obj.relations = normalizeGrowRelations(obj.relations);
+    if (!Array.isArray(obj.pros)) obj.pros = [];
+    if (!Array.isArray(obj.cons)) obj.cons = [];
+    if (obj.principle == null) obj.principle = "";
+    obj.id = normStr(obj.name).slice(0, 48) || "concept-" + Date.now();
+    obj.confidence = Math.min(0.9, computeConfidence(obj));   // 自动生成永不默认满置信
+    obj.status = statusOf(obj.confidence);
+    obj.confidenceDetail = { concept: obj.confidence, source: Math.min(1, 0.3 + 0.25 * (obj.sources || []).filter(Boolean).length), relation: obj.relations.length ? 0.7 : 0.3 };
+    // 4) 去重
+    const dup = dedupCheck(obj);
+    if (dup) { bumpStat("dupSkips", 1); return { ok: true, source: "dup", concept: dup }; }
+    // 5) 可信度
+    const reason = junkCheck(obj, target);
+    if (reason) { bumpReject(reason); return { ok: false, reject: true, reason }; }
+    // 6) 分类入库
+    const domain = classifyDomain(obj);
+    obj.searchedAt = new Date().toISOString().slice(0, 10);
+    const r = await appendConcept(domain, obj);
+    if (r.ok) {
+      bumpStat("ingests", 1);
+      try { fs.writeFileSync(cacheFile, JSON.stringify(obj)); } catch (e) {}
+      const p = readPending(); delete p[key]; writePending(p);
+      return { ok: true, source: "ai", domain, concept: obj };
+    }
+    if (r.dup) { bumpStat("dupSkips", 1); return { ok: true, source: "dup" }; }
+    return { ok: false, error: r.error || "入库失败" };
+  })();
+  GROW_INFLIGHT.set(key, task);
+  task.finally(() => GROW_INFLIGHT.delete(key)).catch(() => {});
+  return task;
+}
+function handleGrowTarget(res, payload) {
+  growTarget(payload).then(d => send(res, 200, JSON.stringify(d)));
+}
+
+/* 关系维护：解析→id、删无效/自循环/垃圾目标，报告有效率 */
+function handleMaintain(res) {
+  if (!CORPUS) loadCorpus();
+  let relations = 0, resolved = 0, dropped = 0, rewritten = 0;
+  const JUNK_TARGET = /(什么|如何|怎么|为什么|是不是|有没有|好吗|可以吗|你是谁|你好|^\d+$|^.$)/;
+  for (const c of CORPUS.all) {
+    const keep = [];
+    const seen = new Set();
+    for (const r of (c.relations || [])) {
+      if (!r || typeof r.target !== "string" || !r.target.trim()) { dropped++; continue; }
+      const type = GROW_VOCAB.includes(r.type) ? r.type : "related";
+      const t = CORPUS.byId.get(r.target) || CORPUS.byName.get(normStr(r.target)) || CORPUS.byAlias.get(normStr(r.target));
+      if (t && t.id === c.id) { dropped++; continue; }                       // 自循环
+      const targetVal = t ? t.id : r.target;
+      if (!t && JUNK_TARGET.test(r.target)) { dropped++; continue; }          // 垃圾目标
+      const key = type + "|" + targetVal;
+      if (seen.has(key)) { dropped++; continue; }                             // 重复
+      seen.add(key);
+      if (t && r.target !== t.id) { rewritten++; }                            // 名称→id 重写
+      keep.push({ type, target: targetVal, note: r.note || "" });
+      relations++; if (t) resolved++;
+    }
+    c.relations = keep;
+  }
+  // 回写数据文件
+  const dataDir = path.join(ROOT, "data");
+  for (const name of CORPUS.domains) {
+    const f = domain2file(name);
+    if (!f) continue;
+    const fp = path.join(dataDir, f);
+    const w = { XIGAI: {} };
+    try { new Function("window", fs.readFileSync(fp, "utf8"))(w); } catch (e) { continue; }
+    const arr = w.XIGAI[name] || [];
+    for (const c of arr) {
+      const cc = CORPUS.byId.get(c.id || normStr(c.name));
+      if (cc && cc.relations) c.relations = cc.relations;
+    }
+    const out = "window.XIGAI = window.XIGAI || {};\nwindow.XIGAI[" + JSON.stringify(name) + "] = " + JSON.stringify(arr, null, 2) + ";\n";
+    const tmp = fp + ".tmp";
+    try { fs.writeFileSync(tmp, out, "utf8"); fs.renameSync(tmp, fp); } catch (e) {}
+  }
+  loadCorpus();
+  send(res, 200, JSON.stringify({ ok: true, relations, resolved, rate: relations ? Math.round(resolved / relations * 100) : 0, dropped, rewritten }));
+}
+
 /* ── 静态服务 ─────────────────────────────────────── */
 const server = http.createServer((req, res) => {
   const url = new URL(req.url, "http://x");
@@ -904,10 +1048,15 @@ const server = http.createServer((req, res) => {
     req.on("end", () => { let p = {}; try { p = JSON.parse(body || "{}"); } catch (e) {} handleGraphRag(res, p); });
     return;
   }
-  if (req.method === "POST" && (url.pathname === "/api/grow" || url.pathname === "/api/quiz" || url.pathname === "/api/extract-concepts")) {
+  if (url.pathname === "/api/completion-status") {
+    let b2 = ""; req.on("data", c => (b2 += c)); req.on("end", () => { let p = {}; try { p = JSON.parse(b2 || "{}"); } catch (e) {} handleCompletionStatus(res, p); });
+    return;
+  }
+  if (req.method === "POST" && url.pathname === "/api/maintain") return handleMaintain(res);
+  if (req.method === "POST" && (url.pathname === "/api/grow" || url.pathname === "/api/quiz" || url.pathname === "/api/extract-concepts" || url.pathname === "/api/grow-target")) {
     let body = "";
     req.on("data", c => (body += c));
-    req.on("end", () => { let p = {}; try { p = JSON.parse(body || "{}"); } catch (e) {} if (url.pathname === "/api/quiz") handleQuiz(res, p); else if (url.pathname === "/api/extract-concepts") handleExtract(res, p); else handleGrow(res, p); });
+    req.on("end", () => { let p = {}; try { p = JSON.parse(body || "{}"); } catch (e) {} if (url.pathname === "/api/quiz") handleQuiz(res, p); else if (url.pathname === "/api/extract-concepts") handleExtract(res, p); else if (url.pathname === "/api/grow-target") handleGrowTarget(res, p); else handleGrow(res, p); });
     return;
   }
   if (req.method === "POST" && url.pathname === "/api/launch-tool") {

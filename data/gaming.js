@@ -329,17 +329,37 @@ window.XIGAI["游戏黑话"] = [
     "relations": [
       {
         "type": "related",
+        "target": "third-gen-semi",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "sic",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "automotive-chip",
+        "note": ""
+      },
+      {
+        "type": "related",
         "target": "kejin",
         "note": ""
       },
       {
         "type": "related",
-        "target": "guaji",
+        "target": "ouhuang",
         "note": ""
       },
       {
         "type": "related",
-        "target": "ouhuang",
+        "target": "feiqiu",
+        "note": ""
+      },
+      {
+        "type": "related",
+        "target": "guaji",
         "note": ""
       }
     ]
