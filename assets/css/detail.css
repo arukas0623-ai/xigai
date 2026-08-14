@@ -455,3 +455,23 @@
 .why-item { color: var(--accent); font-weight: 600; }
 .why-note { color: var(--ink-2); }
 .why-issue { color: var(--err); }
+
+/* 概念测试 */
+.quiz-card { max-width: 560px; }
+.quiz-body { padding: 8px 4px; }
+.quiz-q { font-size: 15px; line-height: 1.7; margin: 8px 0 12px; }
+.quiz-progress { color: var(--ink-3); font-size: 12px; margin-right: 8px; }
+.quiz-opts { display: flex; flex-direction: column; gap: 8px; }
+.quiz-opt { text-align: left; padding: 9px 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg2); color: var(--ink); font-size: 13.5px; cursor: pointer; }
+.quiz-opt:hover:not(:disabled) { border-color: var(--accent); }
+.quiz-opt.right { background: #e8f5e9; border-color: #4caf50; color: #1b5e20; }
+.quiz-opt.wrong { background: #fdecea; border-color: #e57373; color: #b71c1c; }
+.quiz-opt:disabled { cursor: default; opacity: .95; }
+.quiz-fb { margin-top: 12px; font-size: 13.5px; }
+.quiz-ok { color: #2e7d32; font-weight: 600; }
+.quiz-no { color: #c62828; font-weight: 600; }
+.quiz-explain { margin-top: 6px; color: var(--ink-2); line-height: 1.6; }
+.quiz-next, .quiz-retry { margin-top: 10px; }
+.quiz-result { text-align: center; padding: 16px 0; }
+.quiz-score { font-size: 34px; font-weight: 700; color: var(--accent); }
+.quiz-cached { display: block; margin-top: 8px; color: var(--ink-3); font-size: 11px; }

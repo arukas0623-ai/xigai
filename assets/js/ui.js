@@ -481,6 +481,55 @@
     card.addEventListener("scroll", X.updateReadProgress);
   };
 
+  /* ── 概念测试（openQuiz 补全：原按钮无实现） ─────────────── */
+  X.openQuiz = function (c) {
+    let ov = document.getElementById("quiz-panel");
+    if (!ov) { ov = document.createElement("div"); ov.id = "quiz-panel"; ov.className = "overlay hidden"; document.body.appendChild(ov); }
+    ov.innerHTML = '<div class="panel-card quiz-card"><button class="panel-close" title="关闭">✕</button><h3 class="cmp-title">📝 ' + X.esc(c.name) + ' · 测试</h3><div class="quiz-body"><div class="sp-empty">加载中…</div></div></div>';
+    ov.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+    const qb = ov.querySelector(".quiz-body");
+    ov.querySelector(".panel-close").addEventListener("click", () => { ov.classList.add("hidden"); document.body.style.overflow = ""; });
+    ov.addEventListener("click", e => { if (e.target === ov) { ov.classList.add("hidden"); document.body.style.overflow = ""; } });
+    fetch("/api/quiz", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ name: c.name }) })
+      .then(r => r.json()).then(d => {
+        if (!d.ok || !d.quiz || !d.quiz.length) { qb.innerHTML = '<div class="sp-empty">出题失败：' + X.esc(d.error || "未知错误") + '</div>'; return; }
+        X._renderQuiz(qb, c, d.quiz, !!d.cached);
+      }).catch(() => { qb.innerHTML = '<div class="sp-empty">无法连接服务</div>'; });
+  };
+  X._renderQuiz = function (qb, c, quiz, cached) {
+    let idx = 0, correct = 0;
+    const mk = () => {
+      const q = quiz[idx];
+      const opts = q.options.map((o, i) => '<button class="quiz-opt" data-i="' + i + '">' + X.esc(o) + '</button>').join("");
+      qb.innerHTML = '<div class="quiz-q"><span class="quiz-progress">' + (idx + 1) + '/' + quiz.length + '</span>' + X.esc(q.q) + '</div><div class="quiz-opts">' + opts + '</div>' +
+        '<div class="quiz-fb"></div>' + (cached ? '<small class="quiz-cached">（题目来自 24h 缓存）</small>' : "");
+      qb.querySelectorAll(".quiz-opt").forEach(b => b.addEventListener("click", () => {
+        const i = Number(b.dataset.i);
+        const fb = qb.querySelector(".quiz-fb");
+        const right = i === q.answer;
+        if (right) correct++;
+        b.classList.add(right ? "right" : "wrong");
+        qb.querySelectorAll(".quiz-opt").forEach(x => { if (Number(x.dataset.i) === q.answer) x.classList.add("right"); x.disabled = true; });
+        fb.innerHTML = (right ? '<span class="quiz-ok">✓ 回答正确</span>' : '<span class="quiz-no">✕ 回答错误</span>') +
+          (q.explain ? '<div class="quiz-explain">' + X.esc(q.explain) + "</div>" : "") +
+          (idx < quiz.length - 1 ? '<button class="btn quiz-next">下一题</button>' : '<button class="btn quiz-next">查看结果</button>');
+        fb.querySelector(".quiz-next").addEventListener("click", () => {
+          idx++;
+          if (idx < quiz.length) mk(); else finish();
+        });
+      }));
+    };
+    const finish = () => {
+      X.recordMastery(c.id, correct, quiz.length);
+      const m = X.masteryLabel(c.id);
+      const score = Math.round(correct / quiz.length * 100);
+      qb.innerHTML = '<div class="quiz-result"><div class="quiz-score">' + score + '%</div><div class="mastery-badge ' + m.cls + '">' + m.text + '</div><p>答对 ' + correct + ' / ' + quiz.length + ' 题</p>' +
+        '<button class="btn quiz-retry">再测一次</button></div>';
+      qb.querySelector(".quiz-retry").addEventListener("click", () => { idx = 0; correct = 0; mk(); });
+    };
+    mk();
+  };
   X.closeDetail = function () {
     document.getElementById("detail").classList.add("hidden");
     document.body.style.overflow = "";
