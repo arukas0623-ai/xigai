@@ -649,12 +649,74 @@ function handleQuiz(res, payload) {
   });
 }
 
+
+/* ═══ 阶段3（P2）：版本历史 + GraphRAG ═══ */
+function handleVersion(res, payload) {
+  const id = String(payload.id || "").replace(/[^a-zA-Z0-9\u4e00-\u9fa5-]/g, "").slice(0, 60);
+  const vf = path.join(VERSION_DIR, id + ".json");
+  try {
+    const hist = JSON.parse(fs.readFileSync(vf, "utf8"));
+    return send(res, 200, JSON.stringify({ ok: true, versions: hist.slice(-20) }));
+  } catch (e) { return send(res, 200, JSON.stringify({ ok: true, versions: [] })); }
+}
+
+/* GraphRAG-lite：本地命中 → 图谱扩展（1跳相关概念上下文）→ Ollama 生成 */
+function graphContext(q) {
+  if (!CORPUS) loadCorpus();
+  const nk = normStr(q);
+  const seeds = CORPUS.all.filter(c =>
+    normStr(c.name) === nk || normStr(c.name).includes(nk) || nk.includes(normStr(c.name)) ||
+    (c.aliases || []).some(a => normStr(a) === nk)
+  ).slice(0, 3);
+  if (!seeds.length) return { seed: null, context: "" };
+  const seen = new Set(seeds.map(s => s.id));
+  const ctx = [];
+  for (const s of seeds) {
+    ctx.push("· " + s.name + "（" + s.domain + "）：" + (s.definition || "").slice(0, 200));
+    for (const r of (s.relations || [])) {
+      const t = CORPUS.byId.get(r.target);
+      if (t && !seen.has(t.id)) { seen.add(t.id); ctx.push("  ↳相关[" + r.type + "] " + t.name + "（" + t.domain + "）：" + (t.definition || "").slice(0, 140)); }
+    }
+  }
+  return { seed: seeds[0], context: ctx.join("\n").slice(0, 2400) };
+}
+function handleGraphRag(res, payload) {
+  const q = String(payload.q || "").trim();
+  if (!q) return send(res, 200, JSON.stringify({ ok: false, error: "问题为空" }));
+  const { seed, context } = graphContext(q);
+  const prompt = [
+    "你是「析概」知识库的 AI 解析员。用户问题：" + q,
+    context ? "以下是知识图谱中与之相关的概念信息（GraphRAG 上下文）：\n" + context : "（书库未找到直接相关概念）",
+    "请结合上下文与你的知识，用简体中文清晰回答：先一句话核心结论，再展开关键细节与相关概念。300-700 字。",
+  ].join("\n");
+  growOllama(q, prompt).then(text => {
+    if (!text) { bumpStat("paidCalls", 1); return growPaid(q, prompt).then(pt => finish(pt)); }
+    bumpStat("ollamaCalls", 1);
+    finish(text);
+    function finish(t) {
+      if (!t) { bumpStat("errors", 1); return send(res, 200, JSON.stringify({ ok: false, error: "引擎不可用" })); }
+      bumpStat("graphragCalls", 1);
+      send(res, 200, JSON.stringify({ ok: true, text: stripPreamble(t), seed: seed ? seed.name : null, ctxCount: context ? context.split("\n").length : 0 }));
+    }
+  });
+}
+
 /* ── 静态服务 ─────────────────────────────────────── */
 const server = http.createServer((req, res) => {
   const url = new URL(req.url, "http://x");
   if (url.pathname === "/api/health") return send(res, 200, "ok");
   if (url.pathname === "/api/free-tools") return handleFreeTools(res);
   if (url.pathname === "/api/stats") return send(res, 200, JSON.stringify(readStats()));
+  if (url.pathname === "/api/version") {
+    let qs = new URL(req.url, "http://x").searchParams;
+    return handleVersion(res, { id: qs.get("id") || "" });
+  }
+  if (req.method === "POST" && url.pathname === "/api/graphrag") {
+    let body = "";
+    req.on("data", c => (body += c));
+    req.on("end", () => { let p = {}; try { p = JSON.parse(body || "{}"); } catch (e) {} handleGraphRag(res, p); });
+    return;
+  }
   if (req.method === "POST" && (url.pathname === "/api/grow" || url.pathname === "/api/quiz")) {
     let body = "";
     req.on("data", c => (body += c));

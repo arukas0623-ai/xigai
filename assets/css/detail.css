@@ -400,3 +400,8 @@
 .quiz-actions { display: flex; gap: 10px; margin-top: 14px; }
 .quiz-result { margin-top: 14px; padding: 12px 14px; border-radius: var(--radius-m); border: 1px dashed var(--accent); background: var(--sel); font-size: 13.5px; line-height: 1.9; }
 .quiz-explain { font-size: 12.5px; color: var(--ink-2); margin-top: 4px; }
+
+.personal-card { max-width: 680px; padding: 22px 26px; }
+.p-tab { margin-top: 12px; }
+.sp-tab .cnt { margin-left: 4px; font-size: 10px; opacity: .7; }
+.gr-chip { background: color-mix(in srgb, var(--accent) 14%, transparent); border-color: var(--accent); }

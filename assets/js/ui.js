@@ -247,6 +247,7 @@
         (miscon ? '<div class="sec"><h3>常见误解</h3><ul>' + miscon + "</ul></div>" : "") +
         (relHtml ? '<div class="sec"><h3>概念关系</h3>' + relHtml + "</div>" : "") +
         '<div class="sec"><h3>参考来源' + (c.generated ? ' <span class="gen-badge">🤖 AI 联网生成</span>' : "") + '</h3><ul class="src-list">' + srcs + "</ul></div>" +
+        '<div class="sec" id="footprint-sec" style="display:none"><h3>学习足迹</h3><div id="footprint-box"></div></div>' +
         '<div id="ai-area"></div><div id="baike-box"></div>' +
       "</div>" +
       '<div class="detail-actions">' +
@@ -264,8 +265,26 @@
     ov.appendChild(card);
     ov.classList.remove("hidden");
     document.body.style.overflow = "hidden";
+    X.renderFootprint(c);
     X.wireDetail(c);
     X.updateReadProgress();
+  };
+  X.renderFootprint = function (c) {
+    const sec = document.getElementById("footprint-sec");
+    if (!sec) return;
+    const box = document.getElementById("footprint-box");
+    const rc = X.state.readCount[c.id] || 0;
+    const m = X.masteryOf(c.id);
+    const lastRead = X.state.history.find(h => h.id === c.id);
+    let html = "";
+    html += '<div class="fp-row">已读 <b>' + rc + "</b> 次" + (lastRead ? " · 最近 " + X.fmtTime(lastRead.t) : "") + "</div>";
+    if (m) html += '<div class="fp-row">掌握度 <span class="mastery-badge ' + X.masteryLabel(c.id).cls + '">' + X.masteryLabel(c.id).text + " " + m.score + "%</span>（" + m.correct + "/" + m.total + "）</div>";
+    fetch("/api/version?id=" + encodeURIComponent(c.id)).then(r => r.json()).then(d => {
+      if (d.ok && d.versions && d.versions.length) {
+        html += '<div class="fp-row">版本历史（AI 自增长）' + d.versions.map(v => "<span class='fp-ver'>" + X.fmtTime(v.at) + " · " + X.esc(v.domain) + "</span>").join("") + "</div>";
+      }
+      if (html) { sec.style.display = ""; box.innerHTML = html; }
+    }).catch(() => { if (html) { sec.style.display = ""; box.innerHTML = html; } });
   };
 
   X.wireDetail = function (c) {

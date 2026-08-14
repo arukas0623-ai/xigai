@@ -98,6 +98,17 @@
     const box = document.getElementById("chat-sugg");
     if (!box) return;
     box.innerHTML = "";
+    const gr = document.createElement("button");
+    gr.className = "chat-chip gr-chip";
+    gr.textContent = "🧠 图谱增强问答";
+    gr.title = "基于知识图谱相关概念作答（免费）";
+    gr.addEventListener("click", () => {
+      const inp = document.getElementById("chat-input");
+      const q = (inp && inp.value.trim()) || "什么是大语言模型？";
+      X.graphAsk(q);
+      if (inp) inp.value = "";
+    });
+    box.appendChild(gr);
     SUGGESTIONS.forEach(s => {
       const b = document.createElement("button");
       b.className = "chat-chip";

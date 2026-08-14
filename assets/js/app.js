@@ -78,6 +78,8 @@
       if (e.key === "Escape") {
         const kg = document.getElementById("kgraph-panel");
         if (kg && !kg.classList.contains("hidden")) { X.closeGraph(); return; }
+        const pp = document.getElementById("personal-panel");
+        if (pp && !pp.classList.contains("hidden")) { pp.classList.add("hidden"); document.body.style.overflow = ""; return; }
         const cmp = document.getElementById("compare-panel");
         if (cmp && !cmp.classList.contains("hidden")) { cmp.classList.add("hidden"); document.body.style.overflow = ""; return; }
         if (!document.getElementById("detail").classList.contains("hidden")) X.closeDetail();
@@ -107,6 +109,8 @@
 
     // 顶栏按钮
     document.getElementById("btn-theme").addEventListener("click", X.showThemePanel);
+    const personalBtn = document.getElementById("btn-personal");
+    if (personalBtn) personalBtn.addEventListener("click", X.openPersonal);
     document.getElementById("btn-fav").addEventListener("click", () => X.showSidePanel("fav"));
     document.getElementById("btn-hist").addEventListener("click", () => X.showSidePanel("hist"));
     document.getElementById("btn-random").addEventListener("click", X.randomBook);
