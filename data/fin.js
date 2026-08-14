@@ -2600,5 +2600,74 @@ window.XIGAI["金融投资"] = [
       "note": "需要进一步澄清金融基础的具体内容",
       "at": 1786698183499
     }
+  },
+  {
+    "name": "长尾效应",
+    "aliases": [],
+    "field": "金融投资/市场营销",
+    "tags": [
+      "市场分析",
+      "经济学"
+    ],
+    "difficulty": 3,
+    "summary": "小概率事件累积产生重大影响。",
+    "definition": "在互联网时代，由于成本和效率的提升，少量需求的商品或服务也能被有效提供，从而形成一个利润可观的‘长尾’部分。",
+    "principle": "",
+    "background": "传统经济学认为市场是遵循二八定律（20%的产品占80%的销量），而长尾效应则强调小众商品和服务的重要性。",
+    "core": [
+      "互联网降低了交易成本和信息不对称",
+      "个性化推荐技术提升了用户体验",
+      "消费者偏好多样化导致需求分散"
+    ],
+    "pros": [
+      "增加市场整体多样性",
+      "提升中小企业竞争力"
+    ],
+    "cons": [
+      "可能加剧市场竞争的不平等"
+    ],
+    "applications": [
+      "电商平台的商品分类展示",
+      "音乐、视频等媒体平台的内容推荐"
+    ],
+    "misconceptions": [
+      "长尾效应仅适用于互联网时代"
+    ],
+    "related": [
+      "二八定律"
+    ],
+    "relations": [
+      {
+        "type": "evolvedFrom",
+        "target": "二八定律",
+        "note": "",
+        "confidence": 0.3
+      }
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Long_tail",
+      "https://www.forbes.com/sites/forbestechcouncil/2019/03/25/the-long-tail-of-the-internet/",
+      "https://www.businessinsider.com/the-long-tail-concept-explained-2018-6"
+    ],
+    "id": "长尾效应",
+    "provenance": {
+      "discoveredBy": "user",
+      "discoveredAt": 1786704021487,
+      "evidence": "user-request:长尾效应"
+    },
+    "confidence": 0.86,
+    "sourceConfidence": 0.7,
+    "relationConfidence": 0.3,
+    "status": "verified",
+    "verification": {
+      "by": "ollama",
+      "score": 0.8,
+      "issues": [
+        "定义中未明确指出互联网时代是长尾效应产生的背景，虽然互联网确实促进了长尾效应的发展，但不应完全归因于互联网"
+      ],
+      "note": "需要进一步明确长尾效应与互联网的关系，并补充相关背景信息",
+      "at": 1786704023322
+    },
+    "searchedAt": "2026-08-14"
   }
 ];

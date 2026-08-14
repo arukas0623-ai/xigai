@@ -902,6 +902,9 @@ function handleGrow(res, payload) {
     appendConcept(domain, obj).then(r => {
       if (r.ok) {
         bumpStat("ingests", 1);
+        if (obj.status === "verified") bumpStat("yieldVerified", 1);
+        const effRels = (obj.relations || []).filter(x => CORPUS.byId.has(x.target) && (x.confidence != null ? x.confidence : 0.6) >= 0.6).length;
+        if (effRels) bumpStat("yieldRelations", effRels);
         try { fs.writeFileSync(cacheFile, JSON.stringify(obj)); } catch (e) {}
         send(res, 200, JSON.stringify({ ok: true, source: "ai", domain: r.domain, concept: obj }));
       } else if (r.dup) {
