@@ -374,6 +374,7 @@ function readStats() {
     return { localHits: 0, cacheHits: 0, ollamaCalls: 0, paidCalls: 0, paidSpawns: 0, webSearchCalls: 0, ingests: 0, updates: 0, dupSkips: 0, rejects: 0, errors: 0, quizzes: 0, graphragCalls: 0, rejectReasons: {}, since: Date.now(), paid: { byEntry: {}, bySource: {} } };
   }
 }
+function writeStats(s) { try { fs.writeFileSync(STATS_FILE, JSON.stringify(s, null, 2)); } catch (e) {} }
 function bumpStat(key, by) {
   try {
     const s = readStats();
@@ -1382,7 +1383,10 @@ function enqueueTask(kind, key, source, data) {
   if (!key) return false;
   const k = queueKey(kind, key);
   const done = QUEUE_DONE.get(k);
-  if (done && Date.now() - done.at < QUEUE_COOLDOWN) return false;
+  if (done) {
+    const backoff = done.ok ? QUEUE_COOLDOWN : Math.min(QUEUE_BACKOFF_MAX, QUEUE_COOLDOWN * Math.pow(2, done.fail || 0));
+    if (Date.now() - done.at < backoff) return false;   // 失败指数退避 5m→10m→…→4h
+  }
   if (GROW_QUEUE.some(t => t.k === k)) return false;
   if (!autoCapOK()) return false;
   const priority = (data && data.priority) || 5;
@@ -1390,35 +1394,69 @@ function enqueueTask(kind, key, source, data) {
   return true;
 }
 /* pump：按优先级处理 */
-function pumpQueue() {
+async function pumpQueue() {
   if (queueBusy) return;
-  if (!GROW_QUEUE.length) return;
+  if (!GROW_QUEUE.length) {
+    // 自适应：空队列 → 节流健康检查 + 主动发现补货（上限满时 enqueueTask 自会拦截）
+    try {
+      const st = readStats();
+      let act = false;
+      if (!st.lastAutoCheck || Date.now() - st.lastAutoCheck > 6 * 3600e3) { st.lastAutoCheck = Date.now(); writeStats(st); autoHealthCheck(); act = true; }
+      if (!st.lastDiscover || Date.now() - st.lastDiscover > 5 * 60e3) { st.lastDiscover = Date.now(); writeStats(st); try { discoverCandidates(2); } catch (e2) {} act = true; }
+      if (act) setTimeout(pumpQueue, 15000);
+    } catch (e) {}
+    return;
+  }
+  // 自适应：达到小时/日上限 → 自动暂停（每分钟重试，跨小时自动恢复；不影响用户功能）
+  if (!autoCapOK()) { setTimeout(pumpQueue, 60e3); return; }
   queueBusy = true;
   GROW_QUEUE.sort((a, b) => (b.priority || 0) - (a.priority || 0));
   const task = GROW_QUEUE.shift();
   autoOpUsed();
+  const rec = (k, ok) => { const prev = QUEUE_DONE.get(k); QUEUE_DONE.set(k, { at: Date.now(), ok, fail: ok ? 0 : ((prev && prev.fail) || 0) + 1 }); if (!ok) bumpStat("taskFails", 1); };
   try {
-    let r;
-    if (task.kind === "concept") r = growTarget({ target: task.key });
-    else if (task.kind === "enrich") r = enrichConceptTask(task.key);
-    else if (task.kind === "review") r = reviewConceptTask(task.key);
-    QUEUE_DONE.set(task.k, { at: Date.now(), ok: !!(r && (r.ok || r.concept)) });
-    if (task.kind === "concept") bumpStat("queueConcepts", 1);
-    if (task.kind === "enrich") bumpStat("queueEnriches", 1);
-    if (task.kind === "review") bumpStat("reviews", 1);
+    let r = null;
+    if (task.kind === "concept") {
+      const i2 = GROW_QUEUE.findIndex(t => t.kind === "concept");
+      if (i2 >= 0) {
+        const t2 = GROW_QUEUE.splice(i2, 1)[0];
+        const br = await growBatch([task.key, t2.key]);
+        const results = (br && br.results) || [];
+        rec(task.k, !!(results[0] && (results[0].ok || results[0].concept)));
+        rec(t2.k, !!(results[1] && (results[1].ok || results[1].concept)));
+        bumpStat("queueConcepts", 2);
+        r = br;
+      } else {
+        r = await growTarget({ target: task.key });
+        rec(task.k, !!(r && (r.ok || r.concept)));
+        bumpStat("queueConcepts", 1);
+      }
+    } else {
+      if (task.kind === "enrich") r = await enrichConceptTask(task.key);
+      else if (task.kind === "review") r = await reviewConceptTask(task.key);
+      rec(task.k, !!(r && (r.ok || r.concept)));
+      if (task.kind === "enrich") bumpStat("queueEnriches", 1);
+      if (task.kind === "review") bumpStat("reviews", 1);
+    }
   } catch (e) {
-    QUEUE_DONE.set(task.k, { at: Date.now(), ok: false });
+    const prev = QUEUE_DONE.get(task.k);
+    QUEUE_DONE.set(task.k, { at: Date.now(), ok: false, fail: ((prev && prev.fail) || 0) + 1 });
     bumpStat("errors", 1);
+    bumpStat("taskFails", 1);
   }
   queueBusy = false;
   if (GROW_QUEUE.length) setTimeout(pumpQueue, 8000);
   else {
-    // 生长2.0：队列空闲时做节流健康检查（6h，只记录不修改）
+    // 自适应：队列空闲 → 节流健康检查 + 主动发现补货
     try {
       const st = readStats();
       if (!st.lastAutoCheck || Date.now() - st.lastAutoCheck > 6 * 3600e3) {
         st.lastAutoCheck = Date.now(); writeStats(st);
         autoHealthCheck();
+      }
+      if (!st.lastDiscover || Date.now() - st.lastDiscover > 5 * 60e3) {
+        st.lastDiscover = Date.now(); writeStats(st);
+        try { discoverCandidates(2); } catch (e2) {}
       }
     } catch (e) {}
   }
@@ -1464,24 +1502,22 @@ function reviewConceptTask(id) {
   });
 }
 /* 主动发现入口（升级版 /api/discover）：生成候选→按优先级入队 */
-function handleDiscover2(res, payload) {
+function discoverCandidates(limit) {
   if (!CORPUS) loadCorpus();
-  // 合并新鲜扫描 + 候选池（子领域/路径断层/旧式字段），统一评分
   const fresh = generateCandidates();
   const pool = readCandidates();
   let merged = 0;
   for (const k of Object.keys(fresh)) {
     if (!pool[k]) { pool[k] = Object.assign({ fail: 0 }, fresh[k]); merged++; }
   }
-  if (merged) writeCandidates(pool);          // 显式写池（seedGrowthCandidates 仅在新增时写）
+  if (merged) writeCandidates(pool);
   try { seedGrowthCandidates(); } catch (e) {}
   const refreshed = readCandidates();
   bumpStat("candidatesFound", Object.keys(refreshed).length);
-  const limit = Math.min(5, Math.max(1, payload.limit || 3));
   const scored = prioritizeCandidates(50);
   let added = 0;
   const addedList = [];
-  for (const s of scored.slice(0, limit)) {
+  for (const s of scored.slice(0, limit || 3)) {
     if (enqueueTask("concept", s.name, "discover", { priority: Math.min(20, 5 + Math.round(s.score)) })) {
       added++;
       addedList.push({ name: s.name, score: s.score, fail: s.fail, source: s.source });
@@ -1490,7 +1526,11 @@ function handleDiscover2(res, payload) {
   }
   writeCandidates(refreshed);
   setTimeout(pumpQueue, 100);
-  send(res, 200, JSON.stringify({ ok: true, candidates: Object.keys(refreshed).length, enqueued: added, top: addedList, queue: GROW_QUEUE.length }));
+  return { candidates: Object.keys(refreshed).length, enqueued: added, top: addedList, queue: GROW_QUEUE.length };
+}
+function handleDiscover2(res, payload) {
+  const limit = Math.min(5, Math.max(1, payload.limit || 3));
+  send(res, 200, JSON.stringify(Object.assign({ ok: true }, discoverCandidates(limit))));
 }
 
 function handleVersion(res, payload) {
@@ -1598,6 +1638,93 @@ function handleCompletionStatus(res, payload) {
 }
 
 /* 后台补全单个目标（本地→缓存→Ollama 结构化→去重→质量→入库；禁付费；单飞） */
+/* 生成后统一管线：独立校验 → 去重/更新 → 垃圾过滤 → 分类入库（growTarget 与 growBatch 共用） */
+async function processGeneratedConcept(obj, meta) {
+  if (!Array.isArray(obj.pros)) obj.pros = [];
+  if (!Array.isArray(obj.cons)) obj.cons = [];
+  if (obj.principle == null) obj.principle = "";
+  obj.relations = normalizeGrowRelations(obj.relations);
+  obj.id = normStr(obj.name).slice(0, 48) || "concept-" + Date.now();
+  obj.provenance = obj.provenance || { discoveredBy: meta.provenanceSource || "system", discoveredAt: Date.now(), evidence: "candidate:" + (meta.provenanceSource || "system") };
+  const query = meta.query || obj.name || "";
+  obj = await enrichConcept(obj, query);
+  const v = await verifyConceptStep(obj);
+  obj.verification = { by: v.by, score: v.score, issues: (v.issues || []).slice(0, 2), note: v.note, at: v.at };
+  if (v.score != null) {
+    obj.confidence = Math.min(0.9, Math.round((obj.confidence * 0.6 + v.score * 0.4) * 100) / 100);
+    obj.status = statusOf(obj.confidence);
+  }
+  if (v.score != null && v.score < 0.5) {
+    const mq = readModeration();
+    mq.push({ status: "pending", kind: "concept-verify-fail", conceptId: obj.id || meta.key, name: obj.name, definition: String(obj.definition || "").slice(0, 200), issues: (v.issues || []).slice(0, 3), note: v.note, at: Date.now() });
+    writeModeration(mq);
+    bumpStat("conflictsDetected", 1);
+    return { ok: false, pending: true, reason: "存在事实疑点，已进入人工审核队列" };
+  }
+  const dup = dedupCheck(obj);
+  if (dup) {
+    bumpStat("updates", 1);
+    const ur = await updateConcept(dup.domain, dup, obj);
+    if (ur.ok) {
+      try { if (meta.cacheFile) fs.writeFileSync(meta.cacheFile, JSON.stringify(obj)); } catch (e) {}
+      if (meta.key) { const p = readPending(); delete p[meta.key]; writePending(p); }
+      const cpool = readCandidates(); const ck = normStr(obj.name); if (cpool[ck]) { delete cpool[ck]; writeCandidates(cpool); }
+      return { ok: true, source: "update", updated: true, concept: ur.concept };
+    }
+    bumpStat("dupSkips", 1);
+    return { ok: true, source: "dup", concept: dup };
+  }
+  const reason = junkCheck(obj, query);
+  if (reason) { bumpReject(reason); return { ok: false, reject: true, reason }; }
+  const domain = classifyDomain(obj);
+  obj.searchedAt = new Date().toISOString().slice(0, 10);
+  const r = await appendConcept(domain, obj);
+  if (r.ok) {
+    bumpStat("ingests", 1);
+    try { if (meta.cacheFile) fs.writeFileSync(meta.cacheFile, JSON.stringify(obj)); } catch (e) {}
+    if (meta.key) { const p = readPending(); delete p[meta.key]; writePending(p); }
+    const cpool = readCandidates(); const ck = normStr(obj.name); if (cpool[ck]) { delete cpool[ck]; writeCandidates(cpool); }
+    return { ok: true, source: "ai", domain, concept: obj };
+  }
+  if (r.dup) { bumpStat("dupSkips", 1); return { ok: true, source: "dup" }; }
+  return { ok: false, error: r.error || "入库失败" };
+}
+/* 批处理：一次 Ollama 调用生成 2 个候选概念（各自仍走独立校验质量门） */
+function growBatch(names) {
+  const targets = names.filter(Boolean).slice(0, 2);
+  if (!targets.length) return Promise.resolve({ ok: false, error: "空批" });
+  const prompt = [
+    "你是「析概」知识库的结构化研究员。请把以下 2 个概念各整理为一个概念词条：",
+    "1. " + targets[0],
+    "2. " + targets[1],
+    "只输出一个 JSON 数组（长度 2，与上面顺序一致），每个元素是词条对象，字段：",
+    '{ "name": "概念名", "aliases": ["别名"], "field": "最贴切的领域名", "tags": ["2-3个"], "difficulty": 1-5, "summary": "≤30字", "definition": "120-200字精确定义", "principle": "原理(可选)", "background": "80-120字", "core": ["3-4条"], "applications": ["2-3条"], "relations": [{"type":"prerequisite|followup|related","target":"概念名"}], "sources": ["1-2个真实来源URL"] }',
+    "要求：事实准确、定义精炼；每个词条尽量控制在 500 字以内。",
+  ].join("\n");
+  const key = "batch:" + targets.join("+").slice(0, 30);
+  if (GROW_INFLIGHT.has(key)) return GROW_INFLIGHT.get(key);
+  const task = (async () => {
+    const text = await growOllama(key, prompt);
+    bumpStat("ollamaCalls", 1);
+    bumpStat("batchCalls", 1);
+    if (!text) { targets.forEach(t => demoteCandidate(t)); return { ok: false, error: "本地模型不可用" }; }
+    const arr = extractJSON(text);
+    if (!Array.isArray(arr) || !arr.length) { targets.forEach(t => demoteCandidate(t)); return { ok: false, error: "批量解析失败" }; }
+    const results = [];
+    for (let i = 0; i < targets.length; i++) {
+      const obj = arr[i] && typeof arr[i] === "object" ? arr[i] : null;
+      if (!obj || !obj.name) { results.push({ name: targets[i], ok: false, error: "批内缺失" }); demoteCandidate(targets[i]); continue; }
+      const cacheFile = path.join(GROW_DIR, normStr(targets[i]).slice(0, 40) + ".json");
+      const r = await processGeneratedConcept(obj, { query: targets[i], cacheFile, key: normStr(targets[i]), provenanceSource: "batch" });
+      results.push(Object.assign({ name: obj.name }, r));
+    }
+    return { ok: true, results };
+  })();
+  GROW_INFLIGHT.set(key, task);
+  task.finally(() => GROW_INFLIGHT.delete(key)).catch(() => {});
+  return task;
+}
+
 function growTarget(payload) {
   const raw = String(payload.target || "").trim();
   const provenanceSource = String(payload.source || "system").slice(0, 20);
@@ -1632,57 +1759,8 @@ function growTarget(payload) {
       const p = readPending(); p[key] = { at: Date.now(), reason: "parse-fail" }; writePending(p);
       return { ok: false, error: "结构化解析失败", pending: true };
     }
-    obj.relations = normalizeGrowRelations(obj.relations);
-    if (!Array.isArray(obj.pros)) obj.pros = [];
-    if (!Array.isArray(obj.cons)) obj.cons = [];
-    if (obj.principle == null) obj.principle = "";
-    obj.id = normStr(obj.name).slice(0, 48) || "concept-" + Date.now();
-    obj.provenance = { discoveredBy: provenanceSource, discoveredAt: Date.now(), evidence: "candidate:" + provenanceSource };
-    obj = await enrichConcept(obj, target);
-    // 质量门：独立校验（生成与校验分离，自动任务同样必经）
-    const v = await verifyConceptStep(obj);
-    obj.verification = { by: v.by, score: v.score, issues: (v.issues || []).slice(0, 2), note: v.note, at: v.at };
-    if (v.score != null) {
-      obj.confidence = Math.min(0.9, Math.round((obj.confidence * 0.6 + v.score * 0.4) * 100) / 100);
-      obj.status = statusOf(obj.confidence);
-    }
-    if (v.score != null && v.score < 0.5) {
-      const mq = readModeration();
-      mq.push({ status: "pending", kind: "concept-verify-fail", conceptId: obj.id || key, name: obj.name, definition: String(obj.definition || "").slice(0, 200), issues: (v.issues || []).slice(0, 3), note: v.note, at: Date.now() });
-      writeModeration(mq);
-      bumpStat("conflictsDetected", 1);
-      return { ok: false, pending: true, reason: "存在事实疑点，已进入人工审核队列" };
-    }
-    // 4) 去重：已有概念优先更新/补全
-    const dup = dedupCheck(obj);
-    if (dup) {
-      bumpStat("updates", 1);
-      const ur = await updateConcept(dup.domain, dup, obj);
-      if (ur.ok) {
-        try { fs.writeFileSync(cacheFile, JSON.stringify(obj)); } catch (e) {}
-        const p = readPending(); delete p[key]; writePending(p);
-        const cpool = readCandidates(); const ck = normStr(obj.name); if (cpool[ck]) { delete cpool[ck]; writeCandidates(cpool); }
-        return { ok: true, source: "update", updated: true, concept: ur.concept };
-      }
-      bumpStat("dupSkips", 1);
-      return { ok: true, source: "dup", concept: dup };
-    }
-    // 5) 可信度
-    const reason = junkCheck(obj, target);
-    if (reason) { bumpReject(reason); return { ok: false, reject: true, reason }; }
-    // 6) 分类入库
-    const domain = classifyDomain(obj);
-    obj.searchedAt = new Date().toISOString().slice(0, 10);
-    const r = await appendConcept(domain, obj);
-    if (r.ok) {
-      bumpStat("ingests", 1);
-      try { fs.writeFileSync(cacheFile, JSON.stringify(obj)); } catch (e) {}
-      const p = readPending(); delete p[key]; writePending(p);
-      const cpool = readCandidates(); const ck = normStr(obj.name); if (cpool[ck]) { delete cpool[ck]; writeCandidates(cpool); }
-      return { ok: true, source: "ai", domain, concept: obj };
-    }
-    if (r.dup) { bumpStat("dupSkips", 1); return { ok: true, source: "dup" }; }
-    return { ok: false, error: r.error || "入库失败" };
+    const pipe = await processGeneratedConcept(obj, { query: target, cacheFile, key, provenanceSource });
+    return pipe;
   })();
   GROW_INFLIGHT.set(key, task);
   task.finally(() => GROW_INFLIGHT.delete(key)).catch(() => {});
@@ -1759,8 +1837,9 @@ function handleMaintain(res) {
 
 /* ═══ 自增长任务队列（横向补全 + 纵向补全） ═══ */
 const GROW_QUEUE = [];
-const QUEUE_DONE = new Map();        // key → {at, ok}  去重/冷却
-const QUEUE_COOLDOWN = 5 * 60e3;     // 同类任务 5 分钟冷却
+const QUEUE_DONE = new Map();        // key → {at, ok, fail}  去重/冷却/失败退避
+const QUEUE_COOLDOWN = 5 * 60e3;     // 成功任务冷却 5 分钟
+const QUEUE_BACKOFF_MAX = 4 * 3600e3; // 失败最大退避 4 小时
 let queueBusy = false;
 
 /* 纵向补全：为概念生成缺失字段（principle/pros/cons/applications/misconceptions） */
@@ -2028,6 +2107,40 @@ function handleBuildPaths(res, payload) {
     const h = healthScore();
     send(res, 200, JSON.stringify({ ok: true, addedRelations: added, health: { concepts: h.concepts, debt: h.knowledgeDebt, relEff: h.relationEfficiency, learning: h.learningCoverage, pendingR: h.pendingRelations } }));
   }).catch(e => send(res, 200, JSON.stringify({ ok: false, error: String(e).slice(0, 120) })));
+}
+
+/* 效率指标：候选→入库转化率 / Ollama-新增比 / 重复率 / 失败率 / 关系增长 / 完整度提升 */
+function handleEfficiency(res) {
+  if (!CORPUS) loadCorpus();
+  const s = readStats();
+  const h = healthScore();
+  const candDisc = s.candidatesFound || 0;
+  const prev = s.lastEfficiency;
+  const candSince = candDisc - ((prev && prev.cumCandidates) || 0);
+  const ingestSince = (s.ingests || 0) - ((prev && prev.ingests) || 0);
+  const queuedSince = (s.queueConcepts || 0) - ((prev && prev.queueConcepts) || 0);
+  const ollamaSince = (s.ollamaCalls || 0) - ((prev && prev.ollamaCalls) || 0);
+  const e = {
+    ok: true,
+    at: Date.now(),
+    windowConversionRate: candSince > 0 ? Math.round(ingestSince / candSince * 1000) / 10 : 0,   // 窗口候选→入库 %
+    windowTaskSuccessRate: queuedSince > 0 ? Math.round(ingestSince / queuedSince * 100) : 0,
+    windowOllamaPerConcept: ingestSince > 0 ? Math.round(ollamaSince / ingestSince * 10) / 10 : 0,
+    dupRate: (s.queueConcepts || 0) ? Math.round((s.dupSkips || 0) / s.queueConcepts * 100) : 0,
+    failRate: (s.queueConcepts || 0) ? Math.round((s.taskFails || 0) / s.queueConcepts * 100) : 0,
+    relationsGrowth: s.relationsAdded || 0,
+    batchCalls: s.batchCalls || 0,
+    cum: { candidates: candDisc, ingests: s.ingests || 0, updates: s.updates || 0, dupSkips: s.dupSkips || 0, errors: s.errors || 0, taskFails: s.taskFails || 0, queueConcepts: s.queueConcepts || 0, ollamaCalls: s.ollamaCalls || 0 },
+    completeness: h.avgCompleteness, debt: h.knowledgeDebt, relEff: h.relationEfficiency,
+    learning: h.learningCoverage,
+  };
+  if (prev && prev.completeness != null) {
+    e.delta = { completeness: e.completeness - prev.completeness, debt: e.debt - prev.debt, relEff: e.relEff - prev.relEff };
+  }
+  e.cumCandidates = candDisc;
+  s.lastEfficiency = e;
+  writeStats(s);
+  send(res, 200, JSON.stringify(e));
 }
 
 /* ═══ P0 自动维护：自循环/明确垃圾目标 → 确认后清除（留 version，重算 Health） ═══ */
@@ -2362,6 +2475,7 @@ const server = http.createServer((req, res) => {
   if ((req.method === "GET" || req.method === "POST") && url.pathname === "/api/build-paths") {
     let bp = ""; req.on("data", c => (bp += c)); req.on("end", () => { let p = {}; try { p = JSON.parse(bp || "{}"); } catch (e) {} handleBuildPaths(res, p); }); return;
   }
+  if ((req.method === "GET" || req.method === "POST") && url.pathname === "/api/efficiency") { handleEfficiency(res); return; }
   if ((req.method === "GET" || req.method === "POST") && url.pathname === "/api/maintenance") { handleMaintenance(res); return; }
   if ((req.method === "GET" || req.method === "POST") && url.pathname === "/api/recent-activity") { handleRecentActivity(res); return; }
   if ((req.method === "GET" || req.method === "POST") && url.pathname === "/api/health-check") { handleHealthCheck(res); return; }
@@ -2421,7 +2535,7 @@ server.on("error", e => {
 });
 setInterval(() => { try { processModeration(); } catch (e) {} }, 15 * 60e3);
 setInterval(() => { try { if (GROW_QUEUE.length < 3) runPatrol(); } catch (e) {} }, 15 * 60e3);
-setInterval(() => { try { if (GROW_QUEUE.length && !queueBusy) setTimeout(pumpQueue, 100); } catch (e) {} }, 30e3);
+setInterval(() => { try { if (!queueBusy) setTimeout(pumpQueue, 100); } catch (e) {} }, 30e3);
 server.listen(PORT, () => {
   console.log("[析概] 知识图书馆服务已启动: http://127.0.0.1:" + PORT);
 });

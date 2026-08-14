@@ -957,5 +957,70 @@ window.XIGAI["计算机科学"] = [
     "relationConfidence": 0.85,
     "status": "verified",
     "searchedAt": "2026-08-14"
+  },
+  {
+    "name": "人工智能",
+    "aliases": [
+      "AI"
+    ],
+    "field": "计算机科学与工程",
+    "tags": [
+      "机器学习",
+      "自然语言处理"
+    ],
+    "difficulty": 3,
+    "summary": "模拟人类智能的计算技术。",
+    "definition": "人工智能是研究、开发用于模拟、延伸和扩展人的智能的理论、方法、技术及应用系统的学科，涵盖从感知到决策的过程。",
+    "background": "自20世纪50年代起，随着计算机性能的提升和算法的发展，AI经历了多次高潮与低谷。近年来，深度学习等技术使得机器在图像识别、语音处理等领域取得了突破性进展。",
+    "core": [
+      "机器学习",
+      "自然语言理解",
+      "知识表示"
+    ],
+    "applications": [
+      "自动驾驶汽车",
+      "智能客服系统"
+    ],
+    "relations": [
+      {
+        "type": "related",
+        "target": "机器学习",
+        "note": "",
+        "confidence": 0.8
+      },
+      {
+        "type": "followup",
+        "target": "深度学习",
+        "note": "",
+        "confidence": 0.85
+      }
+    ],
+    "sources": [
+      "https://www.technologyreview.com/2017/06/30/594861/the-ai-revolution/",
+      "https://www.nature.com/nature/journal/v573/n7775/full/573153a.html"
+    ],
+    "pros": [],
+    "cons": [],
+    "principle": "",
+    "id": "人工智能",
+    "provenance": {
+      "discoveredBy": "batch",
+      "discoveredAt": 1786701957104,
+      "evidence": "candidate:batch"
+    },
+    "confidence": 0.86,
+    "sourceConfidence": 0.7,
+    "relationConfidence": 0.83,
+    "status": "verified",
+    "verification": {
+      "by": "ollama",
+      "score": 0.8,
+      "issues": [
+        "定义中未明确指出感知和决策之间的关系，可能不够全面"
+      ],
+      "note": "人工智能的定义较为准确，但可以进一步细化以涵盖所有方面",
+      "at": 1786701958619
+    },
+    "searchedAt": "2026-08-14"
   }
 ];

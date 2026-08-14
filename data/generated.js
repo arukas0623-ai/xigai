@@ -341,5 +341,207 @@ window.XIGAI["AI 生成"] = [
     "relationConfidence": 0.3,
     "status": "verified",
     "searchedAt": "2026-08-14"
+  },
+  {
+    "name": "反向传播",
+    "aliases": [],
+    "field": "机器学习与神经网络",
+    "tags": [
+      "算法",
+      "优化"
+    ],
+    "difficulty": 3,
+    "summary": "一种用于训练人工神经网络的方法。",
+    "definition": "反向传播是一种监督式学习方法，通过计算输出误差并沿网络路径反向传递这些误差来调整权重，以最小化预测与实际值之间的差异。",
+    "principle": "",
+    "background": "反向传播是多层前馈神经网络训练的关键技术之一。它基于链式法则，将损失函数对每个节点的梯度计算出来，并通过网络路径逆序传递这些梯度来更新权重。",
+    "core": [
+      "通过误差反向传播来调整模型参数",
+      "适用于具有多个隐藏层的神经网络",
+      "依赖于链式法则进行梯度计算"
+    ],
+    "applications": [
+      "图像识别与分类",
+      "自然语言处理任务如机器翻译"
+    ],
+    "relations": [
+      {
+        "type": "followup",
+        "target": "前向传播",
+        "note": "",
+        "confidence": 0.3
+      },
+      {
+        "type": "related",
+        "target": "梯度下降",
+        "note": "",
+        "confidence": 0.3
+      }
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Backpropagation",
+      "http://neuralnetworksanddeeplearning.com/"
+    ],
+    "pros": [],
+    "cons": [],
+    "id": "反向传播",
+    "provenance": {
+      "discoveredBy": "batch",
+      "discoveredAt": 1786701847033,
+      "evidence": "candidate:batch"
+    },
+    "confidence": 0.86,
+    "sourceConfidence": 0.7,
+    "relationConfidence": 0.3,
+    "status": "verified",
+    "verification": {
+      "by": "ollama",
+      "score": 0.8,
+      "issues": [
+        "定义中未明确说明反向传播是基于梯度下降的方法，虽然两者常结合使用但并非绝对"
+      ],
+      "note": "反向传播是一种有效的监督式学习方法，其原理和关系描述基本准确，但需补充更多细节以提高准确性",
+      "at": 1786701849100
+    },
+    "searchedAt": "2026-08-14"
+  },
+  {
+    "name": "碳循环",
+    "aliases": [],
+    "field": "生态学与环境科学",
+    "tags": [
+      "自然循环",
+      "温室效应"
+    ],
+    "difficulty": 2,
+    "summary": "地球大气中二氧化碳和其他气体的交换过程。",
+    "definition": "碳循环是指在生物圈、水圈和岩石圈之间，以及这些圈层内部，碳元素以不同形式（如CO2、有机物等）进行交换的过程。",
+    "principle": "",
+    "background": "碳循环是维持地球生态系统平衡的关键机制之一。它包括自然过程如光合作用、呼吸作用、分解作用和地质过程如火山活动和岩石风化，以及人类活动对大气中二氧化碳浓度的影响。",
+    "core": [
+      "生物圈通过光合作用吸收CO2",
+      "动物和微生物进行呼吸作用释放CO2",
+      "森林火灾和土壤侵蚀影响碳储存"
+    ],
+    "applications": [
+      "气候变化研究",
+      "生态系统保护与恢复"
+    ],
+    "relations": [
+      {
+        "type": "related",
+        "target": "温室效应",
+        "note": "",
+        "confidence": 0.8
+      },
+      {
+        "type": "related",
+        "target": "全球变暖",
+        "note": "",
+        "confidence": 0.3
+      }
+    ],
+    "sources": [
+      "https://www.nature.com/scitable/knowledge/library/the-carbon-cycle-10245638/",
+      "http://globalchange.umich.edu/global-change-lit/global-change-students/what-is-carbon-cycle"
+    ],
+    "pros": [],
+    "cons": [],
+    "id": "碳循环",
+    "provenance": {
+      "discoveredBy": "batch",
+      "discoveredAt": 1786701849219,
+      "evidence": "candidate:batch"
+    },
+    "confidence": 0.9,
+    "sourceConfidence": 0.85,
+    "relationConfidence": 0.55,
+    "status": "verified",
+    "verification": {
+      "by": "ollama",
+      "score": 1,
+      "issues": [],
+      "note": "词条准确无误，定义和原理清晰，关系明确。",
+      "at": 1786701850445
+    },
+    "searchedAt": "2026-08-14"
+  },
+  {
+    "name": "叙事学",
+    "aliases": [],
+    "field": "文学理论与批评",
+    "tags": [
+      "叙事结构",
+      "叙述视角"
+    ],
+    "difficulty": 3,
+    "summary": "研究故事的组织和表达方式。",
+    "definition": "叙事学是研究叙述故事的理论、方法及其在不同文化和文本中的表现形式的一门学科，关注如何通过语言组织事件序列以传达意义。",
+    "principle": "",
+    "background": "叙事学起源于20世纪中叶，最初关注于文学作品中的叙述技巧。随着理论的发展，它扩展到电影、广告等多个领域。",
+    "core": [
+      "分析故事的结构和模式",
+      "探讨叙述者的角色与影响",
+      "研究不同文化背景下的叙事方式"
+    ],
+    "pros": [],
+    "cons": [],
+    "applications": [
+      "提升文学创作的质量",
+      "优化影视作品的情节编排"
+    ],
+    "misconceptions": [
+      "叙事学仅限于文学领域，实际上它广泛应用于影视、广告等多个领域。"
+    ],
+    "related": [
+      "结构主义",
+      "符号学"
+    ],
+    "relations": [
+      {
+        "type": "followup",
+        "target": "叙事技巧",
+        "note": "",
+        "confidence": 0.3
+      },
+      {
+        "type": "dependsOn",
+        "target": "语言学",
+        "note": "",
+        "confidence": 0.8
+      },
+      {
+        "type": "related",
+        "target": "符号学",
+        "note": "",
+        "confidence": 0.8
+      }
+    ],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Narrative_studies",
+      "https://www.cambridge.org/core/journals/notes-on-literature/article/narratology-and-theory-of-narrative/8B4C5A7F29D143E6B0C2F4D7B8F8C4C1",
+      "https://www.cambridge.org/core/journals/american-literary-realism/article/narratology-and-the-narrative-study-of-late-twentieth-century-american-fiction/6D3C4B7F8E4A9521B0A4C5F8C7D5C4E4"
+    ],
+    "id": "叙事学",
+    "provenance": {
+      "discoveredBy": "batch",
+      "discoveredAt": 1786701957035,
+      "evidence": "candidate:batch"
+    },
+    "confidence": 0.86,
+    "sourceConfidence": 0.85,
+    "relationConfidence": 0.55,
+    "status": "verified",
+    "verification": {
+      "by": "ollama",
+      "score": 0.8,
+      "issues": [
+        "定义中未明确指出叙事学关注的具体方面，如叙述者、接受者和文本之间的关系"
+      ],
+      "note": "需要补充更多关于叙事学具体研究内容的描述",
+      "at": 1786701937727
+    },
+    "searchedAt": "2026-08-14",
+    "domain": "AI 生成"
   }
 ];

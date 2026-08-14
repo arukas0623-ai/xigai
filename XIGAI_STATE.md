@@ -76,6 +76,12 @@
 - **纵向生长（P1）**：/api/build-paths —— 为高难度概念（≥3 且无 prerequisite）补前置关系，提示词约束为知识库同域候选（防跨域污染），可解析则落 evidence+置信度，未解析保留 pending；实测 prerequisite 关系 3→35 条（77% 可解析），学习路径完整度 0→3%
 - **关系质量（P1）**：reviewConceptTask 复查时清理自循环/重复关系（留 version），刷新置信度，pending 保留
 - **学习价值（P1）**：Health 新增 learningCoverage（领域覆盖/核心概念覆盖/prerequisite 覆盖/路径完整度/孤立比例）；知识漫游与推荐优先 前置→核心→后续（路径概念 +5 权重）
+## 5e. 本轮新增（2026-08-14 自增长效率优化）
+- **队列优化**：失败指数退避（5m→10m→…→4h，QUEUE_DONE 记录 fail）；pump 改为 async+await（修复"任务结果恒为失败"的潜伏 bug）；**上限满自动暂停**（autoCapOK 不通过则每分钟重试，跨小时自动恢复）
+- **自适应**：队列空闲 → 5 分钟节流主动发现补货（discoverCandidates）+ 6h 健康检查
+- **批处理**：growBatch —— 一次 Ollama 生成 2 个候选概念（各自仍走独立校验质量门），pump 检测到 ≥2 个 concept 任务自动合并；batchCalls 计数
+- **效率指标**：/api/efficiency —— 窗口候选→入库转化率 / 任务成功率 / Ollama-新增比 / 重复率 / 失败率 / 关系增长 / 完整度变化（delta 对比）
+- **管线复用**：processGeneratedConcept 抽取（growTarget 与 growBatch 共用同一质量门管线）
 ## 6. 禁止事项
 - 大规模重构；删除/降级 pending 关系；无依据制造关系；自动任务启用付费（autoPaidEnabled 恒 false）；追求概念数量；破坏现有 API/数据/Ollama 策略；移动端输入对比度回退
 
