@@ -337,6 +337,27 @@ window.XIGAI["人工智能"] = [
         "target": "edge-ai",
         "note": "",
         "confidence": 0.75
+      },
+      {
+        "type": "prerequisite",
+        "target": "deep-learning",
+        "note": "",
+        "confidence": 0.9,
+        "evidence": "学习路径补全（目标已收录）"
+      },
+      {
+        "type": "prerequisite",
+        "target": "machine-learning",
+        "note": "",
+        "confidence": 0.9,
+        "evidence": "学习路径补全（目标已收录）"
+      },
+      {
+        "type": "prerequisite",
+        "target": "natural-language-processing",
+        "note": "",
+        "confidence": 0.9,
+        "evidence": "学习路径补全（目标已收录）"
       }
     ],
     "principle": "大语言模型（LLM）的工作机制基于深度学习中的Transformer架构，通过自监督学习在海量文本数据上进行预训练。模型通过预测下一个词来学习语言的统计规律，并利用大规模并行计算能力处理复杂的语言任务。经过指令微调和人类反馈强化学习等对齐技术后，大语言模型能够理解自然语言指令、回答问题、生成文本内容、进行推理和多轮对话。这些模型通过增加参数量来提升性能，从而展现出涌现能力和上下文学习能力。",
@@ -1208,6 +1229,20 @@ window.XIGAI["人工智能"] = [
         "target": "先验概率",
         "note": "",
         "confidence": 0.3
+      },
+      {
+        "type": "prerequisite",
+        "target": "概率论基础",
+        "note": "",
+        "confidence": 0.3,
+        "evidence": ""
+      },
+      {
+        "type": "prerequisite",
+        "target": "条件概率",
+        "note": "",
+        "confidence": 0.3,
+        "evidence": ""
       }
     ],
     "sources": [

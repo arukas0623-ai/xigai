@@ -417,6 +417,20 @@ window.XIGAI["军事战略"] = [
         "target": "buffer-zone",
         "note": "",
         "confidence": 0.85
+      },
+      {
+        "type": "prerequisite",
+        "target": "常规军事力量",
+        "note": "",
+        "confidence": 0.3,
+        "evidence": ""
+      },
+      {
+        "type": "prerequisite",
+        "target": "非军事手段",
+        "note": "",
+        "confidence": 0.3,
+        "evidence": ""
       }
     ],
     "pros": [

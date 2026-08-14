@@ -82,6 +82,20 @@ window.XIGAI["计算机科学"] = [
         "target": "godel-incompleteness",
         "note": "",
         "confidence": 0.75
+      },
+      {
+        "type": "prerequisite",
+        "target": "状态转移图",
+        "note": "",
+        "confidence": 0.3,
+        "evidence": ""
+      },
+      {
+        "type": "prerequisite",
+        "target": "无限带",
+        "note": "",
+        "confidence": 0.3,
+        "evidence": ""
       }
     ],
     "principle": "图灵机的工作方式基于状态转移规则表，通过读写头在无限长纸带上移动和修改符号来模拟计算过程。每当读取当前格的符号时，根据当前状态和所读符号查找状态转移规则表，决定下一步操作：改写该格、向左或向右移动一格并进入新状态。这一机制使得图灵机能够处理复杂的计算问题，并为可计算性理论提供了基础。",

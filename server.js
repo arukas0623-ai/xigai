@@ -1066,6 +1066,29 @@ function healthScore() {
     else pendingGrade.low++;
   }
   gapList.sort((a, b) => b.priority - a.priority);
+  // 学习覆盖（P1）：领域覆盖 / 核心概念覆盖 / prerequisite 覆盖 / 路径完整度 / 孤立比例
+  const domSet = new Set(CORPUS.all.map(c => c.domain).filter(d => d !== "AI 生成"));
+  const domSizeMap = {};
+  CORPUS.all.forEach(c => { domSizeMap[c.domain] = (domSizeMap[c.domain] || 0) + 1; });
+  const realDomains = [...domSet].filter(d => (domSizeMap[d] || 0) >= 3).length;
+  const allDomains = domSet.size;
+  let withPrereq = 0, hardWithPrereq = 0, hardTotal = 0;
+  for (const c of CORPUS.all) {
+    const rels = c.relations || [];
+    const hasPrereq = rels.some(r => r.type === "prerequisite" && (CORPUS.byId.has(r.target) || normStr(r.target).length >= 2));
+    if (hasPrereq) withPrereq++;
+    if ((c.difficulty || 3) >= 3) {
+      hardTotal++;
+      if (rels.some(r => r.type === "prerequisite" && CORPUS.byId.has(r.target))) hardWithPrereq++;
+    }
+  }
+  const learningCoverage = {
+    domainCoverage: allDomains ? Math.round(realDomains / allDomains * 100) : 0,          // ≥3 概念的领域占比
+    coreConceptCoverage: hardTotal ? Math.round(hardWithPrereq / hardTotal * 100) : 100,  // 高难度概念有可解析前置
+    prerequisiteCoverage: concepts ? Math.round(withPrereq / concepts * 100) : 0,
+    learningPathCompleteness: hardTotal ? Math.round(hardWithPrereq / hardTotal * 100) : 100,
+    isolatedRatio: concepts ? Math.round(isolated / concepts * 100) : 0,
+  };
   // 知识健康循环：最近更新质量（7天内新增/完善/复查的概念）
   const nowMs = Date.now();
   let rCount = 0, rComp = 0, rVerified = 0, rEff = 0, rRel = 0;
@@ -1114,6 +1137,7 @@ function healthScore() {
     moderationQueue: readModeration().length,
     gaps: gapList,
     recentUpdateQuality,
+    learningCoverage,
   };
 }
 
@@ -1420,12 +1444,19 @@ function reviewConceptTask(id) {
       bumpStat("conflictsDetected", 1);
     }
     c.searchedAt = new Date().toISOString().slice(0, 10);
-    // 刷新关系置信度（低置信/未解析保留为 pending，不删除）
+    // 关系质量：刷新置信度 + 清理自循环/重复（保留 pending）
     let relChanged = false;
-    (c.relations || []).forEach(r => {
+    const seenRel = new Set();
+    c.relations = (c.relations || []).filter(r => {
+      if (!r || !r.target || typeof r.target !== "string") return false;
+      if (r.target === c.name || r.target === c.id) { relChanged = true; return false; }   // 自循环
       const t = CORPUS.byId.get(r.target) || CORPUS.byName.get(normStr(r.target));
+      const key = (r.type || "related") + "|" + (t ? t.id : normStr(r.target));
+      if (seenRel.has(key)) { relChanged = true; return false; }                            // 重复
+      seenRel.add(key);
       const nc = relationConfidenceFor(r.type, !!t, r.note, c.domain, t && t.domain);
       if (r.confidence == null || Math.abs(r.confidence - nc) > 0.05) { r.confidence = nc; relChanged = true; }
+      return true;
     });
     pushVersion(c.id, c.domain, obj.confirmed ? "review-pass" : "review-uncertain", c);
     if (obj.confirmed || relChanged) { writeConcept(c); }
@@ -1434,15 +1465,32 @@ function reviewConceptTask(id) {
 }
 /* 主动发现入口（升级版 /api/discover）：生成候选→按优先级入队 */
 function handleDiscover2(res, payload) {
-  const cand = generateCandidates();
-  const limit = Math.min(5, Math.max(1, payload.limit || 3));
-  const scored = Object.keys(cand).map(k => ({ k, c: cand[k], p: cand[k].freq + (cand[k].sources.search ? 3 : 0) })).sort((a, b) => b.p - a.p);
-  let added = 0;
-  for (const s of scored.slice(0, limit)) {
-    if (enqueueTask("concept", s.c.name, "discover", { priority: Math.min(20, Math.round(s.p * 2)) })) added++;
+  if (!CORPUS) loadCorpus();
+  // 合并新鲜扫描 + 候选池（子领域/路径断层/旧式字段），统一评分
+  const fresh = generateCandidates();
+  const pool = readCandidates();
+  let merged = 0;
+  for (const k of Object.keys(fresh)) {
+    if (!pool[k]) { pool[k] = Object.assign({ fail: 0 }, fresh[k]); merged++; }
   }
-  bumpStat("candidatesFound", Object.keys(cand).length);
-  send(res, 200, JSON.stringify({ ok: true, candidates: Object.keys(cand).length, enqueued: added, top: scored.slice(0, 5).map(x => x.c.name) }));
+  if (merged) writeCandidates(pool);          // 显式写池（seedGrowthCandidates 仅在新增时写）
+  try { seedGrowthCandidates(); } catch (e) {}
+  const refreshed = readCandidates();
+  bumpStat("candidatesFound", Object.keys(refreshed).length);
+  const limit = Math.min(5, Math.max(1, payload.limit || 3));
+  const scored = prioritizeCandidates(50);
+  let added = 0;
+  const addedList = [];
+  for (const s of scored.slice(0, limit)) {
+    if (enqueueTask("concept", s.name, "discover", { priority: Math.min(20, 5 + Math.round(s.score)) })) {
+      added++;
+      addedList.push({ name: s.name, score: s.score, fail: s.fail, source: s.source });
+      if (refreshed[normStr(s.name)]) delete refreshed[normStr(s.name)];
+    }
+  }
+  writeCandidates(refreshed);
+  setTimeout(pumpQueue, 100);
+  send(res, 200, JSON.stringify({ ok: true, candidates: Object.keys(refreshed).length, enqueued: added, top: addedList, queue: GROW_QUEUE.length }));
 }
 
 function handleVersion(res, payload) {
@@ -1803,28 +1851,7 @@ function handleEnqueue(res, payload) {
   send(res, 200, JSON.stringify({ ok: true, added, queue: GROW_QUEUE.length }));
 }
 /* 自动发现：扫描待补全关系目标 → 入队（按被引用频次） */
-function handleDiscover(res, payload) {
-  if (!CORPUS) loadCorpus();
-  const limit = Math.min(6, Math.max(1, payload.limit || 2));
-  const freq = {};
-  for (const c of CORPUS.all) {
-    for (const r of (c.relations || [])) {
-      if (!CORPUS.byId.has(r.target)) {
-        const t = normStr(r.target);
-        if (t.length >= 2 && !/(什么|如何|怎么|为什么|^\d+$|^.$)/.test(r.target)) freq[t] = (freq[t] || 0) + 1;
-      }
-    }
-  }
-  const sorted = Object.entries(freq).sort((a, b) => b[1] - a[1]).slice(0, limit);
-  let added = 0;
-  for (const [k] of sorted) {
-    // 找到原始目标名（优先含中文原名）
-    const raw = (CORPUS.all.flatMap(c => c.relations || []).find(r => normStr(r.target) === k) || {}).target || k;
-    if (enqueueTask("concept", raw, "discover")) added++;
-  }
-  setTimeout(pumpQueue, 100);
-  send(res, 200, JSON.stringify({ ok: true, added, pendingTotal: Object.keys(freq).length, queue: GROW_QUEUE.length }));
-}
+
 
 
 /* 生长2.0：最近动态（最近新增/最近完善/正在补全） */
@@ -1861,6 +1888,201 @@ function handleSeedCandidates(res, payload) {
   learningGapCandidates(Number((payload && payload.limit) || 3)).then(s2 => {
     send(res, 200, JSON.stringify({ ok: true, seeded: s1 + s2, subdomainLegacy: s1, pathGaps: s2, pool: Object.keys(readCandidates()).length }));
   }).catch(e => send(res, 200, JSON.stringify({ ok: false, error: String(e).slice(0, 120) })));
+}
+
+
+
+/* ═══ P0 候选质量：多因子评分 + 低价值过滤 + 近似去重 + 失败冷却 ═══ */
+function coreThresholdOf() {
+  const cent = (CORPUS && CORPUS.centrality) || {};
+  const sortedDeg = Object.values(cent).map(x => x.deg || 0).sort((a, b) => b - a);
+  return sortedDeg[Math.max(0, Math.floor(sortedDeg.length * 0.1))] || 1;
+}
+function scoreCandidate(name, cand) {
+  if (!CORPUS) loadCorpus();
+  const cent = (CORPUS && CORPUS.centrality) || {};
+  const coreT = coreThresholdOf();
+  const heat = readHeat();
+  let score = (cand.freq || 1);
+  const src = cand.sources || {};
+  if (src.cross) score += 1;             // 跨域引用
+  if (src.legacy) score += 0.5;          // 旧式字段
+  if (src.subdomain) score += 1.5;       // 子领域代表概念
+  if (src["path-gap"]) score += 1.5;     // 学习路径缺口
+  const refs = CORPUS.all.filter(c => (c.relations || []).some(r => normStr(r.target) === normStr(name) && CORPUS.byId.has(c.id)));
+  const coreRefs = refs.filter(c => (cent[c.id] ? cent[c.id].deg : 0) >= coreT).length;
+  if (coreRefs) score += coreRefs * 2;   // 核心节点关联
+  const heatSum = refs.reduce((s, c) => s + (heat[c.id] || 0), 0);
+  if (heatSum) score += Math.min(2, heatSum / 10);
+  const domSizes = {};
+  refs.forEach(c => { domSizes[c.domain] = (domSizes[c.domain] || 0) + 1; });
+  if (Object.values(domSizes).some(n => n < 8)) score += 1;   // 领域重要性（藏书少领域）
+  if ((cand.fail || 0) >= 2) score *= 0.2;                    // 连续失败冷却
+  else if ((cand.fail || 0) >= 1) score *= 0.5;
+  return Math.round(score * 10) / 10;
+}
+function lowValueCandidate(name) {
+  const n = String(name || "").trim();
+  if (n.length < 2 || n.length > 12) return true;
+  if (/与|和|及其|包括|以及/.test(n)) return true;
+  if (/(问题|概述|导论|入门|基本概念|相关知识|主要内容)$/.test(n)) return true;
+  if (/^[a-zA-Z0-9]{1,2}$/.test(n)) return true;
+  return false;
+}
+function dedupeCandidate(name) {
+  if (!CORPUS) loadCorpus();
+  const k = normStr(name);
+  for (const c of CORPUS.all) {
+    const ck = normStr(c.name);
+    if (ck === k || (c.aliases || []).some(a => normStr(a) === k)) return true;
+    if (ck.length > 2 && k.length > 2) {
+      const d = levenshtein(k, ck);
+      if (d / Math.max(k.length, ck.length) < 0.15) return true;   // 近似名
+    }
+  }
+  return false;
+}
+function prioritizeCandidates(limit) {
+  if (!CORPUS) loadCorpus();
+  const pool = readCandidates();
+  const sc = [];
+  for (const k of Object.keys(pool)) {
+    const cand = pool[k];
+    if (!cand || !cand.name) continue;
+    if (lowValueCandidate(cand.name)) continue;
+    if (findLocal(cand.name) || dedupeCandidate(cand.name)) continue;
+    sc.push({ name: cand.name, score: scoreCandidate(cand.name, cand), fail: cand.fail || 0, source: cand.source || "" });
+  }
+  sc.sort((a, b) => b.score - a.score);
+  return sc.slice(0, limit || 10);
+}
+
+
+/* ═══ P1 纵向生长：为高难度概念补前置关系（学习路径完整度） ═══ */
+function buildLearningPaths(limit) {
+  if (!CORPUS) loadCorpus();
+  const heat = readHeat();
+  const cands = CORPUS.all
+    .filter(c => (c.difficulty || 3) >= 3 && c.status !== "pending" && !(c.relations || []).some(r => r.type === "prerequisite"))
+    .sort((a, b) => (heat[b.id] || 0) - (heat[a.id] || 0) || ((b.relations || []).length - (a.relations || []).length))
+    .slice(0, limit || 5);
+  const jobs = cands.map(c => {
+    const key = normStr(c.name).slice(0, 30);
+    const cf = path.join(SUBDOMAIN_DIR, "path-" + key + ".json");
+    try {
+      const st = fs.statSync(cf);
+      if (Date.now() - st.mtimeMs < VERIFY_TTL) return Promise.resolve(JSON.parse(fs.readFileSync(cf, "utf8")));
+    } catch (e) {}
+    // 知识库候选：仅同域（防跨域污染），按中心度排序
+    const cent = CORPUS.centrality || {};
+    const same = CORPUS.all.filter(x => x.domain === c.domain && x.id !== c.id && (x.difficulty || 3) <= (c.difficulty || 3)).sort((a, b) => (cent[b.id] ? cent[b.id].deg : 0) - (cent[a.id] ? cent[a.id].deg : 0)).slice(0, 24).map(x => x.name);
+    const opts = [...new Set(same)];
+    if (opts.length < 2) return Promise.resolve({ name: c.name, prereqs: [], at: Date.now(), skipped: true });
+    const prompt = [
+      "知识库概念「" + c.name + "」（领域：" + c.domain + "）",
+      "以下知识库已收录的概念中，哪些是学习它之前应先掌握的？从中选 2-3 个最相关的前置概念（只能从列表选，不要自创）。",
+      "候选：" + (opts.join("、") || "（无）"),
+      '只输出 JSON 数组：["前置概念1","前置概念2"]',
+    ].join("\n");
+    return growOllama(c.name, prompt).then(text => {
+      bumpStat("ollamaCalls", 1);
+      const out = { name: c.name, prereqs: [], at: Date.now() };
+      if (text) {
+        const arr = extractJSON(text);
+        if (Array.isArray(arr)) out.prereqs = arr.map(String).map(s => s.trim()).filter(s => s.length >= 2 && s.length <= 12 && !/与|和|及其|包括|以及/.test(s)).slice(0, 3);
+      }
+      try { fs.mkdirSync(SUBDOMAIN_DIR, { recursive: true }); fs.writeFileSync(cf, JSON.stringify(out)); } catch (e) {}
+      return out;
+    });
+  });
+  return Promise.all(jobs).then(results => {
+    let addedRel = 0;
+    for (const r of results) {
+      const c = CORPUS.all.find(x => x.name === r.name);
+      if (!c) continue;
+      const existing = new Set((c.relations || []).map(x => (x.type || "related") + "|" + normStr(x.target)));
+      const newRels = [];
+      for (const p of (r.prereqs || [])) {
+        if (!p || normStr(p) === normStr(c.name)) continue;
+        const key = "prerequisite|" + normStr(p);
+        if (existing.has(key)) continue;
+        const t = CORPUS.byId.get(p) || CORPUS.byName.get(normStr(p)) || CORPUS.byAlias.get(normStr(p));
+        newRels.push({ type: "prerequisite", target: t ? t.id : p, note: "", confidence: relationConfidenceFor("prerequisite", !!t, "", c.domain, t && t.domain), evidence: t ? "学习路径补全（目标已收录）" : "" });
+        existing.add(key);
+      }
+      if (newRels.length) {
+        c.relations = (c.relations || []).concat(newRels).slice(0, 40);
+        pushVersion(c.id, c.domain, "path-enrich", c);
+        writeConcept(c);
+        bumpStat("relationsAdded", newRels.length);
+        addedRel += newRels.length;
+      }
+    }
+    loadCorpus();
+    return addedRel;
+  });
+}
+function handleBuildPaths(res, payload) {
+  const limit = Number((payload && payload.limit) || 5);
+  buildLearningPaths(limit).then(added => {
+    const h = healthScore();
+    send(res, 200, JSON.stringify({ ok: true, addedRelations: added, health: { concepts: h.concepts, debt: h.knowledgeDebt, relEff: h.relationEfficiency, learning: h.learningCoverage, pendingR: h.pendingRelations } }));
+  }).catch(e => send(res, 200, JSON.stringify({ ok: false, error: String(e).slice(0, 120) })));
+}
+
+/* ═══ P0 自动维护：自循环/明确垃圾目标 → 确认后清除（留 version，重算 Health） ═══ */
+const MAINT_FILE = path.join(ROOT, ".cache", "maintenance.json");
+function readMaint() { try { return JSON.parse(fs.readFileSync(MAINT_FILE, "utf8")); } catch (e) { return []; } }
+function writeMaint(m) { try { fs.writeFileSync(MAINT_FILE, JSON.stringify(m)); } catch (e) {} }
+function scanMaintenance() {
+  if (!CORPUS) loadCorpus();
+  const JUNK_T = /(什么|如何|怎么|为什么|是不是|有没有|好吗|可以吗|你是谁|你好|^.$)/;
+  const items = [];
+  for (const c of CORPUS.all) {
+    for (const r of (c.relations || [])) {
+      const t = r.target;
+      if (!t || typeof t !== "string") continue;
+      const k = normStr(t);
+      const resolvable = CORPUS.byId.has(t) || CORPUS.byName.has(k) || CORPUS.byAlias.has(k);
+      if (t === c.name || t === c.id) items.push({ kind: "self-loop", conceptId: c.id, conceptName: c.name, domain: c.domain, target: t, type: r.type, at: Date.now() });
+      else if (!resolvable && JUNK_T.test(t)) items.push({ kind: "junk-target", conceptId: c.id, conceptName: c.name, domain: c.domain, target: t, type: r.type, at: Date.now() });
+    }
+  }
+  return items;
+}
+function applyMaintenance() {
+  if (!CORPUS) loadCorpus();
+  const items = scanMaintenance();
+  const queue = readMaint();
+  const mq = new Map(queue.map(x => [x.conceptId + "|" + x.target + "|" + x.type, x]));
+  let removed = 0, versions = 0;
+  for (const it of items) {
+    const key = it.conceptId + "|" + it.target + "|" + it.type;
+    if (mq.has(key) && mq.get(key).confirmed === false) continue;   // 人工驳回
+    // 自循环：定义性错误，直接确认；垃圾目标：明确无意义才清
+    if (it.kind === "self-loop" || it.kind === "junk-target") {
+      const c = findLocalById(it.conceptId);
+      if (!c) continue;
+      const before = (c.relations || []).length;
+      c.relations = (c.relations || []).filter(x => !(x.type === it.type && (x.target === it.target || normStr(x.target) === normStr(it.target))));
+      if (c.relations.length < before) {
+        pushVersion(c.id, c.domain, "maintain-remove-" + it.kind, c);
+        writeConcept(c);
+        mq.set(key, { conceptId: it.conceptId, conceptName: it.conceptName, domain: it.domain, target: it.target, type: it.type, kind: it.kind, confirmed: true, removedAt: Date.now() });
+        removed++; versions++;
+      }
+    }
+  }
+  writeMaint([...mq.values()].slice(-200));
+  loadCorpus();                       // 重算前刷新语料
+  const h = healthScore();            // 自动重算 Health
+  bumpStat("maintenanceRuns", 1);
+  bumpStat("relationsRemoved", removed);
+  return { ok: true, scanned: items.length, removed, versions, health: { concepts: h.concepts, debt: h.knowledgeDebt, relEff: h.relationEfficiency, pendingR: h.pendingRelations, isolated: h.isolated, conflicts: h.conflicts } };
+}
+function handleMaintenance(res) {
+  const r = applyMaintenance();
+  send(res, 200, JSON.stringify(r));
 }
 
 /* ═══ 领域体系扩展：覆盖分析 → 子领域候选 → 校验落盘 ═══ */
@@ -2018,7 +2240,8 @@ function autoHealthCheck() {
       const t = r.target;
       if (typeof t === "string" && t) {
         const k = normStr(t);
-        if (JUNK_T.test(t)) junkTargets++;
+        const resolvable = CORPUS.byId.has(t) || CORPUS.byName.has(k) || CORPUS.byAlias.has(k);
+        if (JUNK_T.test(t) && !resolvable) junkTargets++;
         if (t === c.name || t === c.id) selfLoops++;
         if (CORPUS.byId.has(t) || CORPUS.byName.get(k)) { const other = CORPUS.byId.get(t) || CORPUS.byName.get(k); if (other && other.id !== c.id && other.name === c.name) dups[c.name] = (dups[c.name] || 0) + 1; }
       }
@@ -2136,6 +2359,10 @@ const server = http.createServer((req, res) => {
     let b4 = ""; req.on("data", c => (b4 += c)); req.on("end", () => { let p = {}; try { p = JSON.parse(b4 || "{}"); } catch (e) {} handleSearchLog(res, p); });
     return;
   }
+  if ((req.method === "GET" || req.method === "POST") && url.pathname === "/api/build-paths") {
+    let bp = ""; req.on("data", c => (bp += c)); req.on("end", () => { let p = {}; try { p = JSON.parse(bp || "{}"); } catch (e) {} handleBuildPaths(res, p); }); return;
+  }
+  if ((req.method === "GET" || req.method === "POST") && url.pathname === "/api/maintenance") { handleMaintenance(res); return; }
   if ((req.method === "GET" || req.method === "POST") && url.pathname === "/api/recent-activity") { handleRecentActivity(res); return; }
   if ((req.method === "GET" || req.method === "POST") && url.pathname === "/api/health-check") { handleHealthCheck(res); return; }
   if ((req.method === "GET" || req.method === "POST") && url.pathname === "/api/seed-candidates") {

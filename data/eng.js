@@ -425,6 +425,20 @@ window.XIGAI["工程技术"] = [
         "target": "智能制造",
         "note": "",
         "confidence": 0.75
+      },
+      {
+        "type": "prerequisite",
+        "target": "materials-science",
+        "note": "",
+        "confidence": 0.9,
+        "evidence": "学习路径补全（目标已收录）"
+      },
+      {
+        "type": "prerequisite",
+        "target": "3d-printing",
+        "note": "",
+        "confidence": 0.9,
+        "evidence": "学习路径补全（目标已收录）"
       }
     ],
     "principle": "工业机器人的工作原理主要基于计算机控制和传感器技术，通过编程或示教的方式设定其动作路径和参数。机械本体由多个关节组成，每个关节都有独立的驱动系统，可以根据控制系统的指令进行精确运动。控制系统通常采用可编程逻辑控制器（PLC）或工业计算机，能够接收来自操作员、传感器以及内部程序的数据，并据此调整机器人的动作。传感系统包括视觉、力觉等传感器，用于检测周围环境和物体的状态，从而实现柔性作业。",

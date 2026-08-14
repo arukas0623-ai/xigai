@@ -47,7 +47,11 @@
     for (const c of X.data) {
       if (X.isKnown(c.id)) continue;
       let score = 0; let why = "";
-      if (relatedIds.has(c.id)) { score += 3; why = "与已学概念相关"; }
+      if (relatedIds.has(c.id)) {
+        const viaPath = X.data.some(x => X.isKnown(x.id) && X.getRelations(x).some(r => r.resolved && r.concept.id === c.id && (r.type === "prerequisite" || r.type === "followup")));
+        score += viaPath ? 5 : 3;
+        why = viaPath ? "学习路径上的概念（前置/后续）" : "与已学概念相关";
+      }
       if (domainScore[c.domain]) { score += 2; why = (why ? why + "，" : "") + "你常读" + c.domain; }
       const m = X.masteryOf(c.id);
       if (m && m.score >= 80 && X.state.readCount[c.id] > 0) { score += 1; }
@@ -266,8 +270,11 @@
     for (let i = 0; i < len - 1; i++) {
       const rels = X.getRelations(cur).filter(r => r.resolved && !seen.has(r.concept.id));
       if (!rels.length) break;
-      // 优先 followup/related 且同域，其次任意
-      const pick = rels.find(r => r.type === "followup") || rels.find(r => r.type === "related") || rels[0];
+      // 学习路径优先：前置 → 同域核心(难度接近) → 后续 → 相关
+      const pick = rels.find(r => r.type === "prerequisite") ||
+        rels.find(r => r.type === "followup") ||
+        rels.find(r => r.type === "related" && r.concept.domain === cur.domain && Math.abs((r.concept.difficulty || 3) - (cur.difficulty || 3)) <= 1) ||
+        rels[0];
       seen.add(pick.concept.id);
       walk.push({ c: pick.concept, rel: pick });
       cur = pick.concept;

@@ -519,6 +519,20 @@ window.XIGAI["金融投资"] = [
         "target": "short-selling",
         "note": "",
         "confidence": 0.85
+      },
+      {
+        "type": "prerequisite",
+        "target": "liquidity",
+        "note": "",
+        "confidence": 0.9,
+        "evidence": "学习路径补全（目标已收录）"
+      },
+      {
+        "type": "prerequisite",
+        "target": "futures",
+        "note": "",
+        "confidence": 0.9,
+        "evidence": "学习路径补全（目标已收录）"
       }
     ]
   },
@@ -1342,6 +1356,27 @@ window.XIGAI["金融投资"] = [
         "target": "compound-interest",
         "note": "",
         "confidence": 0.85
+      },
+      {
+        "type": "prerequisite",
+        "target": "secondary-market",
+        "note": "",
+        "confidence": 0.9,
+        "evidence": "学习路径补全（目标已收录）"
+      },
+      {
+        "type": "prerequisite",
+        "target": "leverage",
+        "note": "",
+        "confidence": 0.9,
+        "evidence": "学习路径补全（目标已收录）"
+      },
+      {
+        "type": "prerequisite",
+        "target": "pe-ratio",
+        "note": "",
+        "confidence": 0.9,
+        "evidence": "学习路径补全（目标已收录）"
       }
     ]
   },

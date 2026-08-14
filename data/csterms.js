@@ -570,6 +570,27 @@ window.XIGAI["计算机术语"] = [
         "target": "event-driven",
         "note": "",
         "confidence": 0.85
+      },
+      {
+        "type": "prerequisite",
+        "target": "unit-testing",
+        "note": "",
+        "confidence": 0.9,
+        "evidence": "学习路径补全（目标已收录）"
+      },
+      {
+        "type": "prerequisite",
+        "target": "api",
+        "note": "",
+        "confidence": 0.9,
+        "evidence": "学习路径补全（目标已收录）"
+      },
+      {
+        "type": "prerequisite",
+        "target": "devops",
+        "note": "",
+        "confidence": 0.9,
+        "evidence": "学习路径补全（目标已收录）"
       }
     ]
   },
@@ -2451,12 +2472,6 @@ window.XIGAI["计算机术语"] = [
         "target": "图灵机",
         "note": "",
         "confidence": 0.85
-      },
-      {
-        "type": "evolvedFrom",
-        "target": "丘奇-图灵论题",
-        "note": "",
-        "confidence": 0.3
       }
     ],
     "sources": [
@@ -2470,6 +2485,7 @@ window.XIGAI["计算机术语"] = [
     "sourceConfidence": 1,
     "relationConfidence": 0.57,
     "status": "verified",
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "计算机术语"
   }
 ];

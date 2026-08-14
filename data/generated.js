@@ -51,6 +51,13 @@ window.XIGAI["AI 生成"] = [
         "target": "推理时扩展（Inference-Time Scaling）、思维链（Chain-of-Thought）、self-consistency、best-of-N、过程奖励模型（PRM）、蒙特卡洛树搜索（MCTS）、测试时自适应（TTA）、训练计算缩放定律（Training Compute Scaling Law）。",
         "note": "",
         "confidence": 0.3
+      },
+      {
+        "type": "prerequisite",
+        "target": "large-language-model",
+        "note": "",
+        "confidence": 0.8,
+        "evidence": "学习路径补全（目标已收录）"
       }
     ]
   },
@@ -102,6 +109,20 @@ window.XIGAI["AI 生成"] = [
         "target": "免疫缺陷病",
         "note": "",
         "confidence": 0.3
+      },
+      {
+        "type": "prerequisite",
+        "target": "激素治疗",
+        "note": "",
+        "confidence": 0.9,
+        "evidence": "学习路径补全（目标已收录）"
+      },
+      {
+        "type": "prerequisite",
+        "target": "糖皮质激素",
+        "note": "",
+        "confidence": 0.9,
+        "evidence": "学习路径补全（目标已收录）"
       }
     ],
     "sources": [
@@ -119,7 +140,8 @@ window.XIGAI["AI 生成"] = [
     "sourceConfidence": 1,
     "relationConfidence": 0.3,
     "status": "verified",
-    "searchedAt": "2026-08-14"
+    "searchedAt": "2026-08-14",
+    "domain": "AI 生成"
   },
   {
     "name": "Cortis",

@@ -141,6 +141,20 @@ window.XIGAI["AI工程与模型"] = [
         "target": "deepseek-harness",
         "note": "",
         "confidence": 0.85
+      },
+      {
+        "type": "prerequisite",
+        "target": "io-processing",
+        "note": "",
+        "confidence": 0.9,
+        "evidence": "学习路径补全（目标已收录）"
+      },
+      {
+        "type": "prerequisite",
+        "target": "large-language-model",
+        "note": "",
+        "confidence": 0.8,
+        "evidence": "学习路径补全（目标已收录）"
       }
     ]
   },
@@ -839,6 +853,20 @@ window.XIGAI["AI工程与模型"] = [
         "target": "model-gateway",
         "note": "",
         "confidence": 0.85
+      },
+      {
+        "type": "prerequisite",
+        "target": "io-processing",
+        "note": "",
+        "confidence": 0.9,
+        "evidence": "学习路径补全（目标已收录）"
+      },
+      {
+        "type": "prerequisite",
+        "target": "prompt-engineering",
+        "note": "",
+        "confidence": 0.9,
+        "evidence": "学习路径补全（目标已收录）"
       }
     ]
   },
@@ -905,6 +933,20 @@ window.XIGAI["AI工程与模型"] = [
         "target": "context-window",
         "note": "",
         "confidence": 0.85
+      },
+      {
+        "type": "prerequisite",
+        "target": "large-language-model",
+        "note": "",
+        "confidence": 0.8,
+        "evidence": "学习路径补全（目标已收录）"
+      },
+      {
+        "type": "prerequisite",
+        "target": "chain-of-thought",
+        "note": "",
+        "confidence": 0.9,
+        "evidence": "学习路径补全（目标已收录）"
       }
     ]
   },

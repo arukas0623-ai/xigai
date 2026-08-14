@@ -160,6 +160,20 @@ window.XIGAI["前沿科技"] = [
         "target": "卫星通信",
         "note": "",
         "confidence": 0.3
+      },
+      {
+        "type": "prerequisite",
+        "target": "6g-communication",
+        "note": "",
+        "confidence": 0.9,
+        "evidence": "学习路径补全（目标已收录）"
+      },
+      {
+        "type": "prerequisite",
+        "target": "quantum-mechanics",
+        "note": "",
+        "confidence": 0.8,
+        "evidence": "学习路径补全（目标已收录）"
       }
     ],
     "principle": "量子通信基于量子力学的基本原理，特别是量子态的不可克隆性和测量坍缩特性来实现安全通信。在量子密钥分发（QKD）中，发送方和接收方通过共享量子信道交换随机生成的量子密钥，任何试图窃听或干扰的行为都会被迅速发现并修正，从而确保通信的安全性。",
