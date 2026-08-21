@@ -3,7 +3,7 @@ const { spawn } = require("child_process");
 const http = require("http");
 const CHROME = "C:/Program Files/Google/Chrome/Application/chrome.exe";
 const PORT = 9334;
-const wsLib = require("C:/Users/35074/AppData/Local/npm-cache/_npx/1e7f6d9597241db0/node_modules/ws");
+const wsLib = require("C:/Users/35074/AppData/Local/npm-cache/_npx/b86ed90107c62dab/node_modules/ws");
 const BASE = "http://127.0.0.1:8765";
 const EXPR = "(async()=>{ const X = window.Xigai; const out={}; const S=(n,f)=>{try{return f()}catch(e){out[n+'_err']=String(e).slice(0,80);return null}};\n out.domains=S('domains',()=>X.domains&&X.domains.length);\n out.concepts=S('concepts',()=>X.data&&X.data.length);\n out.search=S('search',()=>JSON.stringify((X.search('图灵')||[]).slice(0,3).map(c=>c.name||c.id)));\n out.intent=S('intent',()=>JSON.stringify(X.detectIntent('什么是神经网络')).slice(0,60));\n out.pending=S('pending',()=>X.pendingConcepts?X.pendingConcepts().length:'n/a');\n S('open',()=>X.openConcept('turing-test'));\n await new Promise(r=>setTimeout(r,700));\n out.detail=S('detail',()=>!!document.getElementById('detail'));\n out.graph=S('graph',()=>{X.openGraph('turing-machine'); return true});\n out.self=S('self',()=>JSON.stringify(X.selfCheck(X.resolveConcept('turing-test')||{})).slice(0,100));\n out.mob=S('mob',()=>JSON.stringify(X.mobileAudit()).slice(0,200));\n return JSON.stringify(out);})()";
 function req(method, url, body) {

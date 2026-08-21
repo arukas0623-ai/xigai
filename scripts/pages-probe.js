@@ -3,7 +3,7 @@ const { spawn } = require("child_process");
 const http = require("http");
 const CHROME = "C:/Program Files/Google/Chrome/Application/chrome.exe";
 const PORT = 9344;
-const wsLib = require("C:/Users/35074/AppData/Local/npm-cache/_npx/1e7f6d9597241db0/node_modules/ws");
+const wsLib = require("C:/Users/35074/AppData/Local/npm-cache/_npx/b86ed90107c62dab/node_modules/ws");
 function req(method, url) {
   return new Promise((res, rej) => {
     const u = new URL(url);
